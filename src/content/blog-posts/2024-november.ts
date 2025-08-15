@@ -2,45 +2,285 @@ import { BlogPost } from '../../types/blog';
 
 export const november2024Posts: BlogPost[] = [
   {
-    id: 'safaris-east-africa',
-    title: 'November 2024: Safaris of East Africa',
+    id: 'nepal-colors-symbols',
+    title: 'Saturday November 30th 2024, Kathmandu, Nepal',
     date: '2024-11-30',
-    location: 'Serengeti, Tanzania',
-    slug: 'safaris-east-africa',
+    location: 'Kathmandu, Nepal',
+    slug: 'nepal-colors-symbols',
     year: '2024',
-    excerpt: 'From the vast savannas of Tanzania to the pristine coffee of Rwanda.',
-    content: `November was dedicated to exploring East Africa - a region that completely blew my mind with its wildlife, landscapes, and incredible cultural diversity.
-
-**Tanzania - The Serengeti Experience**
-The Serengeti National Park exceeded every expectation I had. Witnessing the Great Migration firsthand - millions of wildebeest and zebras moving across the endless plains - was one of the most spectacular natural phenomena I've ever seen.
-
-**Safari Adventures**
-- Saw all of the Big Five: lions, elephants, leopards, buffalo, and rhinos
-- Watched a pride of lions hunt at sunset
-- Woke up to elephants walking past our campsite
-- Experienced the raw power and beauty of untouched wilderness
-
-**Cultural Immersion with the Hadza**
-The highlight was spending time with the Hadza tribe, one of the last hunter-gatherer communities in Africa. Learning their hunting techniques, trying to make fire the traditional way, and understanding their deep connection to the land was humbling and eye-opening.
-
-**Ngorongoro Crater**
-The Ngorongoro Crater felt like stepping into a real-life Lion King scene. This UNESCO World Heritage site is home to an incredible concentration of wildlife in a relatively small area.
-
-**Rwanda - Land of a Thousand Hills**
-Crossed into Rwanda and was immediately struck by how clean, organized, and progressive this country is. The transformation since the 1994 genocide is remarkable and inspiring.
-
-**Coffee Culture**
-Rwanda produces some of the world's best coffee, and I spent days learning about the entire process from bean to cup. The coffee here rivals anything I've had anywhere in the world.
-
-**Kigali - Modern African City**
-Kigali impressed me as one of the cleanest, safest, and most well-organized cities in Africa. The Genocide Memorial was a sobering but important experience that reminded me of humanity's capacity for both evil and redemption.
-
-**Reflections on Africa**
-East Africa challenged many of my preconceptions about the continent. The wildlife is spectacular, the people are incredibly resilient and entrepreneurial, and the potential for growth and development is enormous.
-
-This month reminded me that Africa isn't just a place to visit - it's a place that gets into your soul and changes you forever. The warmth of the people, the majesty of the wildlife, and the raw beauty of the landscapes made November one of the most impactful months of my entire journey.`,
+    excerpt: 'Exploring the deeper meanings of colors, symbols, and spiritual traditions in Nepal before starting the Himalayan trek.',
+    content: `Now, let's talk about some more esoteric things. In Nepal, there are many shops selling "organic cotton" and cashmere wool. It began to make me think about the importance of clothing. The skin is the largest organ of the human body. The skin releases toxins through sweat glands and can absorb substances. Therefore, it seems that it is important the types of material you wear on this vital organ. In the past I did not really care about it, since in the US you are told that dri-fit and polyester is the best. But it appears that natural, organic materials like cotton, wool, bamboo, and even hemp are best for your skin. This can affect your energy levels and how you feel throughout the day. Just as important the material are the colors you wear. In Nepal the people are very aware about colors and shapes. As taught in physics class, white reflects and black absorbs. If you want to feel and appear more inviting and giving to others, then lighter colors are better. If you want to be to yourself and feel for yourself, then people wear black. Anyway, natural tones and lighter tones seem to make a difference on how you are perceived and the energy you give off. Also the importance of symbols here in Nepal is fascinating. Lining the streets you can see swastikas and the star of David. The swastika is a sacred symbol in Hinduism, Buddhism, and Jainism and has been used for thousands of years in South Asia. It represents good fortune, prosperity, and spiritual well-being. In Hindu and Buddhist traditions, it often appears in temples, homes, and religious artwork, both clockwise (swastika) and counterclockwise (sauwastika) forms. In Nepal, the Star of David (hexagram) is often a Hindu and Tantric symbol rather than a Jewish symbol. It is called the Shatkona, which represents: The upward-pointing triangle: Shiva (masculine, fire, and sky elements). The downward-pointing triangle: Shakti (feminine, water, and earth elements).Together, they symbolize the union of opposites and cosmic balance. You may see this symbol on temples, mandalas, or jewelry in Nepal. Now this led me to ask, which came first the Jewish Star or the Shatkona? According to ChatGPT, The Hindu Shatkona predates the Jewish Star of David by thousands of years. Hexagrams appear in Indian temple carvings, mandalas, and ancient texts as early as 2000 BCE in some cases. It is deeply rooted in Hindu cosmology and mysticism. Early Jewish communities did not commonly use this symbol; they primarily used the Menorah or other biblical motifs. These findings are very interesting to me. All across the world people are looking to connect with the infinite, the divine, the creator. It appears in so many different shapes and forms, but ultimately it all leads to the same end, the oneness of all things. It is sad the source of many wars and persecution is religious based, even though they are all so similar. I really love Nepal. It is safe, unique, and the people are great. It is one of my favorite countries I have ever been to. Tomorrow I start a 12 day trek across the Himalayas. This is the first time I will be doing something like this. It will challenge my mind, body, and spirit. Doing hard things is essential to growth. I am going into the trek with an open mind and looking forward to being with the elements and disconnecting for a little.`,
     images: [
-      { src: '/assets/images/misc/serengeti-2.jpg', alt: 'Incredible Serengeti wildlife' }
+      { src: '/assets/images/misc/colors.jpg', alt: 'Colors and symbols in Nepal' },
+      { src: '/assets/images/misc/views100.jpg', alt: 'Kathmandu views' },
+      { src: '/assets/images/misc/buddha2.jpg', alt: 'Buddha statue' }
+    ]
+  },
+  {
+    id: 'africa-reflection-tech',
+    title: 'Saturday November 30th 2024, Kathmandu, Nepal',
+    date: '2024-11-30',
+    location: 'Kathmandu, Nepal',
+    slug: 'africa-reflection-tech',
+    year: '2024',
+    excerpt: 'Comprehensive reflections on Africa travels and observations about global technology competition.',
+    content: `Last day of the month, start of a new week, start of a new moon, I feel inclined to reflect and dump a lot of thoughts. Let's back track and start with a long overdue Africa reflection. 1. Government and corruption dictates society more than I previously expected. 2. Living simply and slowly has benefits and drawbacks. 3. Lack of travel infrastructure makes backpacking Africa difficult 4. Food quality and diversity was underwhelming 5. Nicest people: Tanzania, Most to do/see: Kenya, Safest and cleanest: Rwanda 6. Dancing and arts are important for spurring creativity 7. Not as much culture as I expected 8. Community is key around a centralized urban center 9. Protect the parks and the planet, the ecosystems are dying rapidly. 10. The majority of the world lives in poverty and the wealth gap is ever growing, be thankful for simple necessities: food, water and shelter are not a given. Now moving on to Dubai. It is very impressive to see what they turned a barren, hot desert into just by having no taxes. It attracts money centric people to work and invest there. The opulence and the consumption and poshness was kind of disgusting. Travelling has made me see how much China has their paws all over the world. In the Dubai mall there were phone brands and cars I have never seen or heard of. Now for a quick tech talk. The iPhone 16, the newest iPhone can charge at 45W wired connection. That means for a 4,300 mAh capacity battery it takes about 11 minutes to charge it to 50%. Taking in real world conditions it is closer to 30 minutes. The battery is charged at 9V, 5A up until 50%, then the voltage and current is stepped down to prevent overheating and to maximize efficiency. Now the Chinese phones I saw in China do 125W charging. Companies like Xiaomi and Huawei are at the top of the game. You would never know this because these phones are illegal in the US for privacy reasons. These phones have two smaller batteries and charge at 20V, 6.25 A across two cells, charging to 50% in 5 minutes, with 15 minutes being more realistic in real conditions. This among many other things makes it obvious that China is rapidly staying ahead of the curve, all around the world, and the US is trying to hide it from us.`,
+    images: []
+  },
+  {
+    id: 'kathmandu-israelis-hinduism',
+    title: 'Friday November 29th 2024, Kathmandu, Nepal',
+    date: '2024-11-29',
+    location: 'Kathmandu, Nepal',
+    slug: 'kathmandu-israelis-hinduism',
+    year: '2024',
+    excerpt: 'Meeting Israeli travelers, learning about Hinduism from a local baba, and preparing for the trek.',
+    content: `Wow, lots of cool things have happened the past days. Zach and I went to various Hindu and Buddhist sites, visited Osho's ashram in the forest of Nepal, and met a lot of cool people. Yesterday evening we walked the city to see the nightlife. While walking around we ran into some Israelis. We noticed them by their haircuts and sandals. It is so cool how you can be anywhere in the world and meet other Jews traveling. They were super cool and we shared our travel itineraries. It blows me away how in the US we are programmed to go to school and work for the rest of our lives. In Israel, and in European countries too it is actually accepted you take some months off to travel and explore. It is really impressive to me to see so many travelers doing adventurous things. We need more people in the US to get on the wave. Yotam, Oria, Galya, and Noam gave me so many useful travel tips and insights. It was fun exchanging where each other were on their trips and where everyone was headed. We went to a cool live music bar and danced. Now today, Zach and I woke up, went to a coffee shop and bought our gear for the trek. It is going to be really cold so we needed to buy a lot of gear. The Israelis from last night told us there is one shop in Kathmandu which all the Israelis go to and he gives the best deals. I took their word and went to Goreto Gear Traders. The Nepali owner working there spoke Hebrew and was happy to see me. He gave me everything I needed. A thermal layer, fleece, jacket, pants, socks, beanie, neck warmer, water bottle, head lamp, and more. I was anticipating to spend over 400 dollars on all the gear we needed. This guy charged me less than 70 USD! I was in shock. In the afternoon we went to other Hindu and Buddhist holy sites which were pretty cool. I saw a body being cremated which is a Hindu tradition. The dead bodies get cleansed in the river Ganges and then cremated near the river to send the soul on its journey. A local baba gave Zach and myself a lecture on Hinduism. Some people claim Hinduism is a monotheistic religion, since they recognize the oneness of all things. However they have over 33 million gods and goddesses which are for people to connect to in different ways. Brahma, Vishnu and Shiva are the main three and are all intertwined. The Trimurti represents the cyclical nature of existence: Brahma brings life into existence, Vishnu sustains and nurtures life, and Shiva ends life to make way for new creation. The baba guided Zach and I through a visualization and manifestation meditation to open our third eye. It made me realize how important it is to continuously visualize and manifest my goals in the short and long term. In the afternoon we went to shabbat at the Chabad of Kathmandu. It is low season here but there was still over 50 people. During high season there are hundreds of young and cool travelers. Again it was super cool meeting all different types of people doing adventurous and challenging things.`,
+    images: [
+      { src: '/assets/images/misc/namaste7.jpg', alt: 'Namaste in Nepal' },
+      { src: '/assets/images/misc/namaste8.jpg', alt: 'Nepal adventures' },
+      { src: '/assets/images/misc/buddha.jpg', alt: 'Buddha statue' }
+    ]
+  },
+  {
+    id: 'first-day-kathmandu',
+    title: 'Wednesday November 27th 2024, Kathmandu, Nepal',
+    date: '2024-11-27',
+    location: 'Kathmandu, Nepal',
+    slug: 'first-day-kathmandu',
+    year: '2024',
+    excerpt: 'First impressions of Nepal, exploring Kathmandu streets, and spontaneously deciding on a Himalayan trek.',
+    content: `Namaste. It's my first full day in Nepal. Before I give my overview here's some interesting things about Nepal. Nepal is the only country that does not have a rectangular flag. Nepal's time zone is GMT +5:45. That means if it is 9 AM in Tampa Florida it is 7:45 PM in Nepal. It is one of the few in the world which uses a 45 increment time zone. Now, today I slept well for the first time in a few nights. Zach and I started the day roaming the streets, exploring the local shops. There are a bunch of trekking gear shops and cashmere goat and yak wool products. The cashmere goat wool is so soft and comfy. We ended up finding a good deal for a sweater for 45 dollars. Others we saw were over 100. I also bought cotton pants, a cool t shirt and pin for my backpack. A guy harassed me to buy a mini chess set and I bought that too! Kathmandu is a rambunctious city with small alleyway streets and a bunch of shops. Motorcycles and cars are jam packed in the alleys. Some Hindu temples are scattered throughout the city. The weather is cool and nice. Even though the city is hectic, I feel at peace here. The Nepalese and Hindu culture energy can really be felt. After lunch we ran into a storefront offering various treks. Coming to Nepal we really had no plans. Along the journey people have been telling me it is a must to do a large trek in Nepal. The beauty of backpacking with no plan is that you can be spontaneous and shift your plans. After going into the storefront we decided to do a 2 week long trek around the Himalayas! I loved the spontaneity of the trip and I'm grateful to be traveling with someone who is willing to do spontaneous and challenging things with me. After our explorations we went to a rock climbing gym and I did some push ups and pull ups. I heard from my Israeli friend that the Kathmandu Chabad is one of the best Chabads and is super social. It took me a while to find it due to the convoluted alleys here, but eventually we found this beautiful, large Chabad in the middle of the city. It has open, outdoor seating and we met a cool couple just hanging out. It is now the low season in Nepal but during the late spring and early fall 100s of young travelers hangout there. I look forward to going back on Shabbat and meeting some cool people. After stopping by Chabad, Zach and I went to a meditation space built by Sadhguru. It was nice and relaxing and the people working there did some cool rituals with fire, coconuts and drums. At dinner I noticed some interesting things about Nepal and Eastern culture. They served us hot water without even asking. Supposedly hot water is way better for digestion than cold water. Also all the food is served in copper vessels. Lastly you can eat some fennel seeds after your meal for digestion. It is really cool being in Asia seeing all of the cultural differences. Until now we have been traveling in countries greatly influenced by the three major Abrahamic religions. However now and for the future, we are in the lands of the far East, which diverge greatly from western religious philosophy.`,
+    images: [
+      { src: '/assets/images/misc/nepalt.jpg', alt: 'Nepal street art' },
+      { src: '/assets/images/misc/menepal.jpg', alt: 'Me in Nepal' },
+      { src: '/assets/images/misc/streetsnepal.jpg', alt: 'Streets of Nepal' }
+    ]
+  },
+  {
+    id: 'dubai-intermission',
+    title: 'Monday November 25th 2024, Dubai, UAE',
+    date: '2024-11-25',
+    location: 'Dubai, UAE',
+    slug: 'dubai-intermission',
+    year: '2024',
+    excerpt: 'One day in Dubai as an intermission between Africa and Asia, visiting Burj Khalifa and experiencing indoor skiing.',
+    content: `Today was a nice day. Zach and I walked the marina near our hostel and had intellectually stimulating conversations. We talked about business and the focus of adventure capitalism. This one day in Dubai serves as an intermission between leg 1 and 2 of the trip. The first leg of the trip consisted of Israel, Georgia, and Africa. The focus was heavily on adventure capitalism and learning about various economies and business ideas. I think it was extremely successful. We made our first investment, made very good connections, and learned so much about the people and culture of the world. Tomorrow we head to Asia for the duration of the trip. While there is always a focus on investment, this leg of the trip is more for fun, exploring, and adventure. I am really excited for the variety of things to see, eat, and do. After our talk in the morning Zach and I went to see the tallest building in the world, the Burj Khalifa. It cost 300 dollars to go to the top so we did not do it, obviously. Dubai is just so boujee and so much consumption it is gross. It is impressive what they have done with a small strip of desert in the middle of the Arabian peninsula though. The zero percent tax on everything and only 5% VAT for items is what draws people here to live and do business. Countries which draw international corporations to their land by lowering corporate tax makes the country grow. When a country can become a center of finance and attract banks from other nations it is sure to increase its GDP. This is what happened in Singapore and here in the UAE. Rwanda is a very stable and growing market but Zach and I would like to see more international finance happening there. At night we went to the only place to indoor ski and snowboard in the world, Ski Dubai. It was guys night so we got like 40% off. We paid 60 dollars for rentals, clothes, and the snowboarding. It was actually really fun and there was a steep run with some jumps and a T Bar to take you up. I really love snowboarding so I was happy to be able to go this year, even if it was indoors. It is late now and we are headed to Nepal tomorrow. I still need to reflect and give my biggest Africa takeaways. Hopefully I have time tomorrow. Feeling grateful and loving this evening.`,
+    images: [
+      { src: '/assets/images/misc/burjy.jpg', alt: 'Burj Khalifa' },
+      { src: '/assets/images/misc/skidubai.jpg', alt: 'Ski Dubai experience' },
+      { src: '/assets/images/misc/dubaisunset.jpg', alt: 'Dubai sunset' }
+    ]
+  },
+  {
+    id: 'consumption-reunion',
+    title: 'Sunday November 24th 2024, Dubai, UAE',
+    date: '2024-11-24',
+    location: 'Dubai, UAE',
+    slug: 'consumption-reunion',
+    year: '2024',
+    excerpt: 'First time back in a developed nation, observations on consumption culture and reuniting with Zach.',
+    content: `First time back in a developed nation. Crazy to see the consumption run wild. I haven't seen a fast food place or a convenience store in months. I can see how consumption is such a strong force because it's so quick and easy, you do not have to think. The past two months I had to think consciously about the food I eat where I spend my money. However in the developed world, especially in posh Dubai, you can just spend crazy money on food, clothes and tech. I can even see the consumption demon coming out of me, wanting to get desserts and new tech and clothes. This is an interesting psychology to break down. Bright lights and chic branding coerces the mind to want more, even if you don't need it at all. I reunited with Zach today here in Dubai. It was great seeing him as a free man! He told me about his time locked up and I told him about Rwanda. I am happy to be back together with him to continue on our adventures.`,
+    images: []
+  },
+  {
+    id: 'goodbye-africa',
+    title: 'Sunday November 24th 2024, Addis Ababa, Ethiopia',
+    date: '2024-11-24',
+    location: 'Addis Ababa, Ethiopia',
+    slug: 'goodbye-africa',
+    year: '2024',
+    excerpt: 'Final day in Africa, visiting the Genocide Memorial and learning about Rwanda\'s tragic history.',
+    content: `It is 7:40 AM in Addis, Ababa Ethiopia. I am in the airport lounge waiting for my flight to Dubai. I left Kigali at 1:50 AM. My last day in Kigali was nice. I went to the Genocide Memorial and learned more details about what happened. Here are my biggest takeaways. On April 7 1994 the genocide started. People began to kill their neighbors and butcher anyone in sight. Over 1 million people were systematically killed in just 100 days. That is 10,000 people per day. Going back, under the colonial rule of Belgium in the 1930s, the Belgians made distinctions between Rwandans in society on their ID cards. Rwandans come from 18 clans, but they designated three different ones on ID cards: Hutus, Tutsi, and Twa. The classification was racial and socio-economic in nature. Rwanda gained independence in 1962, but it did not improve the situation. Hutu and Tutsi were deeply divided due to the Belgian colonizers rule the past 30 years. Ethnic wars started then and between 1959-1963 over 700,000 Tutsis were exiled. In 1990 civil war started when the Tutsis came back. The genocide started after the President's plane was shot down on April 6 1994. The genocide targeted the Tutsi's which accounted for over 85% of the deaths (this is an estimate based on talking to people). People would just get butchered with machetes and killed any which way. It was really sad to see such a tragedy happen only 30 years ago, and such a large degree. No countries from the West stepped in and helped. The Tutsi's were able to stop the Hutus led by Paul Kagame. Paul Kagame is still the ruler of Rwanda to this day. He is effectively a benevolent dictator. The people love him but he does not allow opposition. What he has done in 30 years to Rwanda is truly unbelievable. To turn a country from 0 to what it is today is very difficult. It is clean, safe, growing and stable. After the museum I ran into Matt accidentally at a coffee shop. We talked about an exciting business opportunity which I think actually has a lot of potential. I ran into him around 2pm. I ended up talking with him all day long. We went back to his restaurant and I got to try exclusive items off of the menu that have not been released. At night he let me go into the kitchen and cook a pizza. Side note, Zach got released from Kenyan jail Friday morning, after four days and three nights. I am on the way to Dubai to meet up with him. Well I spent almost a whole month in Africa. I am too tired and not enough brain space to give my full analysis, I will do so in a later post. Until then I await for my flight in Ethiopia, sleep deprived and stomach hurting. I ate a piece of injera at 5 AM because I wanted to while I was in Ethiopia and it was nasty.`,
+    images: [
+      { src: '/assets/images/food/pizza1.JPG', alt: 'Cooking pizza in Rwanda' },
+      { src: '/assets/images/food/pizza2.JPG', alt: 'Pizza making process' },
+      { src: '/assets/images/food/pizza3.JPG', alt: 'Finished pizza creation' }
+    ]
+  },
+  {
+    id: 'innocent-artist',
+    title: 'Thursday November 21st 2024, Kigali, Rwanda',
+    date: '2024-11-21',
+    location: 'Kigali, Rwanda',
+    slug: 'innocent-artist',
+    year: '2024',
+    excerpt: 'Meeting world-renowned artist Innocent at Inema Art Center and creating art together.',
+    content: `I am still blown away by Kigali. People do not beg or harass you for money here. Even on the moto taxis they do not try and overcharge you for being a foreigner. A 15 minute ride is less than a dollar. It is really nice and refreshing. In Kenya and Tanzania I definitely felt a pressure for being white. They only viewed me as an ATM and would nonstop try to take advantage of you. I do not blame them since they live in extreme poverty and are trying get some money, but it really takes away from the enjoyment of exploring a new country and culture when you constantly are being harassed. Here in Kigali you do not feel that whatsoever. It is safe and sometimes I do not even realize I am the only foreigner here since they treat you as equals. Also Matt told me people rarely even fight on the streets or bars because of the repercussions of the genocide, you just don't do it. In the afternoon I went to Inema Art Center and met the owner, Innocent, an extremely talented world renown artist. We painted a freestyle abstract black and white canvas together. After a couple minutes of painting he would rotate the canvas to see things differently. His creativity and perception really blew me away. He told me he likes black and white paintings because it can go on for infinity and you can see something new every time. He specializes in making art on dried tree bark and sells his work for multi-million dollars. From talking to him I realized I want to channel my creativity more, either through poetry or ceramics or dance or something. He explained how he likes to view art in the negative space, seeing things where the brush was not. Another thing I liked was that he only paints big canvases. He said painting on a small canvas limits his mind and perception and needs huge canvases to feel free and express himself. He only paints happy things as well because he wants to feel happy. He told me how art is new to Rwanda and Africa in general. He wants to build a huge center where artists can come and express themselves. He is tired of traveling to Miami Art Basel or Europe for shows and wants to bring art culture to Africa. He was super friendly and down to earth and one of the coolest dudes I ever met.`,
+    images: [
+      { src: '/assets/images/misc/innocent.jpg', alt: 'With artist Innocent' },
+      { src: '/assets/images/misc/consciousness.jpg', alt: 'Art creation with Innocent' },
+      { src: '/assets/images/misc/innocent2.jpg', alt: 'Innocent at work' }
+    ]
+  },
+  {
+    id: 'gravity-economics',
+    title: 'Thursday November 21st 2024, Kigali, Rwanda',
+    date: '2024-11-21',
+    location: 'Kigali, Rwanda',
+    slug: 'gravity-economics',
+    year: '2024',
+    excerpt: 'Exploring gravity economics theory and luxury market opportunities in Rwanda\'s growing middle class.',
+    content: `The morning started with a long walk to Kivu Noir, a high end coffee shop here in Kigali. Over my breakfast and coffee I started philosophizing about economics and life. I was taken a back by such a high end establishment here in Rwanda, overlooking the hills with a chic vibe. This is just one of many places like this in Kigali. There are actually so many boujee restaurants and housing options. I asked a local where everyone made their money and she said agriculture and manufacturing. It is obvious Rwanda has a youthful, growing middle class, eager to spend money on nicer things. The age of the population and size of the middle class and its growth rate are key characteristics when thinking about investing. This ideas made me think of an economic principle proposed by my dear friend Zachary Katz, may he be released from Kenya detention immediately. The idea is gravity economics, a theoretical framework in economics positing that wealth concentration and consumption patterns among high-income individuals, particularly the aristocracy or economic elite, exert a gravitational pull on market structures, resource allocation, and profit maximization strategies. The principle asserts that catering to this demographic yields disproportionately higher returns due to their substantial purchasing power, propensity for conspicuous consumption, and influence over market trends and cultural preferences. This principle could be seen here in Kigali at the coffee shop in action. Also the other day talking with Matt we spitballed more ideas relating to this principle. We talked about a luxury car rental service here in Rwanda. People are spending thousands of dollars to go trek with the Gorillas, so they are more than willing to pay a couple extra dollars to be driven in luxury. He is also doing a $100,000 renovation to his restaurant to give a more upscale vibe. He even told me he can sell Clase Azul bottles for over $1,000 here, bought for $120 in South Africa. Overall, marketing to the aristocracy who are more willing to consume and at higher margins is a better strategy than marketing a business towards the lower and lower-middle class. Therefore when more young people in a place are entering into the middle class, they are very eager to spend money like they are rich. Another interesting thing I learned is that alcohol margins are some of the best, while coffee is some of the worst. You can spend 5 dollars at a coffee shop and sit there all day. However if you are at a bar ordering 2-3 drinks and staying for a while, much more money will be spent.`,
+    images: [
+      { src: '/assets/images/misc/KN.jpg', alt: 'Kivu Noir coffee shop' },
+      { src: '/assets/images/misc/coffee.jpg', alt: 'Coffee culture in Rwanda' }
+    ]
+  },
+  {
+    id: 'adventure-capitalism-kigali',
+    title: 'Wednesday November 20th 2024, Kigali, Rwanda',
+    date: '2024-11-20',
+    location: 'Kigali, Rwanda',
+    slug: 'adventure-capitalism-kigali',
+    year: '2024',
+    excerpt: 'Hardcore adventure capitalism day exploring Kigali and meeting with restaurant owner Matt.',
+    content: `Today was a hardcore adventure capitalism day. I woke up pretty early and started walking the city to try and get a pulse of the area. I went to Question coffee and had an iced caramel latte, probably the best coffee I have had in my life. After I walked towards the city center to explore. Walking on the street I saw so many ambitious projects and advertisements. The city is so clean and super safe. There are a bunch of motorcycle taxis where everyone is required to wear a helmet. There are dedicated areas which are "car free zones". At times it did really feel like I was walking in a utopia. The weather was great and the rolling hills throughout the city are beautiful. Rwanda is known as the land of a thousand hills. After a long walk of exploring I came back to my guesthouse and ordered a pineapple juice with lunch. I spent a solid two hours researching various things. It ranged from a podcast with Javier Milei to mindfulness city project starting in Bhutan. After my research session I went to the gym and hit the sauna. I was pretty tired from walking the hills and the sauna but I had a business meeting I scheduled tonight. I met with a guy named Matt who is a real deal adventure capitalist. Zach met Matt's business partner in SF a year ago and we have been in contact ever since. Matt owns a restaurant/bar in Kigali and I went and chatted and had dinner. The food and margarita were fantastic, real authentic Mexican food. We talked about investment opportunities, his life story, and geopolitics. I learned a lot. He emphasized the importance of building something that excites you and having the right connections. He knows people very high up in the Rwanda government which helps speed projects along. He also is friendly with police chiefs which helps him run his bar too. Similar to the conversation I had with the Kenyan woman yesterday he said how bad the corruption is in Africa. He emphasized how Rwanda and Tanzania have stable governments. It was really cool hearing all the awesome projects he works on. I think it would be pretty easy to raise money for a cool project. The problem I struggle with is foreseeing how one investment property can scale to becoming a full fledge entrepreneur. He told me the only way is to really get investors and build a big project if you do not have the capital yourself. He likes the restaurant industry as well as the manufacturing industry and told me how there is a plethora of opportunities in Africa for the taking. The hard part is just choosing the one that gets you excited. Zach is still being held in Mombasa, awaiting chemical analysis of the bullet shell in his backpack. Hopefully we will meet in Dubai on Sunday and he is able to get out quickly and smoothly.`,
+    images: [
+      { src: '/assets/images/misc/kigali2.jpg', alt: 'Exploring Kigali' }
+    ]
+  },
+  {
+    id: 'arriving-rwanda',
+    title: 'Tuesday November 19th 2024, Kigali, Rwanda',
+    date: '2024-11-19',
+    location: 'Kigali, Rwanda',
+    slug: 'arriving-rwanda',
+    year: '2024',
+    excerpt: 'Zach\'s detention at Kenyan train station and my arrival in the incredibly clean and safe city of Kigali.',
+    content: `Today was a long and wild day. Zach and I woke up at 4:00 AM to catch an 8 AM train in Mombasa. The shuttle was an hour late to pick us up from our hostel in Diani so we decided to uber the 1.5 hour drive there. It was still pretty cheap. At the train station we passed through security but Zach's bag got stopped. The security guard opened his backpack and saw an empty bullet shell. The security guard called his boss and Zach had to explain the situation. He got the bullet shell from Israel as a souvenir and left it in his bag. We have travelled through 4 different countries and no security system has caught it. It is crazy that the train station of Kenya was the first to find it. After explaining his story the Boss of the trains station did not buy it one bit. He thought Zach was sent from the US or Israel to test the Kenyan security systems and write a report on it. He was super paranoid. He did not believe the bullet travelled through 4 different countries undetected, which is a reasonable thought. I do not know how it got through undetected either. Zach and I were taken to a holding room in the train station for interrogation. They took our passports and train tickets. Zach explained the story over and over and the station chief refused to believe it. He said that Zach was intentionally trying to confuse and trick him. At one point Zach and I laughed at the craziness of the situation and the train boss accused us of conspiring a plan to escape. He was really paranoid. After 1.5 hours the boss told me I could leave since the bullet was not in my possession. I asked Zach if it was okay I take the train to catch the flight to Rwanda and he said yes. I wished him good luck and hoped it would all breeze over quickly. The 6 hour train sucked. I was so tired and it was so hot and sweaty. I sat next to a 7 person Muslim family with kids kicking and screaming which did not enhance the experience. After the train I smoothly made it to the airport. I took one of the best showers of my life in the lounge, my first hot shower maybe all trip. The flight to Kigali was smooth and fast. Upon landing I was already blown away. The friendliness and beauty of the city sticks out. There was nobody at the airport haggling me for a taxi or trying to sell me shit. The weather was phenomenal, cool and crisp. The hills throughout the city are stunning. I did not see a single piece of trash on the street. It really could be the cleanest city I have ever seen. I am so tired right now so I am going to head to sleep. I am really excited to explore Kigali tomorrow and hope Zach gets out of the Kenyan holding cell as soon as possible.`,
+    images: [
+      { src: '/assets/images/misc/kigaliport.jpg', alt: 'Arriving in Kigali airport' }
+    ]
+  },
+  {
+    id: 'train-reflections',
+    title: 'Tuesday November 19th 2024, Nairobi, Kenya',
+    date: '2024-11-19',
+    location: 'Nairobi, Kenya',
+    slug: 'train-reflections',
+    year: '2024',
+    excerpt: 'Deep thoughts during the 6-hour train ride about travel philosophy, religion, and African corruption.',
+    content: `Thoughts from the 6 hour train from Mombasa to Nairobi:
+
+On my past travels you have excitement to go sight see, explore and take in everything as quick as possible. When travel is your lifestyle, the whole outlook and mindset shifts. It's impossible to be on the move and sight see all the time. As I look back to my travels, Spain, Korea or Iceland etc, I realize the most profound experiences are just by integrating and being in the society, not running around sight seeing. This shift means I have to take the travels slower and be okay missing some "tourist sights". Instead the goal of this is to learn about the people, the culture, and to solely bear witness. In Africa there are lots of expensive treks and tourist activities, but just bearing witness of the people and how they live makes it all worth it. I'm going to Rwanda now for the same reason. There's not much to actually sight see or do, but it is extremely interesting to see the people and culture and how the country is moving. This can be thought of as a "second education". I am on a journey to reeducate myself about the world, history, work, and outlook on life. It is not a journey to sight see and be a passerby. When ranking my travels in the past I ranked them by food, city/landscapes, and variety of activities. This is still a good benchmark but it was missing a key component, the people. Getting to know the people and their worldviews is invaluable.
+This week in Diani I talked with Germans, Spaniards, Brits, Swiss, Kenyans, Tanzanians, and Israelis of course. It was interesting hearing about how they viewed the world and their respective countries. Specifically interesting to me, the Germans Spaniards and Brits did not like the outlook of their countries and think they are growing in the wrong direction. I think this is the case of all of Western Europe which is facing social crisis like immigration and crime as well as low economic growth opportunity. 
+Every country I have travelled to so far has actually been more religious than I expected. When was the last time you heard of an actual Christian country? In Georgia the people and especially the young people take religion seriously. You'll see a 19 year old girl in tattoos and a mini skirt doing the cross over herself at the sight of a church, a combination unheard of in the west. In Georgia I realized that there really are no Christian countries anymore in the west. It was interesting to see conservative values and the importance of religion in Georgia to the youth and how integrated it is in society. Now even more surprising is that the people in Africa are very religious as well. Many are devout Christians and Muslims. Many of the young Kenyans and Tanzanians have great awe for G-d and in their daily talk it is apparent it is important in their life. You see a lot of Africans wearing full hijabs too which indicates Islamic conservatism. In developed countries it seems religious and conservative values fade while in developing countries it is the fabric holding the society together. This made me think, why are developed nations more likely to leave conservative religious values for a more liberal framework. I have many thoughts on this but it deserves a whole essay in itself. 
+Near the end of my six hour train ride to Nairobi I talked with a Kenyan woman. She said the biggest problem with Kenya is corruption. Also, Kenya is teeming with natural resources, but due to government incompetence there are no factories to refine or manufacture them. This leads to Kenya needing to export the natural resources out to then import the finished products back in. Throughout this process developed countries take advantage of the poorer nation of Kenya and the incompetent government. Kenya also needs to take loans from wealthy nations and then becomes debt trapped, specifically from China. Lastly, the corruption goes so far that even if you go to university it's hard to find a job. You need to pay someone in the know to get a good job. The woman thought that an African union would be beneficial but neighboring countries in East Africa hate each other. Corruption eats everything.`,
+    images: []
+  },
+  {
+    id: 'pole-pole-philosophy',
+    title: 'Monday November 18th 2024, Diani, Kenya',
+    date: '2024-11-18',
+    location: 'Diani, Kenya',
+    slug: 'pole-pole-philosophy',
+    year: '2024',
+    excerpt: 'Learning the "pole-pole" philosophy of slowing down and preparing for the next leg to Rwanda and Nepal.',
+    content: `Pole-pole is the Swahili phrase for "slowly, slowly". It is used during long treks like climbing Mt Kilimanjaro to remind climbers to conserve energy. While learning how to kite surf my instructor also told me, pole-pole, to be patient and confident to control the kite. Even deeper it is an Eastern African philosophy for everyday life: to be calm, patient and steady. This past week on the coast of Kenya I have definitely been soaking in the pole-pole energy. The locals here, and East Africans in general, live a simple, non-sophisticated life and are generally happy and satisfied. In the US we overcomplicate so many things, thus leading to energy expended and wasted in the wrong areas of life. At first it was a challenge for me to be slow and simple because I am a busy body by nature, always trying to do or see the next thing. I have learned a lot from taking this week on the beach just to live, breathe, and be simple. However, I am ready to be on the go again. I thrive in scenarios where my energies are pushed to the limit and I must be decisive with how to spend my time. This week of relaxation has given me renewed vigor to take my focus, health, and intellect to the next level. Typically people say the male pre-frontal cortex becomes fully developed by the age of 25. Of course this is just an estimate but it gives me a good benchmark to really level up in the next five months. Zach and I head to Rwanda tomorrow for five days to explore the cleanest, safest city in Africa. We researched Kigali, Rwanda over a year ago, excited about the progressive outlook of the country! After Rwanda, on Sunday, we fly to Dubai for a day trip towards the country of Nepal. In Nepal we have a really exciting itinerary I look forward to updating here about.`,
+    images: []
+  },
+  {
+    id: 'community-reflections',
+    title: 'Sunday November 17th 2024, Diani, Kenya',
+    date: '2024-11-17',
+    location: 'Diani, Kenya',
+    slug: 'community-reflections',
+    year: '2024',
+    excerpt: 'Two months into travel, reflecting on the importance of community building and future possibilities.',
+    content: `It is Sunday morning on the beaches of Kenya overlooking the Indian Ocean and I am sitting here reflecting on my trip. I am two months into my adventure. I have been on the beach of Diani for a week, taking life slow and improving my body and mind. What comes to mind right now is the idea of community. I realized and cemented the importance of community. It has been cool in Diani being in a place where there is not a lot of people and you get to meet people more than once and create a form of community. I have been playing volleyball everyday with the same people and have met some of the workers at the resorts here. This weekend Zach and I hung out with all the locals and they taught us afro-beats dances. It was nice forming that bond, not as a one-off thing, but as a continual community building process. That being said I can't help to dichotomize the community process here in Diani Beach Kenya and the community I have in Dallas. Having a central place to socialize is key for any community building. Here it is the hostel and in Dallas it is Chabad. Any good community has a solid center. When I think of the future of urban planning, having a center place which is not overcrowded is key to make a community blossom. The morning routine I have here is great. The morning you have the ability to open your psyche or make it more cluttered. The key steps I have found to make sure your mind is not stiff in the morning and throughout the day are: nature, water, move the body, read/write/think/pray, no screens. These things simultaneously abstract yourself out of your mind and take you within to help you kickstart your day. Now thinking ahead, the next couple of months are really exciting. I am really looking forward to the nature and beauty of Nepal. A big part of traveling is connecting with the people, culture, and food of each place. I believe Nepal will be super unique in all aspects. It is seeming that I will have time to go through Thailand, Laos, Cambodia, and Vietnam fully and at times alone. It will be important to integrate my learnings over the past two months into the Southeast Asia part of the trip. That means creating mini-communities by staying in one location while also moving when the time is right and choosing excursions wisely. There will be lots more beach time and beach volleyball ahead I presume. Finally, my money dedicated for this trip will run out in the near future. There are many exciting ways I can see that process unfolding and how I integrate all of my learnings from this trip. For now staying present is the most important thing but I cannot help but think about the possibilities ahead.`,
+    images: [
+      { src: '/assets/images/misc/diani1.jpg', alt: 'Diani Beach Kenya' },
+      { src: '/assets/images/misc/diani2.jpg', alt: 'Beach reflections in Diani' }
+    ]
+  },
+  {
+    id: 'barefoot-days',
+    title: 'Thursday November 14th 2024, Diani, Kenya',
+    date: '2024-11-14',
+    location: 'Diani, Kenya',
+    slug: 'barefoot-days',
+    year: '2024',
+    excerpt: 'Ron\'s last day with us and reflections on building wealth, patience, and the value of time.',
+    content: `I have not worn shoes in days. It has been so nice waking up and walking straight to the beach to workout. The weather is beautiful here and the hostel is amazing. Today was Ron's last day with us. I am very grateful for him and his friendship, coming to spend 10 days here with us in Africa. We grew our connection and had very meaningful conversations. We push each other to be the best versions of ourselves, which is hard to come by in friendships these days. After Ron left Zach and I talked about our long term vision for the trip and beyond. I have been having trouble seeing how investments scale to generational wealth. I thought maybe you can get lucky on a few investments in real estate or stocks, make it big, and be chilling for your life. Exploring various businesses and talking to serial entrepreneurs proved to me that building real wealth takes time, effort and money. It is such a blessing I am only 24 years old and have time to find something I am passionate about to work and build on. Even 34 years of age is pretty young relative to an average lifespan these days. When I think about 10 years of hard work and smart investments that is the only way to build real wealth. Being patient is a real skill I think I have been gifted with and need to utilize. After our conversation Zach and I hit a hard workout on the beach. I really have been enjoying having the time to move my body and build it healthily. When you are stuck in a 8 hour work day it is hard to find that time to really work on yourself without rushing to the next commitment. Having the time and space to reflect and work on myself has been priceless. I am coming up on two months of traveling. What I realized is that is a long time! Every day you can curate and grow so much! Each day has infinite potential. In corporate America you "live for the weekend" because the week is filled with rushing and the same cycles. When you step out of this construct you realize how much time a day really is and how much nuance and uniqueness a 24 hour cycle can bring. I value and thrive off structure but I think it is essential to mix it up often as well.`,
+    images: []
+  },
+  {
+    id: 'best-day-diani',
+    title: 'Monday November 11th 2024, Diani, Kenya',
+    date: '2024-11-11',
+    location: 'Diani, Kenya',
+    slug: 'best-day-diani',
+    year: '2024',
+    excerpt: 'One of the best days of the trip with beach yoga, kite surfing lessons, and volleyball.',
+    content: `Today was one of the best days of the trip. I woke up to the sun after my first good nights sleep in a while. I started my day with yoga on the beach and then went on a run. Along the way I stopped because I was feeling gassed, I haven't ran in a while. I talked to people on the beach selling random stuff and had some interesting conversations. I probably walked and ran the beach for 2.5 hours. It was so amazing to start my day slowly and with exercise and with sunlight. I could literally see my psyche unraveling in real time. After the run I came back to our awesome hostel, Galu's Backpackers and had a mango smoothie. Ron and I had an amazing discussion about life and relationships over breakfast. After breakfast I read some of my new book, Doughnut Economics. Around 2PM Ron and I got lunch at a nearby place. It took two hours for our food to come. After lunch we talked with the kite surfing guy to give us an intro lesson. We ended up getting a two hour lesson for 50 bucks each, a pretty good deal. Learning how to fly the kite was fun. I want to become a master of earth wind fire and water and sports that bring that out are the best! After kite surfing Zach Ron and I played volleyball at the resort next door. I love volleyball and am pretty good at it so it was fun to get some competition going. The people we played against were pretty good. After that we went to dinner and karaoke. It was a great day. I value being able to take time to myself to think and to use my body to stay healthy and play sports and learn new skills.`,
+    images: []
+  },
+  {
+    id: 'africa-backpacking-challenges',
+    title: 'Sunday November 10th 2024, Diani, Kenya',
+    date: '2024-11-10',
+    location: 'Diani, Kenya',
+    slug: 'africa-backpacking-challenges',
+    year: '2024',
+    excerpt: 'Honest assessment of the challenges of backpacking Africa and comparing Kenya vs Tanzania.',
+    content: `Africa is very hard to backpack. Firstly you cannot really hang out in the major cities. When you travel Europe you can spend a whole day just wandering side streets. However in Africa the cities are dirty and spread out with not much to see or do. Also the food can be sketchy sometimes and there is not an emphasis on the dining experience. Africa is also hard to backpack due to the lack of public transport. There's no clear way to know how to get between cities. Today we took a private shuttle from Moshi to the coast of Kenya. It was very expensive but the only way to get there. If you do find a way to use a bus it'll take a very long time and will be crowded. A bus from Nairobi to Kampala is 13 hours. This is normal in Africa and people take very long bus rides. It's possible but it is exhausting and not the most comfortable. The people on the street beg for money and try to sell you things nonstop which does not help the experience. I really wanted to like Africa a lot. I appreciate the unique culture but it is not my favorite place to travel. The tourist activities are extremely expensive due to high national park entrance fees. There is amazing nature but it costs a lot. I think everyone should come to Africa to understand how the people live. They live simply and happily. The poverty is striking and makes you appreciate what you have. Being back in Kenya on the coast made me understand the differences between Kenya and Tanzania for the first time. Tanzania is less developed but the people are nicer. Kenya has a better night life scene but is more sketchy than Tanzania. Both countries are very cheap food and accommodation wise. I am looking forward to getting back to relaxing, working out and getting a tan!`,
+    images: []
+  },
+  {
+    id: 'safari-complete',
+    title: 'Saturday November 9th 2024, Moshi, Tanzania',
+    date: '2024-11-09',
+    location: 'Moshi, Tanzania',
+    slug: 'safari-complete',
+    year: '2024',
+    excerpt: 'Returning from an incredible 6-day safari and hunting with the Hadza tribe - a life-changing experience.',
+    content: `I just returned from a six day, five night safari. I abstained from using my phone to be immersed in nature and to take the experience in fully. Zach, Ron and I went to four national parks: Tarangire, Ngorongoro, Serengeti, and Lake Manyara. We also woke up at 5 am for a hunt with the Hadza tribe, one of the last hunter gatherer tribes left on earth. It was a life changing experience that I would recommend to anyone. Here are some key takeaways: live in touch with nature and its cycles, be grateful for the bare necessities not everyone has them, eat healthy, be patient and compassionate, master boredom, put yourself out there for others, don't be ashamed, dive into the unknown, stand up for what you believe in, learn interesting and new things. These takeaways came from seeing so many amazing animals throughout the day and driving through rural Africa seeing how millions of people live under unfortunate conditions. What struck me was that when we saw animals in the parks, most of the time they were sleeping or just standing still. I thought I would see some wild hunt or action, but the majority of times these beautiful creatures were just being. As humans we complicate so many things, because we are complicated creatures. However, it is important to remember to stay simple. Not having my phone and being in nature realized how much time a single day really is. There is infinite potential in a 24 hour period to grow, live, and change. When I was working the same routine made it seem like you are going around in circles, not upward. Being able to step outside of this has made me appreciate and understand how much can truly be accomplished in a single day. Next, we drove by many mud huts and houses made of solely sticks and bushes. It was sad to see so many people living in extreme poverty. Even though these people did not have much, they were so happy and kind and appreciative for their own life. I have seen movies and read books about Africa, but seeing the people and their life in person really makes a difference. I would urge people to come to Africa solely for this purpose. Lastly, hunting with the Hadza tribe was an insane experience. We woke up super early and went to see the tribe. The tribe speaks with clicks for some of their words. They do not know the time or when they were born. They start hunting when the birds start chirping and know their age based on the seasons. They hunt baboon, birds, squirrels, kudu and more. We hunted with three boys/men who caught a couple birds and a squirrel. Sometimes they do not eat for days if they do not catch anything. Zach brought up a good point of how we should go hunting more back home to be in touch with catching food from the source and going back to our ancestral roots. There is so much more to say about these past 6 days but this is what comes to mind. Here are just a few pictures from the safari.`,
+    images: [
+      { src: '/assets/images/misc/leopard.jpg', alt: 'Leopard spotted on safari' },
+      { src: '/assets/images/misc/serengeti.jpg', alt: 'Serengeti landscape' },
+      { src: '/assets/images/misc/lion.jpg', alt: 'Lion in the wild' }
+    ]
+  },
+  {
+    id: 'heading-to-safari',
+    title: 'Sunday November 3rd 2024, Arusha, Tanzania',
+    date: '2024-11-03',
+    location: 'Arusha, Tanzania',
+    slug: 'heading-to-safari',
+    year: '2024',
+    excerpt: 'Witnessing motorcycle theft, crossing into Tanzania, and preparing for the epic Serengeti safari.',
+    content: `I woke up at 6:45 AM to catch the bus to Arusha. While waiting for the bus I saw some guys steal a motorcycle and drive off with it. People ran and chased after him but it was too late. The shuttle to Arusha took about 5 hours total. The drive was not too bad. On the drive down I saw lots of traditional tribal people dressed in elaborate garb. I also saw little kids herding animals with sticks. Driving outside of the city center in Africa for the first time really opened my eyes to how differently people live. There was extreme poverty lining the roads with mud shacks. People walked barefoot in the scorching sun on the highway. People live simply and do not complain. It is so crazy how much we take for granted in the US and how such trivial our problems really are. At the Tanzania border my Yellow fever exemption worked easily. I had to pay 100 dollars for a visa to enter. I arrived in Arusha and Ron arrived from Israel at about the same time! We walked around the city and chatted. We stumbled upon a second division soccer game and watched twenty minutes of it. After, the owner of the safari company which we are taking tomorrow came to our hotel and met up with us to give us the run down. His name is Solomon and he was very nice and down to earth. We decided to do a five night, six day safari filled with many different stops and experiences. I cannot wait to be immersed in nature and hopefully see a bunch of amazing animals!`,
+    images: [
+      { src: '/assets/images/misc/soccer2.jpg', alt: 'Local soccer game' },
+      { src: '/assets/images/misc/soccergame.jpg', alt: 'Soccer match in Tanzania' },
+      { src: '/assets/images/misc/muzungu.jpg', alt: 'Being called muzungu' }
+    ]
+  },
+  {
+    id: 'first-impressions-africa',
+    title: 'Saturday November 2nd 2024, Nairobi, Kenya',
+    date: '2024-11-02',
+    location: 'Nairobi, Kenya',
+    slug: 'first-impressions-africa',
+    year: '2024',
+    excerpt: 'First impressions of Africa, trying ostrich meatballs, and preparing for the Tanzania safari.',
+    content: `I haven't given my first impressions on Africa, let me do that. They drive on the left side of the road which is interesting. Everything is pretty cheap except the touristy experiences. Nairobi is not the cleanest city. It is hot and dirty. The people seem nice but there is definitely some looks you get as a muzungu, white person. Everyone speaks really good English here, way better than Israel and Georgia. The people also speak Swahili which is cool. You do see poverty and people begging in the streets. A lot of people are selling random shit like white boards, flashlights, hats, just to make some money. I really like it so far all things considered though! Nairobi is one of the most developed cities, but it is still less developed than I expected. Today I tried ostrich meatballs which was pretty yummy and interesting at The Carnivore Restaurant. I had a traditional East African dish called Ugali, see the food page for details. Tomorrow I wake up early and head to Tanzania for a 5 day Serengeti safari. Hopefully crossing the border goes smoothly. Ron will meet up with us in Tanzania tomorrow for a week and a half! That'll be fun. Still processing all that information from yesterday wow!`,
+    images: [
+      { src: '/assets/images/misc/ostritch.jpg', alt: 'Ostrich meatballs at The Carnivore' }
+    ]
+  },
+  {
+    id: 'nairobi-geopolitics',
+    title: 'Friday November 1st 2024, Nairobi, Kenya',
+    date: '2024-11-01',
+    location: 'Nairobi, Kenya',
+    slug: 'nairobi-geopolitics',
+    year: '2024',
+    excerpt: 'Eye-opening conversation with Erik about African geopolitics, economics, and switching to backpacker mindset.',
+    content: `I slept terribly. I woke up twice to the sound of the call to prayer. There is a mosque next door to the hostel. There was some road noise as well. I went to meet up with my mom's friend from high school Erik, who currently lives in Nairobi early in the morning at the Village Market. Erik started and runs a nonprofit called "Enabling Peace in Iraq Center (EPIC)". We had an amazing two hour conversation all about geopolitics, government, and traveling. The amount of information he blasted me with was insane, I was actually overwhelmed. Here are some key highlights. Kenya has a huge population, about 56 million, made up of more than 40 distinct tribes. Nairobi is a bubble in Kenya due to the UN presence here bringing rich expats in. There are two economies in Nairobi, one that serves the expats with nice shopping and restaurants and the economy for the rest of Kenyans. People are coming to Nairobi for tech and opportunity. Labor is exploited heavily in Kenya. I took a 45 minute uber for 10 dollars. A 15 minute trip is like 3 bucks. He said Ethiopia is beautiful and has lots of potential after the civil war. Uganda is stable but has the worst government. Rwanda has fake stability from the dictator in power there even though he does a lot of good. Iraq's biggest problem is Iran presence in the region. He said I could come to Kurdistan with him sometime. We talked about business in the fields of agriculture, energy, tourism. He told me that Kenya has enough food here at home but they import most of their goods due to government incompetence. Everybody here is on "Africa time", people show up late and are not in a rush, it taught him how to slow down. He gave me a book about how to think about economics in a sustainable way. Overall he was super cool and super smart, I learned so much from him. After meeting up with him Zach and I roamed the city and went to a fruit market. Zach has not been feeling well the past couple days so I went to the Nairobi Hebrew Congregation for Shabbat services myself. I met the Rabbi Netanel there who is super cool and a young guy. I told him my trip outline and he tore it apart and redesigned the trip for me. He has travelled all over the world and met over 1000 backpackers so he is very knowledgeable in how to get the most out of the experience. He advised to explore countries fully and slowly before moving to the next place. Do not just hop around to check a country off your list. He told me a month in Uganda is a must, which I previously overlooked. Since we are only in Nairobi for three days he said we should come back and do Kenya properly this trip. The synagogue was beautiful and on a huge plot of land with great nature. I met some expats living there in Nairobi too. Overall this day was filled with an overwhelming amount of information I am still processing. Today was the day I realized I had to switch to a backpackers mindset. The past 6 weeks had been nice exploring business and chilling in Israel/ Georgia but now the true backpacking adventure starts. Especially in Africa it takes a lot more planning to make sure you stay safe and hit the good spots efficiently. Also he advised to minimize border hopping between countries because it's a long process. Explore a country fully then move on.`,
+    images: [
+      { src: '/assets/images/misc/erik.JPG', alt: 'Meeting with Erik in Nairobi' }
     ]
   }
 ];
