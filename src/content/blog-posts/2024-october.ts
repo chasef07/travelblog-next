@@ -423,7 +423,7 @@ After I met up with my friend Neev who moved here from Dallas. It was great seei
     slug: 'knesset-visit',
     year: '2024',
     excerpt: 'Visiting the Israeli Knesset with former camp counselor Itay, learning about Israeli politics, and returning to Tel Aviv.',
-    content: `Today I wake up in Jerusalem and checked out of our Airbnb. Zack and I headed to the Knesset to meet our camp counselor from Camp Coleman, Itay Gliner. Itay was my counselor at camp over ten years ago. Every time I have been back to Israel my friends and I have made it a point to see him. In 2016, 2022 and now in 2024.
+    content: `Today I woke up in Jerusalem and checked out of our Airbnb. Zack and I headed to the Knesset to meet our camp counselor from Camp Coleman, Itay Gliner. Itay was my counselor at camp over ten years ago. Every time I have been back to Israel my friends and I have made it a point to see him. In 2016, 2022 and now in 2024.
 
 We rode the bus up the hill to the Knesset. It was hard getting in at first since we were it in a formal tour but eventually they let us in with some explaining. We met Itay and he took us to his office. **He is the press secretary for the speaker of the Knesset!**
 

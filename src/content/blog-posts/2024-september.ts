@@ -80,7 +80,7 @@ Overall I'm looking for the volunteering trip to be over to be able to think abo
     slug: 'eggplant-farm-etrogat',
     year: '2024',
     excerpt: 'Working on an eggplant farm, trying EtroGat drink, and exploring the Old City of Jerusalem.',
-    content: `Today I work up at 630 and we took the bus south to Moshav Shekef. There we tended to the eggplants. What we did was cut the leaves of the plants. Leaves take a lot of nutrients so when the leaves are cut the eggplant grows a lot faster. It was a pretty good experience but after an hour of leaf pulling I was done.
+    content: `Today I woke up at 6:30 and we took the bus south to Moshav Shekef. There we tended to the eggplants. What we did was cut the leaves of the plants. Leaves take a lot of nutrients so when the leaves are cut the eggplant grows a lot faster. It was a pretty good experience but after an hour of leaf pulling I was done.
 
 After the volunteering in the morning I took a nap because I was still jet lagged and woke up early. After the needed nap, Zach and I went to the Etrog man and drank EtroGat, a mixture of etrog, grapefruit and gat. **Supposedly Gat or khat is illegal in the United States and the Somali pirates use it to get energized.** I need to do more research on this.
 
