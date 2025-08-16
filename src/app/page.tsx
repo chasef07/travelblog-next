@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import SimpleHero from "../components/SimpleHero"
 import QuickContentNav from "../components/QuickContentNav"
-import EnhancedCountriesGrid from "../components/EnhancedCountriesGrid"
+import SimpleCountriesGrid from "../components/SimpleCountriesGrid"
 
 const EnhancedMap = dynamic(() => import("../components/EnhancedMap"), {
   loading: () => (
@@ -62,10 +62,10 @@ export default function Page(){
               </span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Discover stories, photos, and travel insights from each destination
+              A visual journey through the flags of countries I&apos;ve explored
             </p>
           </header>
-          <EnhancedCountriesGrid />
+          <SimpleCountriesGrid />
         </div>
       </section>
 

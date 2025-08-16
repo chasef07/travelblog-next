@@ -26,7 +26,7 @@ const contentSections: ContentSection[] = [
     count: 48,
     recent: ['Lost in Translation: Tokyo', 'Street Food Paradise', 'Island Hopping Adventures'],
     href: '/blog',
-    color: 'from-slate-600 to-slate-800'
+    color: 'bg-chart-1 text-white'
   },
   {
     id: 'vlogs',
@@ -36,7 +36,7 @@ const contentSections: ContentSection[] = [
     count: 24,
     recent: ['Mountain Trek in Nepal', 'Street Markets of Thailand', 'Sunrise over Bagan'],
     href: '/vlogs',
-    color: 'from-rose-500 to-pink-600'
+    color: 'bg-chart-2 text-white'
   },
   {
     id: 'food',
@@ -46,7 +46,7 @@ const contentSections: ContentSection[] = [
     count: 32,
     recent: ['Ramen Mastery in Fukuoka', 'Night Market Adventures', 'Authentic Thai Flavors'],
     href: '/food',
-    color: 'from-amber-500 to-orange-600'
+    color: 'bg-chart-3 text-white'
   },
   {
     id: 'transportation',
@@ -56,7 +56,7 @@ const contentSections: ContentSection[] = [
     count: 16,
     recent: ['Mastering the Shinkansen', 'Motorbike Adventures', 'Island Ferry Hopping'],
     href: '/transportation',
-    color: 'from-teal-500 to-cyan-600'
+    color: 'bg-chart-4 text-white'
   },
   {
     id: 'packing',
@@ -66,7 +66,7 @@ const contentSections: ContentSection[] = [
     count: 12,
     recent: ['One Bag Asia Packing', 'Essential Travel Gear', 'Climate-Based Packing'],
     href: '/packing-checklist',
-    color: 'from-indigo-500 to-purple-600'
+    color: 'bg-chart-5 text-white'
   }
 ]
 
@@ -99,12 +99,12 @@ export default function QuickContentNav() {
               className="group"
             >
               <Card className="h-full overflow-hidden hover:shadow-xl transition-all duration-300 border-0 bg-card/50 backdrop-blur">
-                <div className={`h-2 bg-gradient-to-r ${section.color}`} />
+                <div className={`h-2 ${section.color}`} />
                 
                 <CardContent className="p-6 space-y-4">
                   {/* Header */}
                   <div className="flex items-start justify-between">
-                    <div className={`p-3 rounded-xl bg-gradient-to-r ${section.color} text-white`}>
+                    <div className={`p-3 rounded-xl ${section.color}`}>
                       <section.icon className="h-6 w-6" />
                     </div>
                     <Badge variant="secondary" className="text-xs">

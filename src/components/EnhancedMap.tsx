@@ -171,12 +171,12 @@ interface MapControlsProps {
 function MapControls({ onLocationSelect, selectedLocation, onAnimateJourney, isAnimating }: MapControlsProps) {
   return (
     <>
-      {/* Prominent Journey Animation Button - Centered */}
+      {/* Journey Animation Button - Top Center */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.8, duration: 0.6 }}
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
+        className="absolute top-4 left-1/2 transform -translate-x-1/2 z-30"
       >
         <motion.button
           onClick={onAnimateJourney}
@@ -191,15 +191,15 @@ function MapControls({ onLocationSelect, selectedLocation, onAnimateJourney, isA
             scale: { duration: 0.2 },
             y: { duration: 0.2 }
           }}
-          className={`relative bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-500 hover:to-green-500 rounded-full px-8 py-4 text-white font-bold text-lg shadow-2xl transition-all duration-300 ${
+          className={`relative bg-primary hover:bg-primary/90 rounded-full px-6 py-3 text-primary-foreground font-semibold text-base shadow-lg transition-all duration-300 ${
             isAnimating 
-              ? 'opacity-75 cursor-not-allowed bg-gradient-to-r from-gray-600 to-gray-700' 
-              : 'hover:shadow-3xl'
+              ? 'opacity-75 cursor-not-allowed' 
+              : 'hover:shadow-xl'
           }`}
         >
           <div className="flex items-center gap-4">
             <motion.div 
-              className={`w-4 h-4 rounded-full bg-white ${isAnimating ? 'animate-pulse' : 'animate-bounce'}`}
+              className={`w-3 h-3 rounded-full bg-primary-foreground ${isAnimating ? 'animate-pulse' : 'animate-bounce'}`}
               animate={!isAnimating ? { scale: [1, 1.2, 1] } : {}}
               transition={{ duration: 1, repeat: Infinity }}
             />
@@ -215,7 +215,7 @@ function MapControls({ onLocationSelect, selectedLocation, onAnimateJourney, isA
           {/* Pulsing ring effect */}
           {!isAnimating && (
             <motion.div
-              className="absolute inset-0 rounded-full border-2 border-white/30"
+              className="absolute inset-0 rounded-full border-2 border-primary-foreground/30"
               animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -230,20 +230,20 @@ function MapControls({ onLocationSelect, selectedLocation, onAnimateJourney, isA
             initial={{ opacity: 0, scale: 0.9, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: -10 }}
-            className="absolute top-4 left-4 glass-strong rounded-xl p-4 max-w-sm z-10"
+            className="absolute top-4 left-4 bg-card/95 backdrop-blur border rounded-xl p-4 max-w-sm z-10 shadow-lg"
           >
-            <div className="text-white">
-              <h3 className="font-bold text-lg mb-2">{selectedLocation.name}</h3>
-              <p className="text-sm text-white/80 mb-2">{selectedLocation.visitDate}</p>
-              <p className="text-sm text-white/90 mb-3">{selectedLocation.description}</p>
-              <div className="flex items-center gap-4 text-xs text-white/80">
+            <div>
+              <h3 className="font-bold text-lg mb-2 text-foreground">{selectedLocation.name}</h3>
+              <p className="text-sm text-muted-foreground mb-2">{selectedLocation.visitDate}</p>
+              <p className="text-sm text-foreground/90 mb-3">{selectedLocation.description}</p>
+              <div className="flex items-center gap-4 text-xs text-muted-foreground">
                 <span>{selectedLocation.blogPosts} posts</span>
                 <span>{selectedLocation.highlights.length} highlights</span>
               </div>
             </div>
             <button
               onClick={() => onLocationSelect(null)}
-              className="absolute top-2 right-2 text-white/60 hover:text-white transition-colors"
+              className="absolute top-2 right-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               ✕
             </button>
@@ -333,10 +333,10 @@ export default function EnhancedMap() {
           className: 'custom-marker',
           html: `
             <div class="relative">
-              <div class="w-8 h-8 bg-gradient-to-r from-slate-600 to-slate-800 rounded-full border-2 border-white shadow-lg flex items-center justify-center text-white text-xs font-bold animate-pulse">
+              <div class="w-8 h-8 bg-primary rounded-full border-2 border-background shadow-lg flex items-center justify-center text-primary-foreground text-xs font-bold animate-pulse">
                 ${index + 1}
               </div>
-              <div class="absolute -top-1 -left-1 w-10 h-10 bg-slate-500/20 rounded-full animate-ping"></div>
+              <div class="absolute -top-1 -left-1 w-10 h-10 bg-primary/20 rounded-full animate-ping"></div>
             </div>
           `,
           iconSize: [32, 32],
@@ -381,7 +381,7 @@ export default function EnhancedMap() {
 
       // Create animated journey line
       const journeyLine = L.polyline(path, {
-        color: '#3b82f6',
+        color: 'hsl(var(--primary))',
         weight: 4,
         opacity: 0.8,
         dashArray: '10, 10',
