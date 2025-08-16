@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 import SectionTitle from '@/components/SectionTitle'
 
-const EnhancedChecklistLayout = dynamic(() => import('@/components/EnhancedChecklistLayout'), {
+const ModernPackingChecklist = dynamic(() => import('@/components/ModernPackingChecklist'), {
   loading: () => <div className="text-center py-12 text-muted-foreground">Loading packing checklist...</div>
 })
 
@@ -22,7 +22,7 @@ export default function Page(){
           </p>
         </div>
         
-        <EnhancedChecklistLayout />
+        <ModernPackingChecklist />
       </div>
     </main>
   )
