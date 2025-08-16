@@ -3,7 +3,7 @@ import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Script from 'next/script'
-import { generatePageMetadata, generateWebsiteJsonLd, siteConfig } from '@/lib/seo'
+import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Chase Fagen | Travel Blog & Adventures - Lone Horizons',

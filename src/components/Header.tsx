@@ -4,11 +4,12 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { motion, useScroll } from 'framer-motion'
 import { Menu } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet'
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from './ui/sheet'
 import { Button } from './ui/button'
 
 export default function Header(){
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
   const { scrollYProgress } = useScroll()
   
   useEffect(() => {
@@ -74,27 +75,28 @@ export default function Header(){
 
           {/* Mobile Menu */}
           <div className="lg:hidden">
-            <Sheet>
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="sm">
-                  <Menu className="h-4 w-4" />
+                <Button variant="outline" size="icon" className="h-8 w-8">
+                  <Menu className="h-3.5 w-3.5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
+              <SheetContent side="right" className="w-72">
                 <div className="space-y-6 mt-8">
                   <div className="text-lg font-semibold">Navigation</div>
                   <nav className="space-y-2">
                     {navigationItems.map((item) => (
-                      <Button 
-                        key={item.href}
-                        variant="ghost" 
-                        className="w-full justify-start h-auto p-3"
-                        asChild
-                      >
-                        <Link href={item.href}>
-                          <span className="font-medium">{item.label}</span>
-                        </Link>
-                      </Button>
+                      <SheetClose key={item.href} asChild>
+                        <Button 
+                          variant="ghost" 
+                          className="w-full justify-start h-auto p-3"
+                          asChild
+                        >
+                          <Link href={item.href}>
+                            <span className="font-medium">{item.label}</span>
+                          </Link>
+                        </Button>
+                      </SheetClose>
                     ))}
                   </nav>
                 </div>

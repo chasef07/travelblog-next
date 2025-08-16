@@ -26,10 +26,11 @@ This is a Next.js 15 travel blog application called "Lone Horizons" featuring:
 - **Responsive Grid Systems**: Country, blog, food, and transportation content grids
 
 ### Content Organization
-- Blog posts organized by year/month in `src/content/blog-posts/`
-- Content data files: `blog-data.ts`, `food-data.ts`, `transportation-data.ts`, `vlogs-data.ts`
+- Blog posts organized by year/month in `src/content/blog-posts/` (e.g., `2025-january.ts`)
+- Content data files: `blog-data.ts`, `food-data.ts`, `transportation-data.ts`, `vlogs-data.ts`, `packing.ts`
+- Content index in `src/content/blogIndex.ts` for metadata organization
 - Type definitions in `src/types/blog.ts`
-- Blog loading utilities in `src/utils/blog-loader.ts`
+- Blog loading utilities in `src/utils/blog-loader.ts` with caching and dynamic imports
 
 ### Styling Approach
 - Tailwind CSS 4 with custom CSS properties for theming
@@ -42,15 +43,18 @@ This is a Next.js 15 travel blog application called "Lone Horizons" featuring:
 - **leaflet**: Interactive maps
 - **react 19**: Latest React version
 - **tailwindcss 4**: Latest Tailwind CSS
+- **shadcn/ui**: Component library with Radix UI primitives
+- **embla-carousel-react**: Carousel/slider functionality
 
 ### Configuration Notes
-- **shadcn/ui**: Configured with "new-york" style, RSC support, and path aliases (@/components, @/lib)
+- **shadcn/ui**: Configured with "new-york" style, RSC support, and path aliases (@/components, @/lib, @/ui, @/hooks)
 - **Image optimization**: Configured for various device sizes with AVIF/WebP formats
 - **Security headers**: X-Frame-Options, X-Content-Type-Options, Referrer-Policy
 - **Static asset caching**: 1 year max-age for images
 - **Leaflet package optimization**: Enabled in Next.js experimental config
 - **ESLint rules**: Disable img element warnings and TypeScript strict rules in package.json
 - **TypeScript**: Uses @ path alias for src/ directory imports
+- **PostCSS**: Configured with Tailwind CSS 4 processor
 
 ### Development Patterns
 - **Dynamic imports**: Use `dynamic()` from 'next/dynamic' with `ssr: false` for map components
