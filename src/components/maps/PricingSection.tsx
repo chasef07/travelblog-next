@@ -31,8 +31,8 @@ export default function PricingSection() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          priceId: 'price_1RxTuyPJ7ly0x6wgw5v28bAc',
-          productId: 'prod_St301Mcihj8uiA'
+          priceId: 'price_1RxU65POlfpeoqYjM6cH26Dd',
+          productId: 'prod_StGdvg5xh53Ba1'
         }),
       })
 
