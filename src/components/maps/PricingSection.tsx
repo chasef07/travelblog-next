@@ -31,10 +31,17 @@ export default function PricingSection() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          priceId: 'price_1RxGudPJ7ly0x6wgPusQ2vQ8',
+          priceId: 'price_1RxTuyPJ7ly0x6wgw5v28bAc',
           productId: 'prod_St301Mcihj8uiA'
         }),
       })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        console.error('Checkout API error:', errorData)
+        alert(`Checkout failed: ${errorData.details || errorData.error}`)
+        return
+      }
 
       const { url } = await response.json()
       
@@ -43,6 +50,7 @@ export default function PricingSection() {
       }
     } catch (error) {
       console.error('Error creating checkout session:', error)
+      alert('Failed to create checkout session. Please try again.')
     } finally {
       setIsLoading(false)
     }

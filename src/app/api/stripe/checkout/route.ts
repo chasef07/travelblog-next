@@ -45,8 +45,21 @@ export async function POST(request: NextRequest) {
 
     if (!checkoutSession.ok) {
       const errorData = await checkoutSession.text()
-      console.error('Stripe API error:', errorData)
-      throw new Error(`Stripe API error: ${checkoutSession.status}`)
+      console.error('Stripe API error:', {
+        status: checkoutSession.status,
+        statusText: checkoutSession.statusText,
+        error: errorData
+      })
+      
+      return NextResponse.json(
+        { 
+          error: 'Stripe checkout failed',
+          details: `Status: ${checkoutSession.status} - ${errorData}`,
+          priceId,
+          productId
+        },
+        { status: 500 }
+      )
     }
 
     const session = await checkoutSession.json()
@@ -55,7 +68,12 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error creating checkout session:', error)
     return NextResponse.json(
-      { error: 'Failed to create checkout session' },
+      { 
+        error: 'Failed to create checkout session',
+        details: error instanceof Error ? error.message : 'Unknown error',
+        priceId,
+        productId
+      },
       { status: 500 }
     )
   }
