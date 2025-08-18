@@ -16,6 +16,7 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 - **Food Experiences** - Country-organized culinary adventures
 - **Transportation Guide** - Ranked transport experiences with scoring
 - **Video Vlogs** - Embedded travel videos
+- **🗺️ Travel Map Sales** - Secure Stripe-powered KMZ map downloads
 
 ### 🚀 **Performance & SEO**
 - **Next.js 15 App Router** - Latest React 19 with Server Components
@@ -44,6 +45,12 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 - **Leaflet** - Interactive maps
 - **Next/Image** - Optimized image handling
 - **Dynamic Imports** - Progressive loading
+
+### **Payment & E-commerce**
+- **Stripe** - Secure payment processing
+- **Webhook Integration** - Real-time payment handling
+- **Secure Downloads** - HMAC-verified download tokens
+- **KMZ File Delivery** - Google Maps compatible travel guides
 
 ### **Performance**
 - **Turbopack** - Fast development builds
@@ -91,8 +98,10 @@ npm run type-check   # Run TypeScript compiler
 ```
 src/
 ├── app/                    # Next.js App Router pages
+│   ├── api/               # API routes (Stripe, downloads)
 │   ├── blog/              # Travel blog pages
 │   ├── food/              # Food experiences
+│   ├── maps/              # Travel map sales & success pages
 │   ├── transportation/    # Transport guide
 │   └── vlogs/             # Video content
 ├── components/            # React components
@@ -142,6 +151,35 @@ export const monthYearPosts: BlogPost[] = [
 ### **Adding Food/Transport Experiences**
 
 Update the respective data files in `src/content/` with new entries following the existing TypeScript interfaces.
+
+## 🗺️ Travel Map Sales System
+
+### **Features**
+- **Secure Payments** - Stripe integration with webhook verification
+- **Digital Downloads** - KMZ files for Google Maps import
+- **Token Security** - HMAC-signed download tokens with 7-day expiration
+- **Email Delivery** - Automatic download links sent to customers
+
+### **Setup Process**
+1. **Stripe Configuration**:
+   - Create products and prices in Stripe Dashboard
+   - Update price IDs in `src/components/maps/PricingSection.tsx`
+   - Configure webhook endpoint: `/api/stripe/webhooks`
+
+2. **File Management**:
+   - Add KMZ files to `public/downloads/`
+   - Update product mapping in `src/app/api/download/route.ts`
+
+3. **Current Products**:
+   - **Laos Travel Guide** - $7.00 (65% off from $20.00)
+   - 50+ curated locations with insider tips
+
+### **Payment Flow**
+1. Customer clicks "Get Instant Access" → Stripe checkout
+2. Payment completion triggers webhook
+3. System generates secure download token
+4. Customer receives email with download link
+5. Token-verified download of KMZ file
 
 ## 🎨 Styling & Theming
 
@@ -195,9 +233,18 @@ npm run build && npm run export
 Create `.env.local` for environment-specific settings:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
+# Required for production
+STRIPE_SECRET_KEY=sk_live_your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret_from_stripe_dashboard
+NEXT_PUBLIC_BASE_URL=https://your-domain.com
+DOWNLOAD_SECRET=your-secure-random-string-for-download-tokens
+
+# Optional
 NEXT_PUBLIC_GOOGLE_ANALYTICS=GA_MEASUREMENT_ID
+EMAIL_API_KEY=your_email_service_api_key
 ```
+
+For Vercel deployment, add these environment variables in your Vercel dashboard.
 
 ### **SEO Configuration**
 Update `src/lib/seo.ts` with your site metadata:

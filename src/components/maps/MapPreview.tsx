@@ -15,8 +15,8 @@ export default function MapPreview() {
       rating: "5.0"
     },
     {
-      title: "Sunrise Viewpoint",
-      description: "Best sunrise in Luang Prabang without the crowds. 15-min motorbike ride",
+      title: "Sunset Viewpoint",
+      description: "Best sunset in Luang Prabang without the crowds. 15-min motorbike ride",
       category: "Nature",
       rating: "4.9"
     },

@@ -1,9 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY
+const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 if (!STRIPE_SECRET_KEY) {
-  throw new Error('STRIPE_SECRET_KEY is not set in environment variables')
+  throw new Error('STRIPE_SECRET_KEY is required in production')
+}
+
+if (!NEXT_PUBLIC_BASE_URL) {
+  console.warn('NEXT_PUBLIC_BASE_URL not set, using localhost fallback')
 }
 
 export async function POST(request: NextRequest) {
@@ -29,8 +34,8 @@ export async function POST(request: NextRequest) {
         'payment_method_types[0]': 'card',
         'line_items[0][price]': priceId,
         'line_items[0][quantity]': '1',
-        'success_url': `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/maps/success?session_id={CHECKOUT_SESSION_ID}`,
-        'cancel_url': `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/maps`,
+        'success_url': `${NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/maps/success?session_id={CHECKOUT_SESSION_ID}`,
+        'cancel_url': `${NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/maps`,
         'metadata[product_id]': productId || '',
         'allow_promotion_codes': 'true',
         'billing_address_collection': 'required',

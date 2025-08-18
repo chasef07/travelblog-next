@@ -77,10 +77,6 @@ export default function PricingSection() {
           viewport={{ once: true }}
         >
           <Card className="relative overflow-hidden shadow-xl bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-primary/20">
-            {/* Popular Badge */}
-            <div className="absolute top-0 right-0 bg-gradient-to-r from-primary to-secondary text-white px-4 py-1 text-xs font-medium">
-              LAUNCHING SOON
-            </div>
 
             <CardHeader className="text-center p-8 pb-4">
               <div className="mb-4">
@@ -93,10 +89,10 @@ export default function PricingSection() {
 
               <div className="mb-6">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-4xl font-bold">$19.97</span>
+                  <span className="text-4xl font-bold">$7.00</span>
                   <div className="text-left text-sm text-muted-foreground">
-                    <div className="line-through">$49.97</div>
-                    <div>Launch Price</div>
+                    <div className="line-through">$20.00</div>
+                    <div>65% Off</div>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground">
@@ -156,7 +152,7 @@ export default function PricingSection() {
               <div className="mt-6 p-4 bg-muted/50 rounded-lg">
                 <p className="text-xs text-center text-muted-foreground">
                   💡 This saves you 100+ hours of research and tourist trap mistakes. 
-                  That&apos;s less than $0.40 per recommendation!
+                  That&apos;s less than $0.14 per recommendation!
                 </p>
               </div>
             </CardContent>

@@ -5,6 +5,10 @@ import fs from 'fs'
 
 const DOWNLOAD_SECRET = process.env.DOWNLOAD_SECRET
 
+if (!DOWNLOAD_SECRET) {
+  throw new Error('DOWNLOAD_SECRET is required for secure downloads')
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
@@ -40,7 +44,7 @@ export async function GET(request: NextRequest) {
 
     // Verify the signature
     const expectedSignature = crypto
-      .createHmac('sha256', DOWNLOAD_SECRET || 'fallback-secret')
+      .createHmac('sha256', DOWNLOAD_SECRET!)
       .update(JSON.stringify(downloadData))
       .digest('hex')
 
@@ -61,7 +65,7 @@ export async function GET(request: NextRequest) {
 
     // Determine which file to serve based on product ID
     const productFiles: { [key: string]: string } = {
-      'laos-map': 'Laos-Hidden-Gems-Map.kmz'
+      'laos-map': 'Laos-Travel-Guide.kmz'
     }
 
     const fileName = productFiles[downloadData.productId]
@@ -100,6 +104,15 @@ export async function GET(request: NextRequest) {
       fs.writeFileSync(filePath, sampleContent)
     }
 
+    // Log successful download
+    console.log(`📥 Download initiated:`, {
+      sessionId: downloadData.sessionId,
+      productId: downloadData.productId,
+      email: downloadData.email,
+      fileName,
+      timestamp: new Date().toISOString()
+    })
+
     // Read the file
     const fileBuffer = fs.readFileSync(filePath)
 
@@ -108,6 +121,9 @@ export async function GET(request: NextRequest) {
     headers.set('Content-Type', 'application/vnd.google-earth.kmz')
     headers.set('Content-Disposition', `attachment; filename="${fileName}"`)
     headers.set('Content-Length', fileBuffer.length.toString())
+    headers.set('Cache-Control', 'private, no-cache, no-store, must-revalidate')
+    headers.set('Pragma', 'no-cache')
+    headers.set('Expires', '0')
 
     return new NextResponse(fileBuffer, {
       status: 200,

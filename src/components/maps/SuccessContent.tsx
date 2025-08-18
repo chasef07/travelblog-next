@@ -25,20 +25,25 @@ export default function SuccessContent() {
       }
 
       try {
-        // In a real app, you'd fetch the download token from your backend
-        // For now, we'll create a mock token based on the session ID
-        await new Promise(resolve => setTimeout(resolve, 1500))
+        // Fetch the real download token from our API
+        const response = await fetch(`/api/download-token?session_id=${sessionId}`)
         
-        // Create a mock download token for demonstration
-        const mockToken = `${btoa(JSON.stringify({
-          sessionId,
-          productId: 'laos-map',
-          timestamp: Date.now(),
-          expires: Date.now() + (7 * 24 * 60 * 60 * 1000)
-        }))}.mock-signature`
-        
-        setDownloadToken(mockToken)
-      } catch {
+        if (!response.ok) {
+          if (response.status === 404) {
+            setError('Download not ready yet. Please wait a moment and refresh the page.')
+          } else if (response.status === 410) {
+            setError('Download link has expired. Please contact support.')
+          } else {
+            throw new Error('Failed to fetch download token')
+          }
+          setLoading(false)
+          return
+        }
+
+        const data = await response.json()
+        setDownloadToken(data.token)
+      } catch (error) {
+        console.error('Error fetching download token:', error)
         setError('Failed to prepare download. Please contact support.')
       } finally {
         setLoading(false)
@@ -132,7 +137,7 @@ export default function SuccessContent() {
                   disabled={!downloadToken}
                 >
                   <Download className="h-4 w-4" />
-                  {downloadToken ? 'Download Map (KMZ File)' : 'Preparing Download...'}
+                  {downloadToken ? 'Download Laos Travel Guide (KMZ)' : 'Preparing Download...'}
                 </Button>
                 
                 {downloadToken && (
