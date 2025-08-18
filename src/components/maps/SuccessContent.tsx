@@ -1,20 +1,96 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { CheckCircle, Download, Mail, MapPin, ExternalLink } from 'lucide-react'
+import { CheckCircle, Download, Mail, MapPin, ExternalLink, Clock, AlertCircle } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
 export default function SuccessContent() {
   const searchParams = useSearchParams()
-  // const sessionId = searchParams.get('session_id') // Will be used for order verification
+  const sessionId = searchParams.get('session_id')
+  const [downloadToken, setDownloadToken] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchDownloadToken = async () => {
+      if (!sessionId) {
+        setError('No session ID found. Please contact support.')
+        setLoading(false)
+        return
+      }
+
+      try {
+        // In a real app, you'd fetch the download token from your backend
+        // For now, we'll create a mock token based on the session ID
+        await new Promise(resolve => setTimeout(resolve, 1500))
+        
+        // Create a mock download token for demonstration
+        const mockToken = `${btoa(JSON.stringify({
+          sessionId,
+          productId: 'laos-map',
+          timestamp: Date.now(),
+          expires: Date.now() + (7 * 24 * 60 * 60 * 1000)
+        }))}.mock-signature`
+        
+        setDownloadToken(mockToken)
+      } catch {
+        setError('Failed to prepare download. Please contact support.')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchDownloadToken()
+  }, [sessionId])
 
   const handleDownload = () => {
-    // This will be implemented with actual file download logic
-    alert('Download functionality will be implemented with actual map files!')
+    if (!downloadToken) {
+      alert('Download not ready yet. Please wait a moment.')
+      return
+    }
+
+    // Create the download URL
+    const downloadUrl = `/api/download?token=${downloadToken}`
+    
+    // Open download in new tab
+    window.open(downloadUrl, '_blank')
+  }
+
+  if (loading) {
+    return (
+      <div className="max-w-2xl mx-auto px-6 py-12 text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+        <h2 className="text-xl font-semibold mb-2">Preparing Your Download</h2>
+        <p className="text-muted-foreground">Please wait while we generate your secure download link...</p>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-2xl mx-auto px-6 py-12">
+        <Card className="text-center">
+          <CardContent className="p-8">
+            <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
+            <h2 className="text-xl font-semibold mb-2 text-red-600">Download Error</h2>
+            <p className="text-muted-foreground mb-6">{error}</p>
+            <div className="space-y-3">
+              <Button variant="outline" onClick={() => window.location.reload()}>
+                Try Again
+              </Button>
+              <p className="text-xs text-muted-foreground">
+                If the problem persists, please contact support with your session ID: {sessionId}
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
   }
 
   return (
@@ -53,10 +129,18 @@ export default function SuccessContent() {
                   onClick={handleDownload}
                   className="w-full gap-2"
                   size="lg"
+                  disabled={!downloadToken}
                 >
                   <Download className="h-4 w-4" />
-                  Download Map (KMZ File)
+                  {downloadToken ? 'Download Map (KMZ File)' : 'Preparing Download...'}
                 </Button>
+                
+                {downloadToken && (
+                  <div className="mt-3 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                    <Clock className="h-3 w-3" />
+                    <span>Download link expires in 7 days</span>
+                  </div>
+                )}
               </div>
 
               {/* Instructions */}
@@ -125,7 +209,7 @@ export default function SuccessContent() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-8 text-center"
         >
-          <h3 className="font-bold mb-4">What's Next?</h3>
+          <h3 className="font-bold mb-4">What&apos;s Next?</h3>
           <p className="text-muted-foreground mb-6">
             More curated travel maps coming soon for Vietnam, Nepal, Thailand, and other countries from my journey.
           </p>

@@ -153,7 +153,7 @@ export default function ValueProposition() {
             <div className="max-w-2xl mx-auto">
               <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">
-                Curated by Someone Who's Actually Been There
+                Curated by Someone Who&apos;s Actually Been There
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 This isn&apos;t just another generic travel guide. Every recommendation comes from my personal experience 

@@ -156,7 +156,7 @@ export default function PricingSection() {
               <div className="mt-6 p-4 bg-muted/50 rounded-lg">
                 <p className="text-xs text-center text-muted-foreground">
                   💡 This saves you 100+ hours of research and tourist trap mistakes. 
-                  That's less than $0.40 per recommendation!
+                  That&apos;s less than $0.40 per recommendation!
                 </p>
               </div>
             </CardContent>
