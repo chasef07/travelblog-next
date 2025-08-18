@@ -6,10 +6,10 @@ import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Chase Fagen | Travel Blog & Adventures - Lone Horizons',
-  description: 'Follow Chase Fagen\'s world travel adventures across 15+ countries. Discover travel guides, local cuisines, packing tips, and cultural insights from Asia, Africa, and beyond.',
-  keywords: ['travel blog', 'world travel', 'solo travel', 'travel guides', 'Asia travel', 'Africa travel', 'travel vlogs', 'packing guides', 'local food guides'],
-  images: ['/assets/images/og-image.jpg']
+  title: 'Lone Horizons - Solo Travel Blog & Cultural Adventures Across 16 Countries',
+  description: 'Discover authentic solo travel experiences across Asia, Africa & beyond. Real stories, practical tips, and cultural insights from a year-long journey through 16 countries. Travel better, explore deeper.',
+  keywords: ['solo travel blog', 'Asia travel guide', 'Africa travel tips', 'cultural travel experiences', 'backpacking Asia', 'solo travel guides', 'travel photography', 'authentic travel stories', 'budget travel tips', 'cultural immersion travel'],
+  images: ['/assets/images/misc/posttrip.jpg']
 })
 
 export default function RootLayout({ children }:{children: React.ReactNode}){

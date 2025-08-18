@@ -14,12 +14,17 @@ export async function generateMetadata({ params }:{ params: Promise<{ year: stri
   if (post) {
     const images = post.images?.map(img => img.src) || [metadata?.image].filter(Boolean) as string[]
     const keywords = [
-      'travel blog',
-      post.location,
-      `${post.location} travel`,
-      'travel guide',
-      year,
-      slug.replace('-', ' ')
+      'solo travel blog',
+      `${post.location} travel guide`,
+      `${post.location} solo travel`,
+      `${post.location} travel tips`,
+      'authentic travel experiences',
+      'cultural immersion travel',
+      'backpacking stories',
+      'travel photography',
+      slug.replace(/-/g, ' '),
+      `${post.location} adventure`,
+      'budget travel tips'
     ]
     
     return generatePageMetadata({

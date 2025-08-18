@@ -12,11 +12,11 @@ const BlogGrid = dynamic(() => import('@/components/BlogGrid').then(mod => ({ de
 })
 
 export const metadata = generatePageMetadata({
-  title: 'Travel Blog - Adventures Around the World',
-  description: 'Follow Chase Fagen\'s travel adventures across 15+ countries. Read stories from Southeast Asia, Africa, Eastern Europe, and the Middle East with photos and travel tips.',
+  title: 'Travel Stories & Cultural Adventures - Solo Travel Blog',
+  description: 'Discover authentic travel stories from 16 countries across Asia, Africa & beyond. Real experiences, practical tips, and cultural insights from a year-long solo journey. Travel better, explore deeper.',
   path: '/blog',
-  keywords: ['travel blog', 'world travel stories', 'solo travel blog', 'Asia travel', 'Africa travel', 'travel experiences', 'travel photography', 'backpacking stories'],
-  images: ['/assets/images/blog/featured-blog.jpg']
+  keywords: ['solo travel stories', 'Asia travel guide', 'Africa travel blog', 'cultural travel experiences', 'backpacking stories', 'travel tips', 'authentic travel blog', 'solo travel adventures', 'travel photography', 'cultural immersion'],
+  images: ['/assets/images/misc/posttrip.jpg']
 })
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ tag?: string }> }){
@@ -31,8 +31,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ t
               <SectionTitle>Adventures Around the World</SectionTitle>
             </h1>
             <p itemProp="description" className="mt-6 text-lg text-[var(--muted-text-color)] max-w-4xl mx-auto leading-relaxed">
-              Journey with me across 15+ countries and discover the stories, cultures, and experiences that shape our world. 
-              From Southeast Asian temples to African safaris, each post captures the essence of global adventure.
+              Journey with me across 16 countries and discover authentic travel stories, practical tips, and cultural insights. 
+              From Southeast Asian temples to African safaris, each post captures real experiences to help you travel better, cheaper, and smarter.
             </p>
           </header>
           

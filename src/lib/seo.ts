@@ -7,7 +7,7 @@ import { BlogPost } from '@/types/blog'
 
 export const siteConfig = {
   name: 'Lone Horizons',
-  description: 'Follow Chase Fagen\'s world travel adventures. Discover travel guides, local cuisines, packing tips, and cultural insights from across Asia, Africa, and beyond.',
+  description: 'Solo Travel Adventures & Authentic Cultural Experiences Across 16 Countries. Real stories, practical tips, and cultural insights from a year-long solo journey through Asia, Africa, and beyond.',
   url: 'https://chasefagen.com',
   author: {
     name: 'Chase Fagen',
@@ -16,19 +16,21 @@ export const siteConfig = {
     instagram: '@chasef07'
   },
   keywords: [
-    'travel blog',
-    'world travel',
-    'solo travel',
-    'travel guides',
+    'solo travel blog',
+    'Asia travel guide',
+    'Africa travel tips',
+    'cultural travel experiences',
+    'backpacking Asia',
+    'solo travel guides',
+    'authentic travel stories',
+    'budget travel tips',
+    'cultural immersion travel',
+    'Southeast Asia backpacking',
+    'East Africa travel',
     'travel photography',
-    'travel tips',
-    'Southeast Asia travel',
-    'Africa travel',
-    'backpacking',
-    'digital nomad',
-    'travel vlogs',
-    'local food guides',
-    'packing guides'
+    'solo female travel',
+    'adventure travel blog',
+    'travel better cheaper smarter'
   ]
 } as const
 
@@ -57,7 +59,7 @@ export function generatePageMetadata({
   const url = `${siteConfig.url}${path}`
   const fullTitle = title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`
   
-  const defaultImage = `${siteConfig.url}/assets/images/og-image.jpg`
+  const defaultImage = `${siteConfig.url}/assets/images/misc/posttrip.jpg`
   const imageUrls = images.length > 0 ? images.map(img => 
     img.startsWith('http') ? img : `${siteConfig.url}${img}`
   ) : [defaultImage]
@@ -245,5 +247,83 @@ export function generateTravelGuideJsonLd(destination: string, description: stri
       '@type': 'Place',
       name: destination
     }
+  }
+}
+
+/**
+ * Generate JSON-LD for travel experiences/trips
+ */
+export function generateTripJsonLd(destination: string, title: string, description: string, date: string, images: string[] = []): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Trip',
+    name: title,
+    description,
+    image: images,
+    startDate: date,
+    itinerary: {
+      '@type': 'Place',
+      name: destination
+    },
+    author: {
+      '@type': 'Person',
+      name: siteConfig.author.name,
+      url: siteConfig.url
+    },
+    provider: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url
+    }
+  }
+}
+
+/**
+ * Generate JSON-LD for travel blog with enhanced structured data
+ */
+export function generateTravelBlogJsonLd(): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    author: {
+      '@type': 'Person',
+      name: siteConfig.author.name,
+      url: siteConfig.url,
+      sameAs: [
+        `https://twitter.com/${siteConfig.author.twitter?.replace('@', '')}`,
+        `https://instagram.com/${siteConfig.author.instagram?.replace('@', '')}`
+      ]
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url
+    },
+    blogPost: [],
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'solo travelers, backpackers, cultural explorers'
+    },
+    about: [
+      {
+        '@type': 'Thing',
+        name: 'Solo Travel'
+      },
+      {
+        '@type': 'Thing', 
+        name: 'Cultural Experiences'
+      },
+      {
+        '@type': 'Thing',
+        name: 'Backpacking'
+      },
+      {
+        '@type': 'Thing',
+        name: 'Travel Photography'
+      }
+    ]
   }
 }

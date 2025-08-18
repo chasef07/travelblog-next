@@ -94,7 +94,16 @@ export default function SimpleHero() {
               transition={{ delay: 0.6 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
             >
-              Reengineering life from the ground up
+              Solo Travel Adventures & Authentic Cultural Experiences Across 16 Countries
+            </motion.p>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+              className="text-lg text-muted-foreground/80 max-w-2xl mx-auto mt-4"
+            >
+              Real stories, practical tips, and cultural insights from a year-long solo journey
             </motion.p>
           </div>
 
