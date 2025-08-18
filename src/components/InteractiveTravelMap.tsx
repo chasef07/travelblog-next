@@ -406,7 +406,7 @@ export default function InteractiveTravelMap() {
                   <div className="text-xs text-muted-foreground">Countries</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary">10</div>
+                  <div className="text-2xl font-bold text-primary">10</div>
                   <div className="text-xs text-muted-foreground">Months</div>
                 </div>
                 <div className="text-center">

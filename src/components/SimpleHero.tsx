@@ -2,14 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, BookOpen, ArrowRight } from 'lucide-react'
+import { MapPin, BookOpen, ArrowRight, Calendar } from 'lucide-react'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
+import { blogIndex, BlogMeta } from '../content/blogIndex'
 
 export default function SimpleHero() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const recentPost = blogIndex[0] // Get the most recent blog post
 
   useEffect(() => {
     setIsLoaded(true)
@@ -96,12 +98,58 @@ export default function SimpleHero() {
             </motion.p>
           </div>
 
+          {/* Recent Blog Post */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="max-w-2xl mx-auto"
+          >
+            <Link href={`/blog/${recentPost.year}/${recentPost.slug}`}>
+              <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-sm border border-border/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] cursor-pointer">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={recentPost.image}
+                    alt={recentPost.title}
+                    fill
+                    className="object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/20" />
+                </div>
+                
+                {/* Content */}
+                <div className="relative z-10 p-6 space-y-3">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Badge variant="secondary" className="gap-1">
+                      <Calendar className="h-3 w-3" />
+                      Latest Post
+                    </Badge>
+                    <span className="text-muted-foreground">{recentPost.displayDate}</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
+                    {recentPost.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {recentPost.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                    <span>Read more</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
 
           {/* Simplified CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 0.9 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link href="/blog">
