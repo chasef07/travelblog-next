@@ -12,8 +12,13 @@ if (!NEXT_PUBLIC_BASE_URL) {
 }
 
 export async function POST(request: NextRequest) {
+  let priceId: string = ''
+  let productId: string = ''
+  
   try {
-    const { priceId, productId } = await request.json()
+    const body = await request.json()
+    priceId = body.priceId
+    productId = body.productId
 
     if (!priceId) {
       return NextResponse.json(
