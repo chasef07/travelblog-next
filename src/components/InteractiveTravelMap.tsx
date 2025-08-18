@@ -195,8 +195,7 @@ export default function InteractiveTravelMap() {
       const leaflet = await import('leaflet')
       L = leaflet.default
 
-      // Import Leaflet CSS
-      await import('leaflet/dist/leaflet.css')
+      // Import Leaflet CSS - CSS is handled globally in layout
 
       if (mapRef.current && !leafletMapRef.current) {
         // Initialize map
@@ -218,7 +217,7 @@ export default function InteractiveTravelMap() {
 
         // Custom marker icon function
         const createCustomIcon = (country: CountryData, index: number) => {
-          return L.divIcon({
+          return L!.divIcon({
             className: 'custom-marker',
             html: `
               <div class="relative group">
@@ -236,14 +235,14 @@ export default function InteractiveTravelMap() {
 
         // Add markers for each country
         visitedCountries.forEach((country, index) => {
-          const marker = L.marker(country.coordinates, {
+          const marker = L!.marker(country.coordinates, {
             icon: createCustomIcon(country, index)
-          }).addTo(leafletMapRef.current)
+          }).addTo(leafletMapRef.current!)
 
           // Add click event
           marker.on('click', () => {
             setSelectedCountry(country)
-            leafletMapRef.current.flyTo(country.coordinates, 6, {
+            leafletMapRef.current!.flyTo(country.coordinates, 6, {
               duration: 1.5
             })
           })
@@ -263,12 +262,12 @@ export default function InteractiveTravelMap() {
 
         // Add journey path
         const coordinates = visitedCountries.map(country => country.coordinates)
-        L.polyline(coordinates, {
+        L!.polyline(coordinates, {
           color: '#3b82f6',
           weight: 3,
           opacity: 0.7,
           dashArray: '10, 10'
-        }).addTo(leafletMapRef.current)
+        }).addTo(leafletMapRef.current!)
 
         setIsLoaded(true)
       }

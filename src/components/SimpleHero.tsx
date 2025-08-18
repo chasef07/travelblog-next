@@ -7,7 +7,7 @@ import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
-import { blogIndex, BlogMeta } from '../content/blogIndex'
+import { blogIndex } from '../content/blogIndex'
 
 export default function SimpleHero() {
   const [isLoaded, setIsLoaded] = useState(false)
