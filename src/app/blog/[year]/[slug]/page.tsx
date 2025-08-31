@@ -193,21 +193,21 @@ export default async function Page({ params }: { params: Promise<{ year: string;
                 </div>
 
                 {blogPost.images && blogPost.images.length > 0 && (
-                  <div className="grid gap-6">
+                  <div className="grid gap-8 my-8">
                     {blogPost.images.map((image, index) => (
-                      <figure key={index} className="relative">
-                        <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-md">
+                      <figure key={index} className="relative group">
+                        <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                           <Image 
                             src={image.src} 
                             alt={image.alt} 
                             fill
                             sizes="(max-width: 768px) 100vw, 800px"
-                            className="object-cover"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
                           />
                         </div>
                         {image.caption && (
-                          <figcaption className="text-sm text-[var(--muted-text-color)] text-center mt-2 italic">
+                          <figcaption className="text-sm text-[var(--muted-text-color)] text-center mt-3 italic max-w-2xl mx-auto">
                             {image.caption}
                           </figcaption>
                         )}

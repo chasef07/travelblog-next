@@ -1,13 +1,32 @@
 import { BlogPost } from '../../types/blog';
 
-export const august2024Posts: BlogPost[] = [
+export const august2025Posts: BlogPost[] = [
+  {
+    id: 'from-data-collection-to-implementation',
+    title: 'From Data Collection to Implementation - Eleven Months Later',
+    date: '2025-08-31',
+    location: 'Dunedin, FL, USA',
+    slug: 'from-data-collection-to-implementation',
+    year: '2025',
+    excerpt: 'Reflecting on eleven months since my world tour began - transitioning from collecting life data to implementing insights into action.',
+    content: `I've been back home for over a month now, and it's been eleven months since I left on my world tour last September 22nd. Life here has been full—I've been working on an AI-powered marketplace, spending a lot of time working out, practicing yoga, hitting the sauna, and finding good cafés. I've been pushing myself to stay on top of the rapid progress in AI and to position myself well in this ever-changing world. It's been refreshing to reignite my intellect, but as I've gotten busier in this space, I haven't dedicated as much time to introspection.
+
+When I was traveling, every day offered the freedom to wander, get lost, and spend hours simply thinking about life. Back in the fast-paced world of economic progress and constant change, you're swept along by the current—and unless you intentionally carve out space, reflection can easily slip away. That's why I've realized how important it is to choose the right environment. For me, that means not a bustling city, but also not something too remote, like the beaches of Cambodia or the jungles of Laos. I'm looking for a happy medium: a place where I can create a secluded, introspective space while still staying connected to the exciting progress of mankind.
+
+I'm optimistic about the future, and I feel as if I'm right where I'm supposed to be—working each day to move closer to my Hashem-given potential. To me, that potential is best fulfilled through both physical and intellectual growth: using a healthy body for sports and activity, while also continuously learning new skills.
+
+When I was on the road, I imagined I'd want to backpack forever. But as I sit here in a café in Dunedin, Florida, I notice that the travel bug isn't pulling me as strongly right now. I'll always be an adventurer at heart, always looking toward the next great trip, but I don't feel the urge to constantly bounce from place to place. Instead, I see now as the moment to reengineer my life from the ground up.
+
+My world tour was about collecting data—discovering how I want to live, where, with whom, and why. Now begins the real journey: implementing those insights into action, transforming theory into practice. That will be a challenge, but it's one I'm ready for. I believe I'm on the right track, and I'll keep trekking along the way.`,
+    images: []
+  },
   {
     id: 'two-weeks-home-st-petersburg',
     title: 'Two Weeks Home - Holding onto Travel Lessons',
-    date: '2024-08-10',
+    date: '2025-08-10',
     location: 'St. Petersburg, FL, USA',
     slug: 'two-weeks-home-st-petersburg',
-    year: '2024',
+    year: '2025',
     excerpt: 'Reflecting on maintaining travel lessons after two weeks back home - health, boundaries, and the challenge of slow living in a fast environment.',
     content: `I have been back home for two weeks now and I think I have done a pretty good job holding onto the lessons I learned from my trip, though there have been some shortcomings.
 
@@ -29,10 +48,10 @@ The best part of my trip was feeling unique, adventurous, and alive. That is the
   {
     id: 'one-week-back-clearwater',
     title: 'One Week Back - The Reality of Reverse Culture Shock',
-    date: '2024-08-02',
+    date: '2025-08-02',
     location: 'Clearwater, FL, USA',
     slug: 'one-week-back-clearwater',
-    year: '2024',
+    year: '2025',
     excerpt: 'First week back in Florida after 10 months of worldwide travel - appreciating local wildlife while confronting broken food systems and lifestyle differences.',
     content: `It's been a week since I returned to Florida after 10 months of traveling the world, and it's been a mix of emotions. The first few days were incredible—rediscovering all the amazing things Florida has to offer. I saw deer right outside my home, dolphins, manatees, seagulls, and pelicans. The sheer biodiversity here is something I truly appreciate.
 

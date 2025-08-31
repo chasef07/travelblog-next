@@ -166,9 +166,6 @@ export function BlogGrid() {
         className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
         {filteredPosts.map((post, index) => {
-          // Extract country from title for badge
-          const countryMatch = post.title.match(/\b(?:in|of)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)/i)
-          const country = countryMatch ? countryMatch[1] : post.year.toString()
           
           return (
             <motion.article
@@ -195,13 +192,6 @@ export function BlogGrid() {
                     itemProp="image"
                     loading="lazy"
                   />
-                  
-                  {/* Country Badge */}
-                  <div className="absolute top-4 right-4">
-                    <div className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-sm text-white text-xs font-medium border border-white/20">
-                      {country}
-                    </div>
-                  </div>
 
                   {/* Featured badge for first post */}
                   {index === 0 && (
