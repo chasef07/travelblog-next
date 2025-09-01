@@ -24,11 +24,11 @@ export default function SimpleCountriesGrid() {
   ] as const
 
   return (
-    <div className="grid gap-6 md:gap-8 justify-items-center" style={{gridTemplateColumns:'repeat(auto-fill,minmax(100px,1fr))'}}>
+    <div className="grid gap-4 sm:gap-6 md:gap-8 justify-items-center" style={{gridTemplateColumns:'repeat(auto-fill,minmax(80px,1fr))'}}>
       {countries.map((country, index) => (
         <div 
           key={country.name} 
-          className="group text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:-translate-y-2"
+          className="group text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 w-full max-w-[120px]"
         >
           <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
             <Image 
@@ -36,7 +36,7 @@ export default function SimpleCountriesGrid() {
               alt={`${country.name} flag`} 
               width={100} 
               height={67} 
-              className="w-full h-[60px] md:h-[67px] object-cover rounded-xl transition-transform duration-300 group-hover:scale-110" 
+              className="w-full h-auto aspect-[3/2] object-cover rounded-xl transition-transform duration-300 group-hover:scale-110" 
               onError={(e) => {
                 console.error(`Failed to load flag for ${country.name}: ${country.flag}`)
                 // Show elegant fallback
@@ -48,7 +48,7 @@ export default function SimpleCountriesGrid() {
               priority={index < 8}
             />
             {/* Elegant fallback */}
-            <div className="hidden w-full h-[60px] md:h-[67px] bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center">
+            <div className="hidden w-full aspect-[3/2] bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center">
               <span className="text-xs font-medium text-primary">{country.name}</span>
             </div>
             
@@ -59,8 +59,8 @@ export default function SimpleCountriesGrid() {
             <div className="absolute inset-0 rounded-xl ring-2 ring-transparent group-hover:ring-primary/30 transition-all duration-300" />
           </div>
           
-          <div className="mt-3">
-            <span className="block text-xs md:text-sm font-medium text-foreground/70 group-hover:text-primary transition-colors duration-300">
+          <div className="mt-2 sm:mt-3">
+            <span className="block text-xs sm:text-sm font-medium text-foreground/70 group-hover:text-primary transition-colors duration-300">
               {country.name}
             </span>
           </div>
