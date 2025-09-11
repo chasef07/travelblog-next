@@ -16,18 +16,20 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/:all*(svg|jpg|jpeg|png|gif|webp|avif|ico)',
-        locale: false,
+        source: '/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
-        ]
-      },
-      {
-        source: '/:path*',
-        headers: [
+            value: 'no-cache, no-store, must-revalidate'
+          },
+          {
+            key: 'Pragma',
+            value: 'no-cache'
+          },
+          {
+            key: 'Expires',
+            value: '0'
+          },
           {
             key: 'X-Frame-Options',
             value: 'DENY'
