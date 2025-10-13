@@ -2,6 +2,7 @@ import { BlogMetadata } from '../types/blog';
 
 // Lightweight metadata for blog grid - images and excerpts only
 export const blogMetadata: BlogMetadata[] = [
+  { title: 'October 2025: Business in Costa Rica', date: 'October 2025', excerpt: 'On the eve of a one-way flight, reflecting on family, AI consulting with Kyle, and committing to ship real value in Costa Rica.', image: '/assets/images/misc/costa-business.jpg', link: '/blog/2025/october' },
   { title: 'August 2025: Coming Home to Florida', date: 'August 2025', excerpt: "Reverse culture shock and finding home again after a year of global adventures. Reflections on returning to Florida and what 'home' means now.", image: '/assets/images/misc/posttrip.jpg', link: '/blog/2025/august' },
   { title: 'July 2025: Hokkaido, the Northern Gem of Japan', date: 'July 2025', excerpt: 'Hokkaido cuisine, nature, and culture', image: '/assets/images/food/sush.jpg', link: '/blog/2025/july' },
   { title: 'June 2025: Indonesia', date: 'June 2025', excerpt: 'From surfing worldclass waves to temple-hopping in Bali, Indonesia is a whirlwind of ancient culture, amazing wildlife, and adventure.', image: '/assets/images/misc/indoprof.jpg', link: '/blog/2025/june' },

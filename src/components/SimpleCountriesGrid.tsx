@@ -21,6 +21,7 @@ export default function SimpleCountriesGrid() {
     { name: 'Philippines', flag: 'RP-flag.jpg' },
     { name: 'Indonesia', flag: 'ID-flag.jpg' },
     { name: 'Japan', flag: 'JA-flag.jpg' },
+    { name: 'Costa Rica', flag: 'CR-flag.jpg' },
   ] as const
 
   return (

@@ -183,5 +183,5 @@ export const journeyStats = {
   durationMonths: 11,
   continents: 4, // Asia, Africa, Europe, Middle East
   startDate: 'September 2024',
-  endDate: 'August 2025'
+  endDate: 'July 2025'
 }

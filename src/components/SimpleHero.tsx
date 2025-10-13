@@ -30,27 +30,6 @@ export default function SimpleHero() {
       </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-20 text-center">
-        {/* Profile Image - Corner Placement */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, x: 50 }}
-          animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.8, x: isLoaded ? 0 : 50 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="absolute top-4 right-4 md:top-8 md:right-8 hidden sm:block"
-        >
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-            <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm shadow-xl hover:scale-105 transition-transform duration-300">
-              <Image
-                src="/assets/images/misc/backpackselfie.jpg"
-                alt="Chase Fagen - Travel Blogger"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
@@ -69,7 +48,7 @@ export default function SimpleHero() {
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                   <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping opacity-75" />
                 </div>
-                Currently in Clearwater, FL
+                Currently in Puerto Viejo, Costa Rica
               </Badge>
             </motion.div>
           </div>

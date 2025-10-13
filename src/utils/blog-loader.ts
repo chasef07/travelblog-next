@@ -89,6 +89,9 @@ function getMonthFromSlug(slug: string): string {
     'november': 'november',
     'december': 'december',
     // For individual post slugs that exist
+    'one-way-flight-to-costa-rica': 'october',
+    'psyche-and-ai-realizations': 'october',
+    'south-florida-reset': 'october',
     'nong-khiaw-excursion': 'january',
     'nong-khiaw-preparation': 'january',
   };
