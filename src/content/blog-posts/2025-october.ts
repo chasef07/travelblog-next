@@ -2,6 +2,33 @@ import { BlogPost } from '../../types/blog'
 
 export const october2025Posts: BlogPost[] = [
   {
+    id: 'clarity-in-puerto-viejo',
+    title: 'Clarity in Puerto Viejo',
+    date: 'October 15, 2025',
+    location: 'Puerto Viejo, Costa Rica',
+    slug: 'clarity-in-puerto-viejo',
+    year: '2025',
+    excerpt: 'Grateful reflections on health, focus, and building a business while living the digital nomad life in Puerto Viejo.',
+    content: `Wow I am so grateful. Being in Puerto Viejo, Costa Rica, I really feel like everything is coming together. I feel like my clarity of mind and health is on another level.
+
+I wake up at 7 AM, stay off my phone, and go straight to the beach to stretch and jump in the water. I am outside about 95% of the day, shoeless and shirtless, moving my body in the sun.
+
+Kyle and I work on our business. It is so amazing to build something you care about and that is your own, where your integrity and skills are on the line. It does not even feel like work.
+
+This is what I envisioned: being able to work on my own, make money on my own, and live in cool and inspiring places while moving my body and improving my health. This brings clarity of mind.
+
+I do not want to count my chickens before they hatch, but I have loved this taste of being a real digital nomad. I am not rushed to do anything or see sights. I have had three amazing days here just working, training, and eating healthy. That is all you really need. You need to give yourself the space to do it. Crowded American cities are just not for me.
+
+This vision of my life I was not sure existed: making money online for myself and working four to five hours a day on something I care about while also moving my body and being in cool places. Now I taste it and it seems so sweet. I need to stay focused on the path to continue to explore this amazing lifestyle I have the potential to curate.
+
+I may have exciting news to share soon regarding my business endeavors.`,
+    images: [
+      { src: '/assets/images/blog/2025/october/blacksandbeach.jpg', alt: 'Black sand beach in Puerto Viejo' },
+      { src: '/assets/images/blog/2025/october/ronkylefun-2.jpg', alt: 'Ron and Kyle enjoying time together in Puerto Viejo' },
+      { src: '/assets/images/blog/2025/october/workandchill-2.jpg', alt: 'Working and relaxing setup in Puerto Viejo' }
+    ]
+  },
+  {
     id: 'one-way-flight-to-costa-rica',
     title: 'One-Way Flight to Costa Rica',
     date: '2025-10-09',
