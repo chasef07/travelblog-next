@@ -2,6 +2,17 @@ import { BlogPost } from '../../types/blog'
 
 export const october2025Posts: BlogPost[] = [
   {
+    id: 'one-week-in-puerto-viejo',
+    title: 'One Week in Puerto Viejo',
+    date: 'October 19, 2025',
+    location: 'Puerto Viejo, Costa Rica',
+    slug: 'one-week-in-puerto-viejo',
+    year: '2025',
+    excerpt: 'One of the greatest weeks of my life - closing deals, living the digital nomad dream, and thinking about the future.',
+    content: `I have been in Puerto Viejo for one week. I can honestly say this has been one of the greatest weeks of my life. I feel on fire here and think this is how I want to live my life. As I mentioned previously I am outside most of the day, moving my body, with good friends and healthy food. I really like the feel of a local, not crowded beach town. Everyone is down to earth. Community is a big part of where you live. Some places attract entrepreneurs, some hippies, you just have to find the place that fits well on the spectrum for you. I really liked the feel of Bali where there are really balanced people with businesses, workout hard, and are spiritual. I said something I never thought I would say last night. There was a disco happening in the lobby of my hostel and I just wasn't feeling it. I said to Kyle, man I just want to work! Work doesn't feel like work when you own your time, you own the creative direction, and you make your own money with skills. This is what I was shooting for from my re education from my world travels. While I was home I almost thought this life style was out of reach, and I am so grateful that I have gotten a taste of it. I really want to continue to grow what Kyle and I have. As of last post I can officially say we closed our first, and second deals! It is so rewarding having a business owner believe in you, your vision, and pay you to execute. It has given me the confidence to know I can make money on my own, online from anywhere. As I think about the future, lots of things come to mind. I love being in places where I can do outdoor activities, snowboarding, surfing, volleyball, working out outside. When you have the freedom to be anywhere in the world you really can paint your own canvas. I really enjoy the routine of waking up at 6AM with the sun and going to bed early. It means you have used your energy to the potential of the day. But when you think long term, where would I like to raise kids? I am pretty sure it is not in suburban America. Where can the place I raise my kids sculpt them into the most vibrant human beings? I think a place like Puerto Viejo could be cool, but maybe a little more structure and less hippie vibes is needed. I definitely like the great weather and activities part but need a community with aspirations. I just looked up in ChatGPT I am trying to think of places to live long term and raise kids. I am in Puerto Viejo and like the weather and nature and rustic vibes. However I do not like how hippie it is. If I was to raise kids somewhere I want a small, not crowded nature centric community with more ambitious people. Any ideas?`,
+    images: []
+  },
+  {
     id: 'clarity-in-puerto-viejo',
     title: 'Clarity in Puerto Viejo',
     date: 'October 15, 2025',
