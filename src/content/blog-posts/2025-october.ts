@@ -2,6 +2,39 @@ import { BlogPost } from '../../types/blog'
 
 export const october2025Posts: BlogPost[] = [
   {
+    id: 'devotion-is-intelligence',
+    title: 'Devotion is the Most Intelligent Way to Live',
+    date: 'October 30, 2025',
+    location: 'Puerto Viejo, Costa Rica',
+    slug: 'devotion-is-intelligence',
+    year: '2025',
+    excerpt: 'Exploring the spectrum of devotion and why orienting your life toward the infinite is the path to being unbounded.',
+    content: `Devotion is the most intelligent way to live. Devotion is the act of surrendering yourself to something. What do I mean by that? For the past 6 years I have digested many abstract, spiritual teachings. Little by little I have been getting better at making them palatable and more concrete to share to you.
+
+I will start this proof by contradiction. Devotion is a spectrum. On the "far left side" is devotion to yourself. This is sometimes called narcissism or selfishness. I think it is pretty clear to most people that is you walk this life only thinking about yourself you will be empty. If you only live for yourself you will come across as quite standoffish and unpleasant. If that is what you desire to be, go for it, but I think there are better ways.
+
+If you don't devote your life to yourself, what else can you devote it to? There are many answers which fall on this spectrum to varying degrees. You can devote yourself to your career, which I personally would advise against, to your dog, your family, your wife, your community, your special edition sports car. Depending on the target of your devotion, your psyche, emotions, intellect, and even physical health will be impacted.
+
+Further, if you devote yourself to something that is impermanent and out of your control, like a dog who will certainly die, or a career, which will certainly go one day, your devotion is fickle and not strong. You must find an object of devotion that is permanent.
+
+It all comes down to how you want to be in this life. If you devote yourself to career you could make a lot of money, but on the other hand you may lack in health and familial connection. So again the question is, how do you want to experience this life?
+
+When I think of how I want to be in this life, one word comes to mind, unbounded. Unbounded in love, unbounded in wealth, unbounded in health. I desire to be overflowing with all of these attributes and more. If you resonate with this great! If not that is okay too. Too many people limit themselves in a box, contained by fictions roadblocks in their mind.
+
+So how is this related to devotion? As I stated devotion is directly correlated to how you feel. Whatever target you set yourself on to be devoted to will in turn cause repercussions on your wealth, health, and spirit.
+
+Therefore if I desire to be unbounded and overflowing, what can I orient myself towards? What can I devote my life to to inch closer to these characteristics.
+
+There is only one answer. This I am certain of . No edge cases, no what ifs. It is clear. If you desire to be unbounded there is only one thing you can devote your life to.
+
+The creator, the infinite, God, Hashem. This is the only thing in the universe which is infinite.
+
+Therefore if you devote your life to the infinite love, intellect, it will cause reverberations in your human experience.
+
+Devotion is the most intelligent way to live. Why devote yourself to something finite, constricted, small, when you have access to the infinite?`,
+    images: []
+  },
+  {
     id: 'one-week-in-puerto-viejo',
     title: 'One Week in Puerto Viejo',
     date: 'October 19, 2025',
