@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Utensils, Backpack, ArrowRight, Video, Plane } from 'lucide-react'
 import { Card, CardContent } from './ui/card'
-import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import Link from 'next/link'
 
@@ -27,7 +26,7 @@ const contentSections: ContentSection[] = [
     count: 24,
     recent: ['Mountain Trek in Nepal', 'Street Markets of Thailand', 'Sunrise over Bagan'],
     href: '/vlogs',
-    color: 'bg-gradient-to-br from-purple-500 to-pink-500 text-white'
+    color: 'bg-primary/10 text-primary'
   },
   {
     id: 'food',
@@ -37,7 +36,7 @@ const contentSections: ContentSection[] = [
     count: 32,
     recent: ['Ramen Mastery in Japan', 'Night Market Adventures', 'Authentic Thai Flavors'],
     href: '/food',
-    color: 'bg-gradient-to-br from-emerald-500 to-teal-500 text-white'
+    color: 'bg-primary/10 text-primary'
   },
   {
     id: 'transportation',
@@ -47,7 +46,7 @@ const contentSections: ContentSection[] = [
     count: 16,
     recent: ['Mastering the Shinkansen', 'Motorbike Adventures', 'Island Ferry Hopping'],
     href: '/transportation',
-    color: 'bg-gradient-to-br from-amber-500 to-orange-500 text-white'
+    color: 'bg-primary/10 text-primary'
   },
   {
     id: 'packing',
@@ -57,7 +56,7 @@ const contentSections: ContentSection[] = [
     count: 12,
     recent: ['One Bag Asia Packing', 'Essential Travel Gear', 'Climate-Based Packing'],
     href: '/packing-checklist',
-    color: 'bg-gradient-to-br from-rose-500 to-pink-500 text-white'
+    color: 'bg-primary/10 text-primary'
   }
 ]
 
@@ -92,19 +91,13 @@ export default function QuickContentNav() {
               whileHover={{ y: -8, scale: 1.02 }}
               className="group"
             >
-              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 bg-card/70 backdrop-blur-sm">
-                {/* Enhanced Header with Gradient */}
-                <div className={`h-1 ${section.color}`} />
-                
+              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 bg-card/70 backdrop-blur-sm">
                 <CardContent className="p-4 md:p-6 space-y-4">
-                  {/* Icon and Count Header */}
-                  <div className="flex items-start justify-between">
-                    <div className={`p-2.5 md:p-3 rounded-xl ${section.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  {/* Icon Header */}
+                  <div className="flex items-start">
+                    <div className={`p-2.5 md:p-3 rounded-xl ${section.color} group-hover:scale-110 transition-transform duration-300`}>
                       <section.icon className="h-5 w-5 md:h-6 md:w-6" />
                     </div>
-                    <Badge variant="secondary" className="text-xs font-medium px-2 py-1">
-                      {section.count}
-                    </Badge>
                   </div>
 
                   {/* Enhanced Content */}

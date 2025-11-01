@@ -44,17 +44,18 @@ export default function InteractiveTravelMap() {
           maxZoom: 18
         }).addTo(leafletMapRef.current)
 
-        // Custom marker icon function - mobile-friendly design
-        const createCustomIcon = (country: CountryData, index: number) => {
+        // Custom marker icon function - mobile-friendly design with single color
+        const createCustomIcon = (index: number) => {
+          const markerColor = '#3b82f6' // Single primary color for all markers
           return L!.divIcon({
             className: 'custom-marker',
             html: `
               <div class="relative group">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-xl flex items-center justify-center text-white text-sm sm:text-base font-bold transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-sm" 
-                     style="background: linear-gradient(135deg, ${country.color}dd, ${country.color});">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-xl flex items-center justify-center text-white text-sm sm:text-base font-bold transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-sm"
+                     style="background: linear-gradient(135deg, ${markerColor}dd, ${markerColor});">
                   ${index + 1}
                 </div>
-                <div class="absolute -top-1 -left-1 w-12 h-12 sm:w-14 sm:h-14 rounded-full opacity-20 animate-ping" style="background: ${country.color}"></div>
+                <div class="absolute -top-1 -left-1 w-12 h-12 sm:w-14 sm:h-14 rounded-full opacity-20 animate-ping" style="background: ${markerColor}"></div>
               </div>
             `,
             iconSize: [40, 40],
@@ -65,7 +66,7 @@ export default function InteractiveTravelMap() {
         // Add markers for each country
         visitedCountries.forEach((country, index) => {
           const marker = L!.marker(country.coordinates, {
-            icon: createCustomIcon(country, index)
+            icon: createCustomIcon(index)
           }).addTo(leafletMapRef.current!)
 
           // Add click event
@@ -148,20 +149,18 @@ export default function InteractiveTravelMap() {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <Card className="overflow-hidden shadow-xl bg-card/80 backdrop-blur-sm border-border/20">
-              <div className="relative">
-                <div 
-                  ref={mapRef} 
-                  className="h-[500px] md:h-[600px] w-full"
-                  style={{ background: '#1a1a1a' }}
-                />
-                {!isLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
-                    <div className="text-muted-foreground">Loading interactive map...</div>
-                  </div>
-                )}
-              </div>
-            </Card>
+            <div className="overflow-hidden rounded-xl shadow-xl bg-background">
+              <div
+                ref={mapRef}
+                className="h-[500px] md:h-[600px] w-full"
+                style={{ background: '#1a1a1a' }}
+              />
+              {!isLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
+                  <div className="text-muted-foreground">Loading interactive map...</div>
+                </div>
+              )}
+            </div>
           </motion.div>
 
           {/* Country Details Panel */}
@@ -214,7 +213,6 @@ export default function InteractiveTravelMap() {
             ) : (
               <Card className="p-6 bg-gradient-to-br from-muted/10 to-muted/5 backdrop-blur-sm border-border/20">
                 <div className="text-center space-y-4">
-                  <div className="text-4xl">🗺️</div>
                   <div>
                     <h3 className="font-bold mb-2">Explore the Journey</h3>
                     <p className="text-muted-foreground text-sm">

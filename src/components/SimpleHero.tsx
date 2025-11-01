@@ -48,7 +48,7 @@ export default function SimpleHero() {
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                   <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping opacity-75" />
                 </div>
-                Currently in Puerto Viejo, Costa Rica
+                Currently in Bocas del Toro, Panama
               </Badge>
             </motion.div>
           </div>
@@ -73,7 +73,7 @@ export default function SimpleHero() {
               transition={{ delay: 0.6 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
             >
-              Solo Travel Adventures & Authentic Cultural Experiences Across 16 Countries
+              Solo Travel Adventures & Authentic Cultural Experiences Across 18 Countries
             </motion.p>
             
             <motion.p 

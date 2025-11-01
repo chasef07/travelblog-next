@@ -35,7 +35,7 @@ export default function Page(){
               </span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              16 countries visited during this incredible year-long journey
+              18 countries visited during this incredible year-long journey
             </p>
           </header>
           <SimpleCountriesGrid />

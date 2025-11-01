@@ -5,7 +5,7 @@ export const october2025Posts: BlogPost[] = [
     id: 'devotion-is-intelligence',
     title: 'Devotion is the Most Intelligent Way to Live',
     date: 'October 30, 2025',
-    location: 'Puerto Viejo, Costa Rica',
+    location: 'Bocas del Toro, Panama',
     slug: 'devotion-is-intelligence',
     year: '2025',
     excerpt: 'Exploring the spectrum of devotion and why orienting your life toward the infinite is the path to being unbounded.',
