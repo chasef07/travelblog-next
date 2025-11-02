@@ -1,5 +1,6 @@
 export type BlogMeta={year:number;slug:string;title:string;date:string;displayDate:string;excerpt:string;image:string};
 export const blogIndex:BlogMeta[]=[
+{year:2025,slug:'november',title:'November 2025: Arriving in Panama',date:'2025-11-02',displayDate:'November 2025',excerpt:'First impressions of Bocas del Toro, Panama - exploring viber cafes, cultural authenticity, and what makes a place feel like home.',image:'/assets/images/misc/costa-business.jpg'},
 {year:2025,slug:'october',title:'October 2025: Business in Costa Rica',date:'2025-10-09',displayDate:'October 2025',excerpt:'Leaving Florida for a Costa Rica build sprint while doubling down on AI consulting with Kyle and family perspective shifts.',image:'/assets/images/misc/costa-business.jpg'},
 {year:2025,slug:'august',title:'August 2025: Coming Home to Florida',date:'2025-08-02',displayDate:'August 2025',excerpt:"Reverse culture shock and finding home again after a year of global adventures. Reflections on returning to Florida and what 'home' means now.",image:'/assets/images/misc/posttrip.jpg'},
 {year:2025,slug:'july',title:'July 2025: Hokkaido, the Northern Gem of Japan',date:'2025-07-01',displayDate:'July 2025',excerpt:'Hokkaido cuisine, nature, and culture',image:'/assets/images/food/sush.jpg'},

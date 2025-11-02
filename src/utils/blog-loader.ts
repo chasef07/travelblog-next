@@ -92,6 +92,10 @@ function getMonthFromSlug(slug: string): string {
     'one-way-flight-to-costa-rica': 'october',
     'psyche-and-ai-realizations': 'october',
     'south-florida-reset': 'october',
+    'clarity-in-puerto-viejo': 'october',
+    'one-week-in-puerto-viejo': 'october',
+    'devotion-is-intelligence': 'october',
+    'arriving-in-bocas-del-toro': 'november',
     'nong-khiaw-excursion': 'january',
     'nong-khiaw-preparation': 'january',
   };
