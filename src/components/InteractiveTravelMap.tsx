@@ -114,11 +114,7 @@ export default function InteractiveTravelMap() {
   }, [visitedCountries])
 
   return (
-    <section id="journey" className="py-16 px-6 relative overflow-hidden bg-gradient-to-b from-muted/20 to-muted/40">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-      </div>
-
+    <section id="journey" className="py-16 px-6 relative overflow-hidden bg-muted/5">
       <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -130,10 +126,8 @@ export default function InteractiveTravelMap() {
           <Badge variant="outline" className="mb-4 text-sm px-4 py-2">
             Interactive Journey
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Around the World
-            </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+            Around the World
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Click on numbered markers to explore each destination and discover the stories behind the journey

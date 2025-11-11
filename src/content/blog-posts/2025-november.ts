@@ -2,6 +2,17 @@ import { BlogPost } from '../../types/blog'
 
 export const november2025Posts: BlogPost[] = [
   {
+    id: 'three-phase-war',
+    title: 'The Three Phase War',
+    date: 'November 11, 2025',
+    location: 'Bocas del Toro, Panama',
+    slug: 'three-phase-war',
+    year: '2025',
+    excerpt: 'Returning home from a 10 month world tour and fighting to keep the fire alive. A journey through three phases: returning home, fighting external influences, and starting a business.',
+    content: `A very good friend said to me recently that I have not shared much in recent months. I thanked him for bringing it up and I began to think why. Here is what I came up with. It has only been 3.5 months since I returned to North America, from my 10 month long backpacking world tour. In the weeks leading up to preparing to come home, I prepared myself mentally for the battle ahead. It was a necessity to take all of my learnings from my trip and to not budge on my values once returning home with many external influences. As I arrived back home I felt well equipped. I was heads down focusing on keeping my learnings and fire from my trip. For me it took about 1 month to settle back home and process every thing that was going on. When you are on the battle field fighting for your values that is your singular focus. So after a month goes by at home you start to ask yourself, now what. Parents begin to ask, friends, and most of their comments are adverse to all your values you learned on your trip. Inevitably the thoughts sneak into your mind, about retuning to a corporate job hunched over at a desk that you don't like. Which means not being on fire in life, not being healthy and connected. This is when the second battle ensues, to push out the external noise and trust in yourself and the process. To be honest I was pretty close to faltering. I applied top jobs I did not care about in places I did not want to be just to go through the motions, because what else was there to do? In this time I worked hard on the side with Kyle to combat this daunting foe. We tried idea after idea, project after project, any nothing seemed to hit. A subtle shift changed everything. We were trying to do side projects to get off the ground to make money, but side projects don't get it. We had to go full commitment to making a business, not a side project. We began to talk the talk before walking the walk. The walk came but there was necessity in the allusion of confidence. At the end of the day we were just two unemployed guys in our parent's house, can those guys really start a business? Then I reflected. All of the most inspirational entrepreneurs went through the same struggle. Imposters syndrome, living in undesirable places… So when Kyle and I committed to making a business, not kinda working on a Sid project, everything changed. So this is why I have not been sharing as much. I have been in a three phase war. 1. Returning Home 2. Fighting off External Influences 3. Starting a business. War has a negative connotation, but this is a happy war, a war I gladly chose to enlist in, fight in, and die for. Hoorah`,
+    images: []
+  },
+  {
     id: 'ratzo-vshov-running-and-returning',
     title: 'Ratzó v\'Shov: Running and Returning',
     date: 'November 4, 2025',

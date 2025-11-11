@@ -6,8 +6,8 @@ import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Lone Horizons - Solo Travel Blog & Cultural Adventures Across 16 Countries',
-  description: 'Discover authentic solo travel experiences across Asia, Africa & beyond. Real stories, practical tips, and cultural insights from a year-long journey through 16 countries. Travel better, explore deeper.',
+  title: 'Living Gambit - Travel, Adventure, Capitalism',
+  description: 'Reengineering life from the ground up. Solo travel adventures, entrepreneurship, and building a life on your own terms across 18 countries.',
   keywords: ['solo travel blog', 'Asia travel guide', 'Africa travel tips', 'cultural travel experiences', 'backpacking Asia', 'solo travel guides', 'travel photography', 'authentic travel stories', 'budget travel tips', 'cultural immersion travel'],
   images: ['/assets/images/misc/posttrip.jpg']
 })

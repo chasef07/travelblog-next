@@ -73,12 +73,7 @@ export default function EnhancedChecklistLayout() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-muted/30">
-      {/* Background Pattern */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-      </div>
-      
+    <div className="min-h-screen bg-background">
       <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

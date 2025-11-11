@@ -12,13 +12,7 @@ export default function MapSalesHero() {
   }
 
   return (
-    <section className="relative min-h-[80vh] overflow-hidden bg-gradient-to-br from-background via-background/95 to-muted/30 flex items-center">
-      {/* Background Pattern */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-      </div>
-
+    <section className="relative min-h-[80vh] overflow-hidden bg-background flex items-center">
       {/* Background Map Image */}
       <div className="absolute inset-0 opacity-10">
         <Image

@@ -22,13 +22,7 @@ export default function SimpleHero() {
   }
 
   return (
-    <section className="relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-background via-background/95 to-muted/30 flex items-center">
-      {/* Background Pattern */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-      </div>
-
+    <section className="relative min-h-[70vh] overflow-hidden bg-background flex items-center">
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -55,34 +49,31 @@ export default function SimpleHero() {
 
           {/* Main Title */}
           <div className="space-y-6">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-primary"
             >
-              Lone{' '}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Horizons
-              </span>
+              Living Gambit
             </motion.h1>
             
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
             >
-              Solo Travel Adventures & Authentic Cultural Experiences Across 18 Countries
+              Travel, Adventure, Capitalism
             </motion.p>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65 }}
               className="text-lg text-muted-foreground/80 max-w-2xl mx-auto mt-4"
             >
-              Real stories, practical tips, and cultural insights from a year-long solo journey
+              Reengineering life from the ground up
             </motion.p>
           </div>
 

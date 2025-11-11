@@ -6,8 +6,8 @@ import { BlogPost } from '@/types/blog'
  */
 
 export const siteConfig = {
-  name: 'Lone Horizons',
-  description: 'Solo Travel Adventures & Authentic Cultural Experiences Across 16 Countries. Real stories, practical tips, and cultural insights from a year-long solo journey through Asia, Africa, and beyond.',
+  name: 'Living Gambit',
+  description: 'Travel, Adventure, Capitalism. Reengineering life from the ground up through solo journeys across 18 countries.',
   url: 'https://chasefagen.com',
   author: {
     name: 'Chase Fagen',

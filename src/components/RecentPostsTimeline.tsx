@@ -53,11 +53,7 @@ export default function RecentPostsTimeline() {
   ]
 
   return (
-    <section className="py-16 px-6 relative overflow-hidden bg-gradient-to-b from-background/50 to-muted/20">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-      </div>
-
+    <section className="py-16 px-6 relative overflow-hidden bg-background">
       <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

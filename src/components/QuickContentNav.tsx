@@ -62,17 +62,11 @@ const contentSections: ContentSection[] = [
 
 export default function QuickContentNav() {
   return (
-    <section className="py-16 px-6 relative overflow-hidden bg-gradient-to-b from-muted/40 to-background">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-      </div>
-      
+    <section className="py-16 px-6 relative overflow-hidden bg-background">
       <div className="max-w-[1200px] mx-auto relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Discover More
-            </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+            Discover More
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Explore different aspects of this incredible journey - from daily adventures to practical travel wisdom
