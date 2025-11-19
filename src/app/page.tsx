@@ -20,8 +20,8 @@ export default function Page(){
       {/* Enhanced Hero Section with Profile Image */}
       <SimpleHero />
 
-      {/* Countries Explored Flags - Moved directly after hero */}
-      <section id="countries" className="py-16 px-6 relative overflow-hidden bg-black border-t border-white/10"
+      {/* Countries Explored Map */}
+      <section id="countries" className="py-16 px-6 relative overflow-hidden bg-zinc-900 border-t border-white/10"
                aria-labelledby="countries-heading">
         <div className="max-w-[1200px] mx-auto relative z-10">
           <header className="text-center mb-12">

@@ -34,7 +34,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="min-h-screen flex flex-col bg-black">
+      <body suppressHydrationWarning className="min-h-screen flex flex-col bg-zinc-900">
 
         {/* Google Analytics - replace with your tracking ID */}
         <Script

@@ -13,12 +13,7 @@ export default function SimpleHero() {
   }, [])
 
   return (
-    <section className="relative min-h-[80vh] overflow-hidden bg-black flex items-center justify-center pt-20">
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-
-      {/* Radial gradient spotlight */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_65%)]" />
+    <section className="relative min-h-[80vh] overflow-hidden bg-zinc-900 flex items-center justify-center pt-20">
 
       {/* Animated floating orbs */}
       <motion.div
