@@ -34,8 +34,8 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="min-h-screen flex flex-col">
-        
+      <body suppressHydrationWarning className="min-h-screen flex flex-col bg-black">
+
         {/* Google Analytics - replace with your tracking ID */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
@@ -49,9 +49,8 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
             gtag('config', 'GA_MEASUREMENT_ID');
           `}
         </Script>
-        
+
         <Header />
-        <div className="h-[70px]" />
         {children}
         <Footer />
       </body>

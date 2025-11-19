@@ -62,7 +62,7 @@ export default function SimpleCountriesGrid() {
           </div>
           
           <div className="mt-2 sm:mt-3">
-            <span className="block text-xs sm:text-sm font-medium text-foreground/70 group-hover:text-primary transition-colors duration-300">
+            <span className="block text-xs sm:text-sm font-medium text-white/70 group-hover:text-white transition-colors duration-300">
               {country.name}
             </span>
           </div>

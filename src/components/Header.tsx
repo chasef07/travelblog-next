@@ -2,110 +2,113 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { motion, useScroll } from 'framer-motion'
-import { Menu } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from './ui/sheet'
-import { Button } from './ui/button'
+import { Menu, X } from 'lucide-react'
+import { Button, buttonVariants } from './ui/button'
+import { cn } from '@/lib/utils'
+
+const navLinks = [
+  { href: "/#journey", label: "Journey" },
+  { href: "/blog", label: "Stories" },
+  { href: "/maps", label: "Travel Maps" },
+  { href: "/vlogs", label: "Vlogs" },
+  { href: "/food", label: "Food" },
+  { href: "/transportation", label: "Transport" },
+  { href: "/packing-checklist", label: "Packing" }
+]
 
 export default function Header(){
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isSheetOpen, setIsSheetOpen] = useState(false)
-  const { scrollYProgress } = useScroll()
-  
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 20)
     }
-    
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navigationItems = [
-    { href: "/#journey", label: "Journey" },
-    { href: "/blog", label: "Stories" },
-    { href: "/maps", label: "Travel Maps" },
-    { href: "/vlogs", label: "Vlogs" },
-    { href: "/food", label: "Food" },
-    { href: "/transportation", label: "Transport" },
-    { href: "/packing-checklist", label: "Packing" }
-  ]
-
   return (
-    <>
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary z-[60] origin-left"
-        style={{ scaleX: scrollYProgress }}
-      />
-      
-      <motion.header 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 h-[70px] z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-background/95 backdrop-blur-md shadow-xl border-b border-border' 
-            : 'bg-background/90 backdrop-blur-md shadow-md border-b border-border/50'
-        }`}
-      >
-        <div className="max-w-[1200px] mx-auto h-full flex items-center justify-between px-6">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link href="/" className="flex items-center gap-3 text-primary hover:text-primary/80 transition-colors duration-300">
-              <svg className="shrink-0" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-              </svg>
-              <span className="text-xl md:text-2xl font-bold">Living Gambit</span>
-            </Link>
-          </motion.div>
-        
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navigationItems.map((item) => (
-              <Button key={item.href} variant="ghost" size="sm" asChild>
-                <Link href={item.href} className="font-medium">
-                  {item.label}
-                </Link>
-              </Button>
-            ))}
-          </nav>
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+      isScrolled ? "px-32 pt-2 md:px-48 lg:px-64" : "px-4 pt-6"
+    )}>
+      <div className={cn(
+        "mx-auto flex max-w-screen-xl items-center justify-between rounded-full border border-white/10 bg-black/50 backdrop-blur-md shadow-sm transition-all duration-300",
+        isScrolled ? "px-4 py-1.5" : "px-8 py-3"
+      )}>
+        <Link href="/" className="flex items-center gap-3" aria-label="Living Gambit home">
+          <svg className="shrink-0 text-white" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </Link>
 
-          {/* Mobile Menu */}
-          <div className="lg:hidden">
-            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="h-8 w-8">
-                  <Menu className="h-3.5 w-3.5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-72">
-                <div className="space-y-6 mt-8">
-                  <div className="text-lg font-semibold">Navigation</div>
-                  <nav className="space-y-2">
-                    {navigationItems.map((item) => (
-                      <SheetClose key={item.href} asChild>
-                        <Button 
-                          variant="ghost" 
-                          className="w-full justify-start h-auto p-3"
-                          asChild
-                        >
-                          <Link href={item.href}>
-                            <span className="font-medium">{item.label}</span>
-                          </Link>
-                        </Button>
-                      </SheetClose>
-                    ))}
-                  </nav>
-                </div>
-              </SheetContent>
-            </Sheet>
+        <nav className="hidden items-center gap-8 md:flex">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-sm font-normal text-white/70 transition-colors hover:text-white"
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white shadow-sm md:hidden"
+            onClick={() => setMobileNavOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
+            aria-expanded={isMobileNavOpen}
+          >
+            {isMobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+        </div>
+      </div>
+
+      {isMobileNavOpen ? (
+        <div className="md:hidden">
+          <div
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md"
+            onClick={() => setMobileNavOpen(false)}
+          >
+            <div
+              className="mx-auto flex min-h-full w-full max-w-screen-sm flex-col items-center justify-center gap-8 px-6 py-8"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="absolute top-6 right-6">
+                <button
+                  type="button"
+                  onClick={() => setMobileNavOpen(false)}
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "h-10 w-10 rounded-full border border-white/10 bg-white/5 text-white shadow-sm"
+                  )}
+                  aria-label="Close navigation"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <nav className="flex flex-col items-center space-y-6 w-full">
+                {navLinks.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="text-2xl font-normal text-white/80 transition-colors hover:text-white"
+                    onClick={() => setMobileNavOpen(false)}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
         </div>
-      </motion.header>
-    </>
+      ) : null}
+    </header>
   )
 }

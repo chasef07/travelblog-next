@@ -2,157 +2,122 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, BookOpen, ArrowRight, Calendar } from 'lucide-react'
-import { Badge } from './ui/badge'
-import { Button } from './ui/button'
+import { MapPin, BookOpen, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { blogIndex } from '../content/blogIndex'
 
 export default function SimpleHero() {
   const [isLoaded, setIsLoaded] = useState(false)
-  const recentPost = blogIndex[0] // Get the most recent blog post
 
   useEffect(() => {
     setIsLoaded(true)
   }, [])
 
-  const scrollToMap = () => {
-    document.getElementById('journey')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <section className="relative min-h-[70vh] overflow-hidden bg-background flex items-center">
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-20 text-center">
+    <section className="relative min-h-[80vh] overflow-hidden bg-black flex items-center justify-center pt-20">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+
+      {/* Radial gradient spotlight */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_65%)]" />
+
+      {/* Animated floating orbs */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-white/5 blur-3xl"
+        animate={{
+          x: [0, 50, 0],
+          y: [0, 30, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-white/3 blur-3xl"
+        animate={{
+          x: [0, -30, 0],
+          y: [0, 50, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-16 text-center">
+
+        {/* Current Status Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-8"
         >
-          {/* Current Status */}
-          <div className="flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <Badge variant="secondary" className="gap-2 text-sm px-4 py-2">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping opacity-75" />
-                </div>
-                Currently in Bocas del Toro, Panama
-              </Badge>
-            </motion.div>
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+            <div className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            </div>
+            <span className="text-sm text-white/70 font-medium">Currently in San José, Costa Rica</span>
           </div>
+        </motion.div>
 
-          {/* Main Title */}
-          <div className="space-y-6">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-primary"
-            >
-              Living Gambit
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
-            >
-              Travel, Adventure, Capitalism
-            </motion.p>
+        {/* Main Title */}
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8"
+        >
+          <span className="text-white">Living Gambit</span>
+        </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65 }}
-              className="text-lg text-muted-foreground/80 max-w-2xl mx-auto mt-4"
-            >
-              Reengineering life from the ground up
-            </motion.p>
-          </div>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-2xl md:text-3xl text-white/60 font-light mb-6"
+        >
+          Travel, Adventure, Capitalism
+        </motion.p>
 
-          {/* Recent Blog Post */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="max-w-2xl mx-auto"
-          >
-            <Link href={`/blog/${recentPost.year}/${recentPost.slug}`}>
-              <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-sm border border-border/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] cursor-pointer">
-                {/* Background Image */}
-                <div className="absolute inset-0">
-                  <Image
-                    src={recentPost.image}
-                    alt={recentPost.title}
-                    fill
-                    className="object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/20" />
-                </div>
-                
-                {/* Content */}
-                <div className="relative z-10 p-6 space-y-3">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Badge variant="secondary" className="gap-1">
-                      <Calendar className="h-3 w-3" />
-                      Latest Post
-                    </Badge>
-                    <span className="text-muted-foreground">{recentPost.displayDate}</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
-                    {recentPost.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {recentPost.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
-                    <span>Read more</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-lg text-white/50 max-w-2xl mx-auto mb-12"
+        >
+          Reengineering life from the ground up.
+        </motion.p>
 
-          {/* Simplified CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link href="/blog">
-              <Button 
-                size="lg" 
-                className="gap-2 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <BookOpen className="h-5 w-5" />
-                Read My Stories
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-            
-            <Button 
-              variant="outline"
-              size="lg" 
-              className="gap-2 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300"
-              onClick={scrollToMap}
-            >
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <Link href="/blog">
+            <button className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-medium hover:bg-white/90 transition-all duration-200">
+              <BookOpen className="h-5 w-5" />
+              <span>Read Stories</span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+
+          <Link href="/maps">
+            <button className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all duration-200">
               <MapPin className="h-5 w-5" />
-              Explore My Journey
-            </Button>
-          </motion.div>
-
+              <span>Get Travel Maps</span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
         </motion.div>
 
       </div>

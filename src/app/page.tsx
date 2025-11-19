@@ -21,16 +21,13 @@ export default function Page(){
       <SimpleHero />
 
       {/* Countries Explored Flags - Moved directly after hero */}
-      <section id="countries" className="py-16 px-6 relative overflow-hidden bg-muted/10"
+      <section id="countries" className="py-16 px-6 relative overflow-hidden bg-black border-t border-white/10"
                aria-labelledby="countries-heading">
         <div className="max-w-[1200px] mx-auto relative z-10">
           <header className="text-center mb-12">
-            <h2 id="countries-heading" className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+            <h2 id="countries-heading" className="text-3xl md:text-4xl font-bold mb-4 text-white">
               Countries Explored
             </h2>
-            <p className="text-muted-foreground text-lg">
-              18 countries visited during this incredible year-long journey
-            </p>
           </header>
           <SimpleCountriesGrid />
         </div>
