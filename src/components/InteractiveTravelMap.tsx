@@ -120,7 +120,7 @@ export default function InteractiveTravelMap() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12"
         >
           <Badge variant="outline" className="mb-4 text-sm px-4 py-2">
@@ -140,7 +140,7 @@ export default function InteractiveTravelMap() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             className="lg:col-span-2"
           >
             <div className="overflow-hidden rounded-xl shadow-xl bg-background">
@@ -162,7 +162,7 @@ export default function InteractiveTravelMap() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             className="space-y-6"
           >
             {selectedCountry ? (

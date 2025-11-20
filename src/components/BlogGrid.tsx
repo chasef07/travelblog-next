@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, memo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { blogIndex } from '@/content/blogIndex'
 
-export function BlogGrid() {
+export const BlogGrid = memo(function BlogGrid() {
   const [selectedYear, setSelectedYear] = useState<string>('all')
   const [selectedCountry, setSelectedCountry] = useState<string>('all')
 
@@ -81,67 +81,60 @@ export function BlogGrid() {
         variants={filterVariants}
         initial="hidden"
         animate="visible"
+        viewport={{ once: true }}
         className="flex flex-wrap gap-4 justify-center"
       >
         {/* Year Filter */}
         <div className="flex flex-wrap gap-2">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={() => setSelectedYear('all')}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 ${
               selectedYear === 'all'
                 ? 'bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-lg'
                 : 'bg-[var(--surface-color)] text-[var(--muted-text-color)] hover:bg-[var(--muted-background)] hover:text-[var(--primary-color)]'
             }`}
           >
             All Years
-          </motion.button>
+          </button>
           {years.map(year => (
-            <motion.button
+            <button
               key={year}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               onClick={() => setSelectedYear(year)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 ${
                 selectedYear === year
                   ? 'bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-lg'
                   : 'bg-[var(--surface-color)] text-[var(--muted-text-color)] hover:bg-[var(--muted-background)] hover:text-[var(--primary-color)]'
               }`}
             >
               {year}
-            </motion.button>
+            </button>
           ))}
         </div>
 
         {/* Country Filter */}
         <div className="flex flex-wrap gap-2">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={() => setSelectedCountry('all')}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 ${
               selectedCountry === 'all'
                 ? 'bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-lg'
                 : 'bg-[var(--surface-color)] text-[var(--muted-text-color)] hover:bg-[var(--muted-background)] hover:text-[var(--primary-color)]'
             }`}
           >
             All Countries
-          </motion.button>
+          </button>
           {countries.slice(0, 6).map(country => (
-            <motion.button
+            <button
               key={country}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               onClick={() => setSelectedCountry(country)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 ${
                 selectedCountry === country
                   ? 'bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-lg'
                   : 'bg-[var(--surface-color)] text-[var(--muted-text-color)] hover:bg-[var(--muted-background)] hover:text-[var(--primary-color)]'
               }`}
             >
               {country}
-            </motion.button>
+            </button>
           ))}
         </div>
       </motion.div>
@@ -162,6 +155,7 @@ export function BlogGrid() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        viewport={{ once: true, margin: "-100px" }}
         aria-label="Travel blog posts"
         className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
@@ -190,7 +184,8 @@ export function BlogGrid() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     itemProp="image"
-                    loading="lazy"
+                    loading={index < 3 ? "eager" : "lazy"}
+                    priority={index < 3}
                   />
 
                   {/* Featured badge for first post */}
@@ -277,4 +272,4 @@ export function BlogGrid() {
       )}
     </div>
   )
-}
+})

@@ -21,6 +21,10 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://a.basemaps.cartocdn.com" />
+        <link rel="preconnect" href="https://b.basemaps.cartocdn.com" />
+        <link rel="preconnect" href="https://c.basemaps.cartocdn.com" />
+        <link rel="preconnect" href="https://d.basemaps.cartocdn.com" />
         
         {/* Favicon and app icons */}
         <link rel="icon" href="/favicon.ico" sizes="32x32" />

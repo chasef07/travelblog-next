@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 
+// Bundle analyzer for checking bundle sizes
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [],
@@ -11,25 +16,33 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   experimental: {
-    optimizePackageImports: ['leaflet'],
+    optimizePackageImports: ['leaflet', 'framer-motion'],
   },
   async headers() {
     return [
+      // Cache static assets aggressively
       {
-        source: '/:path*',
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate'
-          },
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
+        source: '/images/:path*',
+        headers: [
           {
-            key: 'Pragma',
-            value: 'no-cache'
-          },
-          {
-            key: 'Expires',
-            value: '0'
-          },
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      // Security headers for all pages (no aggressive no-cache)
+      {
+        source: '/:path*',
+        headers: [
           {
             key: 'X-Frame-Options',
             value: 'DENY'
@@ -48,4 +61,4 @@ const nextConfig: NextConfig = {
   }
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
