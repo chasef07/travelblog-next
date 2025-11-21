@@ -6,6 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const nextConfig: NextConfig = {
+  reactCompiler: true,
   images: {
     remotePatterns: [],
     formats: ['image/avif', 'image/webp'],

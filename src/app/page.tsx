@@ -5,10 +5,10 @@ import SimpleHero from "../components/SimpleHero"
 import SimpleCountriesGrid from "../components/SimpleCountriesGrid"
 import QuickContentNav from "../components/QuickContentNav"
 
-const InteractiveTravelMap = dynamic(() => import("../components/InteractiveTravelMap"), {
+const InteractiveGlobe = dynamic(() => import("../components/InteractiveGlobe"), {
   loading: () => (
-    <div className="w-full h-full bg-card rounded-2xl flex items-center justify-center">
-      <div className="text-muted-foreground">Loading interactive map...</div>
+    <div className="w-full h-[600px] bg-black flex items-center justify-center">
+      <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
     </div>
   ),
   ssr: false
@@ -20,22 +20,35 @@ export default function Page(){
       {/* Enhanced Hero Section with Profile Image */}
       <SimpleHero />
 
-      {/* Countries Explored Map */}
-      <section id="countries" className="py-16 px-6 relative overflow-hidden bg-zinc-900 border-t border-white/10"
+      {/* Countries Explored */}
+      <section id="countries" className="py-20 relative overflow-hidden bg-black border-t border-white/10"
                aria-labelledby="countries-heading">
-        <div className="max-w-[1200px] mx-auto relative z-10">
-          <header className="text-center mb-12">
-            <h2 id="countries-heading" className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              Countries Explored
-            </h2>
-          </header>
-          <SimpleCountriesGrid />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Section header */}
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12">
+            <div>
+              <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
+                [ Countries Explored ]
+              </span>
+              <h2 id="countries-heading" className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
+                18 Nations
+              </h2>
+            </div>
+            <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
+              From the Middle East to Southeast Asia, Africa to Central America.
+            </p>
+          </div>
+
+          {/* Countries grid */}
+          <div className="border-t border-l border-white/10">
+            <SimpleCountriesGrid />
+          </div>
         </div>
       </section>
 
 
-      {/* Interactive Travel Map - Replaces Journey Statistics */}
-      <InteractiveTravelMap />
+      {/* Interactive 3D Globe */}
+      <InteractiveGlobe />
 
       {/* Streamlined Content Navigation */}
       <QuickContentNav />

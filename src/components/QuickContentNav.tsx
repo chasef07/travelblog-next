@@ -1,9 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Utensils, Backpack, ArrowRight, Video, Plane } from 'lucide-react'
-import { Card, CardContent } from './ui/card'
-import { Button } from './ui/button'
+import { Utensils, Backpack, Video, Plane, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 
 interface ContentSection {
@@ -11,70 +9,61 @@ interface ContentSection {
   title: string
   description: string
   icon: React.ComponentType<{ className?: string }>
-  count: number
-  recent: string[]
   href: string
-  color: string
 }
 
 const contentSections: ContentSection[] = [
   {
     id: 'vlogs',
     title: 'Video Stories',
-    description: 'Visual adventures and behind-the-scenes travel moments',
+    description: 'Visual adventures and behind-the-scenes travel moments captured across 18 countries.',
     icon: Video,
-    count: 24,
-    recent: ['Mountain Trek in Nepal', 'Street Markets of Thailand', 'Sunrise over Bagan'],
     href: '/vlogs',
-    color: 'bg-primary/10 text-primary'
   },
   {
     id: 'food',
     title: 'Food Adventures',
-    description: 'Local cuisine, street food, and culinary experiences',
+    description: 'Local cuisine discoveries, street food guides, and culinary experiences from around the world.',
     icon: Utensils,
-    count: 32,
-    recent: ['Ramen Mastery in Japan', 'Night Market Adventures', 'Authentic Thai Flavors'],
     href: '/food',
-    color: 'bg-primary/10 text-primary'
   },
   {
     id: 'transportation',
-    title: 'Transportation',
-    description: 'Getting around guides and travel tips',
+    title: 'Getting Around',
+    description: 'Practical guides for navigating trains, buses, flights, and local transport in each country.',
     icon: Plane,
-    count: 16,
-    recent: ['Mastering the Shinkansen', 'Motorbike Adventures', 'Island Ferry Hopping'],
     href: '/transportation',
-    color: 'bg-primary/10 text-primary'
   },
   {
     id: 'packing',
-    title: 'Packing Guides',
-    description: 'Minimalist travel gear and packing strategies',
+    title: 'Packing Light',
+    description: 'Minimalist travel gear recommendations and strategies for long-term travel.',
     icon: Backpack,
-    count: 12,
-    recent: ['One Bag Asia Packing', 'Essential Travel Gear', 'Climate-Based Packing'],
     href: '/packing-checklist',
-    color: 'bg-primary/10 text-primary'
   }
 ]
 
 export default function QuickContentNav() {
   return (
-    <section className="py-16 px-6 relative overflow-hidden bg-background">
-      <div className="max-w-[1200px] mx-auto relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-            Discover More
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Explore different aspects of this incredible journey - from daily adventures to practical travel wisdom
+    <section className="py-20 relative overflow-hidden bg-black border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Section header */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16">
+          <div>
+            <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
+              [ Discover More ]
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
+              Explore
+            </h2>
+          </div>
+          <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
+            Dive deeper into different aspects of this journey.
           </p>
         </div>
 
-        {/* 4-Column Grid for Content Types */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-white/10">
           {contentSections.map((section, index) => (
             <motion.div
               key={section.id}
@@ -82,80 +71,37 @@ export default function QuickContentNav() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="group"
             >
-              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 bg-card/70 backdrop-blur-sm">
-                <CardContent className="p-4 md:p-6 space-y-4">
-                  {/* Icon Header */}
-                  <div className="flex items-start">
-                    <div className={`p-2.5 md:p-3 rounded-xl ${section.color} group-hover:scale-110 transition-transform duration-300`}>
-                      <section.icon className="h-5 w-5 md:h-6 md:w-6" />
-                    </div>
+              <Link href={section.href} className="block group">
+                <div className="relative p-8 border-r border-b border-white/10 h-full hover:bg-white/5 transition-colors duration-300">
+                  {/* Left accent line */}
+                  <div className="absolute left-0 top-8 bottom-8 w-px bg-white/20 group-hover:bg-white/40 transition-colors duration-300" />
+
+                  {/* Icon */}
+                  <div className="mb-12">
+                    <section.icon className="h-6 w-6 text-white/40 group-hover:text-white/60 transition-colors duration-300" strokeWidth={1.5} />
                   </div>
 
-                  {/* Enhanced Content */}
-                  <div className="space-y-2">
-                    <h3 className="text-lg md:text-xl font-bold group-hover:text-primary transition-colors duration-300">
-                      {section.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {section.description}
-                    </p>
-                  </div>
+                  {/* Title */}
+                  <h3 className="text-lg font-normal text-white mb-3 group-hover:text-white transition-colors duration-300">
+                    {section.title}
+                  </h3>
 
-                  {/* Recent Items with Better Mobile Layout */}
-                  <div className="space-y-2">
-                    <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Recent:</h4>
-                    <div className="space-y-1">
-                      {section.recent.slice(0, 2).map((item, i) => (
-                        <div key={i} className="text-xs md:text-sm text-foreground/80 truncate">
-                          • {item}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  {/* Description */}
+                  <p className="text-sm text-white/40 leading-relaxed group-hover:text-white/50 transition-colors duration-300">
+                    {section.description}
+                  </p>
 
-                  {/* Enhanced CTA Button */}
-                  <Button 
-                    variant="ghost" 
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 mt-4"
-                    asChild
-                  >
-                    <a href={section.href} className="flex items-center justify-center gap-2">
-                      <span className="text-sm font-medium">Explore</span>
-                      <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform duration-300" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+                  {/* Arrow */}
+                  <div className="mt-6 flex items-center gap-2 text-white/30 group-hover:text-white/60 transition-all duration-300">
+                    <span className="text-xs uppercase tracking-wider">Explore</span>
+                    <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
-
-        {/* Enhanced Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 backdrop-blur-sm border border-border/50">
-            <h3 className="text-xl font-bold mb-3">
-              Explore More Adventures
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              Dive deeper into the stories, experiences, and practical insights from this incredible year-long journey around the world.
-            </p>
-            <Button size="lg" className="gap-2 shadow-lg" asChild>
-              <Link href="/blog">
-                Read All Stories
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

@@ -1,45 +1,41 @@
+'use client'
+
 import dynamic from 'next/dynamic'
-import SectionTitle from '@/components/SectionTitle'
-import { generatePageMetadata } from '@/lib/seo'
+import { motion } from 'framer-motion'
 
 const BlogGrid = dynamic(() => import('@/components/BlogGrid').then(mod => ({ default: mod.BlogGrid })), {
   loading: () => (
     <div className="text-center py-12">
-      <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-[var(--primary-color)] border-r-transparent"></div>
-      <p className="mt-4 text-[var(--muted-text-color)]">Loading travel stories...</p>
+      <div className="text-white/40 font-mono tracking-wider text-sm">LOADING STORIES...</div>
     </div>
   )
 })
 
-export const metadata = generatePageMetadata({
-  title: 'Travel Stories & Cultural Adventures - Solo Travel Blog',
-  description: 'Discover authentic travel stories from 16 countries across Asia, Africa & beyond. Real experiences, practical tips, and cultural insights from a year-long solo journey. Travel better, explore deeper.',
-  path: '/blog',
-  keywords: ['solo travel stories', 'Asia travel guide', 'Africa travel blog', 'cultural travel experiences', 'backpacking stories', 'travel tips', 'authentic travel blog', 'solo travel adventures', 'travel photography', 'cultural immersion'],
-  images: ['/assets/images/misc/posttrip.jpg']
-})
-
-export default async function Page({ searchParams }: { searchParams: Promise<{ tag?: string }> }){
-  await searchParams; // Keep for future use
-  
+export default function Page() {
   return (
-    <main className="min-h-screen pt-20">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <article itemScope itemType="https://schema.org/Blog">
-          <header className="text-center mb-16">
-            <h1 itemProp="headline">
-              <SectionTitle>Adventures Around the World</SectionTitle>
+    <main className="min-h-screen bg-black pt-24">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16"
+        >
+          <div>
+            <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
+              [ Travel Stories ]
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
+              Adventures
             </h1>
-            <p itemProp="description" className="mt-6 text-lg text-[var(--muted-text-color)] max-w-4xl mx-auto leading-relaxed">
-              Journey with me across 16 countries and discover authentic travel stories, practical tips, and cultural insights. 
-              From Southeast Asian temples to African safaris, each post captures real experiences to help you travel better, cheaper, and smarter.
-            </p>
-          </header>
-          
-          <section aria-label="Travel blog posts">
-            <BlogGrid />
-          </section>
-        </article>
+          </div>
+          <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
+            Real experiences from 18 countries. Cultural insights, practical tips, and authentic stories.
+          </p>
+        </motion.div>
+
+        <BlogGrid />
       </div>
     </main>
   )

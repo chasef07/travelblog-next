@@ -4,14 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Progress } from '@/components/ui/progress'
-import { Separator } from '@/components/ui/separator'
-import { Search, Backpack, Shirt, Smartphone, Heart, User, Star } from 'lucide-react'
+import { Search, Backpack, Shirt, Smartphone, Heart, User, Star, Check, ArrowUpRight } from 'lucide-react'
 
 // Types
 interface PackingItem {
@@ -21,41 +14,30 @@ interface PackingItem {
   importance: 'essential' | 'recommended' | 'optional'
   quantity?: string
   link?: string
-  checked?: boolean
 }
 
 interface TipItem {
   title: string
   description: string
-  icon: React.ReactNode
-  gradient: string
 }
 
 // Data
 const tips: TipItem[] = [
   {
     title: "40L Maximum",
-    description: "A 40L backpack is the maximum allowable carry-on size for most airlines.",
-    icon: <Backpack className="h-6 w-6" />,
-    gradient: "from-blue-500 to-blue-600"
+    description: "A 40L backpack is the maximum allowable carry-on size for most airlines."
   },
   {
     title: "Compression Cubes",
-    description: "Use compression packing cubes from Eagle Creek and Thule. Organize pants in large, shirts in medium, shorts in small cubes.",
-    icon: <div className="h-6 w-6 bg-current rounded-sm" />,
-    gradient: "from-green-500 to-green-600"
+    description: "Use compression packing cubes. Organize pants in large, shirts in medium, shorts in small cubes."
   },
   {
     title: "Pack Light",
-    description: "Pack light; you will definitely buy clothes along the way during your travels.",
-    icon: <Shirt className="h-6 w-6" />,
-    gradient: "from-purple-500 to-purple-600"
+    description: "Pack light; you will definitely buy clothes along the way during your travels."
   },
   {
     title: "Organize Electronics",
-    description: "Keep electronics separate and organized so cables don't get tangled and messy.",
-    icon: <Smartphone className="h-6 w-6" />,
-    gradient: "from-orange-500 to-orange-600"
+    description: "Keep electronics separate and organized so cables don't get tangled and messy."
   }
 ]
 
@@ -124,26 +106,19 @@ const packingItems: PackingItem[] = [
   { id: '51', name: 'Chassidic book', category: 'spiritual', importance: 'recommended', quantity: '1' },
 ]
 
-const categoryInfo = {
-  backpacks: { name: 'Backpacks & Storage', icon: <Backpack className="h-4 w-4" />, color: 'bg-blue-500' },
-  clothing: { name: 'Clothing & Footwear', icon: <Shirt className="h-4 w-4" />, color: 'bg-green-500' },
-  electronics: { name: 'Electronics & Tech', icon: <Smartphone className="h-4 w-4" />, color: 'bg-purple-500' },
-  health: { name: 'Health & Hygiene', icon: <Heart className="h-4 w-4" />, color: 'bg-red-500' },
-  personal: { name: 'Personal Items', icon: <User className="h-4 w-4" />, color: 'bg-orange-500' },
-  spiritual: { name: 'Spiritual Items', icon: <Star className="h-4 w-4" />, color: 'bg-yellow-500' },
-}
-
-const importanceColors = {
-  essential: 'bg-red-500',
-  recommended: 'bg-yellow-500',
-  optional: 'bg-gray-500'
+const categoryInfo: Record<string, { name: string; icon: React.ReactNode }> = {
+  backpacks: { name: 'Backpacks & Storage', icon: <Backpack className="h-4 w-4" /> },
+  clothing: { name: 'Clothing & Footwear', icon: <Shirt className="h-4 w-4" /> },
+  electronics: { name: 'Electronics & Tech', icon: <Smartphone className="h-4 w-4" /> },
+  health: { name: 'Health & Hygiene', icon: <Heart className="h-4 w-4" /> },
+  personal: { name: 'Personal Items', icon: <User className="h-4 w-4" /> },
+  spiritual: { name: 'Spiritual Items', icon: <Star className="h-4 w-4" /> },
 }
 
 export default function ModernPackingChecklist() {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set())
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
-  const [selectedImportance, setSelectedImportance] = useState<string>('all')
 
   // Load saved progress from localStorage
   useEffect(() => {
@@ -172,329 +147,241 @@ export default function ModernPackingChecklist() {
     return packingItems.filter(item => {
       const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase())
       const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory
-      const matchesImportance = selectedImportance === 'all' || item.importance === selectedImportance
-      return matchesSearch && matchesCategory && matchesImportance
+      return matchesSearch && matchesCategory
     })
-  }, [searchTerm, selectedCategory, selectedImportance])
+  }, [searchTerm, selectedCategory])
 
-  const getProgressByCategory = (category: string) => {
-    const categoryItems = packingItems.filter(item => item.category === category)
-    const checkedCategoryItems = categoryItems.filter(item => checkedItems.has(item.id))
-    return (checkedCategoryItems.length / categoryItems.length) * 100
-  }
+  const groupedItems = useMemo(() => {
+    const groups: Record<string, PackingItem[]> = {}
+    filteredItems.forEach(item => {
+      if (!groups[item.category]) {
+        groups[item.category] = []
+      }
+      groups[item.category].push(item)
+    })
+    return groups
+  }, [filteredItems])
 
-  const overallProgress = (checkedItems.size / packingItems.length) * 100
+  const overallProgress = Math.round((checkedItems.size / packingItems.length) * 100)
 
   return (
-    <div className="space-y-8">
-      {/* Tips and Tricks Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl font-bold text-[var(--primary-color)] mb-6">Tips and Tricks</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+    <div className="space-y-16">
+      {/* Tips Section */}
+      <section>
+        <div className="border-b border-white/10 pb-4 mb-8">
+          <span className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase block mb-2">
+            [ Pro Tips ]
+          </span>
+          <h2 className="text-2xl font-extralight text-white">Packing Wisdom</h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
           {tips.map((tip, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+              className="bg-black p-6 hover:bg-white/5 transition-colors"
             >
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <CardHeader className="pb-3">
-                  <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg bg-gradient-to-r ${tip.gradient} text-white`}>
-                      {tip.icon}
-                    </div>
-                    <CardTitle className="text-lg">{tip.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-[var(--muted-text-color)] leading-relaxed">{tip.description}</p>
-                </CardContent>
-              </Card>
+              <h3 className="text-white font-light mb-3">{tip.title}</h3>
+              <p className="text-sm text-white/40 leading-relaxed">{tip.description}</p>
             </motion.div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
-      <Separator />
+      {/* Progress & Filters */}
+      <section>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+          <div>
+            <span className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase block mb-2">
+              [ Checklist ]
+            </span>
+            <h2 className="text-2xl font-extralight text-white">
+              {checkedItems.size} / {packingItems.length} Items
+            </h2>
+          </div>
 
-      {/* Packing Checklist Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-bold text-[var(--primary-color)]">Packing Checklist</h2>
-          <div className="text-right">
-            <div className="text-2xl font-bold text-[var(--primary-color)]">
-              {checkedItems.size}/{packingItems.length}
+          {/* Progress bar */}
+          <div className="flex items-center gap-4">
+            <div className="w-48 h-1 bg-white/10 overflow-hidden">
+              <motion.div
+                className="h-full bg-white"
+                initial={{ width: 0 }}
+                animate={{ width: `${overallProgress}%` }}
+                transition={{ duration: 0.5 }}
+              />
             </div>
-            <div className="text-sm text-[var(--muted-text-color)]">items packed</div>
+            <span className="font-mono text-xs text-white/40">{overallProgress}%</span>
           </div>
         </div>
 
-        {/* Overall Progress */}
-        <Card className="mb-6">
-          <CardContent className="pt-6">
-            <div className="flex justify-between items-center mb-2">
-              <span className="font-medium">Overall Progress</span>
-              <span className="text-sm text-[var(--muted-text-color)]">{Math.round(overallProgress)}%</span>
-            </div>
-            <Progress value={overallProgress} className="h-3" />
-          </CardContent>
-        </Card>
-
         {/* Filters */}
-        <Card className="mb-6">
-          <CardContent className="pt-6">
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[var(--muted-text-color)]" />
-                  <Input
-                    placeholder="Search items..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
-                  />
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-3 py-2 border rounded-md bg-[var(--surface-color)] text-[var(--text-color)]"
-                >
-                  <option value="all">All Categories</option>
-                  {Object.entries(categoryInfo).map(([key, info]) => (
-                    <option key={key} value={key}>{info.name}</option>
-                  ))}
-                </select>
-                <select
-                  value={selectedImportance}
-                  onChange={(e) => setSelectedImportance(e.target.value)}
-                  className="px-3 py-2 border rounded-md bg-[var(--surface-color)] text-[var(--text-color)]"
-                >
-                  <option value="all">All Importance</option>
-                  <option value="essential">Essential</option>
-                  <option value="recommended">Recommended</option>
-                  <option value="optional">Optional</option>
-                </select>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
+          {/* Search */}
+          <div className="relative flex-1 max-w-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/30" />
+            <input
+              type="text"
+              placeholder="Search items..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-black border border-white/20 text-white text-sm px-10 py-2 font-mono placeholder:text-white/30 focus:outline-none focus:border-white/40"
+            />
+          </div>
 
-        {/* Category Tabs */}
-        <Tabs defaultValue="all" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-7">
-            <TabsTrigger value="all">All</TabsTrigger>
+          {/* Category Filter */}
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedCategory('all')}
+              className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border ${
+                selectedCategory === 'all'
+                  ? 'border-white text-white bg-white/10'
+                  : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+              }`}
+            >
+              All
+            </button>
             {Object.entries(categoryInfo).map(([key, info]) => (
-              <TabsTrigger key={key} value={key} className="flex items-center gap-2">
+              <button
+                key={key}
+                onClick={() => setSelectedCategory(key)}
+                className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border flex items-center gap-2 ${
+                  selectedCategory === key
+                    ? 'border-white text-white bg-white/10'
+                    : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+                }`}
+              >
                 {info.icon}
                 <span className="hidden sm:inline">{info.name.split(' ')[0]}</span>
-              </TabsTrigger>
+              </button>
             ))}
-          </TabsList>
+          </div>
+        </div>
 
-          {/* All Items Tab */}
-          <TabsContent value="all">
-            <div className="space-y-4">
-              {filteredItems.map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Card className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
-                    checkedItems.has(item.id) ? 'bg-[var(--muted-background)] opacity-75' : ''
-                  }`}
-                    onClick={() => toggleItem(item.id)}
-                  >
-                    <CardContent className="flex items-center gap-4 p-4">
-                      <input
-                        type="checkbox"
-                        checked={checkedItems.has(item.id)}
-                        onChange={() => toggleItem(item.id)}
-                        className="h-5 w-5 text-[var(--primary-color)] rounded"
-                      />
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className={`text-sm font-medium ${
-                            checkedItems.has(item.id) ? 'line-through text-[var(--muted-text-color)]' : ''
-                          }`}>
-                            {item.quantity ? `${item.quantity} ` : ''}{item.name}
-                          </span>
-                          <Badge className={`${importanceColors[item.importance]} text-white text-xs`}>
-                            {item.importance}
-                          </Badge>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            {categoryInfo[item.category].name}
-                          </Badge>
-                          {item.link && (
-                            <Link href={item.link} target="_blank" rel="noopener noreferrer">
-                              <Button variant="ghost" size="sm" className="h-6 text-xs">
-                                View Product
-                              </Button>
-                            </Link>
-                          )}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </TabsContent>
-
-          {/* Category-specific tabs */}
-          {Object.entries(categoryInfo).map(([category, info]) => (
-            <TabsContent key={category} value={category}>
-              <Card className="mb-4">
-                <CardContent className="pt-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium flex items-center gap-2">
-                      {info.icon}
-                      {info.name} Progress
-                    </span>
-                    <span className="text-sm text-[var(--muted-text-color)]">
-                      {Math.round(getProgressByCategory(category))}%
-                    </span>
-                  </div>
-                  <Progress value={getProgressByCategory(category)} className="h-2" />
-                </CardContent>
-              </Card>
-              
-              <div className="space-y-4">
-                {packingItems
-                  .filter(item => item.category === category)
-                  .map((item) => (
-                    <motion.div
-                      key={item.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Card className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
-                        checkedItems.has(item.id) ? 'bg-[var(--muted-background)] opacity-75' : ''
-                      }`}
-                        onClick={() => toggleItem(item.id)}
-                      >
-                        <CardContent className="flex items-center gap-4 p-4">
-                          <input
-                            type="checkbox"
-                            checked={checkedItems.has(item.id)}
-                            onChange={() => toggleItem(item.id)}
-                            className="h-5 w-5 text-[var(--primary-color)] rounded"
-                          />
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className={`font-medium ${
-                                checkedItems.has(item.id) ? 'line-through text-[var(--muted-text-color)]' : ''
-                              }`}>
-                                {item.quantity ? `${item.quantity} ` : ''}{item.name}
-                              </span>
-                              <Badge className={`${importanceColors[item.importance]} text-white text-xs`}>
-                                {item.importance}
-                              </Badge>
-                            </div>
-                            {item.link && (
-                              <Link href={item.link} target="_blank" rel="noopener noreferrer">
-                                <Button variant="ghost" size="sm" className="h-6 text-xs">
-                                  View Product
-                                </Button>
-                              </Link>
-                            )}
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
+        {/* Items by Category */}
+        <div className="space-y-12">
+          {Object.entries(groupedItems).map(([category, items]) => (
+            <div key={category}>
+              <div className="border-b border-white/10 pb-3 mb-6">
+                <div className="flex items-center gap-3">
+                  <span className="text-white/40">{categoryInfo[category]?.icon}</span>
+                  <span className="font-mono text-xs tracking-wider text-white/40 uppercase">
+                    {categoryInfo[category]?.name}
+                  </span>
+                </div>
               </div>
-            </TabsContent>
-          ))}
-        </Tabs>
-      </motion.section>
 
-      <Separator />
+              <div className="grid gap-px bg-white/10 border border-white/10">
+                {items.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: index * 0.02, duration: 0.3 }}
+                    onClick={() => toggleItem(item.id)}
+                    className={`bg-black p-4 cursor-pointer transition-colors ${
+                      checkedItems.has(item.id) ? 'bg-white/5' : 'hover:bg-white/5'
+                    }`}
+                  >
+                    <div className="flex items-center gap-4">
+                      {/* Checkbox */}
+                      <div className={`w-5 h-5 border flex items-center justify-center transition-colors ${
+                        checkedItems.has(item.id)
+                          ? 'border-white bg-white'
+                          : 'border-white/30'
+                      }`}>
+                        {checkedItems.has(item.id) && (
+                          <Check className="h-3 w-3 text-black" />
+                        )}
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1">
+                        <span className={`text-sm font-light transition-colors ${
+                          checkedItems.has(item.id)
+                            ? 'text-white/40 line-through'
+                            : 'text-white'
+                        }`}>
+                          {item.quantity && <span className="text-white/50">{item.quantity} </span>}
+                          {item.name}
+                        </span>
+                      </div>
+
+                      {/* Importance Badge */}
+                      <span className={`font-mono text-xs uppercase tracking-wider ${
+                        item.importance === 'essential' ? 'text-red-400' :
+                        item.importance === 'recommended' ? 'text-yellow-400' :
+                        'text-white/30'
+                      }`}>
+                        {item.importance}
+                      </span>
+
+                      {/* Link */}
+                      {item.link && (
+                        <Link
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-white/30 hover:text-white/60 transition-colors"
+                        >
+                          <ArrowUpRight className="h-4 w-4" />
+                        </Link>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* The Goods - Images Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <h2 className="text-3xl font-bold text-[var(--primary-color)] mb-6">The Goods</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card className="group hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-0">
-              <div className="relative overflow-hidden rounded-t-lg">
-                <Image 
-                  src="/assets/images/misc/IMG_2622 2.jpg" 
-                  alt="Travel packing setup" 
-                  width={400}
-                  height={300}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold mb-2">Essential Travel Gear</h3>
-                <p className="text-sm text-[var(--muted-text-color)]">
-                  Everything you need for world travel, organized and ready for adventure.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-0">
-              <div className="relative overflow-hidden rounded-t-lg">
-                <Image 
-                  src="/assets/images/misc/IMG_2629.jpg" 
-                  alt="Packed backpack ready for travel" 
-                  width={400}
-                  height={300}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold mb-2">Packed & Ready</h3>
-                <p className="text-sm text-[var(--muted-text-color)]">
-                  The final result: a perfectly organized backpack for year-long adventures.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-6">
-              <div className="text-center space-y-4">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full flex items-center justify-center">
-                  <Backpack className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="font-semibold">Year-Long Journey</h3>
-                <p className="text-sm text-[var(--muted-text-color)] leading-relaxed">
-                  This checklist represents everything needed for a complete year of travel across 16 countries. 
-                  Every item has been tested and proven essential for world exploration.
-                </p>
-                <Badge className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white">
-                  Battle-Tested
-                </Badge>
-              </div>
-            </CardContent>
-          </Card>
+      <section>
+        <div className="border-b border-white/10 pb-4 mb-8">
+          <span className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase block mb-2">
+            [ The Setup ]
+          </span>
+          <h2 className="text-2xl font-extralight text-white">The Goods</h2>
         </div>
-      </motion.section>
+
+        <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+          <div className="relative aspect-[4/3] overflow-hidden bg-black">
+            <Image
+              src="/assets/images/misc/IMG_2622 2.jpg"
+              alt="Travel packing setup"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 p-6">
+              <span className="font-mono text-xs tracking-wider text-white/60 uppercase block mb-2">
+                Essential Gear
+              </span>
+              <p className="text-white/80 text-sm">Everything organized and ready for adventure.</p>
+            </div>
+          </div>
+
+          <div className="relative aspect-[4/3] overflow-hidden bg-black">
+            <Image
+              src="/assets/images/misc/IMG_2629.jpg"
+              alt="Packed backpack ready for travel"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 p-6">
+              <span className="font-mono text-xs tracking-wider text-white/60 uppercase block mb-2">
+                Packed & Ready
+              </span>
+              <p className="text-white/80 text-sm">A perfectly organized backpack for year-long adventures.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

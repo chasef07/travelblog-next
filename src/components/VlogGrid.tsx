@@ -2,126 +2,127 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Play, X } from 'lucide-react'
 import { vlogsData, Vlog } from '../content/vlogs-data'
 
 export default function VlogGrid() {
   const [selectedVideo, setSelectedVideo] = useState<Vlog | null>(null)
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.4 }}
-      className="space-y-8"
-    >
+    <div className="space-y-12">
       {/* Hero Video Player */}
       {selectedVideo && (
-        <div className="bg-[var(--surface-color)] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="border border-white/10 bg-black"
+        >
           <div className="aspect-video">
             <iframe
-              src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}`}
+              src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`}
               title={selectedVideo.title}
               className="w-full h-full"
               allowFullScreen
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             />
           </div>
-          <div className="p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-2 h-2 bg-[var(--secondary-color)] rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-[var(--muted-text-color)] uppercase tracking-wider">
+          <div className="p-6 border-t border-white/10">
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-mono text-xs tracking-wider text-white/40 uppercase">
                 {selectedVideo.country}
               </span>
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="text-white/40 hover:text-white/60 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
             </div>
-            <h3 className="text-2xl font-bold text-[var(--primary-color)] mb-3">
+            <h3 className="text-xl font-light text-white mb-3">
               {selectedVideo.title}
             </h3>
-            <p className="text-lg text-[var(--text-color)] opacity-90 leading-relaxed">
+            <p className="text-white/50 leading-relaxed">
               {selectedVideo.description}
             </p>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Video Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {vlogsData.map((vlog) => (
+      <div className="grid gap-px bg-white/10 border border-white/10 md:grid-cols-2 lg:grid-cols-3">
+        {vlogsData.map((vlog, index) => (
           <VlogCard
             key={vlog.id}
             vlog={vlog}
+            index={index}
             isSelected={selectedVideo?.id === vlog.id}
             onClick={() => setSelectedVideo(vlog)}
           />
         ))}
       </div>
-    </motion.div>
+    </div>
   )
 }
 
-function VlogCard({ 
-  vlog, 
-  isSelected, 
-  onClick 
-}: { 
+function VlogCard({
+  vlog,
+  index,
+  isSelected,
+  onClick
+}: {
   vlog: Vlog
+  index: number
   isSelected: boolean
-  onClick: () => void 
+  onClick: () => void
 }) {
   return (
-    <button
+    <motion.button
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: index * 0.05, duration: 0.4 }}
       onClick={onClick}
-      className={`group relative bg-[var(--surface-color)] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-left w-full ring-1 ring-black/5 ${
-        isSelected ? 'ring-2 ring-[var(--secondary-color)] shadow-2xl scale-105' : ''
+      className={`group relative bg-black text-left w-full transition-colors ${
+        isSelected ? 'bg-white/5' : 'hover:bg-white/5'
       }`}
     >
       {/* Thumbnail */}
-      <div className="relative aspect-video overflow-hidden bg-gray-900">
+      <div className="relative aspect-video overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`https://img.youtube.com/vi/${vlog.youtubeId}/maxresdefault.jpg`}
           alt={vlog.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        
-        {/* Play Button Overlay */}
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-          <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-300 shadow-2xl">
-            <svg 
-              viewBox="0 0 24 24" 
-              width={24} 
-              height={24} 
-              fill="currentColor" 
-              className="text-[var(--primary-color)] ml-1"
-            >
-              <path d="M8 5v14l11-7z"/>
-            </svg>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="w-14 h-14 border border-white/40 rounded-full flex items-center justify-center group-hover:border-white/60 transition-colors">
+            <Play className="h-6 w-6 text-white ml-1" fill="white" />
           </div>
         </div>
 
         {/* Country Badge */}
-        <div className="absolute top-4 left-4 bg-[var(--secondary-color)] text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
-          {vlog.country}
+        <div className="absolute top-4 left-4">
+          <span className="font-mono text-xs tracking-wider text-white/80 uppercase bg-black/60 px-3 py-1 backdrop-blur-sm">
+            {vlog.country}
+          </span>
         </div>
+
+        {/* Selected Indicator */}
+        {isSelected && (
+          <div className="absolute top-4 right-4 w-2 h-2 bg-white rounded-full" />
+        )}
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        <h3 className="text-lg font-bold text-[var(--primary-color)] group-hover:text-[var(--secondary-color)] transition-colors duration-300 mb-2 line-clamp-2">
+      <div className="p-6 space-y-3">
+        <h3 className="text-lg font-light text-white group-hover:text-white/80 transition-colors duration-300 line-clamp-2">
           {vlog.title}
         </h3>
-        <p className="text-sm text-[var(--muted-text-color)] line-clamp-3 leading-relaxed">
+        <p className="text-sm text-white/40 line-clamp-2 leading-relaxed group-hover:text-white/50 transition-colors">
           {vlog.description}
         </p>
       </div>
-
-      {/* Selected Indicator */}
-      {isSelected && (
-        <div className="absolute top-4 right-4 w-6 h-6 bg-[var(--secondary-color)] rounded-full flex items-center justify-center shadow-lg animate-pulse">
-          <svg viewBox="0 0 24 24" width={14} height={14} fill="currentColor" className="text-white">
-            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-          </svg>
-        </div>
-      )}
-    </button>
+    </motion.button>
   )
 }

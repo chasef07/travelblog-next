@@ -1,27 +1,40 @@
+'use client'
+
 import dynamic from 'next/dynamic'
-import SectionTitle from '@/components/SectionTitle'
+import { motion } from 'framer-motion'
 
 const ModernPackingChecklist = dynamic(() => import('@/components/ModernPackingChecklist'), {
-  loading: () => <div className="text-center py-12 text-muted-foreground">Loading packing checklist...</div>
+  loading: () => (
+    <div className="text-center py-12">
+      <div className="text-white/40 font-mono tracking-wider text-sm">LOADING CHECKLIST...</div>
+    </div>
+  )
 })
 
-export const metadata = {
-  title: 'Ultimate Packing Checklist - World Travel Essentials - Lone Horizons',
-  description: 'Comprehensive packing checklist for world travel. Essential items, tech gear, and travel tips from a year-long adventure across 16 countries.',
-}
-
-export default function Page(){
+export default function Page() {
   return (
-    <main className="min-h-screen pt-20">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="text-center mb-16">
-          <SectionTitle>Ultimate World Travel Packing Checklist</SectionTitle>
-          <p className="mt-6 text-lg text-[var(--muted-text-color)] max-w-4xl mx-auto leading-relaxed">
-            Everything you need for epic world travel. This comprehensive checklist is based on my year-long journey 
-            through 16 countries with just a backpack and essential gear.
+    <main className="min-h-screen bg-black pt-24">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16"
+        >
+          <div>
+            <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
+              [ Travel Essentials ]
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
+              Packing List
+            </h1>
+          </div>
+          <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
+            Everything for a year-long journey across 18 countries. Battle-tested and essential.
           </p>
-        </div>
-        
+        </motion.div>
+
         <ModernPackingChecklist />
       </div>
     </main>
