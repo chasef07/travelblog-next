@@ -26,11 +26,8 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         <link rel="preconnect" href="https://c.basemaps.cartocdn.com" />
         <link rel="preconnect" href="https://d.basemaps.cartocdn.com" />
         
-        {/* Favicon and app icons */}
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        {/* Favicon - minimalist SVG */}
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
         
         {/* Website structured data */}
         <script
@@ -40,19 +37,23 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
       </head>
       <body suppressHydrationWarning className="min-h-screen flex flex-col bg-zinc-900">
 
-        {/* Google Analytics - replace with your tracking ID */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID');
-          `}
-        </Script>
+        {/* Google Analytics */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
 
         <Header />
         {children}

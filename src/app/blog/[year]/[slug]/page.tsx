@@ -3,7 +3,7 @@ import { blogMetadata } from '@/content/blog-data'
 import BlogPost from '@/components/BlogPost'
 import Link from 'next/link'
 import Image from 'next/image'
-import { generatePageMetadata, generateArticleJsonLd } from '@/lib/seo'
+import { generatePageMetadata, generateArticleJsonLd, generateBreadcrumbJsonLd, siteConfig } from '@/lib/seo'
 import { ArrowLeft, ArrowUpRight, MapPin, Clock } from 'lucide-react'
 
 export async function generateMetadata({ params }:{ params: Promise<{ year: string; slug: string }> }){
@@ -56,6 +56,12 @@ export default async function Page({ params }: { params: Promise<{ year: string;
 
   if (post) {
     const articleJsonLd = generateArticleJsonLd(post)
+    const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+      { name: 'Home', url: siteConfig.url },
+      { name: 'Stories', url: `${siteConfig.url}/blog` },
+      { name: post.location, url: `${siteConfig.url}/blog` },
+      { name: post.title, url: `${siteConfig.url}/blog/${year}/${slug}` }
+    ])
 
     return (
       <main className="min-h-screen bg-black pt-24">
@@ -63,6 +69,11 @@ export default async function Page({ params }: { params: Promise<{ year: string;
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        />
+        {/* JSON-LD breadcrumb navigation */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
 
         <div className="max-w-4xl mx-auto px-6">

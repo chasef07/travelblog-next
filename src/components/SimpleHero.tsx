@@ -221,14 +221,6 @@ export default function SimpleHero() {
                 <span className="uppercase text-sm tracking-wider">Read Stories</span>
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
-
-              <Link
-                href="/maps"
-                className="group inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"
-              >
-                <span className="uppercase text-sm tracking-wider">Travel Maps</span>
-                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
             </div>
           </motion.div>
 

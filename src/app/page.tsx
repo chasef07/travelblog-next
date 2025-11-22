@@ -7,9 +7,13 @@ import QuickContentNav from "../components/QuickContentNav"
 
 const InteractiveGlobe = dynamic(() => import("../components/InteractiveGlobe"), {
   loading: () => (
-    <div className="w-full h-[600px] bg-black flex items-center justify-center">
-      <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
-    </div>
+    <section className="py-20 relative overflow-hidden bg-black border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="h-[600px] flex items-center justify-center">
+          <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
+        </div>
+      </div>
+    </section>
   ),
   ssr: false
 })

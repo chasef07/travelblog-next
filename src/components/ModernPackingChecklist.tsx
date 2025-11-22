@@ -351,7 +351,7 @@ export default function ModernPackingChecklist() {
         <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
           <div className="relative aspect-[4/3] overflow-hidden bg-black">
             <Image
-              src="/assets/images/misc/IMG_2622 2.jpg"
+              src="/assets/images/misc/IMG_2660.jpg"
               alt="Travel packing setup"
               fill
               className="object-cover"
@@ -367,7 +367,7 @@ export default function ModernPackingChecklist() {
 
           <div className="relative aspect-[4/3] overflow-hidden bg-black">
             <Image
-              src="/assets/images/misc/IMG_2629.jpg"
+              src="/assets/images/misc/IMG_2688.jpg"
               alt="Packed backpack ready for travel"
               fill
               className="object-cover"

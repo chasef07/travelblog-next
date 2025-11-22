@@ -2,6 +2,84 @@ import { BlogPost } from '../../types/blog'
 
 export const november2025Posts: BlogPost[] = [
   {
+    id: 'deployment-day',
+    title: 'Deployment Day',
+    date: 'November 14, 2025',
+    location: 'Bocas del Toro, Panama',
+    slug: 'deployment-day',
+    year: '2025',
+    excerpt: 'The only place with power on the island was the Chabad House. A chaotic, beautiful day of deploying our first automation into production.',
+    content: `The sound of the AC clicking off lightly pulls me out of sleep. It's 6:15 AM in my little yellow house in Bocas del Toro, Panama, and a soft wash of morning light sneaks through the high window above the balcony door. I blink, confused, until I remember that yesterday our Airbnb host told us the entire province would lose power from 6 to 10.
+
+Still half-asleep, I step onto the balcony and do a few slow shoulder stretches. My great friend and business partner, Kyle, and I have been on the islands of Bocas del Toro for a week and a half running our AI and software automation business, and today marks a big moment in our journey. We are deploying our first automation live into production for hundreds of users.
+
+As 7 AM comes around and we wipe the sleepiness from our eyes and minds, we begin to get giddy. We start cheering and singing, "Deployment Day oh Deployment Day how I love you." Deploying a piece of software into the real world feels huge for two hippie backpackers like us.
+
+As we move through our morning routine, we assume at least one place on the island must have power, Starlink, or a backup generator. We head toward Bambuda Hostel, a staple of our working rhythm on this trip, to check if they have power and WiFi. We arrive, and to little surprise, there is no WiFi, though they have food thanks to gas stoves. Kyle sits and eats, as he is a hungry boy, and I decide to walk around town to hunt for power.
+
+I check all the Viber cafés and hotels on the island and every one of them is dark. At first it doesn't feel like a problem. We planned to deploy in the afternoon and our only meeting was at 11. It's barely 8. I return to Bambuda to report back to Kyle that the whole town is down and we sit patiently. We play two games of chess, one win each, stretching between turns as anticipation creeps in. We count down the minutes to 10 AM, the promised return of power.
+
+There are locals outside playing dominoes who are oblivious to the whole power outage. Oh a beautiful dichotomy.
+
+Ten o'clock hits. I refresh. Nothing.
+10:05. Still nothing.
+
+We leave Bambuda to search again. Then a brilliant idea hits: the Chabad House. If anyone has a generator, it's the rabbi.
+
+We walk over, hold our breath, and yes—they have power and WiFi. The only place on the entire island. Of course.
+
+We step inside and end up singing with the rabbi. He mentions he has a mikvah and it shocks me. The Chabad is gorgeous, right on the water, with a dock and a little mikvah that's basically a hole in the floor leading straight to the ocean. I hadn't showered because of the outage, so it's perfect. Afterwards I spot real showers with soap. I feel human again.
+
+It's nearing 11, just in time for our meeting with Kaleb from Barefoot Grass. We scramble to get set up. I order a chicken shawarma pita and eat on the call because I'm starving. The meeting goes smoothly.
+
+Then comes the moment we've been waiting for: Deployment Day. Another customer had emailed saying we were "good to go," and we interpret this as approval to deploy immediately.
+
+We sit in the Chabad House, heads down, migrating his domain from the old site to ours. After some time, the switch completes. But we notice an issue: sometimes our site loads, other times the old one. The "www" version is causing trouble. We scramble to fix it, adjust DNS, and finalize the migration.
+
+Next, I try logging into the admin portal and it fails. Another fire. We research and patch it fairly quickly.
+
+Meanwhile the rabbi's kids in the next room are having a full-blown concert—screaming, belting songs, banging on whatever they can find. We joke under our breath, "Rabbi, please turn it down," but keep grinding.
+
+Right then our customer starts blowing up our inbox.
+
+"Why is the site down?"
+"Why do I have no sales?"
+"I thought you were doing the migration at NIGHT!"
+
+That's when we realize we misunderstood. We took "good to go" as deploy now. He meant everything was ready for later. A clear miscommunication.
+
+We stabilize him with a call, finish fixing the admin portal, and he calms down. He likes the new setup but is rattled by the surprise. For now, things level out.
+
+Kyle and I stand, stretch, and high-five. We leave the Chabad House for a reliable Viber café. Kyle orders a burger—finally—and I get a smoothie. We pull up our monitoring dashboard and watch real traffic hitting our product. It feels electric.
+
+Then I spot something.
+
+"Payment succeeded but no submission."
+
+One error. Then another. Then dozens.
+
+Oh no I think, people are paying without going them the product!!! I think that's what was happening.
+
+I alert Kyle. At the exact same moment, our customer starts panicking again, now about delayed emails. He demands a call.
+
+Kyle jumps on the phone, abandoning his burger. I dive into the code. Errors keep growing. Our customer is furious. It's chaos.
+
+Kyle suggests rolling back the deployment. I'm reluctant but he's right. We need to stop the damage. We roll the site back to the old version.
+
+While all of this is happening, the Panamanian waitress asks Kyle if he's finished with his burger. He's too locked into the conversation to answer and she doesn't get the hint. He shoos her away without breaking eye contact.
+
+We feel defeated. Just an hour ago we were celebrating and now we're sweating, worried we cost our client money.
+
+We walk back to our little yellow house where the day began and sit to reflect. We piece together clues, manage the customer, and start forming a plan.
+
+And even with the chaos, the mistakes, the scramble, and the stress…
+
+It was a beautiful Deployment Day. Full of lessons, stories, and moments we'll remember forever.
+
+Deployment Day, Deployment Day, how I love you.`,
+    images: []
+  },
+  {
     id: 'three-phase-war',
     title: 'The Three Phase War',
     date: 'November 11, 2025',

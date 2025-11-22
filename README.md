@@ -1,6 +1,6 @@
-# 🌍 Lone Horizons - Travel Blog
+# 🌍 Living Gambit - Travel Blog
 
-A modern, interactive travel blog built with Next.js 15, showcasing adventures across 15+ countries with world-class SEO and performance optimizations.
+A modern, interactive travel blog built with Next.js 15, showcasing adventures across 18 countries with an interactive 3D globe, world-class SEO, and performance optimizations.
 
 ## ✨ Features
 
@@ -11,12 +11,13 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 
 ### 📱 **Interactive Components**
+- **Interactive 3D Globe** - Three.js/React Three Fiber globe with journey arcs and location markers
 - **Travel Stories** - Filterable blog posts with country/year filters
 - **Interactive Map** - Leaflet-based journey visualization
 - **Food Experiences** - Country-organized culinary adventures
 - **Transportation Guide** - Ranked transport experiences with scoring
 - **Video Vlogs** - Embedded travel videos
-- **🗺️ Travel Map Sales** - Secure Stripe-powered KMZ map downloads
+- **Packing Checklist** - Interactive packing guide
 
 ### 🚀 **Performance & SEO**
 - **Next.js 15 App Router** - Latest React 19 with Server Components
@@ -42,18 +43,13 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 
 ### **UI Components**
 - **Shadcn/ui** - Modern component library
-- **Leaflet** - Interactive maps
+- **Three.js / React Three Fiber** - 3D globe visualization
+- **Leaflet** - Interactive 2D maps
 - **Next/Image** - Optimized image handling
 - **Dynamic Imports** - Progressive loading
 
-### **Payment & E-commerce**
-- **Stripe** - Secure payment processing
-- **Webhook Integration** - Real-time payment handling
-- **Secure Downloads** - HMAC-verified download tokens
-- **KMZ File Delivery** - Google Maps compatible travel guides
-
 ### **Performance**
-- **Turbopack** - Fast development builds
+- **Webpack** - Production-ready builds (Turbopack has compatibility issues with Three.js)
 - **Image Optimization** - Automatic format conversion
 - **Code Splitting** - Dynamic component loading
 - **Caching** - Strategic asset caching
@@ -83,14 +79,11 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 ### **Available Scripts**
 
 ```bash
-# Development
-npm run dev          # Start development server with Turbopack
-npm run build        # Build production bundle
-npm run start        # Start production server
-npm run lint         # Run ESLint
-
-# Type checking
-npm run type-check   # Run TypeScript compiler
+# Development (using pnpm)
+pnpm dev             # Start development server (Webpack)
+pnpm build           # Build production bundle
+pnpm start           # Start production server
+pnpm lint            # Run ESLint
 ```
 
 ## 📁 Project Structure
@@ -98,17 +91,16 @@ npm run type-check   # Run TypeScript compiler
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── api/               # API routes (Stripe, downloads)
 │   ├── blog/              # Travel blog pages
 │   ├── food/              # Food experiences
-│   ├── maps/              # Travel map sales & success pages
 │   ├── transportation/    # Transport guide
+│   ├── packing-checklist/ # Packing guide
 │   └── vlogs/             # Video content
 ├── components/            # React components
-│   ├── BlogGrid.tsx       # Interactive blog grid
-│   ├── FoodGrid.tsx       # Food experience grid
+│   ├── InteractiveGlobe.tsx  # 3D globe wrapper
+│   ├── GlobeScene.tsx     # Three.js globe scene
 │   ├── Header.tsx         # Navigation header
-│   └── SectionTitle.tsx   # Animated section titles
+│   └── ui/                # Shadcn UI components
 ├── content/               # Content and data
 │   ├── blog-posts/        # Blog post content by month
 │   ├── blog-data.ts       # Blog metadata
@@ -151,35 +143,6 @@ export const monthYearPosts: BlogPost[] = [
 ### **Adding Food/Transport Experiences**
 
 Update the respective data files in `src/content/` with new entries following the existing TypeScript interfaces.
-
-## 🗺️ Travel Map Sales System
-
-### **Features**
-- **Secure Payments** - Stripe integration with webhook verification
-- **Digital Downloads** - KMZ files for Google Maps import
-- **Token Security** - HMAC-signed download tokens with 7-day expiration
-- **Email Delivery** - Automatic download links sent to customers
-
-### **Setup Process**
-1. **Stripe Configuration**:
-   - Create products and prices in Stripe Dashboard
-   - Update price IDs in `src/components/maps/PricingSection.tsx`
-   - Configure webhook endpoint: `/api/stripe/webhooks`
-
-2. **File Management**:
-   - Add KMZ files to `public/downloads/`
-   - Update product mapping in `src/app/api/download/route.ts`
-
-3. **Current Products**:
-   - **Laos Travel Guide** - $7.00 (65% off from $20.00)
-   - 50+ curated locations with insider tips
-
-### **Payment Flow**
-1. Customer clicks "Get Instant Access" → Stripe checkout
-2. Payment completion triggers webhook
-3. System generates secure download token
-4. Customer receives email with download link
-5. Token-verified download of KMZ file
 
 ## 🎨 Styling & Theming
 
@@ -233,15 +196,8 @@ npm run build && npm run export
 Create `.env.local` for environment-specific settings:
 
 ```env
-# Required for production
-STRIPE_SECRET_KEY=sk_live_your_stripe_secret_key
-STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret_from_stripe_dashboard
-NEXT_PUBLIC_BASE_URL=https://your-domain.com
-DOWNLOAD_SECRET=your-secure-random-string-for-download-tokens
-
 # Optional
-NEXT_PUBLIC_GOOGLE_ANALYTICS=GA_MEASUREMENT_ID
-EMAIL_API_KEY=your_email_service_api_key
+NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
 ```
 
 For Vercel deployment, add these environment variables in your Vercel dashboard.
@@ -292,4 +248,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ by [Chase Fagen](https://github.com/chasefagen) - Follow the journey across 15+ countries!
+Built with ❤️ by [Chase Fagen](https://github.com/chasefagen) - Follow the journey across 18 countries!

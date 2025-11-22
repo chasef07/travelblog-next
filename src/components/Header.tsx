@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils'
 const navLinks = [
   { href: "/#journey", label: "Journey" },
   { href: "/blog", label: "Stories" },
-  { href: "/maps", label: "Travel Maps" },
   { href: "/vlogs", label: "Vlogs" },
   { href: "/food", label: "Food" },
   { href: "/transportation", label: "Transport" },

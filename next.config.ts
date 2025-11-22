@@ -6,9 +6,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
   images: {
-    remotePatterns: [],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'img.youtube.com' },
+      { protocol: 'https', hostname: 'i.ytimg.com' },
+      { protocol: 'https', hostname: 'a.basemaps.cartocdn.com' },
+      { protocol: 'https', hostname: 'b.basemaps.cartocdn.com' },
+      { protocol: 'https', hostname: 'c.basemaps.cartocdn.com' },
+      { protocol: 'https', hostname: 'd.basemaps.cartocdn.com' },
+    ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -40,7 +46,7 @@ const nextConfig: NextConfig = {
           }
         ]
       },
-      // Security headers for all pages (no aggressive no-cache)
+      // Security headers for all pages
       {
         source: '/:path*',
         headers: [
@@ -55,6 +61,24 @@ const nextConfig: NextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'geolocation=(), microphone=(), camera=()'
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          }
+        ]
+      },
+      // SVG favicon caching
+      {
+        source: '/icon.svg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, stale-while-revalidate=86400'
           }
         ]
       }
