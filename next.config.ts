@@ -6,6 +6,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const nextConfig: NextConfig = {
+  eslint: {
+    // Disable ESLint during builds due to eslint-config-next compatibility issues with ESLint 9
+    ignoreDuringBuilds: true,
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'img.youtube.com' },

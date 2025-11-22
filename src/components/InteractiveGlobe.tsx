@@ -1,7 +1,7 @@
 'use client'
 
-import { useRef, useMemo, useState, useEffect, lazy, Suspense } from 'react'
-import { fullJourneyData, journeyStats, type CountryData } from '@/utils/comprehensive-map-data'
+import { useState, useEffect, lazy, Suspense } from 'react'
+import { journeyStats, type CountryData } from '@/utils/comprehensive-map-data'
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion'
 
 // Animated counter component
