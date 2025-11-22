@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { journeyStats, type CountryData } from '@/utils/comprehensive-map-data'
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion'
+import GlobeScene from './GlobeScene'
 
 // Animated counter component
 function AnimatedCounter({ value, duration = 2 }: { value: number, duration?: number }) {
@@ -43,21 +44,36 @@ interface GeoJSON {
   features: GeoJSONFeature[]
 }
 
-// Lazy load the 3D scene component
-const GlobeScene = lazy(() => import('./GlobeScene'))
-
 // Main export component
 export default function InteractiveGlobe() {
   const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
   const [geoData, setGeoData] = useState<GeoJSON | null>(null)
-  const [isMounted, setIsMounted] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
 
+  // Intersection observer to load globe only when in view
   useEffect(() => {
-    setIsMounted(true)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
+    return () => observer.disconnect()
   }, [])
 
-  // Fetch world map GeoJSON data
+  // Fetch world map GeoJSON data when visible
   useEffect(() => {
+    if (!isVisible) return
+
     const fetchGeoJSON = async () => {
       try {
         const response = await fetch(
@@ -70,7 +86,7 @@ export default function InteractiveGlobe() {
       }
     }
     fetchGeoJSON()
-  }, [])
+  }, [isVisible])
 
   return (
     <section id="journey" className="py-20 relative overflow-hidden bg-black border-t border-white/10">
@@ -98,29 +114,20 @@ export default function InteractiveGlobe() {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Globe Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true, margin: "-100px" }}
+          <div
+            ref={containerRef}
             className="lg:col-span-2 w-full"
           >
-            <div className="overflow-hidden rounded-xl bg-black h-[400px] sm:h-[500px] md:h-[600px] w-full flex items-center justify-center">
-              {isMounted ? (
-                <Suspense fallback={
-                  <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
-                }>
-                  <GlobeScene
-                    onSelectCountry={setSelectedCountry}
-                    selectedCountry={selectedCountry}
-                    geoData={geoData}
-                  />
-                </Suspense>
-              ) : (
-                <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
+            <div className="overflow-hidden rounded-xl bg-[#0a0a0a] h-[400px] sm:h-[500px] md:h-[600px] w-full">
+              {isVisible && (
+                <GlobeScene
+                  onSelectCountry={setSelectedCountry}
+                  selectedCountry={selectedCountry}
+                  geoData={geoData}
+                />
               )}
             </div>
-          </motion.div>
+          </div>
 
           {/* Country Details Panel */}
           <motion.div

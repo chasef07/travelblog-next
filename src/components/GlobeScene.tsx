@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useMemo, useState } from 'react'
+import { useRef, useMemo, useState, memo, useCallback } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Line, Html } from '@react-three/drei'
 import * as THREE from 'three'
@@ -104,21 +104,21 @@ function processGeoJSONToLines(geoJSON: GeoJSON, radius: number): THREE.Vector3[
 }
 
 // Globe with real country outlines from GeoJSON
-function GlobeWireframe({ radius, geoData }: { radius: number, geoData: GeoJSON | null }) {
-  const wireframeRef = useRef<THREE.Group>(null)
-
+const GlobeWireframe = memo(function GlobeWireframe({ radius, geoData }: { radius: number, geoData: GeoJSON | null }) {
   const countryPaths = useMemo(() => {
     if (!geoData) return []
     return processGeoJSONToLines(geoData, radius * 1.001)
   }, [geoData, radius])
 
   return (
-    <group ref={wireframeRef}>
+    <group>
+      {/* Base sphere - always rendered */}
       <mesh>
-        <sphereGeometry args={[radius, 64, 64]} />
+        <sphereGeometry args={[radius, 48, 48]} />
         <meshBasicMaterial color="#0d0d0d" />
       </mesh>
 
+      {/* Country outlines - rendered when data loads */}
       {countryPaths.map((points, i) => (
         <Line
           key={`country-${i}`}
@@ -129,7 +129,7 @@ function GlobeWireframe({ radius, geoData }: { radius: number, geoData: GeoJSON 
       ))}
     </group>
   )
-}
+})
 
 // Location marker component
 function LocationMarker({
@@ -234,13 +234,19 @@ function Scene({
 
   const radius = 2
 
-  // Initial rotation to show India (longitude ~78°E)
-  // Convert longitude to radians and adjust for globe orientation
+  // Initial rotation to show Japan (longitude ~138°E)
   const initialRotation = useMemo(() => {
-    const indiaLongitude = 78
-    // Rotate globe so India faces camera (negative because we rotate the globe, not the camera)
-    return -(indiaLongitude + 90) * (Math.PI / 180)
+    const japanLongitude = 138
+    return -(japanLongitude + 90) * (Math.PI / 180)
   }, [])
+
+  // Callback ref to set initial rotation when group is created
+  const setGroupRef = useCallback((group: THREE.Group | null) => {
+    if (group) {
+      group.rotation.y = initialRotation
+      groupRef.current = group
+    }
+  }, [initialRotation])
 
   useFrame((state, delta) => {
     if (groupRef.current && autoRotate) {
@@ -288,7 +294,7 @@ function Scene({
         }}
       />
 
-      <group ref={groupRef} rotation={[0, initialRotation, 0]}>
+      <group ref={setGroupRef}>
         <GlobeWireframe radius={radius} geoData={geoData} />
 
         {arcs.map((arc, i) => (
@@ -328,16 +334,51 @@ export default function GlobeScene({
   selectedCountry: CountryData | null
   geoData: GeoJSON | null
 }) {
+  const [isReady, setIsReady] = useState(false)
+
   return (
-    <Canvas
-      camera={{ position: [0, 0, 5], fov: 45 }}
-      style={{ background: '#0a0a0a', width: '100%', height: '100%' }}
-    >
-      <Scene
-        onSelectCountry={onSelectCountry}
-        selectedCountry={selectedCountry}
-        geoData={geoData}
-      />
-    </Canvas>
+    <div className="w-full h-full relative">
+      {/* Loading state shown until canvas is ready */}
+      <div
+        className="absolute inset-0 flex items-center justify-center bg-[#0a0a0a] transition-opacity duration-700 pointer-events-none"
+        style={{ opacity: isReady ? 0 : 1 }}
+      >
+        <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
+      </div>
+
+      <Canvas
+        camera={{ position: [0, 0, 7], fov: 45 }}
+        style={{
+          background: '#0a0a0a',
+          width: '100%',
+          height: '100%',
+          opacity: isReady ? 1 : 0,
+          transition: 'opacity 0.7s ease-in-out'
+        }}
+        dpr={[1, 1.5]}
+        gl={{
+          antialias: true,
+          alpha: false,
+          powerPreference: 'high-performance',
+          stencil: false,
+          depth: true
+        }}
+        frameloop="always"
+        onCreated={(state) => {
+          console.log('Canvas created, camera z position:', state.camera.position.z)
+          // Small delay to ensure first frame is rendered
+          requestAnimationFrame(() => {
+            setIsReady(true)
+          })
+        }}
+      >
+        <Scene
+          key="globe-scene"
+          onSelectCountry={onSelectCountry}
+          selectedCountry={selectedCountry}
+          geoData={geoData}
+        />
+      </Canvas>
+    </div>
   )
 }

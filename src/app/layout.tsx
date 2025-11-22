@@ -4,6 +4,8 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Living Gambit - Travel, Adventure, Capitalism',
@@ -58,6 +60,8 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         <Header />
         {children}
         <Footer />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
