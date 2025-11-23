@@ -121,7 +121,7 @@ export default function SimpleHero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black flex flex-col justify-between pt-24 pb-12">
+    <section className="relative min-h-screen overflow-hidden bg-black flex flex-col justify-start md:justify-between pt-32 md:pt-24 pb-12">
 
       {/* Light beam effect */}
       <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none">
@@ -145,7 +145,7 @@ export default function SimpleHero() {
       </motion.div>
 
       {/* Main content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto px-6 w-full">
+      <div className="relative z-10 flex-none md:flex-1 flex flex-col justify-center max-w-7xl mx-auto px-6 w-full">
 
         {/* Currently in pill */}
         <motion.div
@@ -191,7 +191,7 @@ export default function SimpleHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoaded ? 1 : 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-white/40 font-light tracking-wide max-w-md"
+          className="text-xl md:text-2xl text-white/40 font-light tracking-wide max-w-md mb-4 md:mb-0"
         >
           Travel, Adventure, Capitalism
         </motion.p>
@@ -200,7 +200,7 @@ export default function SimpleHero() {
 
       {/* Bottom section */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-end gap-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-end gap-4 md:gap-8">
 
           {/* Description and CTA */}
           <motion.div
