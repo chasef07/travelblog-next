@@ -20,17 +20,16 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://a.basemaps.cartocdn.com" />
-        <link rel="preconnect" href="https://b.basemaps.cartocdn.com" />
-        <link rel="preconnect" href="https://c.basemaps.cartocdn.com" />
-        <link rel="preconnect" href="https://d.basemaps.cartocdn.com" />
-        
+        {/* DNS prefetch for external domains (lighter than preconnect) */}
+        <link rel="dns-prefetch" href="https://a.basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://c.basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://d.basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
+
         {/* Favicon - minimalist SVG */}
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        
+
         {/* Website structured data */}
         <script
           type="application/ld+json"

@@ -2,6 +2,52 @@ import { BlogPost } from '../../types/blog'
 
 export const november2025Posts: BlogPost[] = [
   {
+    id: 'explaining-complexity-intelligence',
+    title: 'Explaining Complexity & Intelligence',
+    date: 'November 28, 2025',
+    location: 'Clearwater, FL',
+    slug: 'explaining-complexity-intelligence',
+    year: '2025',
+    excerpt: 'From board games to business - understanding the underlying rules of intelligence and learning how to compress complexity for customers.',
+    content: `Last night I was playing a game with my mom called Uzzle. Imagine a 2x1 block which has different patterns on every face. There are four faces with 2 squares per face so 8 total. You have 4 of these blocks. You pick a card and it shows you a pattern and you need to make the pattern with your given blocks. There are 4 different levels. Levels 1 and 2 were pretty straight forward, but levels 3 and 4 gave me some trouble.
+
+While playing this game I reflected how I am pretty good at board games and puzzles and strategy games and wanted to understand why. While playing Uzzle I became aware of my thought process and developed a simple rule for the game. All games are simple rules which are then built on top of each other. Actually all of intelligence are simple rules, that is why AI can even be built. There are underlying rules to a system that can be discovered and some rules that can't be discovered but exist. This is called Godel's incompleteness theorem and I think it is one of the most fascinating ideas of all time.
+
+Anyway I develop this simple rule to try out. I try and fail and try again fail and then try and succeed. The idea is you want to tackle the least complex blocks first, the ones with the least amount of connections to other blocks before moving inwards. I then played mancala with my brother and was struck with more rules. I always played these games and was good at them intuitively without ever formalizing and understanding the rules. Mancala's rule is pretty simple. Optimize for getting the most stones in your basket. This can be achieved best by scoring extra turns or landing in empty buckets.
+
+I could go on and on about rules, mathematical formal systems, set theory, and more. I used to dive super deep into the technical realm and I still love it. But more important to me now is figuring out how to explain complex rules, or technologies to layman. More importantly is learning how to explain complex things to people so that they will pay me for my explanation! This is a huge undertaking in itself.
+
+So first how do you explain concept rules and concepts. By analogy is very easy. I would like to get better at explanation by analogy because this is not my preferred method. Since every complex idea is composable into simple rules I like to explain simple rules step by step, telling a story. The goal of every entrepeneur is to be a great story teller.
+
+Now I want to go deeper into explain AI agents to small non technical owners which is directly applicable to my work and my current endeavors and there is still much innovation to explore. Kyle and I are building out our website and realized it was vague and it did not really get across what we are doing or selling for that matter. We used generalities, which were true, but did not resonate with people. This brought a main idea. People need tangible evidence, to be shown how something works, to be explained through numbers and specific super specific scenarios, not just vague general promises.
+
+So how do you explain an AI worker to a 60 year old doctor. At first we tried "yea it can answer emails immediatley, do a bunch of tasks in parallel, automate your busy work". This is all true but it is very difficult for a 60 year old non technical doctor to visualize. So what is a better option? So far it has been demo, if cost effective and quick enough, show the customer exactly the power that they can unlock, or step by step walk through of how it saves this much time and money and how it works simply breaking down complexity.
+
+In the end Intelligence (whether human or AI) is about compressing complexity. Your job as an entrepreneur isn't to teach the client the complexity; it's to hide the complexity so they can enjoy the result.`,
+    images: []
+  },
+  {
+    id: 'thanksgiving-reflections-masculinity-vision',
+    title: 'Thanksgiving Reflections: Masculinity & Vision',
+    date: 'November 27, 2025',
+    location: 'Clearwater, FL',
+    slug: 'thanksgiving-reflections-masculinity-vision',
+    year: '2025',
+    excerpt: 'Reflections on American culture, Thanksgiving traditions, and the importance of masculine vision in modern society.',
+    content: `Today is the American holiday of Thanksgiving. Over the past few years I have been out of the USA for the holiday and have not celebrated it. This year I made it semi-official that I do not celebrate the holiday. Thanksgiving celebrates when the first Pilgrims came to modern day USA and had a feast with the native population here. Then the British colonizers would go on to wipe out one of the most interesting and sophisticated indigenous populations on the planet, in my humble opinion.
+
+That is not why I do not celebrate the holiday though. I do not like the traditional food and Thanksgiving is typically spent eating a big meal with your family. Since my parents are divorced and both of my parents' families are not close enough to have a family gathering, growing up we would go to my parents' friends homes. Anyway it lost meaning in my life and I just view it as another day. Also people love celebrating things that they do not deserve but that is another topic.
+
+As I watched the Macy's day parade on the couch with my mom I thought it was cool but also really stupid. That is the dichotomy of being an American. It is the best country in terms of economic opportunity and flexibility on earth, but it also does not have that sophisticated of culture.
+
+Since I do not have a home base right now, and am exploring the digital nomad lifestyle, it made me reflect on America, where I want to live, and how I want my future life to look like. One thing that came up throughout the reflection is what I think is a big problem with all of modern society, the lack of masculine men with a vision.
+
+Men must have a vision, for themselves, for their future, for their kids, for their family to carve and create. Ever since the industrial revolution, modern western men have declined in masculinity and vision. I do not want this whole post to be about this idea so I will leave it up to you to explore and to agree or disagree.
+
+I am thankful for my parents whom I have a great relationship with and for my journey and life and opportunities. I still have so much to give to my family, to the world, and to myself, to the present and to the future. I want to continue to carve my vision, improve my qualities as a man and future provider.`,
+    images: []
+  },
+  {
     id: 'deployment-day',
     title: 'Deployment Day',
     date: 'November 14, 2025',

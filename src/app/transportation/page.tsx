@@ -1,7 +1,4 @@
-'use client'
-
 import dynamic from 'next/dynamic'
-import { motion } from 'framer-motion'
 
 const TransportationGrid = dynamic(() => import('@/components/TransportationGrid'), {
   loading: () => (
@@ -16,12 +13,7 @@ export default function Page() {
     <main className="min-h-screen bg-black pt-24">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16"
-        >
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16 animate-fade-in">
           <div>
             <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
               [ Getting Around ]
@@ -33,7 +25,7 @@ export default function Page() {
           <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
             Comprehensive ratings and practical tips for getting around in 14+ countries.
           </p>
-        </motion.div>
+        </div>
 
         <TransportationGrid />
       </div>

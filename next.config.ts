@@ -27,7 +27,38 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   experimental: {
-    optimizePackageImports: ['leaflet', 'framer-motion'],
+    optimizePackageImports: ['leaflet', 'framer-motion', 'three', '@react-three/fiber', '@react-three/drei', 'lucide-react'],
+  },
+  modularizeImports: {
+    'lucide-react': {
+      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
+      skipDefaultConversion: true,
+    },
+  },
+  webpack: (config, { isServer }) => {
+    // Improve tree-shaking for large libraries
+    config.optimization = {
+      ...config.optimization,
+      sideEffects: true,
+    }
+
+    // Optimize CSS for critical path
+    if (!isServer) {
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          ...config.optimization.splitChunks?.cacheGroups,
+          styles: {
+            name: 'styles',
+            type: 'css/mini-extract',
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      }
+    }
+
+    return config
   },
   async headers() {
     return [

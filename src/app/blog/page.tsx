@@ -1,7 +1,4 @@
-'use client'
-
 import dynamic from 'next/dynamic'
-import { motion } from 'framer-motion'
 
 const BlogGrid = dynamic(() => import('@/components/BlogGrid').then(mod => ({ default: mod.BlogGrid })), {
   loading: () => (
@@ -16,11 +13,7 @@ export default function Page() {
     <main className="min-h-screen bg-black pt-24">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16"
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16 animate-fade-in"
         >
           <div>
             <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
@@ -33,7 +26,7 @@ export default function Page() {
           <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
             Real experiences from 18 countries. Cultural insights, practical tips, and authentic stories.
           </p>
-        </motion.div>
+        </div>
 
         <BlogGrid />
       </div>
