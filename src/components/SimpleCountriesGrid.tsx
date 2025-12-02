@@ -26,11 +26,11 @@ export default function SimpleCountriesGrid() {
   ] as const
 
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 border-r border-white/10">
       {countries.map((country, index) => (
         <div
           key={country.name}
-          className="group relative flex flex-col items-center py-8 px-4 border-r border-b border-white/10 last:border-r-0 hover:bg-white/5 transition-colors duration-300"
+          className="group relative flex flex-col items-center py-8 px-4 border-l border-b border-white/10 hover:bg-white/5 transition-colors duration-300"
         >
           {/* Flag */}
           <div className="relative w-12 h-8 mb-4 overflow-hidden rounded-sm">

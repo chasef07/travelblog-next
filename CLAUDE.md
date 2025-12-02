@@ -4,17 +4,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-- `pnpm dev` - Start development server with Webpack (Turbopack disabled due to Three.js compatibility issues)
-- `pnpm build` - Build production bundle and check for build errors
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint to check code quality and style
+- `bun dev` - Start development server with Webpack (Turbopack disabled due to Three.js compatibility issues)
+- `bun build` - Build production bundle and check for build errors
+- `bun start` - Start production server
+- `bun lint` - Run ESLint to check code quality and style
+
+**Note**: This project uses Bun as the package manager and runtime for faster installs and better performance.
+
+## Deployment
+
+This project is configured to deploy on Vercel with Bun runtime:
+- **vercel.json**: Specifies `bunVersion: "1.x"` to use Bun runtime on Vercel
+- **Benefits**: Faster cold starts, lower memory usage, better performance vs Node.js
+- **Status**: Bun runtime on Vercel is in Beta
+- **Deploy**: Use `bunx vercel deploy` or push to GitHub (if connected to Vercel)
 
 ## Architecture Overview
 
-This is a Next.js 15 travel blog application called "Living Gambit" featuring:
+This is a Next.js 16 travel blog application called "Living Gambit" featuring:
 
 ### Core Structure
-- **App Router**: Uses Next.js 15 App Router with TypeScript
+- **App Router**: Uses Next.js 16 App Router with TypeScript
 - **3D Globe**: Interactive Three.js/React Three Fiber globe showing journey with arcs and markers
 - **Interactive Map**: Leaflet-based journey visualization with dynamic imports
 - **Content Management**: Static content stored in TypeScript files under `src/content/`
@@ -66,5 +76,6 @@ This is a Next.js 15 travel blog application called "Living Gambit" featuring:
 - **Image formats**: All images must be actual JPEG/PNG (not HEIF with .jpg extension) - use `sips -s format jpeg` to convert
 
 ### Known Issues
-- **Turbopack**: Disabled due to HMR bugs with Three.js/React Three Fiber and framer-motion. Use Webpack (default) for development.
+- **Turbopack**: Disabled in Next.js 16 due to compatibility issues with Three.js/React Three Fiber and framer-motion. Webpack is explicitly enabled via `--webpack` flag in package.json scripts.
 - **HEIF Images**: iPhone photos saved as .jpg may actually be HEIF format. Convert with: `sips -s format jpeg image.jpg --out image.jpg`
+- **React 19 + Radix Slot**: Type compatibility issues between React 19's ref types and Radix UI Slot component. Fixed by casting props to `any` in badge.tsx and button.tsx.
