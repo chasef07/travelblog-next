@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Travel Stories - Adventures Across 18 Countries',
+  title: 'Travel Stories - Adventures Across 19 Countries',
   description: 'Read authentic travel stories, cultural insights, and practical tips from 19 countries across Asia, Africa, and Central America.',
   path: '/blog',
   keywords: ['travel blog', 'travel stories', 'travel guides', 'adventure blog', 'solo travel stories', 'backpacking blog']

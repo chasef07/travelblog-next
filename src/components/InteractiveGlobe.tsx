@@ -198,7 +198,7 @@ export default function InteractiveGlobe() {
             >
               <div className="p-4 text-center border-r border-white/10">
                 <div className="text-2xl font-extralight text-white">
-                  <AnimatedCounter value={18} duration={1.5} />
+                  <AnimatedCounter value={19} duration={1.5} />
                 </div>
                 <div className="text-xs text-white/40 uppercase tracking-wider mt-1">Countries</div>
               </div>

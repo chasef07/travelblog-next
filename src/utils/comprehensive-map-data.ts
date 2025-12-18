@@ -175,9 +175,19 @@ export const fullJourneyData: CountryData[] = [
     color: '#ec4899'
   },
   {
+    name: 'Florida, USA',
+    coordinates: [27.9659, -82.8001],
+    visitDate: 'August 2025',
+    highlights: ['Coming Home', 'Family Reunion', 'Reverse Culture Shock', 'Reflection Period'],
+    blogPostsCount: 3,
+    flagCode: 'US',
+    description: 'Returning home to Clearwater after 10 months of world travel - processing the journey and planning the next chapter.',
+    color: '#3b82f6'
+  },
+  {
     name: 'Costa Rica',
     coordinates: [9.7489, -83.7534],
-    visitDate: 'August 2025',
+    visitDate: 'October 2025',
     highlights: ['Dominical Surfing', 'Jungle Waterfalls', 'Pura Vida Lifestyle', 'Local Beach Culture'],
     blogPostsCount: 3,
     flagCode: 'CR',
@@ -187,7 +197,7 @@ export const fullJourneyData: CountryData[] = [
   {
     name: 'Panama',
     coordinates: [8.9824, -79.5199],
-    visitDate: 'August 2025',
+    visitDate: 'November 2025',
     highlights: ['Panama Canal', 'Bocas del Toro Islands', 'San Blas Indigenous Culture', 'Caribbean Beaches'],
     blogPostsCount: 2,
     flagCode: 'PA',
@@ -199,7 +209,7 @@ export const fullJourneyData: CountryData[] = [
     coordinates: [14.6349, -90.5069],
     visitDate: 'December 2025',
     highlights: ['Antigua Guatemala', 'Lake Atitlán', 'Mayan Ruins', 'Colonial Architecture'],
-    blogPostsCount: 0,
+    blogPostsCount: 2,
     flagCode: 'GT',
     description: 'Colonial charm and Mayan culture in the heart of Central America.',
     color: '#4ade80'
@@ -274,6 +284,10 @@ function getTotalBlogPostCount(): number {
   try {
     const { november2025Posts } = require('../content/blog-posts/2025-november');
     totalCount += november2025Posts.length;
+  } catch {}
+  try {
+    const { december2025Posts } = require('../content/blog-posts/2025-december');
+    totalCount += december2025Posts.length;
   } catch {}
 
   return totalCount;
