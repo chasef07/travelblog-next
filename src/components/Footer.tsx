@@ -92,7 +92,7 @@ const Footer = memo(function Footer(){
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="text-white/30 text-xs font-light tracking-wide">
-              18 Countries · Around the World
+              19 Countries · Around the World
             </div>
             <div className="text-white/30 text-xs font-light tracking-wide">
               Site automation by{' '}

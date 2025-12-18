@@ -1,6 +1,6 @@
 # 🌍 Living Gambit - Travel Blog
 
-A modern, interactive travel blog built with Next.js 15, showcasing adventures across 18 countries with an interactive 3D globe, world-class SEO, and performance optimizations.
+A modern, interactive travel blog built with Next.js 15, showcasing adventures across 19 countries with an interactive 3D globe, world-class SEO, and performance optimizations.
 
 ## ✨ Features
 
@@ -248,4 +248,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ by [Chase Fagen](https://github.com/chasefagen) - Follow the journey across 18 countries!
+Built with ❤️ by [Chase Fagen](https://github.com/chasefagen) - Follow the journey across 19 countries!

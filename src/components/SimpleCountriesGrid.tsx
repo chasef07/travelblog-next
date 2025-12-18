@@ -23,6 +23,7 @@ export default function SimpleCountriesGrid() {
     { name: 'Japan', flag: 'JA-flag.jpg', region: 'East Asia' },
     { name: 'Costa Rica', flag: 'CR-flag.jpg', region: 'Central America' },
     { name: 'Panama', flag: 'PM-flag.jpg', region: 'Central America' },
+    { name: 'Guatemala', flag: 'GT-flag.jpg', region: 'Central America' },
   ] as const
 
   return (
@@ -30,7 +31,9 @@ export default function SimpleCountriesGrid() {
       {countries.map((country, index) => (
         <div
           key={country.name}
-          className="group relative flex flex-col items-center py-8 px-4 border-l border-b border-white/10 hover:bg-white/5 transition-colors duration-300"
+          className={`group relative flex flex-col items-center py-8 px-4 border-l border-b border-white/10 hover:bg-white/5 transition-colors duration-300 ${
+            country.name === 'Guatemala' ? 'border-r-2 border-r-white/40' : ''
+          }`}
         >
           {/* Flag */}
           <div className="relative w-12 h-8 mb-4 overflow-hidden rounded-sm">

@@ -98,6 +98,8 @@ function getMonthFromSlug(slug: string): string {
     'arriving-in-bocas-del-toro': 'november',
     'nong-khiaw-excursion': 'january',
     'nong-khiaw-preparation': 'january',
+    'guatemala-galavanting': 'december',
+    'relentless-building': 'december',
   };
   
   // Direct slug match

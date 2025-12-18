@@ -12,7 +12,7 @@ export interface CountryData {
   posts?: BlogPost[]
 }
 
-// Your complete 18-country world tour journey
+// Your complete 19-country world tour journey
 export const fullJourneyData: CountryData[] = [
   {
     name: 'Israel',
@@ -193,6 +193,16 @@ export const fullJourneyData: CountryData[] = [
     flagCode: 'PA',
     description: 'Where Central and South America meet - exploring the famous canal and Caribbean island adventures.',
     color: '#0ea5e9'
+  },
+  {
+    name: 'Guatemala',
+    coordinates: [14.6349, -90.5069],
+    visitDate: 'December 2025',
+    highlights: ['Antigua Guatemala', 'Lake Atitlán', 'Mayan Ruins', 'Colonial Architecture'],
+    blogPostsCount: 0,
+    flagCode: 'GT',
+    description: 'Colonial charm and Mayan culture in the heart of Central America.',
+    color: '#4ade80'
   }
 ]
 

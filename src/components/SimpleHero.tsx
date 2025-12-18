@@ -169,7 +169,7 @@ export default function SimpleHero() {
               }}
             />
             <span className="font-mono text-xs tracking-wider text-white/60 uppercase">
-              Currently in Clearwater, FL
+              Currently in Antigua Guatemala
             </span>
           </div>
         </motion.div>

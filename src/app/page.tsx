@@ -35,7 +35,7 @@ export default function Page(){
                 [ Countries Explored ]
               </span>
               <h2 id="countries-heading" className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
-                18 Nations
+                19 Nations
               </h2>
             </div>
             <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">

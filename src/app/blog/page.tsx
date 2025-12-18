@@ -24,7 +24,7 @@ export default function Page() {
             </h1>
           </div>
           <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
-            Real experiences from 18 countries. Cultural insights, practical tips, and authentic stories.
+            Real experiences from 19 countries. Cultural insights, practical tips, and authentic stories.
           </p>
         </div>
 

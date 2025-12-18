@@ -6,6 +6,17 @@ import Image from 'next/image'
 import { generatePageMetadata, generateArticleJsonLd, generateBreadcrumbJsonLd, siteConfig } from '@/lib/seo'
 import { ArrowLeft, ArrowUpRight, MapPin, Clock } from 'lucide-react'
 
+// Generate static params for all blog posts at build time
+export async function generateStaticParams() {
+  return blogMetadata.map((post) => {
+    const pathParts = post.link.split('/')
+    return {
+      year: pathParts[2],
+      slug: pathParts[3],
+    }
+  })
+}
+
 export async function generateMetadata({ params }:{ params: Promise<{ year: string; slug: string }> }){
   const { year, slug } = await params;
   const post = await loadBlogPost(year, slug)

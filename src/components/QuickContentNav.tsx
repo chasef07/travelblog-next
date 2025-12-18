@@ -16,7 +16,7 @@ const contentSections: ContentSection[] = [
   {
     id: 'vlogs',
     title: 'Video Stories',
-    description: 'Visual adventures and behind-the-scenes travel moments captured across 18 countries.',
+    description: 'Visual adventures and behind-the-scenes travel moments captured across 19 countries.',
     icon: Video,
     href: '/vlogs',
   },

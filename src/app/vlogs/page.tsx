@@ -23,7 +23,7 @@ export default function Page() {
             </h1>
           </div>
           <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
-            Raw, authentic experiences from 18 countries. Party scenes to cultural immersion.
+            Raw, authentic experiences from 19 countries. Party scenes to cultural immersion.
           </p>
         </div>
 

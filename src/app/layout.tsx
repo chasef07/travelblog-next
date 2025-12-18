@@ -9,7 +9,7 @@ import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Living Gambit - Travel, Adventure, Capitalism',
-  description: 'Reengineering life from the ground up. Solo travel adventures, entrepreneurship, and building a life on your own terms across 18 countries.',
+  description: 'Reengineering life from the ground up. Solo travel adventures, entrepreneurship, and building a life on your own terms across 19 countries.',
   keywords: ['solo travel blog', 'Asia travel guide', 'Africa travel tips', 'cultural travel experiences', 'backpacking Asia', 'solo travel guides', 'travel photography', 'authentic travel stories', 'budget travel tips', 'cultural immersion travel'],
   images: ['/assets/images/misc/posttrip.jpg']
 })

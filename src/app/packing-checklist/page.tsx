@@ -23,7 +23,7 @@ export default function Page() {
             </h1>
           </div>
           <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
-            Everything for a year-long journey across 18 countries. Battle-tested and essential.
+            Everything for a year-long journey across 19 countries. Battle-tested and essential.
           </p>
         </div>
 
