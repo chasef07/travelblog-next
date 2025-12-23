@@ -2,6 +2,27 @@ import { BlogPost } from '../../types/blog'
 
 export const december2025Posts: BlogPost[] = [
   {
+    id: 'quantum-entanglement-lake-atitlan',
+    title: 'Quantum Entanglement at Lake Atitlan',
+    date: 'December 23, 2025',
+    location: 'San Marcos La Laguna, Lake Atitlan, Guatemala',
+    slug: 'quantum-entanglement-lake-atitlan',
+    year: '2025',
+    excerpt: 'Running into familiar faces from Vietnam in a small Guatemalan village - reflections on the absurdity of existence and wielding the improbable.',
+    content: `It seems humans follow the same laws of atoms and molecules, like entanglement and superposition, posits Douglas Adams in *The Hitchhiker's Guide to the Galaxy*. Yesterday I felt that more than ever.
+
+Rachel and I went to an authentic mayan cooking class, without the class and ran into a character we have met before. First of all, I booked a trendy Mayan cooking class in San Juan a week in advance and came to the clay house on time at 1 PM. The lady running the kitchen welcomes us and we take a seat. She begins bringing us our appetizers, drinks and the dish. Rachel and I look at each other inquisitively, confused why we are eating before the cooking class. Typically you make the food then eat not the other way around. As time passed, we decided to ask what was going on. The lady told us we booked only lunch, no class and it was impossible to do the class today. Disappointed, we accepted our fate and ate the mediocre mayan chicken and fish and laughed.
+
+While we are eating another couple walks in and take a seat. We start joking that they are about to get screwed over like us, expecting a cooking class but just getting mediocre tasteless mayan food. As time passes we analyze them to see when they will notice. While this is going on the guy at the other table is staring hard at us, and Rachel staring back. Rachel claims she is very good at memorizing faces and says she recognizes the guy. He over hears her saying this and says yes I think we have met. I immediately connect the dots and realized we met this couple in Sapa Vietnam in a small bar in April! Now we are here in a small lake town in Guatemala! How improbable!
+
+To that point, it seems that humans do follow the laws of superposition and entanglement on a macro scale. People always say "small world", but I feel like there is something even more mysterious underneath this simple statement. The interesting thing about the universe is that a lot of the complexity gets abstracted away. From underlying simple rules, complex behavior can emerge which then can be distilled to simple rules again. It is fascinating.
+
+This experience resonates with the Hitchhikers Guide to the Galaxy which I am currently reading. The author Douglas Adams satirizes the entire existence, poking fun at how absurd life is. It really does seem that the world and our experiences trend towards the most absurd and improbable. This has become a part of my philosophy.
+
+So what do you do with this underlying principle? I think the only thing you can do is be adaptable, ride the wave, never be surprised, and seize the absurdity. If you learn to wield the improbable, instead of expecting simplicity, you can make some very life changing decisions, financially and socially.`,
+    images: []
+  },
+  {
     id: 'temezcal-at-lake-atitlan',
     title: 'Temezcal at Lake Atitlan',
     date: 'December 21, 2025',
