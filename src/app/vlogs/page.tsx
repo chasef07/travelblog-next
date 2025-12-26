@@ -1,32 +1,25 @@
 import dynamic from 'next/dynamic'
+import { GridSkeleton } from '@/components/ui/skeleton'
 
 const VlogGrid = dynamic(() => import('@/components/VlogGrid'), {
   loading: () => (
-    <div className="text-center py-12">
-      <div className="text-white/40 font-mono tracking-wider text-sm">LOADING VIDEOS...</div>
+    <div className="space-y-12">
+      <GridSkeleton count={6} columns="md:grid-cols-2 lg:grid-cols-3" />
     </div>
   )
 })
+
+import { SectionHeader } from '@/components/SectionHeader'
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-black pt-24">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16 animate-fade-in">
-          <div>
-            <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
-              [ Video Stories ]
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
-              Travel Vlogs
-            </h1>
-          </div>
-          <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
-            Raw, authentic experiences from 19 countries. Party scenes to cultural immersion.
-          </p>
-        </div>
-
+        <SectionHeader
+          label="Video Stories"
+          title="Travel Vlogs"
+          description="Raw, authentic experiences from 19 countries. Party scenes to cultural immersion."
+        />
         <VlogGrid />
       </div>
     </main>

@@ -1,10 +1,11 @@
 import { loadBlogPost } from '@/utils/blog-loader'
 import { blogMetadata } from '@/content/blog-data'
 import BlogPost from '@/components/BlogPost'
+import Breadcrumb, { generateBlogBreadcrumbs } from '@/components/Breadcrumb'
 import Link from 'next/link'
 import Image from 'next/image'
 import { generatePageMetadata, generateArticleJsonLd, generateBreadcrumbJsonLd, siteConfig } from '@/lib/seo'
-import { ArrowLeft, ArrowUpRight, MapPin, Clock } from 'lucide-react'
+import { ArrowUpRight, MapPin, Clock } from 'lucide-react'
 
 // Generate static params for all blog posts at build time
 export async function generateStaticParams() {
@@ -88,14 +89,11 @@ export default async function Page({ params }: { params: Promise<{ year: string;
         />
 
         <div className="max-w-4xl mx-auto px-6">
-          {/* Back link */}
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-white/40 hover:text-white/60 transition-colors mb-12 group"
-          >
-            <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-xs uppercase tracking-wider font-mono">Back to Stories</span>
-          </Link>
+          {/* Breadcrumb navigation */}
+          <Breadcrumb
+            items={generateBlogBreadcrumbs(year, slug, post.title)}
+            className="mb-12"
+          />
 
           {/* Article header with schema markup */}
           <article itemScope itemType="https://schema.org/BlogPosting">
@@ -199,14 +197,14 @@ export default async function Page({ params }: { params: Promise<{ year: string;
     return (
       <main className="min-h-screen bg-black pt-24">
         <div className="max-w-4xl mx-auto px-6 py-12">
-          {/* Back link */}
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-white/40 hover:text-white/60 transition-colors mb-12 group"
-          >
-            <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-xs uppercase tracking-wider font-mono">Back to Stories</span>
-          </Link>
+          {/* Breadcrumb navigation */}
+          <Breadcrumb
+            items={[
+              { name: 'Blog', href: '/blog' },
+              { name: `${slug.charAt(0).toUpperCase() + slug.slice(1)} ${year}`, href: `/blog/${year}/${slug}` }
+            ]}
+            className="mb-12"
+          />
 
           <header className="mb-16">
             <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">

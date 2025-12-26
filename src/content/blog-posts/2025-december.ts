@@ -2,6 +2,64 @@ import { BlogPost } from '../../types/blog'
 
 export const december2025Posts: BlogPost[] = [
   {
+    id: 'el-paredon-surf-town-analysis',
+    title: 'Analyzing Central American Surf Towns: El Paredon',
+    date: 'December 26, 2025',
+    location: 'El Paredon, Guatemala',
+    slug: 'el-paredon-surf-town-analysis',
+    year: '2025',
+    excerpt: 'Introducing my standardized framework for evaluating surf towns as potential home bases - starting with the hot, dry shores of El Paredon.',
+    content: `Arrived in the hot surf town of El Paredon. I will be exploring Central American surf towns over the next month and want to create a standardized way to analyze each.
+
+THE FRAMEWORK
+
+The most important aspect is the climate. I was researching the science behind climates yesterday and learned some interesting things. There are five major climate groups according to the Köppen–Geiger system. In El Paredon it is quite dry and lacking lush vegetation and fruits which I do not like as much. It is classified as a tropical savanna. Whereas most parts of Costa Rica are more lush with huge leaves, animals teeming about, fruits as well. This would be a tropical monsoon climate, characterized by a distinct rainy season. In Florida I grew up in a humid subtropical climate which I quite like, but this climate does not exist in digital nomad places. Finally the best climate for human health is the Mediterranean climate, characterized by hot dry summers and mild wet winters. I am attracted to sunshine and humidity over dry weather with lots of nature.
+
+The next important thing for me is walkability. I will never own a car again as I stated. I want a place with a main area of town where you can stroll and meet other vibers. Walking and an active lifestyle is huge for health. Some towns are spread out and require a scooter. Some towns do not have a central hub. I am looking for a walkable town with a centralized hub. Places that come to mind are Tel Aviv, Pai, Koh Rong.
+
+Next is infrastructure. Of course you need good cafes, a diverse selection of food. All at a good price. Fast wifi is important for working.
+
+Hobbies. The place you live needs to support your interests. Right now I like surfing, yoga, sauna, weights, soccer, basketball, maybe pickleball.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EL PAREDON SCORECARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CLIMATE                                    6.4/10
+Hot but dry, tropical savanna lacking
+lush vegetation and fruits
+▓▓▓▓▓▓░░░░
+
+WALKABILITY                                6.8/10
+Compact and walkable but lacks a
+distinct central gathering area
+▓▓▓▓▓▓▓░░░
+
+INFRASTRUCTURE                             4.9/10
+Limited cafes, lacks diverse food
+options, basic amenities only
+▓▓▓▓▓░░░░░
+
+HOBBIES                                    5.2/10
+Good surfing, outdoor gyms available
+No sauna or organized sports
+▓▓▓▓▓░░░░░
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OVERALL SCORE                              5.8/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+THE VERDICT
+
+It still is a really cool town to backpack and I recommend people check it out. However in my search for a home base it will not make the mark. I look forward to comparing it to El Tunco, El Salvador and Santa Teresa, Costa Rica in the coming months!
+
+UPCOMING COMPARISONS
+• El Tunco, El Salvador
+• Santa Teresa, Costa Rica
+• More to come...`,
+    images: []
+  },
+  {
     id: 'quantum-entanglement-lake-atitlan',
     title: 'Quantum Entanglement at Lake Atitlan',
     date: 'December 23, 2025',

@@ -1,32 +1,26 @@
 import dynamic from 'next/dynamic'
+import { GridSkeleton, FilterSkeleton } from '@/components/ui/skeleton'
 
 const FoodGrid = dynamic(() => import('@/components/FoodGrid'), {
   loading: () => (
-    <div className="text-center py-12">
-      <div className="text-white/40 font-mono tracking-wider text-sm">LOADING CUISINES...</div>
+    <div className="space-y-12">
+      <FilterSkeleton count={5} />
+      <GridSkeleton count={4} columns="md:grid-cols-2" />
     </div>
   )
 })
+
+import { SectionHeader } from '@/components/SectionHeader'
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-black pt-24">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16 animate-fade-in">
-          <div>
-            <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
-              [ Culinary Adventures ]
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
-              Local Flavors
-            </h1>
-          </div>
-          <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
-            Each dish tells a story of culture and tradition. Authentic street food and local specialties.
-          </p>
-        </div>
-
+        <SectionHeader
+          label="Culinary Adventures"
+          title="Local Flavors"
+          description="Each dish tells a story of culture and tradition. Authentic street food and local specialties."
+        />
         <FoodGrid />
       </div>
     </main>

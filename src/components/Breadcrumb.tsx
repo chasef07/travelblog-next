@@ -40,45 +40,45 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
       />
       
       {/* Breadcrumb navigation */}
-      <nav 
-        aria-label="Breadcrumb" 
-        className={`flex items-center space-x-2 text-sm text-muted-foreground ${className}`}
+      <nav
+        aria-label="Breadcrumb"
+        className={`flex items-center gap-2 text-sm ${className}`}
       >
-        <ol className="flex items-center space-x-2" itemScope itemType="https://schema.org/BreadcrumbList">
+        <ol className="flex items-center gap-2" itemScope itemType="https://schema.org/BreadcrumbList">
           {allItems.map((item, index) => (
-            <li key={item.href} className="flex items-center space-x-2" 
+            <li key={item.href} className="flex items-center gap-2"
                 itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content={String(index + 1)} />
-              
+
               {index === 0 ? (
-                <Link 
+                <Link
                   href={item.href}
-                  className="flex items-center hover:text-primary transition-colors"
+                  className="flex items-center text-white/40 hover:text-white/60 transition-colors"
                   itemProp="item"
                 >
                   <Home className="w-4 h-4" />
                   <span className="sr-only" itemProp="name">Home</span>
                 </Link>
               ) : index === allItems.length - 1 ? (
-                <span 
-                  className="font-medium text-foreground" 
+                <span
+                  className="font-mono text-xs tracking-wider uppercase text-white/60 line-clamp-1 max-w-[200px]"
                   itemProp="name"
                   aria-current="page"
                 >
                   {item.name}
                 </span>
               ) : (
-                <Link 
+                <Link
                   href={item.href}
-                  className="hover:text-primary transition-colors"
+                  className="font-mono text-xs tracking-wider uppercase text-white/40 hover:text-white/60 transition-colors"
                   itemProp="item"
                 >
                   <span itemProp="name">{item.name}</span>
                 </Link>
               )}
-              
+
               {index < allItems.length - 1 && (
-                <ChevronRight className="w-4 h-4 text-muted-foreground/60" aria-hidden="true" />
+                <ChevronRight className="w-3 h-3 text-white/20" aria-hidden="true" />
               )}
             </li>
           ))}

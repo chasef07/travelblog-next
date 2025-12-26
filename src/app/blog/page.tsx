@@ -1,33 +1,26 @@
 import dynamic from 'next/dynamic'
+import { GridSkeleton, FilterSkeleton } from '@/components/ui/skeleton'
 
 const BlogGrid = dynamic(() => import('@/components/BlogGrid').then(mod => ({ default: mod.BlogGrid })), {
   loading: () => (
-    <div className="text-center py-12">
-      <div className="text-white/40 font-mono tracking-wider text-sm">LOADING STORIES...</div>
+    <div className="space-y-12">
+      <FilterSkeleton count={3} />
+      <GridSkeleton count={6} columns="md:grid-cols-2 lg:grid-cols-3" />
     </div>
   )
 })
+
+import { SectionHeader } from '@/components/SectionHeader'
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-black pt-24">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16 animate-fade-in"
-        >
-          <div>
-            <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
-              [ Travel Stories ]
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
-              Adventures
-            </h1>
-          </div>
-          <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
-            Real experiences from 19 countries. Cultural insights, practical tips, and authentic stories.
-          </p>
-        </div>
-
+        <SectionHeader
+          label="Travel Stories"
+          title="Adventures"
+          description="Real experiences from 19 countries. Cultural insights, practical tips, and authentic stories."
+        />
         <BlogGrid />
       </div>
     </main>

@@ -302,3 +302,60 @@ export const journeyStats = {
   startDate: 'September 2024',
   endDate: 'August 2025'
 }
+
+// Utility functions for country data access
+
+// Get country by name (case-insensitive)
+export function getCountryByName(name: string): CountryData | undefined {
+  return fullJourneyData.find(
+    country => country.name.toLowerCase() === name.toLowerCase()
+  )
+}
+
+// Get country by flag code
+export function getCountryByCode(code: string): CountryData | undefined {
+  return fullJourneyData.find(
+    country => country.flagCode.toLowerCase() === code.toLowerCase()
+  )
+}
+
+// Get all country names
+export function getCountryNames(): string[] {
+  return fullJourneyData.map(country => country.name)
+}
+
+// Get all flag codes
+export function getCountryCodes(): string[] {
+  return fullJourneyData.map(country => country.flagCode)
+}
+
+// Create a map for quick lookups
+export const countryByName = new Map<string, CountryData>(
+  fullJourneyData.map(country => [country.name.toLowerCase(), country])
+)
+
+export const countryByCode = new Map<string, CountryData>(
+  fullJourneyData.map(country => [country.flagCode.toLowerCase(), country])
+)
+
+// Get flag emoji from country code
+export function getFlagEmoji(countryCode: string): string {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map(char => 127397 + char.charCodeAt(0))
+  return String.fromCodePoint(...codePoints)
+}
+
+// Get countries by continent/region
+export function getCountriesByRegion(region: 'asia' | 'africa' | 'europe' | 'americas'): CountryData[] {
+  const regionMap: Record<string, string[]> = {
+    asia: ['Israel', 'UAE', 'Nepal', 'Thailand', 'Laos', 'Cambodia', 'China', 'Vietnam', 'Singapore', 'Philippines', 'Indonesia', 'Japan'],
+    africa: ['Kenya', 'Tanzania', 'Rwanda'],
+    europe: ['Georgia'],
+    americas: ['Florida, USA', 'Costa Rica', 'Panama', 'Guatemala']
+  }
+
+  const countryNames = regionMap[region] || []
+  return fullJourneyData.filter(country => countryNames.includes(country.name))
+}

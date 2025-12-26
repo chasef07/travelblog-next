@@ -44,6 +44,39 @@ interface GeoJSON {
   features: GeoJSONFeature[]
 }
 
+// Module-level cache for GeoJSON data
+let geoJSONCache: GeoJSON | null = null
+let geoJSONPromise: Promise<GeoJSON> | null = null
+
+async function fetchGeoJSON(): Promise<GeoJSON> {
+  // Return cached data if available
+  if (geoJSONCache) {
+    return geoJSONCache
+  }
+
+  // Return pending promise if fetch is in progress
+  if (geoJSONPromise) {
+    return geoJSONPromise
+  }
+
+  // Start new fetch and cache the promise
+  geoJSONPromise = fetch(
+    'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
+  )
+    .then(response => response.json())
+    .then(data => {
+      geoJSONCache = data
+      return data
+    })
+    .catch(error => {
+      console.error('Failed to load GeoJSON:', error)
+      geoJSONPromise = null // Reset on error to allow retry
+      throw error
+    })
+
+  return geoJSONPromise
+}
+
 // Main export component
 export default function InteractiveGlobe() {
   const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
@@ -70,22 +103,13 @@ export default function InteractiveGlobe() {
     return () => observer.disconnect()
   }, [])
 
-  // Fetch world map GeoJSON data when visible
+  // Fetch world map GeoJSON data when visible (uses module-level cache)
   useEffect(() => {
     if (!isVisible) return
 
-    const fetchGeoJSON = async () => {
-      try {
-        const response = await fetch(
-          'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
-        )
-        const data = await response.json()
-        setGeoData(data)
-      } catch (error) {
-        console.error('Failed to load GeoJSON:', error)
-      }
-    }
     fetchGeoJSON()
+      .then(data => setGeoData(data))
+      .catch(() => {}) // Error already logged in fetchGeoJSON
   }, [isVisible])
 
   return (
