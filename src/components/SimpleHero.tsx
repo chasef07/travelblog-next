@@ -120,8 +120,33 @@ export default function SimpleHero() {
     setIsLoaded(true)
   }, [])
 
+  // Staggered animation for title words
+  const titleWords = ['Living', 'Gambit']
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  }
+  const wordVariants = {
+    hidden: { opacity: 0, y: 40, rotateX: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
+      },
+    },
+  }
+
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black flex flex-col justify-start md:justify-between pt-32 md:pt-24 pb-12">
+    <section className="relative min-h-screen overflow-hidden bg-[#0a0a0f] flex flex-col justify-start md:justify-between pt-32 md:pt-24 pb-12">
 
       {/* Light beam effect */}
       <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none">
@@ -168,32 +193,40 @@ export default function SimpleHero() {
                 ease: "easeInOut",
               }}
             />
-            <span className="font-mono text-xs tracking-wider text-white/60 uppercase">
-              Currently in El Paredon, Guatemala
+            <span className="font-accent text-xs tracking-wider text-white/60 uppercase">
+              Currently in Antigua, Guatemala
             </span>
           </div>
         </motion.div>
 
-        {/* Main Title */}
+        {/* Main Title - Editorial Typography with Staggered Animation */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extralight tracking-tight text-white leading-[0.9] mb-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isLoaded ? "visible" : "hidden"}
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-editorial-display font-light tracking-tight text-white leading-[0.9] mb-6"
+          style={{ perspective: '1000px' }}
         >
-          Living
-          <br />
-          Gambit
+          {titleWords.map((word, index) => (
+            <motion.span
+              key={word}
+              variants={wordVariants}
+              className="block"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
+              {word}
+            </motion.span>
+          ))}
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Subtitle - Editorial rule styling */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoaded ? 1 : 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-white/40 font-light tracking-wide max-w-md mb-4 md:mb-0"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-xl md:text-2xl text-editorial font-accent tracking-widest max-w-md mb-4 md:mb-0 uppercase"
         >
-          Travel, Adventure, Capitalism
+          Travel · Adventure · Capitalism
         </motion.p>
 
       </div>
@@ -209,16 +242,16 @@ export default function SimpleHero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="max-w-xl md:text-right"
           >
-            <p className="text-white/60 text-lg leading-relaxed mb-6">
+            <p className="text-white/50 text-lg leading-relaxed mb-6 font-body italic">
               Reengineering life from the ground up.
             </p>
 
             <div className="flex items-center gap-6 md:justify-end">
               <Link
                 href="/blog"
-                className="group inline-flex items-center gap-2 text-white font-medium border border-white/80 rounded-full px-6 py-3 hover:bg-white hover:text-black transition-all duration-200"
+                className="group inline-flex items-center gap-2 text-white font-medium border border-[#c9a962]/60 rounded-full px-6 py-3 hover:bg-[#c9a962] hover:text-black hover:border-[#c9a962] transition-all duration-300"
               >
-                <span className="uppercase text-sm tracking-wider">Read Stories</span>
+                <span className="uppercase text-sm tracking-wider font-accent">Read Stories</span>
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>

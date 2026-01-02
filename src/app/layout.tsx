@@ -6,6 +6,31 @@ import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
+import { Fraunces, Source_Sans_3, JetBrains_Mono } from 'next/font/google'
+
+// Editorial typography - distinctive serif for headlines
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fraunces',
+  weight: ['300', '400', '500', '600', '700'],
+})
+
+// Clean sans-serif for body text
+const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-source-sans',
+  weight: ['300', '400', '500', '600'],
+})
+
+// Distinctive monospace for accents/labels
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains',
+  weight: ['400', '500'],
+})
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Living Gambit - Travel, Adventure, Capitalism',
@@ -36,7 +61,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="min-h-screen flex flex-col bg-zinc-900">
+      <body suppressHydrationWarning className={`min-h-screen flex flex-col bg-zinc-900 ${fraunces.variable} ${sourceSans.variable} ${jetbrainsMono.variable}`}>
 
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_ID && (
@@ -61,6 +86,9 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         <Footer />
         <SpeedInsights />
         <Analytics />
+
+        {/* Film grain texture overlay for editorial atmosphere */}
+        <div className="grain-overlay" aria-hidden="true" />
       </body>
     </html>
   )

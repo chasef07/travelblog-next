@@ -48,7 +48,7 @@ export default function Header(){
             <Link
               key={href}
               href={href}
-              className="text-xs font-light tracking-wider uppercase text-white/50 transition-colors hover:text-white"
+              className="text-xs font-accent tracking-wider uppercase text-white/50 transition-colors hover:text-[#c9a962]"
             >
               {label}
             </Link>
@@ -97,7 +97,7 @@ export default function Header(){
                   <Link
                     key={href}
                     href={href}
-                    className="text-xl font-light tracking-wider uppercase text-white/60 transition-colors hover:text-white"
+                    className="text-xl font-accent tracking-wider uppercase text-white/60 transition-colors hover:text-[#c9a962]"
                     onClick={() => setMobileNavOpen(false)}
                   >
                     {label}
