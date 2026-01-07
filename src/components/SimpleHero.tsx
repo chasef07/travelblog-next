@@ -194,7 +194,7 @@ export default function SimpleHero() {
               }}
             />
             <span className="font-accent text-xs tracking-wider text-white/60 uppercase">
-              Currently in Antigua, Guatemala
+              Currently in El Tunco, El Salvador
             </span>
           </div>
         </motion.div>

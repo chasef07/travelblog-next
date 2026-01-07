@@ -2,6 +2,7 @@ import { BlogMetadata } from '../types/blog';
 
 // Lightweight metadata for blog grid - images and excerpts only
 export const blogMetadata: BlogMetadata[] = [
+  { title: 'January 2026: Exploring El Salvador', date: 'January 2026', excerpt: 'Leaving Guatemala for El Salvador\'s surf coast, a chance encounter with a pastor, and thoughts on government and infrastructure.', image: '/assets/images/flags/SV-flag.jpg', link: '/blog/2026/january' },
   { title: 'December 2025: Guatemala Galavanting', date: 'December 2025', excerpt: 'Arriving in Guatemala after Hanukkah with family - one last backpacking adventure before starting a new section of life.', image: '/assets/images/blog/2025/december/guatflag.jpg', link: '/blog/2025/december' },
   { title: 'November 2025: Arriving in Panama', date: 'November 2025', excerpt: 'First impressions of Bocas del Toro, Panama - exploring viber cafes, cultural authenticity, and what makes a place feel like home.', image: '/assets/images/misc/panama-dive.jpg', link: '/blog/2025/november' },
   { title: 'October 2025: Business in Costa Rica', date: 'October 2025', excerpt: 'On the eve of a one-way flight, reflecting on family, AI consulting with Kyle, and committing to ship real value in Costa Rica.', image: '/assets/images/misc/costa-business.jpg', link: '/blog/2025/october' },

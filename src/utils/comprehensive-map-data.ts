@@ -213,6 +213,16 @@ export const fullJourneyData: CountryData[] = [
     flagCode: 'GT',
     description: 'Colonial charm and Mayan culture in the heart of Central America.',
     color: '#4ade80'
+  },
+  {
+    name: 'El Salvador',
+    coordinates: [13.4933, -89.3833],
+    visitDate: 'January 2026',
+    highlights: ['El Tunco Surfing', 'Black Sand Beaches', 'Pupusas', 'Bitcoin Country'],
+    blogPostsCount: 0,
+    flagCode: 'SV',
+    description: 'Surf paradise on the Pacific coast - riding waves at El Tunco and exploring Central America\'s Bitcoin nation.',
+    color: '#0066cc'
   }
 ]
 
@@ -290,6 +300,12 @@ function getTotalBlogPostCount(): number {
     totalCount += december2025Posts.length;
   } catch {}
 
+  // Count 2026 posts
+  try {
+    const { january2026Posts } = require('../content/blog-posts/2026-january');
+    totalCount += january2026Posts.length;
+  } catch {}
+
   return totalCount;
 }
 
@@ -353,7 +369,7 @@ export function getCountriesByRegion(region: 'asia' | 'africa' | 'europe' | 'ame
     asia: ['Israel', 'UAE', 'Nepal', 'Thailand', 'Laos', 'Cambodia', 'China', 'Vietnam', 'Singapore', 'Philippines', 'Indonesia', 'Japan'],
     africa: ['Kenya', 'Tanzania', 'Rwanda'],
     europe: ['Georgia'],
-    americas: ['Florida, USA', 'Costa Rica', 'Panama', 'Guatemala']
+    americas: ['Florida, USA', 'Costa Rica', 'Panama', 'Guatemala', 'El Salvador']
   }
 
   const countryNames = regionMap[region] || []
