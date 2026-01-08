@@ -2,6 +2,58 @@ import { BlogPost } from '../../types/blog'
 
 export const january2026Posts: BlogPost[] = [
   {
+    id: 'el-tunco-surf-town-analysis',
+    title: 'Analyzing Central American Surf Towns: El Tunco',
+    date: 'January 8, 2026',
+    location: 'El Tunco, El Salvador',
+    slug: 'el-tunco-surf-town-analysis',
+    year: '2026',
+    excerpt: 'Scoring El Tunco against my standardized framework - the first place I could actually see myself living for parts of the year.',
+    content: `I have been in El Tunco, El Salvador for a few days now and am ready to give it my scores for potential places to live.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EL TUNCO SCORECARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CLIMATE                                    7.1/10
+Less hot than El Paredon, more vegetation
+but not super lush. Beach not as pretty.
+▓▓▓▓▓▓▓░░░
+
+WALKABILITY                                8.9/10
+Two perpendicular streets, small and very
+walkable. Clean, paved, easy main center.
+▓▓▓▓▓▓▓▓▓░
+
+INFRASTRUCTURE                             9.3/10
+Off the charts. Roads nicer than the US.
+Great cafes, wifi, cheap pupusas, diverse food.
+▓▓▓▓▓▓▓▓▓░
+
+HOBBIES                                    6.9/10
+Coined surf city, great breaks and shops.
+Wish there were more activities beyond surfing.
+▓▓▓▓▓▓▓░░░
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OVERALL SCORE                              8.1/10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+THE VERDICT
+
+I actually could see myself living here for parts of the year. I think that is a first I have ever felt! It is not too hippie, lots of digital nomads, it is cheap with good food and great weather. The people are nice and the surf is great.
+
+The only thing I think that could make it better is a little more lush environment, more fruits and animals and life. I loved Costa Rica because there are monkeys and sloths and big leaves and fruit stands all about. Also the beach here could be better for chilling and prettiness.
+
+Overall I am really satisfied, but would love to find the place that checks all these boxes. Maybe the Nicoya Peninsula is that place??
+
+COMPARISON SO FAR
+• El Paredon, Guatemala: 5.8/10
+• El Tunco, El Salvador: 8.1/10
+• Santa Teresa, Costa Rica: Coming soon...`,
+    images: []
+  },
+  {
     id: 'guatemala-to-el-tunco',
     title: 'From Guatemala to El Tunco: Chance Encounters, Infrastructure, and Thinking About Government',
     date: 'January 7, 2026',

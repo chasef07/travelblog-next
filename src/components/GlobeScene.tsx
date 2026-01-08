@@ -2,7 +2,7 @@
 
 import { useRef, useMemo, useState, memo, useCallback } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Line, Html } from '@react-three/drei'
+import { OrbitControls, Line, Html, Stars } from '@react-three/drei'
 import * as THREE from 'three'
 import { fullJourneyData, type CountryData } from '@/utils/comprehensive-map-data'
 
@@ -103,6 +103,21 @@ function processGeoJSONToLines(geoJSON: GeoJSON, radius: number): THREE.Vector3[
   return lines
 }
 
+// Simple atmosphere glow (no custom shader)
+function Atmosphere({ radius }: { radius: number }) {
+  return (
+    <mesh scale={[1.12, 1.12, 1.12]}>
+      <sphereGeometry args={[radius, 32, 32]} />
+      <meshBasicMaterial
+        color="#ff4d00"
+        transparent
+        opacity={0.08}
+        side={THREE.BackSide}
+      />
+    </mesh>
+  )
+}
+
 // Globe with real country outlines from GeoJSON
 const GlobeWireframe = memo(function GlobeWireframe({ radius, geoData }: { radius: number, geoData: GeoJSON | null }) {
   const countryPaths = useMemo(() => {
@@ -112,26 +127,37 @@ const GlobeWireframe = memo(function GlobeWireframe({ radius, geoData }: { radiu
 
   return (
     <group>
-      {/* Base sphere - always rendered */}
+      {/* Base sphere - pure black void */}
       <mesh>
-        <sphereGeometry args={[radius, 48, 48]} />
-        <meshBasicMaterial color="#0d0d0d" />
+        <sphereGeometry args={[radius, 64, 64]} />
+        <meshBasicMaterial color="#000000" />
       </mesh>
 
-      {/* Country outlines - rendered when data loads */}
+      {/* Subtle inner glow */}
+      <mesh>
+        <sphereGeometry args={[radius * 0.99, 48, 48]} />
+        <meshBasicMaterial color="#080808" transparent opacity={0.5} />
+      </mesh>
+
+      {/* Country outlines - subtle but visible */}
       {countryPaths.map((points, i) => (
         <Line
           key={`country-${i}`}
           points={points}
-          color="#444444"
-          lineWidth={0.8}
+          color="#333333"
+          lineWidth={0.6}
+          transparent
+          opacity={0.7}
         />
       ))}
+
+      {/* Atmosphere glow */}
+      <Atmosphere radius={radius} />
     </group>
   )
 })
 
-// Location marker component
+// Location marker component - Enhanced with glow
 function LocationMarker({
   position,
   country,
@@ -152,48 +178,63 @@ function LocationMarker({
   onClick: () => void
 }) {
   const markerRef = useRef<THREE.Mesh>(null)
+  const glowRef = useRef<THREE.Mesh>(null)
 
   useFrame((state) => {
     if (markerRef.current) {
-      const scale = 1 + Math.sin(state.clock.elapsedTime * 2 + index) * 0.1
-      markerRef.current.scale.setScalar(isHovered || isSelected ? 1.5 : scale)
+      const pulse = 1 + Math.sin(state.clock.elapsedTime * 3 + index * 0.5) * 0.2
+      const baseScale = isHovered || isSelected ? 1.8 : pulse
+      markerRef.current.scale.setScalar(baseScale)
+    }
+    if (glowRef.current) {
+      const glowPulse = 2.5 + Math.sin(state.clock.elapsedTime * 2 + index) * 0.5
+      glowRef.current.scale.setScalar(isHovered || isSelected ? 4 : glowPulse)
+      const material = glowRef.current.material as THREE.MeshBasicMaterial
+      material.opacity = isHovered || isSelected ? 0.6 : 0.3
     }
   })
 
   const formatCoord = (val: number, isLat: boolean) => {
     const dir = isLat ? (val >= 0 ? 'N' : 'S') : (val >= 0 ? 'E' : 'W')
-    return `${Math.abs(val).toFixed(4)}${dir}`
+    return `${Math.abs(val).toFixed(4)}°${dir}`
   }
 
   return (
     <group position={position}>
+      {/* Glow effect */}
+      <mesh ref={glowRef}>
+        <sphereGeometry args={[0.02, 16, 16]} />
+        <meshBasicMaterial color="#ff4d00" transparent opacity={0.3} />
+      </mesh>
+
+      {/* Core marker */}
       <mesh
         ref={markerRef}
         onPointerOver={onHover}
         onPointerOut={onLeave}
         onClick={onClick}
       >
-        <boxGeometry args={[0.04, 0.04, 0.04]} />
-        <meshBasicMaterial color="#f97316" />
+        <sphereGeometry args={[0.025, 16, 16]} />
+        <meshBasicMaterial color="#ff4d00" />
       </mesh>
 
       {(isHovered || isSelected) && (
         <Html
-          position={[0.08, 0.05, 0]}
+          position={[0.12, 0.08, 0]}
           style={{
             pointerEvents: 'none',
             whiteSpace: 'nowrap',
           }}
-          distanceFactor={3}
+          distanceFactor={2.5}
         >
-          <div className="transition-opacity duration-200">
-            <div className="text-white font-mono text-sm tracking-wider font-medium uppercase">
+          <div className="animate-fade-in-blur">
+            <div className="text-signal font-display text-base tracking-wide font-semibold uppercase mb-1">
               {country.name}
             </div>
-            <div className="text-white/50 font-mono text-xs tracking-wide">
-              {formatCoord(country.coordinates[0], true)},
+            <div className="text-white/40 font-mono text-xs tracking-widest">
+              {formatCoord(country.coordinates[0], true)}
             </div>
-            <div className="text-white/50 font-mono text-xs tracking-wide">
+            <div className="text-white/40 font-mono text-xs tracking-widest">
               {formatCoord(country.coordinates[1], false)}
             </div>
           </div>
@@ -203,18 +244,40 @@ function LocationMarker({
   )
 }
 
-// Arc path component
-function ArcPath({ start, end, radius }: { start: THREE.Vector3, end: THREE.Vector3, radius: number }) {
+// Arc path component - Enhanced with glow effect
+function ArcPath({ start, end, radius, index }: { start: THREE.Vector3, end: THREE.Vector3, radius: number, index: number }) {
   const points = useMemo(() => createArc(start, end, radius), [start, end, radius])
+  const lineRef = useRef<THREE.Line>(null)
+
+  useFrame((state) => {
+    if (lineRef.current) {
+      const material = lineRef.current.material as THREE.LineBasicMaterial
+      // Subtle pulsing opacity
+      const pulse = 0.5 + Math.sin(state.clock.elapsedTime * 1.5 + index * 0.3) * 0.2
+      material.opacity = pulse
+    }
+  })
 
   return (
-    <Line
-      points={points}
-      color="#f97316"
-      lineWidth={1.5}
-      transparent
-      opacity={0.6}
-    />
+    <group>
+      {/* Glow layer */}
+      <Line
+        points={points}
+        color="#ff4d00"
+        lineWidth={3}
+        transparent
+        opacity={0.15}
+      />
+      {/* Core line */}
+      <Line
+        ref={lineRef as any}
+        points={points}
+        color="#ff4d00"
+        lineWidth={1.5}
+        transparent
+        opacity={0.6}
+      />
+    </group>
   )
 }
 
@@ -279,15 +342,30 @@ function Scene({
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={0.5} />
+      {/* Starfield background */}
+      <Stars
+        radius={100}
+        depth={50}
+        count={3000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={0.5}
+      />
+
+      {/* Subtle ambient lighting */}
+      <ambientLight intensity={0.3} />
+      <pointLight position={[10, 10, 10]} intensity={0.3} color="#ff4d00" />
+      <pointLight position={[-10, -10, -10]} intensity={0.2} color="#00fff7" />
 
       <OrbitControls
         enableZoom={true}
         enablePan={false}
-        minDistance={3}
-        maxDistance={8}
+        minDistance={3.5}
+        maxDistance={10}
         autoRotate={false}
+        rotateSpeed={0.5}
+        zoomSpeed={0.8}
         onStart={() => setAutoRotate(false)}
         onEnd={() => {
           setTimeout(() => setAutoRotate(true), 3000)
@@ -303,6 +381,7 @@ function Scene({
             start={arc.start}
             end={arc.end}
             radius={radius}
+            index={i}
           />
         ))}
 
@@ -324,6 +403,7 @@ function Scene({
   )
 }
 
+
 // Export the wrapped canvas
 export default function GlobeScene({
   onSelectCountry,
@@ -340,22 +420,25 @@ export default function GlobeScene({
     <div className="w-full h-full relative">
       {/* Loading state shown until canvas is ready */}
       <div
-        className="absolute inset-0 flex items-center justify-center bg-[#0a0a0a] transition-opacity duration-700 pointer-events-none"
+        className="absolute inset-0 flex items-center justify-center bg-void-black transition-opacity duration-700 pointer-events-none z-10"
         style={{ opacity: isReady ? 0 : 1 }}
       >
-        <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-8 h-8 border-2 border-signal border-t-transparent rounded-full animate-spin" />
+          <div className="text-white/40 font-mono tracking-[0.3em] text-xs uppercase">Initializing</div>
+        </div>
       </div>
 
       <Canvas
-        camera={{ position: [0, 0, 7], fov: 45 }}
+        camera={{ position: [0, 0, 6], fov: 50 }}
         style={{
-          background: '#0a0a0a',
+          background: '#000000',
           width: '100%',
           height: '100%',
           opacity: isReady ? 1 : 0,
-          transition: 'opacity 0.7s ease-in-out'
+          transition: 'opacity 1s ease-out'
         }}
-        dpr={[1, 1.5]}
+        dpr={[1, 2]}
         gl={{
           antialias: true,
           alpha: false,
@@ -364,8 +447,7 @@ export default function GlobeScene({
           depth: true
         }}
         frameloop="always"
-        onCreated={(state) => {
-          console.log('Canvas created, camera z position:', state.camera.position.z)
+        onCreated={() => {
           // Small delay to ensure first frame is rendered
           requestAnimationFrame(() => {
             setIsReady(true)

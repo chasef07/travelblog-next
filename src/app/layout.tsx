@@ -1,35 +1,28 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
-import { Fraunces, Source_Sans_3, JetBrains_Mono } from 'next/font/google'
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+import HiddenNav from '@/components/HiddenNav'
+import CommandPalette from '@/components/CommandPalette'
+import CursorFollower from '@/components/CursorFollower'
 
-// Editorial typography - distinctive serif for headlines
-const fraunces = Fraunces({
+// Display typography - geometric with personality for body
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-fraunces',
+  variable: '--font-space',
   weight: ['300', '400', '500', '600', '700'],
 })
 
-// Clean sans-serif for body text
-const sourceSans = Source_Sans_3({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-source-sans',
-  weight: ['300', '400', '500', '600'],
-})
-
-// Distinctive monospace for accents/labels
+// Distinctive monospace for coordinates, data, technical details
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-jetbrains',
-  weight: ['400', '500'],
+  variable: '--font-mono',
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = generatePageMetadata({
@@ -41,19 +34,28 @@ export const metadata: Metadata = generatePageMetadata({
 
 export default function RootLayout({ children }:{children: React.ReactNode}){
   const websiteJsonLd = generateWebsiteJsonLd()
-  
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* DNS prefetch for external domains (lighter than preconnect) */}
-        <link rel="dns-prefetch" href="https://a.basemaps.cartocdn.com" />
-        <link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" />
-        <link rel="dns-prefetch" href="https://c.basemaps.cartocdn.com" />
-        <link rel="dns-prefetch" href="https://d.basemaps.cartocdn.com" />
+        {/* DNS prefetch for external domains */}
         <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
 
-        {/* Favicon - minimalist SVG */}
+        {/* Clash Display from Fontshare - bold experimental display font */}
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap"
+          rel="stylesheet"
+        />
+
+        {/* Favicons - multiple formats for broad compatibility */}
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        {/* RSS Feed */}
+        <link rel="alternate" type="application/rss+xml" title="Living Gambit RSS Feed" href="/feed.xml" />
 
         {/* Website structured data */}
         <script
@@ -61,7 +63,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className={`min-h-screen flex flex-col bg-zinc-900 ${fraunces.variable} ${sourceSans.variable} ${jetbrainsMono.variable}`}>
+      <body suppressHydrationWarning className={`min-h-screen bg-void-black ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
 
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_ID && (
@@ -81,14 +83,15 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           </>
         )}
 
-        <Header />
+        <HiddenNav />
+        <CommandPalette />
+        <CursorFollower />
         {children}
-        <Footer />
         <SpeedInsights />
         <Analytics />
 
-        {/* Film grain texture overlay for editorial atmosphere */}
-        <div className="grain-overlay" aria-hidden="true" />
+        {/* Noise overlay for texture */}
+        <div className="noise-overlay" aria-hidden="true" />
       </body>
     </html>
   )
