@@ -1,28 +1,35 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
-import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
-import HiddenNav from '@/components/HiddenNav'
-import CommandPalette from '@/components/CommandPalette'
-import CursorFollower from '@/components/CursorFollower'
+import { Fraunces, Source_Sans_3, JetBrains_Mono } from 'next/font/google'
 
-// Display typography - geometric with personality for body
-const spaceGrotesk = Space_Grotesk({
+// Editorial typography - distinctive serif for headlines
+const fraunces = Fraunces({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-space',
+  variable: '--font-fraunces',
   weight: ['300', '400', '500', '600', '700'],
 })
 
-// Distinctive monospace for coordinates, data, technical details
+// Clean sans-serif for body text
+const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-source-sans',
+  weight: ['300', '400', '500', '600'],
+})
+
+// Distinctive monospace for accents/labels
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-mono',
-  weight: ['400', '500', '600', '700'],
+  variable: '--font-jetbrains',
+  weight: ['400', '500'],
 })
 
 export const metadata: Metadata = generatePageMetadata({
@@ -38,15 +45,12 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* DNS prefetch for external domains */}
+        {/* DNS prefetch for external domains (lighter than preconnect) */}
+        <link rel="dns-prefetch" href="https://a.basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://c.basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://d.basemaps.cartocdn.com" />
         <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
-
-        {/* Clash Display from Fontshare - bold experimental display font */}
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap"
-          rel="stylesheet"
-        />
 
         {/* Favicons - multiple formats for broad compatibility */}
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -63,7 +67,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className={`min-h-screen bg-void-black ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+      <body suppressHydrationWarning className={`min-h-screen flex flex-col bg-zinc-900 ${fraunces.variable} ${sourceSans.variable} ${jetbrainsMono.variable}`}>
 
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_ID && (
@@ -83,15 +87,14 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           </>
         )}
 
-        <HiddenNav />
-        <CommandPalette />
-        <CursorFollower />
+        <Header />
         {children}
+        <Footer />
         <SpeedInsights />
         <Analytics />
 
-        {/* Noise overlay for texture */}
-        <div className="noise-overlay" aria-hidden="true" />
+        {/* Film grain texture overlay for editorial atmosphere */}
+        <div className="grain-overlay" aria-hidden="true" />
       </body>
     </html>
   )
