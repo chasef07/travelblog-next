@@ -113,7 +113,7 @@ export default function InteractiveGlobe() {
   }, [isVisible])
 
   return (
-    <section id="journey" className="py-20 relative overflow-hidden bg-black border-t border-white/10">
+    <section id="journey" className="py-20 relative overflow-hidden border-t border-[#d4c0a8]/10" style={{ background: 'linear-gradient(180deg, #2a2520 0%, #1a1714 100%)' }}>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section header */}
         <motion.div
@@ -124,14 +124,14 @@ export default function InteractiveGlobe() {
           className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12"
         >
           <div>
-            <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
+            <span className="font-mono text-sm tracking-[0.2em] text-[#c4704b] uppercase block mb-4">
               [ Interactive Journey ]
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[#faf6f1]">
               Around the World
             </h2>
           </div>
-          <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right">
+          <p className="text-[#d4c0a8]/60 text-lg leading-relaxed max-w-md md:text-right">
             Click and drag to explore. Click on markers to discover each destination.
           </p>
         </motion.div>
@@ -142,7 +142,7 @@ export default function InteractiveGlobe() {
             ref={containerRef}
             className="lg:col-span-2 w-full"
           >
-            <div className="overflow-hidden rounded-xl bg-[#0a0a0a] h-[400px] sm:h-[500px] md:h-[600px] w-full">
+            <div className="overflow-hidden rounded-xl bg-[#1a1714] border border-[#d4c0a8]/10 h-[400px] sm:h-[500px] md:h-[600px] w-full">
               {isVisible && (
                 <GlobeScene
                   onSelectCountry={setSelectedCountry}
@@ -169,29 +169,29 @@ export default function InteractiveGlobe() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                 >
-                  <div className="p-6 border border-white/10">
+                  <div className="p-6 border border-[#d4c0a8]/10 bg-[#2a2520]/50 backdrop-blur-sm">
                     <div className="mb-4">
-                      <span className="font-mono text-xs tracking-wider text-white/40 uppercase">
+                      <span className="font-mono text-xs tracking-wider text-[#c4704b] uppercase">
                         {selectedCountry.visitDate}
                       </span>
-                      <h3 className="text-2xl font-light text-white mt-1">{selectedCountry.name}</h3>
+                      <h3 className="text-2xl font-light text-[#faf6f1] mt-1">{selectedCountry.name}</h3>
                     </div>
 
-                    <p className="text-white/50 leading-relaxed mb-6">
+                    <p className="text-[#d4c0a8]/60 leading-relaxed mb-6">
                       {selectedCountry.description}
                     </p>
 
                     <div className="space-y-2">
                       {selectedCountry.highlights.map((highlight, index) => (
-                        <div key={index} className="text-sm text-white/40 flex items-center gap-3">
-                          <div className="w-1 h-1 bg-white/40" />
+                        <div key={index} className="text-sm text-[#d4c0a8]/50 flex items-center gap-3">
+                          <div className="w-1 h-1 bg-[#c4704b]" />
                           {highlight}
                         </div>
                       ))}
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-white/10">
-                      <span className="text-xs text-white/30 uppercase tracking-wider">
+                    <div className="mt-6 pt-4 border-t border-[#d4c0a8]/10">
+                      <span className="text-xs text-[#7a8f7a] uppercase tracking-wider">
                         {selectedCountry.blogPostsCount} stories written
                       </span>
                     </div>
@@ -203,9 +203,9 @@ export default function InteractiveGlobe() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="p-6 border border-white/10">
-                    <h3 className="font-light text-lg mb-2 text-white">Select a destination</h3>
-                    <p className="text-white/40 text-sm">
+                  <div className="p-6 border border-[#d4c0a8]/10 bg-[#2a2520]/50 backdrop-blur-sm">
+                    <h3 className="font-light text-lg mb-2 text-[#faf6f1]">Select a destination</h3>
+                    <p className="text-[#d4c0a8]/50 text-sm">
                       Click on any marker to explore.
                     </p>
                   </div>
@@ -215,22 +215,22 @@ export default function InteractiveGlobe() {
 
             {/* Journey Stats */}
             <motion.div
-              className="grid grid-cols-2 border border-white/10"
+              className="grid grid-cols-2 border border-[#d4c0a8]/10 bg-[#2a2520]/30"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              <div className="p-4 text-center border-r border-white/10">
-                <div className="text-2xl font-extralight text-white">
-                  <AnimatedCounter value={19} duration={1.5} />
+              <div className="p-4 text-center border-r border-[#d4c0a8]/10">
+                <div className="text-2xl font-extralight text-[#c4704b]">
+                  <AnimatedCounter value={journeyStats.totalCountries} duration={1.5} />
                 </div>
-                <div className="text-xs text-white/40 uppercase tracking-wider mt-1">Countries</div>
+                <div className="text-xs text-[#d4c0a8]/50 uppercase tracking-wider mt-1">Countries</div>
               </div>
               <div className="p-4 text-center">
-                <div className="text-2xl font-extralight text-white">
+                <div className="text-2xl font-extralight text-[#c4704b]">
                   <AnimatedCounter value={journeyStats.totalBlogPosts} duration={2} />
                 </div>
-                <div className="text-xs text-white/40 uppercase tracking-wider mt-1">Blogs</div>
+                <div className="text-xs text-[#d4c0a8]/50 uppercase tracking-wider mt-1">Stories</div>
               </div>
             </motion.div>
           </motion.div>

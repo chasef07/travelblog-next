@@ -311,7 +311,7 @@ function getTotalBlogPostCount(): number {
 
 // Calculate journey stats
 export const journeyStats = {
-  totalCountries: fullJourneyData.length,
+  totalCountries: 20, // Excluding Florida/USA return home
   totalBlogPosts: getTotalBlogPostCount(),
   durationMonths: 10,
   continents: 4, // Asia, Africa, Europe (Georgia), Central America
