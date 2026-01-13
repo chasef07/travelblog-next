@@ -35,11 +35,11 @@ export function SectionHeader({
   // Editorial label with decorative rules
   const EditorialLabel = () => (
     <div className="flex items-center gap-4 mb-6">
-      <div className="h-px w-8 bg-gradient-to-r from-transparent to-[#c9a962]/50" />
-      <span className="font-accent text-xs tracking-[0.25em] text-[#c9a962] uppercase">
+      <div className="h-px w-8 bg-gradient-to-r from-transparent to-[#c4704b]/50" />
+      <span className="font-mono text-xs tracking-[0.25em] text-[#c4704b] uppercase">
         {volume ? `Vol. ${volume} — ${label}` : label}
       </span>
-      <div className="h-px flex-1 bg-gradient-to-r from-[#c9a962]/50 to-transparent" />
+      <div className="h-px flex-1 bg-gradient-to-r from-[#c4704b]/50 to-transparent" />
     </div>
   )
 
@@ -50,11 +50,11 @@ export function SectionHeader({
         className={cn('mb-16', className)}
       >
         <EditorialLabel />
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-editorial font-light tracking-tight text-white">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-editorial font-light tracking-tight text-[#faf6f1]">
           {title}
         </h1>
         {description && (
-          <p className="text-white/50 text-lg leading-relaxed max-w-2xl mt-6 font-body">
+          <p className="text-[#d4c0a8]/60 text-lg leading-relaxed max-w-2xl mt-6 font-body">
             {description}
           </p>
         )}
@@ -72,12 +72,12 @@ export function SectionHeader({
     >
       <div>
         <EditorialLabel />
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-editorial font-light tracking-tight text-white">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-editorial font-light tracking-tight text-[#faf6f1]">
           {title}
         </h1>
       </div>
       {description && (
-        <p className="text-white/50 text-lg leading-relaxed max-w-md md:text-right font-body italic">
+        <p className="text-[#d4c0a8]/60 text-lg leading-relaxed max-w-md md:text-right font-body italic">
           {description}
         </p>
       )}
@@ -95,16 +95,16 @@ export function SubSectionHeader({
   return (
     <div className={cn('mb-12', className)}>
       <div className="flex items-center gap-3 mb-3">
-        <div className="h-px w-6 bg-[#c9a962]/40" />
-        <span className="font-accent text-xs tracking-[0.2em] text-[#c9a962]/80 uppercase">
+        <div className="h-px w-6 bg-[#c4704b]/40" />
+        <span className="font-mono text-xs tracking-[0.2em] text-[#c4704b]/80 uppercase">
           {label}
         </span>
       </div>
-      <h2 className="text-2xl md:text-3xl font-editorial font-light tracking-tight text-white">
+      <h2 className="text-2xl md:text-3xl font-editorial font-light tracking-tight text-[#faf6f1]">
         {title}
       </h2>
       {description && (
-        <p className="text-white/40 text-sm leading-relaxed max-w-lg mt-3 font-body">
+        <p className="text-[#d4c0a8]/50 text-sm leading-relaxed max-w-lg mt-3 font-body">
           {description}
         </p>
       )}

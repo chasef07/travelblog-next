@@ -1,0 +1,249 @@
+export interface CountryInfo {
+  name: string;
+  slug: string;
+  flag: string;
+  region: string;
+  description: string;
+  heroImage: string;
+  dates?: {
+    firstVisit: string;
+    lastVisit?: string;
+  };
+  highlights?: string[];
+}
+
+export const countriesData: Record<string, CountryInfo> = {
+  'Israel': {
+    name: 'Israel',
+    slug: 'israel',
+    flag: 'IS-flag.jpg',
+    region: 'Middle East',
+    description: 'Where the journey began. Farming on the Gaza border, celebrating Jewish holidays in Jerusalem, and connecting with heritage.',
+    heroImage: '/assets/images/misc/holyholy.jpg',
+    dates: { firstVisit: '2024-09-21', lastVisit: '2024-10-20' },
+    highlights: ['Jerusalem', 'Tel Aviv', 'Gaza Border Farming', 'Sukkot Celebration']
+  },
+  'Georgia': {
+    name: 'Georgia',
+    slug: 'georgia',
+    flag: 'GG-flag.jpg',
+    region: 'Caucasus',
+    description: 'Ancient monasteries, incredible wine culture, and the welcoming spirit of the Caucasus mountains.',
+    heroImage: '/assets/images/misc/georgia-hero.jpg',
+    dates: { firstVisit: '2024-10-20', lastVisit: '2024-10-27' },
+    highlights: ['Tbilisi', 'Georgian Wine', 'Mountain Monasteries']
+  },
+  'Kenya': {
+    name: 'Kenya',
+    slug: 'kenya',
+    flag: 'KE-flag.jpg',
+    region: 'East Africa',
+    description: 'Safari adventures, vibrant Nairobi culture, and the warmth of Kenyan hospitality.',
+    heroImage: '/assets/images/misc/kenya-hero.jpg',
+    dates: { firstVisit: '2024-10-27', lastVisit: '2024-11-10' },
+    highlights: ['Nairobi', 'Safari', 'Maasai Culture']
+  },
+  'Tanzania': {
+    name: 'Tanzania',
+    slug: 'tanzania',
+    flag: 'TZ-flag.jpg',
+    region: 'East Africa',
+    description: 'From the Serengeti to Zanzibar, Tanzania offers wildlife and beaches in equal measure.',
+    heroImage: '/assets/images/misc/tanzania-hero.jpg',
+    dates: { firstVisit: '2024-11-10', lastVisit: '2024-11-17' },
+    highlights: ['Zanzibar', 'Serengeti', 'Stone Town']
+  },
+  'Rwanda': {
+    name: 'Rwanda',
+    slug: 'rwanda',
+    flag: 'RW-flag.jpg',
+    region: 'East Africa',
+    description: 'The land of a thousand hills. A country of resilience, beauty, and remarkable transformation.',
+    heroImage: '/assets/images/misc/rwanda-hero.jpg',
+    dates: { firstVisit: '2024-11-17', lastVisit: '2024-11-24' },
+    highlights: ['Kigali', 'Gorilla Trekking', 'Genocide Memorial']
+  },
+  'UAE': {
+    name: 'UAE',
+    slug: 'uae',
+    flag: 'AE-flag.jpg',
+    region: 'Middle East',
+    description: 'The contrast of tradition and ultra-modernity in the desert.',
+    heroImage: '/assets/images/misc/uae-hero.jpg',
+    dates: { firstVisit: '2024-11-24', lastVisit: '2024-12-01' },
+    highlights: ['Dubai', 'Abu Dhabi', 'Desert Safari']
+  },
+  'Nepal': {
+    name: 'Nepal',
+    slug: 'nepal',
+    flag: 'NP-flag.jpg',
+    region: 'South Asia',
+    description: 'Trekking the Annapurna Circuit, embracing Hindu-Buddhist culture, and finding peace in the Himalayas.',
+    heroImage: '/assets/images/misc/nepal-hero.jpg',
+    dates: { firstVisit: '2024-12-01', lastVisit: '2024-12-20' },
+    highlights: ['Annapurna Circuit', 'Kathmandu', 'Pokhara', 'Himalayan Views']
+  },
+  'Thailand': {
+    name: 'Thailand',
+    slug: 'thailand',
+    flag: 'TH-flag.jpg',
+    region: 'Southeast Asia',
+    description: 'From island parties to mountain temples, Thailand was the gateway to Southeast Asia backpacking.',
+    heroImage: '/assets/images/misc/fullmoon-2.jpg',
+    dates: { firstVisit: '2024-12-20', lastVisit: '2025-01-22' },
+    highlights: ['Full Moon Party', 'Muay Thai Training', 'Chiang Dao', 'Pai', 'Koh Tao']
+  },
+  'Laos': {
+    name: 'Laos',
+    slug: 'laos',
+    flag: 'LA-flag.jpg',
+    region: 'Southeast Asia',
+    description: 'The slow boat down the Mekong, authentic village life, and the warmth of Lao hospitality.',
+    heroImage: '/assets/images/misc/laossusnet.jpg',
+    dates: { firstVisit: '2025-01-22', lastVisit: '2025-02-15' },
+    highlights: ['Slow Boat', 'Luang Prabang', 'Nong Khiaw', 'Baci Ceremony', 'Vang Vieng']
+  },
+  'Cambodia': {
+    name: 'Cambodia',
+    slug: 'cambodia',
+    flag: 'CB-flag.jpg',
+    region: 'Southeast Asia',
+    description: 'Ancient temples, sobering history, and the resilient spirit of the Khmer people.',
+    heroImage: '/assets/images/misc/cambodia-hero.jpg',
+    dates: { firstVisit: '2025-02-15', lastVisit: '2025-03-01' },
+    highlights: ['Angkor Wat', 'Siem Reap', 'Phnom Penh', 'Killing Fields']
+  },
+  'China': {
+    name: 'China',
+    slug: 'china',
+    flag: 'CH-flag.jpg',
+    region: 'East Asia',
+    description: 'Ancient civilization meets modern marvel. A country of contrasts and complexity.',
+    heroImage: '/assets/images/misc/china-hero.jpg',
+    dates: { firstVisit: '2025-03-01', lastVisit: '2025-03-15' },
+    highlights: ['Great Wall', 'Beijing', 'Shanghai']
+  },
+  'Vietnam': {
+    name: 'Vietnam',
+    slug: 'vietnam',
+    flag: 'VM-flag.jpg',
+    region: 'Southeast Asia',
+    description: 'Motorbike adventures, incredible street food, and the energy of a nation on the rise.',
+    heroImage: '/assets/images/misc/vietnam-hero.jpg',
+    dates: { firstVisit: '2025-03-15', lastVisit: '2025-04-15' },
+    highlights: ['Hanoi', 'Ho Chi Minh City', 'Ha Long Bay', 'Hoi An']
+  },
+  'Singapore': {
+    name: 'Singapore',
+    slug: 'singapore',
+    flag: 'SN-flag.jpg',
+    region: 'Southeast Asia',
+    description: 'The garden city. Clean, efficient, and a melting pot of Asian cultures.',
+    heroImage: '/assets/images/misc/singapore-hero.jpg',
+    dates: { firstVisit: '2025-04-15', lastVisit: '2025-04-20' },
+    highlights: ['Marina Bay', 'Hawker Centers', 'Gardens by the Bay']
+  },
+  'Philippines': {
+    name: 'Philippines',
+    slug: 'philippines',
+    flag: 'RP-flag.jpg',
+    region: 'Southeast Asia',
+    description: 'Island hopping paradise with some of the friendliest people in the world.',
+    heroImage: '/assets/images/misc/philippines-hero.jpg',
+    dates: { firstVisit: '2025-04-20', lastVisit: '2025-05-20' },
+    highlights: ['Palawan', 'Cebu', 'Siargao', 'Island Hopping']
+  },
+  'Indonesia': {
+    name: 'Indonesia',
+    slug: 'indonesia',
+    flag: 'ID-flag.jpg',
+    region: 'Southeast Asia',
+    description: 'From Bali to beyond, exploring the diversity of the world\'s largest archipelago.',
+    heroImage: '/assets/images/misc/indonesia-hero.jpg',
+    dates: { firstVisit: '2025-05-20', lastVisit: '2025-06-20' },
+    highlights: ['Bali', 'Komodo', 'Yogyakarta', 'Raja Ampat']
+  },
+  'Japan': {
+    name: 'Japan',
+    slug: 'japan',
+    flag: 'JA-flag.jpg',
+    region: 'East Asia',
+    description: 'Ancient tradition meets cutting-edge innovation. A country that defies expectations.',
+    heroImage: '/assets/images/misc/japan-hero.jpg',
+    dates: { firstVisit: '2025-06-20', lastVisit: '2025-07-20' },
+    highlights: ['Tokyo', 'Kyoto', 'Osaka', 'Mount Fuji']
+  },
+  'Costa Rica': {
+    name: 'Costa Rica',
+    slug: 'costa-rica',
+    flag: 'CR-flag.jpg',
+    region: 'Central America',
+    description: 'Pura vida lifestyle, incredible biodiversity, and world-class surf.',
+    heroImage: '/assets/images/misc/costarica-hero.jpg',
+    dates: { firstVisit: '2025-08-01', lastVisit: '2025-09-01' },
+    highlights: ['Manuel Antonio', 'Monteverde', 'Surf Towns']
+  },
+  'Panama': {
+    name: 'Panama',
+    slug: 'panama',
+    flag: 'PM-flag.jpg',
+    region: 'Central America',
+    description: 'Where two continents meet. The canal, the city, and the Caribbean islands.',
+    heroImage: '/assets/images/misc/panama-hero.jpg',
+    dates: { firstVisit: '2025-09-01', lastVisit: '2025-10-01' },
+    highlights: ['Panama City', 'San Blas Islands', 'Bocas del Toro']
+  },
+  'Guatemala': {
+    name: 'Guatemala',
+    slug: 'guatemala',
+    flag: 'GT-flag.jpg',
+    region: 'Central America',
+    description: 'Mayan ruins, volcanic landscapes, and the colorful markets of Antigua.',
+    heroImage: '/assets/images/misc/guatemala-hero.jpg',
+    dates: { firstVisit: '2025-10-01', lastVisit: '2025-11-15' },
+    highlights: ['Antigua', 'Lake Atitlan', 'Tikal', 'Semuc Champey']
+  },
+  'El Salvador': {
+    name: 'El Salvador',
+    slug: 'el-salvador',
+    flag: 'SV-flag.jpg',
+    region: 'Central America',
+    description: 'Bitcoin nation, surf paradise, and Central America\'s best-kept secret.',
+    heroImage: '/assets/images/misc/elsalvador-hero.jpg',
+    dates: { firstVisit: '2025-11-15' },
+    highlights: ['El Tunco', 'Bitcoin Beach', 'Surf Culture', 'Pupusas']
+  }
+};
+
+// Helper to get all countries as array
+export const getAllCountries = (): CountryInfo[] => Object.values(countriesData);
+
+// Helper to get country by slug
+export const getCountryBySlug = (slug: string): CountryInfo | undefined =>
+  Object.values(countriesData).find(c => c.slug === slug);
+
+// Helper to get country by name
+export const getCountryByName = (name: string): CountryInfo | undefined =>
+  countriesData[name];
+
+// Helper to slugify country name
+export const slugifyCountry = (name: string): string =>
+  name.toLowerCase().replace(/\s+/g, '-');
+
+// Extract country from location string (e.g., "Nong Khiaw, Laos" -> "Laos")
+export const extractCountryFromLocation = (location: string): string | null => {
+  const parts = location.split(',').map(s => s.trim());
+  const countryPart = parts[parts.length - 1];
+
+  // Check if it's a valid country
+  if (countriesData[countryPart]) {
+    return countryPart;
+  }
+
+  // Handle special cases
+  const aliases: Record<string, string> = {
+    'United Arab Emirates': 'UAE',
+  };
+
+  return aliases[countryPart] || null;
+};

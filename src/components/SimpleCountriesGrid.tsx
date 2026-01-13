@@ -1,6 +1,12 @@
 'use client'
 
 import Image from "next/image"
+import Link from "next/link"
+
+// Helper to create URL-friendly slug
+function slugify(name: string): string {
+  return name.toLowerCase().replace(/\s+/g, '-')
+}
 
 export default function SimpleCountriesGrid() {
 
@@ -28,16 +34,17 @@ export default function SimpleCountriesGrid() {
   ] as const
 
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 border-r border-white/10">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 border-r border-[#d4c0a8]/10">
       {countries.map((country, index) => (
-        <div
+        <Link
           key={country.name}
-          className={`group relative flex flex-col items-center py-8 px-4 border-l border-b border-white/10 hover:bg-white/5 transition-colors duration-300 ${
-            index === countries.length - 1 ? 'border-r border-r-white/10' : ''
+          href={`/countries/${slugify(country.name)}`}
+          className={`group relative flex flex-col items-center py-8 px-4 border-l border-b border-[#d4c0a8]/10 hover:bg-[#c4704b]/5 transition-colors duration-300 cursor-pointer ${
+            index === countries.length - 1 ? 'border-r border-r-[#d4c0a8]/10' : ''
           }`}
         >
           {/* Flag */}
-          <div className="relative w-12 h-8 mb-4 overflow-hidden rounded-sm">
+          <div className="relative w-12 h-8 mb-4 overflow-hidden rounded-sm shadow-sm">
             <Image
               src={`/assets/images/flags/${country.flag}`}
               alt={`${country.name} flag`}
@@ -52,10 +59,10 @@ export default function SimpleCountriesGrid() {
           </div>
 
           {/* Country name */}
-          <span className="text-xs font-light tracking-wider uppercase text-white/60 group-hover:text-white transition-colors duration-300 text-center">
+          <span className="text-xs font-mono tracking-wider uppercase text-[#d4c0a8]/60 group-hover:text-[#c4704b] transition-colors duration-300 text-center">
             {country.name}
           </span>
-        </div>
+        </Link>
       ))}
     </div>
   )

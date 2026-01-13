@@ -44,7 +44,47 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root{--primary-color:#1a365d;--secondary-color:#2b77e6;--accent-color:#f56565;--accent-editorial:#c9a962;--accent-editorial-light:#d4b978;--rich-black:#0a0a0f;--text-color:#2d3748;--background-color:#f7fafc;--surface-color:#ffffff;--muted-text-color:#718096;--border-color:#e2e8f0;--gradient-primary:linear-gradient(135deg, #667eea 0%, #764ba2 100%);--gradient-secondary:linear-gradient(135deg, #f093fb 0%, #f5576c 100%);--gradient-hero:linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);--glass-bg:rgba(255, 255, 255, 0.25);--glass-border:rgba(255, 255, 255, 0.18);--glass-shadow:0 8px 32px 0 rgba(31, 38, 135, 0.37);--shadow-sm:0_1px_2px_0_rgb(0_0_0_/_0.05);--shadow-md:0_4px_6px_-1px_rgb(0_0_0_/_0.1),0_2px_4px_-2px_rgb(0_0_0_/_0.1);--shadow-lg:0_10px_15px_-3px_rgb(0_0_0_/_0.1),0_4px_6px_-4px_rgb(0_0_0_/_0.1);--shadow-xl:0_20px_25px_-5px_rgb(0_0_0_/_0.1),0_8px_10px_-6px_rgb(0_0_0_/_0.1);--shadow-2xl:0_25px_50px_-12px_rgb(0_0_0_/_0.25);--shadow-3xl:0_35px_60px_-12px_rgba(0,0,0,0.25);--shadow-glass:0 8px 32px 0 rgba(31, 38, 135, 0.37);--radius: 0.625rem;--background: oklch(1 0 0);--foreground: oklch(0.145 0 0);--card: oklch(1 0 0);--card-foreground: oklch(0.145 0 0);--popover: oklch(1 0 0);--popover-foreground: oklch(0.145 0 0);--primary: oklch(0.55 0.18 150);--primary-foreground: oklch(0.985 0 0);--secondary: oklch(0.97 0 0);--secondary-foreground: oklch(0.205 0 0);--muted: oklch(0.97 0 0);--muted-foreground: oklch(0.556 0 0);--accent: oklch(0.97 0 0);--accent-foreground: oklch(0.205 0 0);--destructive: oklch(0.577 0.245 27.325);--border: oklch(0.922 0 0);--input: oklch(0.922 0 0);--ring: oklch(0.708 0 0);--chart-1: oklch(0.646 0.222 41.116);--chart-2: oklch(0.6 0.118 184.704);--chart-3: oklch(0.398 0.07 227.392);--chart-4: oklch(0.828 0.189 84.429);--chart-5: oklch(0.769 0.188 70.08);--sidebar: oklch(0.985 0 0);--sidebar-foreground: oklch(0.145 0 0);--sidebar-primary: oklch(0.205 0 0);--sidebar-primary-foreground: oklch(0.985 0 0);--sidebar-accent: oklch(0.97 0 0);--sidebar-accent-foreground: oklch(0.205 0 0);--sidebar-border: oklch(0.922 0 0);--sidebar-ring: oklch(0.708 0 0)}
+:root{
+  /* New Warm Earth Palette - "Life Without Limits" */
+  --color-earth-900:#1a1714;
+  --color-earth-800:#2a2520;
+  --color-earth-700:#3d3630;
+  --color-earth-600:#524a42;
+  --color-sand-100:#faf6f1;
+  --color-sand-200:#f0e8dd;
+  --color-sand-300:#e4d5c4;
+  --color-sand-400:#d4c0a8;
+  --color-terracotta:#c4704b;
+  --color-terracotta-light:#d4856a;
+  --color-sage:#7a8f7a;
+  --color-sage-light:#9db39d;
+  --color-cream:#fffcf7;
+
+  /* Legacy mappings */
+  --primary-color:#1a1714;
+  --secondary-color:#c4704b;
+  --accent-color:#c4704b;
+  --accent-editorial:#d4c0a8;
+  --accent-editorial-light:#e4d5c4;
+  --rich-black:#1a1714;
+  --text-color:#2d3748;
+  --background-color:#faf6f1;
+  --surface-color:#ffffff;
+  --muted-text-color:#718096;
+  --border-color:#e4d5c4;
+  --gradient-primary:linear-gradient(135deg, #c4704b 0%, #d4856a 100%);
+  --gradient-secondary:linear-gradient(135deg, #7a8f7a 0%, #9db39d 100%);
+  --gradient-hero:linear-gradient(160deg, #1a1714 0%, #2a2520 50%, #3d3630 100%);
+  --glass-bg:rgba(250, 246, 241, 0.08);
+  --glass-border:rgba(250, 246, 241, 0.12);
+  --glass-shadow:0 8px 32px 0 rgba(26, 23, 20, 0.4);
+  --shadow-sm:0_1px_2px_0_rgb(0_0_0_/_0.05);
+  --shadow-md:0_4px_6px_-1px_rgb(0_0_0_/_0.1),0_2px_4px_-2px_rgb(0_0_0_/_0.1);
+  --shadow-lg:0_10px_15px_-3px_rgb(0_0_0_/_0.1),0_4px_6px_-4px_rgb(0_0_0_/_0.1);
+  --shadow-xl:0_20px_25px_-5px_rgb(0_0_0_/_0.1),0_8px_10px_-6px_rgb(0_0_0_/_0.1);
+  --shadow-2xl:0_25px_50px_-12px_rgb(0_0_0_/_0.25);
+  --shadow-3xl:0_35px_60px_-12px_rgba(0,0,0,0.25);
+  --shadow-glass:0 8px 32px 0 rgba(26, 23, 20, 0.4);--radius: 0.625rem;--background: oklch(1 0 0);--foreground: oklch(0.145 0 0);--card: oklch(1 0 0);--card-foreground: oklch(0.145 0 0);--popover: oklch(1 0 0);--popover-foreground: oklch(0.145 0 0);--primary: oklch(0.55 0.18 150);--primary-foreground: oklch(0.985 0 0);--secondary: oklch(0.97 0 0);--secondary-foreground: oklch(0.205 0 0);--muted: oklch(0.97 0 0);--muted-foreground: oklch(0.556 0 0);--accent: oklch(0.97 0 0);--accent-foreground: oklch(0.205 0 0);--destructive: oklch(0.577 0.245 27.325);--border: oklch(0.922 0 0);--input: oklch(0.922 0 0);--ring: oklch(0.708 0 0);--chart-1: oklch(0.646 0.222 41.116);--chart-2: oklch(0.6 0.118 184.704);--chart-3: oklch(0.398 0.07 227.392);--chart-4: oklch(0.828 0.189 84.429);--chart-5: oklch(0.769 0.188 70.08);--sidebar: oklch(0.985 0 0);--sidebar-foreground: oklch(0.145 0 0);--sidebar-primary: oklch(0.205 0 0);--sidebar-primary-foreground: oklch(0.985 0 0);--sidebar-accent: oklch(0.97 0 0);--sidebar-accent-foreground: oklch(0.205 0 0);--sidebar-border: oklch(0.922 0 0);--sidebar-ring: oklch(0.708 0 0)}
 html,body{background:var(--background-color);color:var(--text-color);}
 
 /* Glassmorphism utilities */

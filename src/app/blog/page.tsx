@@ -14,12 +14,12 @@ import { SectionHeader } from '@/components/SectionHeader'
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-black pt-24">
+    <main className="min-h-screen pt-24" style={{ background: 'linear-gradient(160deg, #1a1714 0%, #2a2520 100%)' }}>
       <div className="max-w-7xl mx-auto px-6 py-12">
         <SectionHeader
           label="Travel Stories"
           title="Adventures"
-          description="Real experiences from 19 countries. Cultural insights, practical tips, and authentic stories."
+          description="Real experiences from 20 countries. Cultural insights, practical tips, and authentic stories."
         />
         <BlogGrid />
       </div>

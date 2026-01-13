@@ -7,9 +7,9 @@ import { Button, buttonVariants } from './ui/button'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { href: "/#journey", label: "Journey" },
+  { href: "/countries", label: "Countries" },
   { href: "/blog", label: "Stories" },
-  { href: "/vlogs", label: "Vlogs" },
+  { href: "/recommendations", label: "Picks" },
   { href: "/food", label: "Food" },
   { href: "/transportation", label: "Transport" },
   { href: "/packing-checklist", label: "Packing" }
@@ -34,11 +34,11 @@ export default function Header(){
       isScrolled ? "px-32 pt-2 md:px-48 lg:px-64" : "px-4 pt-6"
     )}>
       <div className={cn(
-        "mx-auto flex max-w-screen-xl items-center justify-between rounded-full border border-white/10 bg-black/50 backdrop-blur-md shadow-sm transition-all duration-300",
+        "mx-auto flex max-w-screen-xl items-center justify-between rounded-full border border-[#d4c0a8]/15 bg-[#1a1714]/70 backdrop-blur-md shadow-sm transition-all duration-300",
         isScrolled ? "px-4 py-1.5" : "px-8 py-3"
       )}>
         <Link href="/" className="flex items-center gap-3" aria-label="Living Gambit home">
-          <svg className="shrink-0 text-white" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+          <svg className="shrink-0 text-[#c4704b]" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
           </svg>
         </Link>
@@ -48,7 +48,7 @@ export default function Header(){
             <Link
               key={href}
               href={href}
-              className="text-xs font-accent tracking-wider uppercase text-white/50 transition-colors hover:text-[#c9a962]"
+              className="text-xs font-mono tracking-wider uppercase text-[#d4c0a8]/60 transition-colors hover:text-[#c4704b]"
             >
               {label}
             </Link>
@@ -59,7 +59,7 @@ export default function Header(){
           <Button
             variant="ghost"
             size="icon"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white shadow-sm md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d4c0a8]/15 bg-[#faf6f1]/5 text-[#faf6f1] shadow-sm md:hidden"
             onClick={() => setMobileNavOpen((prev) => !prev)}
             aria-label="Toggle navigation"
             aria-expanded={isMobileNavOpen}
@@ -72,7 +72,7 @@ export default function Header(){
       {isMobileNavOpen ? (
         <div className="md:hidden">
           <div
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md"
+            className="fixed inset-0 z-40 bg-[#1a1714]/98 backdrop-blur-md"
             onClick={() => setMobileNavOpen(false)}
           >
             <div
@@ -85,7 +85,7 @@ export default function Header(){
                   onClick={() => setMobileNavOpen(false)}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "h-10 w-10 rounded-full border border-white/10 bg-white/5 text-white shadow-sm"
+                    "h-10 w-10 rounded-full border border-[#d4c0a8]/15 bg-[#faf6f1]/5 text-[#faf6f1] shadow-sm"
                   )}
                   aria-label="Close navigation"
                 >
@@ -97,7 +97,7 @@ export default function Header(){
                   <Link
                     key={href}
                     href={href}
-                    className="text-xl font-accent tracking-wider uppercase text-white/60 transition-colors hover:text-[#c9a962]"
+                    className="text-xl font-mono tracking-wider uppercase text-[#d4c0a8]/70 transition-colors hover:text-[#c4704b]"
                     onClick={() => setMobileNavOpen(false)}
                   >
                     {label}
