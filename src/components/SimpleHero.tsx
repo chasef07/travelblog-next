@@ -265,7 +265,7 @@ export default function SimpleHero() {
               }}
             />
             <span className="font-mono text-xs tracking-wider text-[#d4c0a8]/70 uppercase">
-              Currently in Nosara, Costa Rica
+              Currently in Santa Teresa, Costa Rica
             </span>
           </div>
         </motion.div>
@@ -334,11 +334,6 @@ export default function SimpleHero() {
             <div>
               <span className="block text-3xl md:text-4xl font-editorial-display font-light text-[#c4704b]">4</span>
               <span className="text-xs font-mono tracking-wider text-[#d4c0a8]/50 uppercase">Continents</span>
-            </div>
-            <div className="h-8 w-px bg-[#d4c0a8]/20" />
-            <div>
-              <span className="block text-3xl md:text-4xl font-editorial-display font-light text-[#c4704b]">1</span>
-              <span className="text-xs font-mono tracking-wider text-[#d4c0a8]/50 uppercase">Purpose</span>
             </div>
           </div>
 

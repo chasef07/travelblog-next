@@ -34,7 +34,7 @@ export default function SimpleCountriesGrid() {
   ] as const
 
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 border-r border-[#d4c0a8]/10">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9">
       {countries.map((country, index) => (
         <Link
           key={country.name}

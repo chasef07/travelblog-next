@@ -26,7 +26,7 @@ const contentSections: ContentSection[] = [
     icon: Video,
     href: '/vlogs',
     accent: '#c4704b',
-    stat: '50+',
+    stat: '5',
     statLabel: 'Videos',
   },
   {
@@ -37,7 +37,7 @@ const contentSections: ContentSection[] = [
     icon: Utensils,
     href: '/food',
     accent: '#7a8f7a',
-    stat: '100+',
+    stat: '10+',
     statLabel: 'Dishes',
   },
   {

@@ -115,7 +115,7 @@ const GlobeWireframe = memo(function GlobeWireframe({ radius, geoData }: { radiu
       {/* Base sphere - always rendered */}
       <mesh>
         <sphereGeometry args={[radius, 48, 48]} />
-        <meshBasicMaterial color="#0d0d0d" />
+        <meshBasicMaterial color="#1a1714" />
       </mesh>
 
       {/* Country outlines - rendered when data loads */}
@@ -340,7 +340,7 @@ export default function GlobeScene({
     <div className="w-full h-full relative">
       {/* Loading state shown until canvas is ready */}
       <div
-        className="absolute inset-0 flex items-center justify-center bg-[#0a0a0a] transition-opacity duration-700 pointer-events-none"
+        className="absolute inset-0 flex items-center justify-center bg-[#1a1714] transition-opacity duration-700 pointer-events-none"
         style={{ opacity: isReady ? 0 : 1 }}
       >
         <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
@@ -349,7 +349,7 @@ export default function GlobeScene({
       <Canvas
         camera={{ position: [0, 0, 7], fov: 45 }}
         style={{
-          background: '#0a0a0a',
+          background: '#1a1714',
           width: '100%',
           height: '100%',
           opacity: isReady ? 1 : 0,
