@@ -2,6 +2,58 @@ import { BlogPost } from '../../types/blog'
 
 export const january2026Posts: BlogPost[] = [
   {
+    id: 'santa-teresa-found-my-place',
+    title: 'Santa Teresa: I Found My Place',
+    date: 'January 24, 2026',
+    location: 'Santa Teresa, Costa Rica',
+    country: 'Costa Rica',
+    slug: 'santa-teresa-found-my-place',
+    year: '2026',
+    excerpt: 'After weeks of searching, I found the first place in the world I feel like I could really live.',
+    content: `I have been in Santa Teresa, Costa Rica for a week working with my great friend and business partner Kyle Shechtman. We have been surfing, working hard, and living healthy.
+
+I really love Santa Teresa. It is the first place in the world I feel like I could live, really live.
+
+The lifestyle is active and healthy and energizing. I wake up with the sun, surf hard, drink Yerba Mate, work from a really nice vibey cafe with great healthy food and other digital nomads, relax, hit the sauna, maybe surf in the afternoons, eat dinner and chill. It is an amazing lifestyle and I am so grateful.
+
+In Santa Teresa many Argentinians live and work here, along with some Israelis and Americans. It is one long road with cafes, restaurants and trendy coffee shops. It reminds me of Uluwatu, Bali.
+
+I was worried it would be too crowded and party oriented but it is not. It is a lot of healthy active young people from all over the world.
+
+I bought a surfboard recently which I am super excited about. I have been surfing hard and trying to develop my skills slowly, slowly. Surfing takes a lot of fitness and analysis.
+
+I have not been posting much on the blog because I have just been living a routined life, something I have been craving. I will be sure to post updates here when something worth sharing arises.`,
+    images: []
+  },
+  {
+    id: 'nosara-rich-american-jungle-haven',
+    title: 'Nosara: A Rich American Jungle Haven',
+    date: 'January 15, 2026',
+    location: 'Nosara, Costa Rica',
+    country: 'Costa Rica',
+    slug: 'nosara-rich-american-jungle-haven',
+    year: '2026',
+    excerpt: 'Exploring Nosara with an old friend - beautiful nature and infrastructure, but lacking the youthful energy I am searching for.',
+    content: `I spent the past few days with my great friend, Zach Katz. He showed me around Nosara, where he has been living the past months. We had stimulating conversations as always, surfed, and ate good food.
+
+Nosara is a town in the jungle taken over by rich Americans and wannabe rich Americans. There are mansions dotted around the area with western restaurants, yoga studios, and organic markets. The prices of food and coffee are obscene, at the level of high end US prices.
+
+That being said, there is a reason rich Americans move their money there. It is clean, has modern infrastructure, a nice beach, surf, and lush jungle. The energy of the town was American families living there either part time or full time. I liked it but did not love it.
+
+The nature is what you pay for there, but the town lacked a youthful energy and pulse. You did not see too many digital nomads working or playing on the beach. It does not feel like you are in Costa Rica but a nice western jungle haven.
+
+As I explore places where I would want to spend significant time I realize there are no perfect places. There are positives and negatives to everywhere. I naively thought I would feel butterflies in some place and know it is right. Maybe that still is true.
+
+Now I am headed to Santa Teresa, the youthful, backpacker counterpart of Nosara. It will definitely offer a different feel and I have to understand for myself if it feels right. After exploring Santa Teresa I hope to visit San Francisco, Mexico for my last shot of finding a Central American surf town which I can spend at least three months a year in.
+
+What is important to me is being active, physically and in a community, modern infrastructure, walkability, and the climate and nature.
+
+Over the next month Kyle and I will be growing our business and really putting our heads down. I hope to get into a routine which is one thing I have been lacking for a few months.
+
+I think back to my time in Playa Cocles. Wake up, go to the beach, work, workout, surf, chill, read. That was awesome and I hope to replicate it in some ways.`,
+    images: []
+  },
+  {
     id: 'el-tunco-surf-town-analysis',
     title: 'Analyzing Central American Surf Towns: El Tunco',
     date: 'January 8, 2026',
