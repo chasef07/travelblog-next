@@ -2,6 +2,32 @@ import { BlogPost } from '../../types/blog'
 
 export const january2026Posts: BlogPost[] = [
   {
+    id: 'point-of-integration',
+    title: 'The Point of Integration',
+    date: 'January 25, 2026',
+    location: 'Santa Teresa, Costa Rica',
+    country: 'Costa Rica',
+    slug: 'point-of-integration',
+    year: '2026',
+    excerpt: 'Reflecting on how far I have come since quitting my job and traveling the world. Today marks the start of a new chapter.',
+    content: `Today I reflected on how far I have come. Specifically, on the distance traveled since I quit my job, traveled the world, started a business, and began living the life I want to live.
+
+When you are in the moment, it is easy to miss how much you have grown. How many meaningful experiences you have accumulated. How much distance there is between who you were and who you are becoming. Today, I saw that clearly, and I did so with a smile on my face, grateful but not satisfied.
+
+At 25 years old, I understand this is only the beginning. Literally. Today marks the start of a new chapter.
+
+Over the past year and a half, since breaking free from old patterns and past karma, I have been gathering data. Learning. Observing. Synthesizing who I want to become. Today is the point of integration. Taking what I learned on the road, keeping the parts of my past that serve me, and consciously leaving behind what does not.
+
+I am committing fully to a life of real impact. Through technology. Through the mind, body, and spirit.
+
+I operate primarily from humility and modesty. But there is another side that deserves acknowledgment. Pride in what I have built. Clarity in recognizing that I am operating at a higher level than before, and a resolve to continue forward without apology.
+
+This path demands growth. In business. In emotional maturity. In physical discipline. In intellectual depth.
+
+And I am ready for it.`,
+    images: []
+  },
+  {
     id: 'santa-teresa-found-my-place',
     title: 'Santa Teresa: I Found My Place',
     date: 'January 24, 2026',
