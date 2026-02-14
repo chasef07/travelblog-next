@@ -22,5 +22,23 @@ I was thinking about last February, when I was in Laos, going cafe to cafe and c
 
 That is what I am most grateful for as I get closer to 26: working hard and building services, software, and systems that people pay for and trust to improve their lives. That is truly amazing. And it is within reach for more people than they think.`,
     images: []
+  },
+  {
+    id: 'whatsapp-claudebot-presence',
+    title: 'Voice Notes, ClaudeBot, and Showing Up Fully',
+    date: 'February 14, 2026',
+    location: 'Santa Teresa, Costa Rica',
+    country: 'Costa Rica',
+    slug: 'voice-notes-claudebot-presence',
+    year: '2026',
+    excerpt: 'Writing from WhatsApp with ClaudeBot transcribing, reflecting on presence, communication, and the tech letting me stay close to the waves and the work.',
+    content: `Writing this straight from WhatsApp after rinsing off the salt. The sun is dropping behind the palms, Kyle is troubleshooting a sensor for one of our clinics, and I still have sand stuck to my shins. Paddling out at first light always tunes my body before the workday, and today the water was glassy enough to hear my own breath between sets.
+
+I set up a new AI assistant called ClaudeBot this afternoon. It listens to my voice notes and types them into proper posts like this one. Wild that I can breathe a thought into my phone and see it land here minutes later. I am grateful for the assist because it keeps me honest about sharing updates without needing to crack open the laptop after every surf or build sprint.
+
+Spending so much time in WhatsApp lately has me thinking about communication and presence. A voice note from the beach still carries the roar of the shorebreak, even as the words travel through fiber and satellites. Technology can easily tempt me into performing, but here in Santa Teresa I feel it inviting me to tune in instead: listen deeply, respond slowly, let the pauses carry meaning. That is the balance I want ClaudeBot to help with—amplify the real moments, not replace them.
+
+We are building healthcare agents during the day, paddling out at dawn, eating casado with the crew at night. These routines remind me that presence is a muscle. Tech should serve it, not siphon it. For now, I am just grateful the tools are letting me stay close to the waves while still showing up for the people counting on us.`,
+    images: []
   }
 ]
