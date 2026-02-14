@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react'
@@ -20,6 +20,7 @@ interface LightboxProps {
 
 export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: LightboxProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
 
   const goNext = useCallback(() => {
     setCurrentIndex(prev => (prev + 1) % images.length)
@@ -62,6 +63,9 @@ export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: Lightbox
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      requestAnimationFrame(() => {
+        closeButtonRef.current?.focus()
+      })
     } else {
       document.body.style.overflow = ''
     }
@@ -83,9 +87,12 @@ export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: Lightbox
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-50 flex items-center justify-center"
           onClick={onClose}
+          role="dialog"
+          aria-modal="true"
+          aria-label={currentImage.caption || currentImage.alt}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/95 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/85 backdrop-blur-sm" />
 
           {/* Content */}
           <div
@@ -94,8 +101,9 @@ export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: Lightbox
           >
             {/* Close button */}
             <button
+              ref={closeButtonRef}
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 text-white/60 hover:text-white transition-colors"
+              className="absolute top-4 right-4 z-10 inline-flex items-center justify-center rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-2 text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-accent)] transition-colors"
               aria-label="Close lightbox"
             >
               <X className="w-6 h-6" />
@@ -104,7 +112,7 @@ export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: Lightbox
             {/* Image counter */}
             {images.length > 1 && (
               <div className="absolute top-4 left-4 z-10">
-                <span className="font-mono text-xs tracking-wider text-white/40">
+                <span className="inline-flex rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] px-3 py-1 font-mono text-xs tracking-wider text-[var(--ui-text-muted)]">
                   {currentIndex + 1} / {images.length}
                 </span>
               </div>
@@ -115,14 +123,14 @@ export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: Lightbox
               <>
                 <button
                   onClick={goPrev}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/60 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-3 text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-accent)] transition-colors"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={goNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/60 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-3 text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-accent)] transition-colors"
                   aria-label="Next image"
                 >
                   <ChevronRight className="w-6 h-6" />
@@ -154,7 +162,7 @@ export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: Lightbox
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-4 text-sm text-white/60 text-center font-mono tracking-wider max-w-2xl"
+                className="mt-4 max-w-2xl rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] px-4 py-1.5 text-center font-mono text-sm tracking-wider text-[var(--ui-text-muted)]"
               >
                 {currentImage.caption}
               </motion.p>
@@ -169,8 +177,8 @@ export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: Lightbox
                     onClick={() => setCurrentIndex(idx)}
                     className={`relative w-16 h-12 flex-shrink-0 overflow-hidden border-2 transition-all ${
                       idx === currentIndex
-                        ? 'border-white/60'
-                        : 'border-transparent opacity-50 hover:opacity-80'
+                        ? 'border-[var(--ui-accent)]'
+                        : 'border-transparent opacity-60 hover:opacity-90'
                     }`}
                   >
                     <Image
@@ -233,26 +241,33 @@ export function LightboxImage({
   priority = false
 }: LightboxImageProps) {
   return (
-    <figure className={`relative group cursor-pointer ${className || ''}`} onClick={onClick}>
-      <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[4/3] overflow-hidden border border-white/10">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 800px"
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          loading={priority ? 'eager' : 'lazy'}
-          priority={priority}
-        />
-        {/* Zoom indicator on hover */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <ZoomIn className="w-5 h-5 text-white" />
+    <figure className={`relative ${className || ''}`}>
+      <button
+        type="button"
+        onClick={onClick}
+        className="relative group w-full text-left cursor-pointer"
+        aria-label={`Open image: ${alt}`}
+      >
+        <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[4/3] overflow-hidden border border-[var(--ui-border-subtle)]">
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes="(max-width: 768px) 100vw, 800px"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            loading={priority ? 'eager' : 'lazy'}
+            priority={priority}
+          />
+          {/* Zoom indicator on hover */}
+          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full border border-[var(--ui-border-strong)] bg-[var(--ui-accent)] flex items-center justify-center">
+              <ZoomIn className="w-5 h-5 text-[var(--ui-on-accent)]" />
+            </div>
           </div>
         </div>
-      </div>
+      </button>
       {caption && (
-        <figcaption className="text-sm text-white/40 text-center mt-4 font-mono tracking-wider">
+        <figcaption className="text-sm text-[var(--ui-text-subtle)] text-center mt-4 font-mono tracking-wider">
           {caption}
         </figcaption>
       )}

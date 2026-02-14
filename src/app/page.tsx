@@ -7,10 +7,10 @@ import QuickContentNav from "../components/QuickContentNav"
 
 const InteractiveGlobe = dynamic(() => import("../components/InteractiveGlobe"), {
   loading: () => (
-    <section className="py-20 relative overflow-hidden border-t border-[#d4c0a8]/10" style={{ background: '#1a1714' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="h-[600px] flex items-center justify-center">
-          <div className="text-[#d4c0a8]/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
+    <section className="app-surface py-14 sm:py-20 relative overflow-hidden border-t border-[var(--ui-border-subtle)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="h-[340px] sm:h-[600px] flex items-center justify-center">
+          <div className="text-[var(--ui-text-muted)] font-mono tracking-wider text-sm">LOADING GLOBE...</div>
         </div>
       </div>
     </section>
@@ -25,27 +25,29 @@ export default function Page(){
       <SimpleHero />
 
       {/* Countries Explored */}
-      <section id="countries" className="py-20 relative overflow-hidden border-t border-[#d4c0a8]/10"
-               aria-labelledby="countries-heading"
-               style={{ background: 'linear-gradient(180deg, #1a1714 0%, #2a2520 100%)' }}>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <section
+        id="countries"
+        className="app-surface py-14 sm:py-20 relative overflow-hidden border-t border-[var(--ui-border-subtle)]"
+        aria-labelledby="countries-heading"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           {/* Section header */}
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 md:gap-6 mb-10 sm:mb-12">
             <div>
-              <span className="font-mono text-sm tracking-[0.2em] text-[#c4704b] uppercase block mb-4">
+              <span className="font-mono text-sm tracking-[0.2em] text-[var(--ui-accent)] uppercase block mb-4">
                 [ Countries Explored ]
               </span>
-              <h2 id="countries-heading" className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[#faf6f1]">
+              <h2 id="countries-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
                 20 Nations
               </h2>
             </div>
-            <p className="text-[#d4c0a8]/60 text-lg leading-relaxed max-w-md md:text-right">
+            <p className="text-[var(--ui-text-secondary)] text-base sm:text-lg leading-relaxed max-w-md md:text-right">
               From the Middle East to Southeast Asia, Africa to Central America.
             </p>
           </div>
 
           {/* Countries grid */}
-          <div className="border-t border-l border-[#d4c0a8]/10">
+          <div className="border-t border-l border-[var(--ui-border-subtle)]">
             <SimpleCountriesGrid />
           </div>
         </div>

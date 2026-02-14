@@ -14,8 +14,8 @@ import { SectionHeader } from '@/components/SectionHeader'
 
 export default function Page() {
   return (
-    <main className="min-h-screen pt-24" style={{ background: 'linear-gradient(160deg, #1a1714 0%, #2a2520 100%)' }}>
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <main className="min-h-screen app-surface pt-20 sm:pt-24">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
         <SectionHeader
           label="Travel Stories"
           title="Adventures"

@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Search, Backpack, Shirt, Smartphone, Heart, User, Star, Check, ArrowUpRight } from 'lucide-react'
+import { Search, Backpack, Shirt, Smartphone, Heart, User, Star, Check, ArrowUpRight, ListChecks, RotateCcw } from 'lucide-react'
 
 // Types
 interface PackingItem {
@@ -115,6 +115,16 @@ const categoryInfo: Record<string, { name: string; icon: React.ReactNode }> = {
   spiritual: { name: 'Spiritual Items', icon: <Star className="h-4 w-4" /> },
 }
 
+function getImportanceClasses(importance: PackingItem['importance']) {
+  if (importance === 'essential') {
+    return 'border-rose-400/35 bg-rose-500/15 text-rose-200'
+  }
+  if (importance === 'recommended') {
+    return 'border-amber-400/35 bg-amber-500/15 text-amber-200'
+  }
+  return 'border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] text-[var(--ui-text-subtle)]'
+}
+
 export default function ModernPackingChecklist() {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set())
   const [searchTerm, setSearchTerm] = useState('')
@@ -164,28 +174,67 @@ export default function ModernPackingChecklist() {
 
   const overallProgress = Math.round((checkedItems.size / packingItems.length) * 100)
 
+  const categoryStats = useMemo(() => {
+    return Object.entries(categoryInfo).map(([key, info]) => {
+      const items = packingItems.filter((item) => item.category === key)
+      const checked = items.filter((item) => checkedItems.has(item.id)).length
+      return {
+        key,
+        info,
+        total: items.length,
+        checked,
+        progress: items.length > 0 ? Math.round((checked / items.length) * 100) : 0,
+      }
+    })
+  }, [checkedItems])
+
+  const resetProgress = () => {
+    const shouldReset = window.confirm('Clear all checked items in your packing progress?')
+    if (!shouldReset) return
+    setCheckedItems(new Set())
+    localStorage.removeItem('packing-checklist-progress')
+  }
+
   return (
     <div className="space-y-16">
+      <section className="grid gap-4 md:grid-cols-3">
+        <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-5">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">Packing Scope</p>
+          <p className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">{packingItems.length}</p>
+          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Total checklist items</p>
+        </div>
+        <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-5">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">Completed</p>
+          <p className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">{checkedItems.size}</p>
+          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">{overallProgress}% packed</p>
+        </div>
+        <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-5">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">Visible Results</p>
+          <p className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">{filteredItems.length}</p>
+          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">After current filters</p>
+        </div>
+      </section>
+
       {/* Tips Section */}
       <section>
-        <div className="border-b border-white/10 pb-4 mb-8">
-          <span className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase block mb-2">
+        <div className="border-b border-[var(--ui-border-subtle)] pb-4 mb-8">
+          <span className="font-mono text-xs tracking-[0.2em] text-[var(--ui-text-muted)] uppercase block mb-2">
             [ Pro Tips ]
           </span>
-          <h2 className="text-2xl font-extralight text-white">Packing Wisdom</h2>
+          <h2 className="text-2xl font-extralight text-[var(--ui-text-primary)]">Packing Wisdom</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]">
           {tips.map((tip, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="bg-black p-6 hover:bg-white/5 transition-colors"
+              className="bg-[var(--ui-bg-strong)] p-6 hover:bg-[var(--ui-bg-soft)] transition-colors"
             >
-              <h3 className="text-white font-light mb-3">{tip.title}</h3>
-              <p className="text-sm text-white/40 leading-relaxed">{tip.description}</p>
+              <h3 className="text-[var(--ui-text-primary)] font-light mb-3">{tip.title}</h3>
+              <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed">{tip.description}</p>
             </motion.div>
           ))}
         </div>
@@ -193,41 +242,52 @@ export default function ModernPackingChecklist() {
 
       {/* Progress & Filters */}
       <section>
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+        <div className="flex flex-col gap-6 mb-8 rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-5 md:flex-row md:items-center md:justify-between">
           <div>
-            <span className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase block mb-2">
+            <span className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-[var(--ui-text-muted)] uppercase mb-2">
+              <ListChecks className="h-3.5 w-3.5" />
               [ Checklist ]
             </span>
-            <h2 className="text-2xl font-extralight text-white">
+            <h2 className="text-2xl font-extralight text-[var(--ui-text-primary)]">
               {checkedItems.size} / {packingItems.length} Items
             </h2>
           </div>
 
-          {/* Progress bar */}
-          <div className="flex items-center gap-4">
-            <div className="w-48 h-1 bg-white/10 overflow-hidden">
-              <motion.div
-                className="h-full bg-white"
-                initial={{ width: 0 }}
-                animate={{ width: `${overallProgress}%` }}
-                transition={{ duration: 0.5 }}
-              />
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-4">
+              <div className="h-1 w-48 overflow-hidden rounded-full bg-[var(--ui-bg-soft)]">
+                <motion.div
+                  className="h-full bg-[var(--ui-accent)]"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${overallProgress}%` }}
+                  transition={{ duration: 0.5 }}
+                />
+              </div>
+              <span className="font-mono text-xs text-[var(--ui-text-muted)]">{overallProgress}%</span>
             </div>
-            <span className="font-mono text-xs text-white/40">{overallProgress}%</span>
+
+            <button
+              type="button"
+              onClick={resetProgress}
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-subtle)] px-4 py-2 font-mono text-xs uppercase tracking-[0.2em] text-[var(--ui-text-muted)] transition-colors hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-text-primary)]"
+            >
+              <RotateCcw className="h-3.5 w-3.5" />
+              Reset
+            </button>
           </div>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
+        <div className="flex flex-col gap-4 mb-8">
           {/* Search */}
-          <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/30" />
+          <div className="relative max-w-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--ui-text-muted)]" />
             <input
               type="text"
               placeholder="Search items..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-black border border-white/20 text-white text-sm px-10 py-2 font-mono placeholder:text-white/30 focus:outline-none focus:border-white/40"
+              className="w-full rounded-full bg-[var(--ui-bg-strong)] border border-[var(--ui-border-subtle)] text-[var(--ui-text-primary)] text-sm px-10 py-2.5 font-mono placeholder:text-[var(--ui-text-subtle)] focus:outline-none focus:border-[var(--ui-border-strong)]"
             />
           </div>
 
@@ -235,10 +295,10 @@ export default function ModernPackingChecklist() {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedCategory('all')}
-              className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border ${
+              className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border rounded-full ${
                 selectedCategory === 'all'
-                  ? 'border-white text-white bg-white/10'
-                  : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+                  ? 'border-[var(--ui-accent)] text-[var(--ui-on-accent)] bg-[var(--ui-accent)]'
+                  : 'border-[var(--ui-border-subtle)] text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-text-primary)]'
               }`}
             >
               All
@@ -247,14 +307,45 @@ export default function ModernPackingChecklist() {
               <button
                 key={key}
                 onClick={() => setSelectedCategory(key)}
-                className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border flex items-center gap-2 ${
+                className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border rounded-full flex items-center gap-2 ${
                   selectedCategory === key
-                    ? 'border-white text-white bg-white/10'
-                    : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+                    ? 'border-[var(--ui-accent)] text-[var(--ui-on-accent)] bg-[var(--ui-accent)]'
+                    : 'border-[var(--ui-border-subtle)] text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-text-primary)]'
                 }`}
               >
                 {info.icon}
                 <span className="hidden sm:inline">{info.name.split(' ')[0]}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {categoryStats.map((category) => (
+              <button
+                key={category.key}
+                type="button"
+                onClick={() => setSelectedCategory(category.key)}
+                className={`rounded-xl border p-3 text-left transition-colors ${
+                  selectedCategory === category.key
+                    ? 'border-[var(--ui-accent)] bg-[var(--ui-accent-soft)]'
+                    : 'border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] hover:bg-[var(--ui-bg-soft)]'
+                }`}
+              >
+                <span className="inline-flex items-center gap-2 text-[var(--ui-text-muted)]">
+                  {category.info.icon}
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em]">{category.info.name}</span>
+                </span>
+                <div className="mt-2 flex items-center justify-between">
+                  <span className="text-sm text-[var(--ui-text-secondary)]">
+                    {category.checked}/{category.total}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+                    {category.progress}%
+                  </span>
+                </div>
+                <div className="mt-2 h-1 overflow-hidden rounded-full bg-[var(--ui-bg-soft)]">
+                  <div className="h-full bg-[var(--ui-accent)]" style={{ width: `${category.progress}%` }} />
+                </div>
               </button>
             ))}
           </div>
@@ -264,16 +355,16 @@ export default function ModernPackingChecklist() {
         <div className="space-y-12">
           {Object.entries(groupedItems).map(([category, items]) => (
             <div key={category}>
-              <div className="border-b border-white/10 pb-3 mb-6">
+              <div className="border-b border-[var(--ui-border-subtle)] pb-3 mb-6">
                 <div className="flex items-center gap-3">
-                  <span className="text-white/40">{categoryInfo[category]?.icon}</span>
-                  <span className="font-mono text-xs tracking-wider text-white/40 uppercase">
+                  <span className="text-[var(--ui-text-muted)]">{categoryInfo[category]?.icon}</span>
+                    <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)] uppercase">
                     {categoryInfo[category]?.name}
                   </span>
                 </div>
               </div>
 
-              <div className="grid gap-px bg-white/10 border border-white/10">
+              <div className="grid gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]">
                 {items.map((item, index) => (
                   <motion.div
                     key={item.id}
@@ -281,19 +372,29 @@ export default function ModernPackingChecklist() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: index * 0.02, duration: 0.3 }}
                     onClick={() => toggleItem(item.id)}
-                    className={`bg-black p-4 cursor-pointer transition-colors ${
-                      checkedItems.has(item.id) ? 'bg-white/5' : 'hover:bg-white/5'
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault()
+                        toggleItem(item.id)
+                      }
+                    }}
+                    role="checkbox"
+                    tabIndex={0}
+                    aria-checked={checkedItems.has(item.id)}
+                    aria-label={`${item.name}${item.quantity ? ` (${item.quantity})` : ''}`}
+                    className={`bg-[var(--ui-bg-strong)] p-4 cursor-pointer transition-colors ${
+                      checkedItems.has(item.id) ? 'bg-[var(--ui-bg-soft)]' : 'hover:bg-[var(--ui-bg-soft)]'
                     }`}
                   >
                     <div className="flex items-center gap-4">
                       {/* Checkbox */}
                       <div className={`w-5 h-5 border flex items-center justify-center transition-colors ${
                         checkedItems.has(item.id)
-                          ? 'border-white bg-white'
-                          : 'border-white/30'
+                          ? 'border-[var(--ui-accent)] bg-[var(--ui-accent)]'
+                          : 'border-[var(--ui-border-strong)]'
                       }`}>
                         {checkedItems.has(item.id) && (
-                          <Check className="h-3 w-3 text-black" />
+                          <Check className="h-3 w-3 text-[var(--ui-on-accent)]" />
                         )}
                       </div>
 
@@ -301,20 +402,16 @@ export default function ModernPackingChecklist() {
                       <div className="flex-1">
                         <span className={`text-sm font-light transition-colors ${
                           checkedItems.has(item.id)
-                            ? 'text-white/40 line-through'
-                            : 'text-white'
+                            ? 'text-[var(--ui-text-subtle)] line-through'
+                            : 'text-[var(--ui-text-primary)]'
                         }`}>
-                          {item.quantity && <span className="text-white/50">{item.quantity} </span>}
+                          {item.quantity && <span className="text-[var(--ui-text-muted)]">{item.quantity} </span>}
                           {item.name}
                         </span>
                       </div>
 
                       {/* Importance Badge */}
-                      <span className={`font-mono text-xs uppercase tracking-wider ${
-                        item.importance === 'essential' ? 'text-red-400' :
-                        item.importance === 'recommended' ? 'text-yellow-400' :
-                        'text-white/30'
-                      }`}>
+                      <span className={`rounded-full border px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] ${getImportanceClasses(item.importance)}`}>
                         {item.importance}
                       </span>
 
@@ -325,7 +422,7 @@ export default function ModernPackingChecklist() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-white/30 hover:text-white/60 transition-colors"
+                          className="text-[var(--ui-text-muted)] hover:text-[var(--ui-accent)] transition-colors"
                         >
                           <ArrowUpRight className="h-4 w-4" />
                         </Link>
@@ -341,43 +438,43 @@ export default function ModernPackingChecklist() {
 
       {/* The Goods - Images Section */}
       <section>
-        <div className="border-b border-white/10 pb-4 mb-8">
-          <span className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase block mb-2">
+        <div className="border-b border-[var(--ui-border-subtle)] pb-4 mb-8">
+          <span className="font-mono text-xs tracking-[0.2em] text-[var(--ui-text-subtle)] uppercase block mb-2">
             [ The Setup ]
           </span>
-          <h2 className="text-2xl font-extralight text-white">The Goods</h2>
+          <h2 className="text-2xl font-extralight text-[var(--ui-text-primary)]">The Goods</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-          <div className="relative aspect-[4/3] overflow-hidden bg-black">
+        <div className="grid md:grid-cols-2 gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]">
+          <div className="relative aspect-[4/3] overflow-hidden bg-[var(--ui-bg-strong)]">
             <Image
               src="/assets/images/misc/IMG_2660.jpg"
               alt="Travel packing setup"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--ui-bg-strong),transparent)] opacity-90" />
             <div className="absolute bottom-0 left-0 p-6">
-              <span className="font-mono text-xs tracking-wider text-white/60 uppercase block mb-2">
+              <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)] uppercase block mb-2">
                 Essential Gear
               </span>
-              <p className="text-white/80 text-sm">Everything organized and ready for adventure.</p>
+              <p className="text-[var(--ui-text-primary)] text-sm">Everything organized and ready for adventure.</p>
             </div>
           </div>
 
-          <div className="relative aspect-[4/3] overflow-hidden bg-black">
+          <div className="relative aspect-[4/3] overflow-hidden bg-[var(--ui-bg-strong)]">
             <Image
               src="/assets/images/misc/IMG_2688.jpg"
               alt="Packed backpack ready for travel"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--ui-bg-strong),transparent)] opacity-90" />
             <div className="absolute bottom-0 left-0 p-6">
-              <span className="font-mono text-xs tracking-wider text-white/60 uppercase block mb-2">
+              <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)] uppercase block mb-2">
                 Packed & Ready
               </span>
-              <p className="text-white/80 text-sm">A perfectly organized backpack for year-long adventures.</p>
+              <p className="text-[var(--ui-text-primary)] text-sm">A perfectly organized backpack for year-long adventures.</p>
             </div>
           </div>
         </div>

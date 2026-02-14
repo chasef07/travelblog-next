@@ -53,7 +53,7 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
               {index === 0 ? (
                 <Link
                   href={item.href}
-                  className="flex items-center text-white/40 hover:text-white/60 transition-colors"
+                  className="flex items-center text-[var(--ui-text-subtle)] hover:text-[var(--ui-accent)] transition-colors"
                   itemProp="item"
                 >
                   <Home className="w-4 h-4" />
@@ -61,7 +61,7 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
                 </Link>
               ) : index === allItems.length - 1 ? (
                 <span
-                  className="font-mono text-xs tracking-wider uppercase text-white/60 line-clamp-1 max-w-[200px]"
+                  className="font-mono text-xs tracking-wider uppercase text-[var(--ui-text-muted)] line-clamp-1 max-w-[200px]"
                   itemProp="name"
                   aria-current="page"
                 >
@@ -70,7 +70,7 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
               ) : (
                 <Link
                   href={item.href}
-                  className="font-mono text-xs tracking-wider uppercase text-white/40 hover:text-white/60 transition-colors"
+                  className="font-mono text-xs tracking-wider uppercase text-[var(--ui-text-subtle)] hover:text-[var(--ui-accent)] transition-colors"
                   itemProp="item"
                 >
                   <span itemProp="name">{item.name}</span>
@@ -78,7 +78,7 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
               )}
 
               {index < allItems.length - 1 && (
-                <ChevronRight className="w-3 h-3 text-white/20" aria-hidden="true" />
+                <ChevronRight className="w-3 h-3 text-[var(--ui-text-subtle)]" aria-hidden="true" />
               )}
             </li>
           ))}

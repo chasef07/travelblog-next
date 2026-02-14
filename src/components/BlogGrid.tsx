@@ -24,20 +24,20 @@ export const BlogGrid = memo(function BlogGrid() {
   }, [selectedYear])
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 sm:space-y-12">
       {/* Year Filter */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-wrap gap-3"
+        className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-1 pr-2 sm:flex-wrap sm:gap-3 sm:pr-0"
       >
         <button
           onClick={() => setSelectedYear('all')}
-          className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border ${
+          className={`shrink-0 min-h-10 rounded-full border px-4 py-2.5 text-[11px] uppercase tracking-wider font-mono transition-all duration-200 ${
             selectedYear === 'all'
-              ? 'border-white text-white bg-white/10'
-              : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+              ? 'border-[var(--ui-border-strong)] text-[var(--ui-text-primary)] bg-[var(--ui-bg-soft)]'
+              : 'border-[var(--ui-border-subtle)] text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-text-primary)]'
           }`}
         >
           All
@@ -46,10 +46,10 @@ export const BlogGrid = memo(function BlogGrid() {
           <button
             key={year}
             onClick={() => setSelectedYear(year)}
-            className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border ${
+            className={`shrink-0 min-h-10 rounded-full border px-4 py-2.5 text-[11px] uppercase tracking-wider font-mono transition-all duration-200 ${
               selectedYear === year
-                ? 'border-white text-white bg-white/10'
-                : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+                ? 'border-[var(--ui-border-strong)] text-[var(--ui-text-primary)] bg-[var(--ui-bg-soft)]'
+                : 'border-[var(--ui-border-subtle)] text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-text-primary)]'
             }`}
           >
             {year}
@@ -57,24 +57,24 @@ export const BlogGrid = memo(function BlogGrid() {
         ))}
 
         {/* Results count */}
-        <span className="px-4 py-2 text-xs text-white/30 font-mono self-center ml-auto">
+        <span className="w-full px-1 pt-1 text-[11px] text-[var(--ui-text-subtle)] font-mono sm:ml-auto sm:w-auto sm:px-4 sm:pt-0 sm:text-xs sm:self-center">
           {filteredPosts.length} stories
         </span>
       </motion.div>
 
       {/* Blog Grid */}
-      <div className="grid gap-px bg-white/10 border border-white/10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 lg:grid-cols-3">
         {filteredPosts.map((post, index) => (
           <motion.article
             key={post.title}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: index * 0.05, duration: 0.4 }}
-            className="group bg-black"
+            className="group bg-[var(--ui-bg-strong)] hover:bg-[var(--ui-bg-soft)] transition-colors"
           >
-            <Link href={`/blog/${post.year}/${post.slug}`} className="block h-full">
+            <Link href={`/blog/${post.year}/${post.slug}`} className="block h-full touch-manipulation">
               {/* Image Section */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-44 overflow-hidden sm:h-48">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -89,24 +89,24 @@ export const BlogGrid = memo(function BlogGrid() {
               </div>
 
               {/* Content Section */}
-              <div className="p-6 space-y-4">
+              <div className="space-y-4 p-5 sm:p-6">
                 {/* Date */}
-                <span className="font-mono text-xs tracking-wider text-white/40 uppercase">
+                <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)] uppercase">
                   {post.displayDate}
                 </span>
 
                 {/* Title */}
-                <h2 className="text-lg font-light text-white group-hover:text-white/80 transition-colors duration-300 line-clamp-2">
+                <h2 className="text-base sm:text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-300 line-clamp-2 leading-snug">
                   {post.title}
                 </h2>
 
                 {/* Excerpt */}
-                <p className="text-sm text-white/40 leading-relaxed line-clamp-2 group-hover:text-white/50 transition-colors duration-300">
+                <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed line-clamp-3 sm:line-clamp-2 group-hover:text-[var(--ui-text-secondary)] transition-colors duration-300">
                   {post.excerpt}
                 </p>
 
                 {/* Read More */}
-                <div className="flex items-center gap-2 text-white/30 group-hover:text-white/60 transition-all duration-300 pt-2">
+                <div className="flex items-center gap-2 text-[var(--ui-text-subtle)] group-hover:text-[var(--ui-accent)] transition-all duration-300 pt-2">
                   <span className="text-xs uppercase tracking-wider">Read</span>
                   <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                 </div>
@@ -121,12 +121,12 @@ export const BlogGrid = memo(function BlogGrid() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center py-12 border border-white/10"
+          className="text-center py-12 border border-[var(--ui-border-subtle)]"
         >
-          <h3 className="text-lg font-light text-white mb-2">
+          <h3 className="text-lg font-light text-[var(--ui-text-primary)] mb-2">
             No stories found
           </h3>
-          <p className="text-white/40 text-sm">
+          <p className="text-[var(--ui-text-muted)] text-sm">
             Try selecting a different year.
           </p>
         </motion.div>

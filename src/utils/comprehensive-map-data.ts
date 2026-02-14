@@ -228,12 +228,6 @@ export const fullJourneyData: CountryData[] = [
 
 // Function to dynamically count all blog posts
 function getTotalBlogPostCount(): number {
-  // Import all blog post files and count them
-  const months = [
-    'september', 'october', 'november', 'december', // 2024
-    'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december' // 2025
-  ];
-
   let totalCount = 0;
 
   // Count 2024 posts

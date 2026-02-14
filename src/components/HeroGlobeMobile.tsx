@@ -1,0 +1,104 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+import { type CountryData } from '@/utils/comprehensive-map-data'
+
+const GlobeScene = dynamic(() => import('./GlobeScene'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center bg-[var(--ui-bg-strong)]">
+      <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)]">LOADING GLOBE...</span>
+    </div>
+  ),
+})
+
+interface GeoJSONGeometry {
+  type: string
+  coordinates: number[] | number[][] | number[][][] | number[][][][]
+}
+
+interface GeoJSONFeature {
+  type: string
+  geometry: GeoJSONGeometry
+}
+
+interface GeoJSON {
+  type: string
+  features: GeoJSONFeature[]
+}
+
+let geoJSONCache: GeoJSON | null = null
+let geoJSONPromise: Promise<GeoJSON> | null = null
+
+async function fetchGeoJSON(): Promise<GeoJSON> {
+  if (geoJSONCache) return geoJSONCache
+  if (geoJSONPromise) return geoJSONPromise
+
+  geoJSONPromise = fetch(
+    'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      geoJSONCache = data
+      return data
+    })
+    .catch((error) => {
+      geoJSONPromise = null
+      console.error('Failed to load GeoJSON:', error)
+      throw error
+    })
+
+  return geoJSONPromise
+}
+
+export default function HeroGlobeMobile() {
+  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
+  const [geoData, setGeoData] = useState<GeoJSON | null>(null)
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia('(max-width: 1023px)').matches
+  })
+
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 1023px)')
+    const updateMobile = () => setIsMobile(query.matches)
+    updateMobile()
+    query.addEventListener('change', updateMobile)
+    return () => query.removeEventListener('change', updateMobile)
+  }, [])
+
+  useEffect(() => {
+    if (!isMobile) return
+
+    let isMounted = true
+    fetchGeoJSON()
+      .then((data) => {
+        if (isMounted) setGeoData(data)
+      })
+      .catch(() => {})
+
+    return () => {
+      isMounted = false
+    }
+  }, [isMobile])
+
+  if (!isMobile) return null
+
+  return (
+    <div className="space-y-2">
+      <div className="h-[210px] w-full overflow-hidden rounded-2xl sm:h-[230px] md:h-[250px]">
+        <GlobeScene
+          onSelectCountry={setSelectedCountry}
+          selectedCountry={selectedCountry}
+          geoData={geoData}
+        />
+      </div>
+      <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ui-text-muted)] sm:text-[11px] sm:tracking-[0.18em]">
+        {selectedCountry
+          ? `${selectedCountry.name} • ${selectedCountry.visitDate}`
+          : 'Tap and drag to explore destinations'}
+      </p>
+    </div>
+  )
+}

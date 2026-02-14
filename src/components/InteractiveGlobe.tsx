@@ -1,9 +1,18 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import dynamic from 'next/dynamic'
 import { journeyStats, type CountryData } from '@/utils/comprehensive-map-data'
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion'
-import GlobeScene from './GlobeScene'
+
+const GlobeScene = dynamic(() => import('./GlobeScene'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center bg-[var(--ui-bg-strong)]">
+      <span className="font-mono tracking-wider text-sm text-[var(--ui-text-muted)]">LOADING GLOBE...</span>
+    </div>
+  ),
+})
 
 // Animated counter component
 function AnimatedCounter({ value, duration = 2 }: { value: number, duration?: number }) {
@@ -82,6 +91,10 @@ export default function InteractiveGlobe() {
   const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
   const [geoData, setGeoData] = useState<GeoJSON | null>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia('(max-width: 767px)').matches
+  })
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Intersection observer to load globe only when in view
@@ -112,37 +125,51 @@ export default function InteractiveGlobe() {
       .catch(() => {}) // Error already logged in fetchGeoJSON
   }, [isVisible])
 
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 767px)')
+    const updateMobile = () => setIsMobile(query.matches)
+    updateMobile()
+    query.addEventListener('change', updateMobile)
+    return () => query.removeEventListener('change', updateMobile)
+  }, [])
+
+  if (isMobile) {
+    return null
+  }
+
   return (
-    <section id="journey" className="py-20 relative overflow-hidden border-t border-[#d4c0a8]/10" style={{ background: 'linear-gradient(180deg, #2a2520 0%, #1a1714 100%)' }}>
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="journey" className="app-surface relative overflow-hidden border-t border-[var(--ui-border-subtle)] py-14 sm:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12"
+          className="mb-10 flex flex-col gap-5 sm:mb-12 md:flex-row md:items-start md:justify-between md:gap-6"
         >
           <div>
-            <span className="font-mono text-sm tracking-[0.2em] text-[#c4704b] uppercase block mb-4">
+            <span className="font-mono text-sm tracking-[0.2em] text-[var(--ui-accent)] uppercase block mb-4">
               [ Interactive Journey ]
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[#faf6f1]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
               Around the World
             </h2>
           </div>
-          <p className="text-[#d4c0a8]/60 text-lg leading-relaxed max-w-md md:text-right">
-            Click and drag to explore. Click on markers to discover each destination.
+          <p className="max-w-md text-base sm:text-lg text-[var(--ui-text-secondary)] leading-relaxed md:text-right">
+            {isMobile
+              ? 'Tap and drag to explore. Tap markers to open each destination.'
+              : 'Click and drag to explore. Click on markers to discover each destination.'}
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
           {/* Globe Container */}
           <div
             ref={containerRef}
             className="lg:col-span-2 w-full"
           >
-            <div className="overflow-hidden rounded-xl bg-[#1a1714] border border-[#d4c0a8]/10 h-[400px] sm:h-[500px] md:h-[600px] w-full">
+            <div className="overflow-hidden rounded-2xl h-[340px] sm:h-[500px] md:h-[600px] w-full">
               {isVisible && (
                 <GlobeScene
                   onSelectCountry={setSelectedCountry}
@@ -159,7 +186,7 @@ export default function InteractiveGlobe() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             <AnimatePresence mode="wait">
               {selectedCountry ? (
@@ -169,29 +196,29 @@ export default function InteractiveGlobe() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                 >
-                  <div className="p-6 border border-[#d4c0a8]/10 bg-[#2a2520]/50 backdrop-blur-sm">
-                    <div className="mb-4">
-                      <span className="font-mono text-xs tracking-wider text-[#c4704b] uppercase">
+                  <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] p-4 sm:p-6 backdrop-blur-sm">
+                    <div className="mb-3 sm:mb-4">
+                      <span className="font-mono text-xs tracking-wider text-[var(--ui-accent)] uppercase">
                         {selectedCountry.visitDate}
                       </span>
-                      <h3 className="text-2xl font-light text-[#faf6f1] mt-1">{selectedCountry.name}</h3>
+                      <h3 className="mt-1 text-xl sm:text-2xl font-light text-[var(--ui-text-primary)]">{selectedCountry.name}</h3>
                     </div>
 
-                    <p className="text-[#d4c0a8]/60 leading-relaxed mb-6">
+                    <p className="mb-5 sm:mb-6 text-sm sm:text-base text-[var(--ui-text-secondary)] leading-relaxed">
                       {selectedCountry.description}
                     </p>
 
-                    <div className="space-y-2">
+                    <div className="space-y-1.5 sm:space-y-2">
                       {selectedCountry.highlights.map((highlight, index) => (
-                        <div key={index} className="text-sm text-[#d4c0a8]/50 flex items-center gap-3">
-                          <div className="w-1 h-1 bg-[#c4704b]" />
+                        <div key={index} className="text-xs sm:text-sm text-[var(--ui-text-muted)] flex items-center gap-2.5 sm:gap-3">
+                          <div className="w-1 h-1 bg-[var(--ui-accent)]" />
                           {highlight}
                         </div>
                       ))}
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-[#d4c0a8]/10">
-                      <span className="text-xs text-[#7a8f7a] uppercase tracking-wider">
+                    <div className="mt-5 sm:mt-6 pt-4 border-t border-[var(--ui-border-subtle)]">
+                      <span className="text-xs text-[var(--ui-text-subtle)] uppercase tracking-wider">
                         {selectedCountry.blogPostsCount} stories written
                       </span>
                     </div>
@@ -203,10 +230,10 @@ export default function InteractiveGlobe() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="p-6 border border-[#d4c0a8]/10 bg-[#2a2520]/50 backdrop-blur-sm">
-                    <h3 className="font-light text-lg mb-2 text-[#faf6f1]">Select a destination</h3>
-                    <p className="text-[#d4c0a8]/50 text-sm">
-                      Click on any marker to explore.
+                  <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] p-4 sm:p-6 backdrop-blur-sm">
+                    <h3 className="font-light text-lg mb-2 text-[var(--ui-text-primary)]">Select a destination</h3>
+                    <p className="text-[var(--ui-text-muted)] text-sm">
+                      {isMobile ? 'Tap any marker to explore.' : 'Click on any marker to explore.'}
                     </p>
                   </div>
                 </motion.div>
@@ -215,22 +242,22 @@ export default function InteractiveGlobe() {
 
             {/* Journey Stats */}
             <motion.div
-              className="grid grid-cols-2 border border-[#d4c0a8]/10 bg-[#2a2520]/30"
+              className="grid grid-cols-2 rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)]"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              <div className="p-4 text-center border-r border-[#d4c0a8]/10">
-                <div className="text-2xl font-extralight text-[#c4704b]">
+              <div className="p-3.5 sm:p-4 text-center border-r border-[var(--ui-border-subtle)]">
+                <div className="text-xl sm:text-2xl font-extralight text-[var(--ui-accent)]">
                   <AnimatedCounter value={journeyStats.totalCountries} duration={1.5} />
                 </div>
-                <div className="text-xs text-[#d4c0a8]/50 uppercase tracking-wider mt-1">Countries</div>
+                <div className="text-xs text-[var(--ui-text-muted)] uppercase tracking-wider mt-1">Countries</div>
               </div>
-              <div className="p-4 text-center">
-                <div className="text-2xl font-extralight text-[#c4704b]">
+              <div className="p-3.5 sm:p-4 text-center">
+                <div className="text-xl sm:text-2xl font-extralight text-[var(--ui-accent)]">
                   <AnimatedCounter value={journeyStats.totalBlogPosts} duration={2} />
                 </div>
-                <div className="text-xs text-[#d4c0a8]/50 uppercase tracking-wider mt-1">Stories</div>
+                <div className="text-xs text-[var(--ui-text-muted)] uppercase tracking-wider mt-1">Stories</div>
               </div>
             </motion.div>
           </motion.div>

@@ -299,6 +299,8 @@ function getMonthFromSlug(slug: string): string {
     // 2026 January
     'el-tunco-surf-town-analysis': 'january',
     'guatemala-to-el-tunco': 'january',
+    // 2026 February
+    'santa-teresa-surfing-building-rhythm': 'february',
   };
 
   return slugToMonth[slug] || 'january';

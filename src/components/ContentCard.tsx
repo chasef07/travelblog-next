@@ -76,16 +76,16 @@ export function ContentCard({
         {/* Video play button overlay */}
         {variant === 'vlog' && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-colors">
-              <Play className="w-6 h-6 text-white ml-1" fill="white" />
+            <div className="w-16 h-16 rounded-full border border-[var(--ui-border-strong)] bg-[var(--ui-accent)] flex items-center justify-center group-hover:bg-[var(--ui-accent-hover)] transition-colors">
+              <Play className="w-6 h-6 text-[var(--ui-on-accent)] ml-1" fill="currentColor" />
             </div>
           </div>
         )}
 
         {/* Badge */}
         {badge && (
-          <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-sm">
-            <span className="font-mono text-[10px] tracking-wider text-white/80 uppercase">
+          <div className="absolute top-3 right-3 rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-header-bg)] px-2.5 py-1">
+            <span className="font-mono text-[10px] tracking-wider text-[var(--ui-text-primary)] uppercase">
               {badge}
             </span>
           </div>
@@ -96,26 +96,26 @@ export function ContentCard({
       <div className="p-6 space-y-3">
         {/* Meta */}
         {meta && (
-          <span className="font-mono text-xs tracking-wider text-white/40 uppercase">
+          <span className="font-mono text-xs tracking-wider text-[var(--ui-text-subtle)] uppercase">
             {meta}
           </span>
         )}
 
         {/* Title */}
-        <h3 className="text-lg font-light text-white group-hover:text-white/80 transition-colors duration-300 line-clamp-2">
+        <h3 className="text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-300 line-clamp-2">
           {title}
         </h3>
 
         {/* Description */}
         {description && (
-          <p className="text-sm text-white/40 leading-relaxed line-clamp-2 group-hover:text-white/50 transition-colors duration-300">
+          <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed line-clamp-2 group-hover:text-[var(--ui-text-secondary)] transition-colors duration-300">
             {description}
           </p>
         )}
 
         {/* Read More (for blog variant) */}
         {variant === 'blog' && (
-          <div className="flex items-center gap-2 text-white/30 group-hover:text-white/60 transition-all duration-300 pt-2">
+          <div className="flex items-center gap-2 text-[var(--ui-text-subtle)] group-hover:text-[var(--ui-accent)] transition-all duration-300 pt-2">
             <span className="text-xs uppercase tracking-wider">Read</span>
             <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
           </div>
@@ -125,8 +125,8 @@ export function ContentCard({
   )
 
   const cardClasses = cn(
-    'group bg-black',
-    variant !== 'food' && 'hover:bg-white/5 transition-colors',
+    'group bg-[var(--ui-bg-strong)]',
+    variant !== 'food' && 'hover:bg-[var(--ui-bg-soft)] transition-colors',
     className
   )
 
@@ -169,7 +169,7 @@ export function ContentGrid({ children, columns = 3, className }: ContentGridPro
 
   return (
     <div className={cn(
-      'grid gap-px bg-white/10 border border-white/10',
+      'grid gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]',
       colClasses,
       className
     )}>

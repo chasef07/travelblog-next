@@ -23,7 +23,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   experimental: {
-    optimizePackageImports: ['leaflet', 'framer-motion', 'three', '@react-three/fiber', '@react-three/drei', 'lucide-react'],
+    // R3F relies on shared internal context; import optimization can split modules
+    // and cause "Hooks can only be used within the Canvas component" in dev.
+    optimizePackageImports: ['leaflet', 'framer-motion', 'lucide-react'],
   },
   modularizeImports: {
     'lucide-react': {

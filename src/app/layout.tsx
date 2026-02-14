@@ -6,35 +6,10 @@ import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
-import { Fraunces, Source_Sans_3, JetBrains_Mono } from 'next/font/google'
-
-// Editorial typography - distinctive serif for headlines
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-fraunces',
-  weight: ['300', '400', '500', '600', '700'],
-})
-
-// Clean sans-serif for body text
-const sourceSans = Source_Sans_3({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-source-sans',
-  weight: ['300', '400', '500', '600'],
-})
-
-// Distinctive monospace for accents/labels
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-jetbrains',
-  weight: ['400', '500'],
-})
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Living Gambit - Travel, Adventure, Capitalism',
-  description: 'Reengineering life from the ground up. Solo travel adventures, entrepreneurship, and building a life on your own terms across 19 countries.',
+  title: 'The Value Engine - Lifestyle Engineering for Real Value',
+  description: 'Work hard, stay healthy, and grow sustainably. Lifestyle engineering, travel lessons, and systems for long-term performance.',
   keywords: ['solo travel blog', 'Asia travel guide', 'Africa travel tips', 'cultural travel experiences', 'backpacking Asia', 'solo travel guides', 'travel photography', 'authentic travel stories', 'budget travel tips', 'cultural immersion travel'],
   images: ['/assets/images/misc/posttrip.jpg']
 })
@@ -45,6 +20,22 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('value-engine-theme') || localStorage.getItem('living-gambit-theme');
+                  var allowed = ['sunset', 'coast', 'graphite'];
+                  var theme = allowed.indexOf(stored || '') >= 0 ? stored : 'sunset';
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {
+                  document.documentElement.setAttribute('data-theme', 'sunset');
+                }
+              })();
+            `,
+          }}
+        />
         {/* DNS prefetch for external domains (lighter than preconnect) */}
         <link rel="dns-prefetch" href="https://a.basemaps.cartocdn.com" />
         <link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" />
@@ -59,7 +50,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         <link rel="manifest" href="/site.webmanifest" />
 
         {/* RSS Feed */}
-        <link rel="alternate" type="application/rss+xml" title="Living Gambit RSS Feed" href="/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="The Value Engine RSS Feed" href="/feed.xml" />
 
         {/* Website structured data */}
         <script
@@ -67,7 +58,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className={`min-h-screen flex flex-col bg-zinc-900 ${fraunces.variable} ${sourceSans.variable} ${jetbrainsMono.variable}`}>
+      <body suppressHydrationWarning className="min-h-screen flex flex-col">
 
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_ID && (

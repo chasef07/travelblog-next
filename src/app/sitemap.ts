@@ -41,7 +41,7 @@ const allBlogPosts = [
 ]
 
 /**
- * Dynamic sitemap generation for Living Gambit travel blog
+ * Dynamic sitemap generation for The Value Engine travel blog
  * Includes all static pages, monthly archives, and individual blog posts
  */
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -23,8 +23,8 @@ export default function FoodGrid() {
           onClick={() => setSelectedCountry(null)}
           className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border ${
             !selectedCountry
-              ? 'border-white text-white bg-white/10'
-              : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+              ? 'border-[var(--ui-border-strong)] text-[var(--ui-text-primary)] bg-[var(--ui-bg-soft)]'
+              : 'border-[var(--ui-border-subtle)] text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-text-primary)]'
           }`}
         >
           All
@@ -35,8 +35,8 @@ export default function FoodGrid() {
             onClick={() => setSelectedCountry(country)}
             className={`px-4 py-2 text-xs uppercase tracking-wider font-mono transition-all duration-200 border ${
               selectedCountry === country
-                ? 'border-white text-white bg-white/10'
-                : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+                ? 'border-[var(--ui-border-strong)] text-[var(--ui-text-primary)] bg-[var(--ui-bg-soft)]'
+                : 'border-[var(--ui-border-subtle)] text-[var(--ui-text-muted)] hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-text-primary)]'
             }`}
           >
             {country}
@@ -69,15 +69,15 @@ function CountrySection({ country, items }: { country: string; items: FoodItem[]
   return (
     <section className="space-y-8">
       {/* Country Header */}
-      <div className="border-b border-white/10 pb-4">
-        <span className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase block mb-2">
+      <div className="border-b border-[var(--ui-border-subtle)] pb-4">
+        <span className="font-mono text-xs tracking-[0.2em] text-[var(--ui-text-muted)] uppercase block mb-2">
           [ {country} ]
         </span>
-        <h2 className="text-2xl font-extralight text-white">{country} Cuisine</h2>
+        <h2 className="text-2xl font-extralight text-[var(--ui-text-primary)]">{country} Cuisine</h2>
       </div>
 
       {/* Food Cards */}
-      <div className="grid gap-px bg-white/10 border border-white/10 md:grid-cols-2">
+      <div className="grid gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)] md:grid-cols-2">
         {items.map((item, index) => (
           <FoodCard key={`${country}-${item.name}`} item={item} index={index} />
         ))}
@@ -92,7 +92,7 @@ function FoodCard({ item, index }: { item: FoodItem; index: number }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: index * 0.05, duration: 0.4 }}
-      className="group bg-black hover:bg-white/5 transition-colors"
+      className="group bg-[var(--ui-bg-strong)] hover:bg-[var(--ui-bg-soft)] transition-colors"
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
@@ -109,15 +109,15 @@ function FoodCard({ item, index }: { item: FoodItem; index: number }) {
 
       {/* Content */}
       <div className="p-6 space-y-3">
-        <span className="font-mono text-xs tracking-wider text-white/40 uppercase">
+        <span className="font-mono text-xs tracking-wider text-[var(--ui-text-subtle)] uppercase">
           {item.country}
         </span>
 
-        <h3 className="text-lg font-light text-white group-hover:text-white/80 transition-colors duration-300">
+        <h3 className="text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-300">
           {item.name}
         </h3>
 
-        <p className="text-sm text-white/40 leading-relaxed group-hover:text-white/50 transition-colors line-clamp-3">
+        <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed group-hover:text-[var(--ui-text-secondary)] transition-colors line-clamp-3">
           {item.description}
         </p>
       </div>

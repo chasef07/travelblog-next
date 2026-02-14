@@ -1,5 +1,6 @@
 export type BlogMeta={year:number;slug:string;title:string;date:string;displayDate:string;excerpt:string;image:string};
 export const blogIndex:BlogMeta[]=[
+{year:2026,slug:'february',title:'February 2026: Santa Teresa, Surfing and Building',date:'2026-02-01',displayDate:'February 2026',excerpt:'A new month in Santa Teresa focused on deep work, consistent surfing, and building the next chapter.',image:'/assets/images/misc/costa-business.jpg'},
 {year:2026,slug:'january',title:'January 2026: Exploring El Salvador',date:'2026-01-07',displayDate:'January 2026',excerpt:'Leaving Guatemala for El Salvador\'s surf coast, a chance encounter with a pastor, and thoughts on government and infrastructure.',image:'/assets/images/flags/SV-flag.jpg'},
 {year:2025,slug:'december',title:'December 2025: Guatemala Galavanting',date:'2025-12-17',displayDate:'December 2025',excerpt:'Arriving in Guatemala after Hanukkah with family - one last backpacking adventure before starting a new section of life.',image:'/assets/images/blog/2025/december/guatflag.jpg'},
 {year:2025,slug:'november',title:'November 2025: Arriving in Panama',date:'2025-11-02',displayDate:'November 2025',excerpt:'First impressions of Bocas del Toro, Panama - exploring viber cafes, cultural authenticity, and what makes a place feel like home.',image:'/assets/images/misc/panama-dive.jpg'},

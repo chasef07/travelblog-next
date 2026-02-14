@@ -19,27 +19,27 @@ export default function BlogPost({ post }: BlogPostProps) {
   return (
     <div className="max-w-none">
       {/* Content */}
-      <div className="prose prose-lg max-w-none">
-        <div className="text-lg leading-relaxed text-white/70 whitespace-pre-wrap mb-12 font-light">
+      <div className="mb-10 max-w-[68ch] sm:mb-12">
+        <div className="whitespace-pre-wrap break-words text-[var(--ui-text-muted)] font-light text-[clamp(1rem,2.8vw,1.14rem)] leading-8 sm:leading-9">
           {post.content}
         </div>
-
-        {/* Images */}
-        {post.images && post.images.length > 0 && (
-          <div className="grid gap-8 my-12">
-            {post.images.map((image, index) => (
-              <LightboxImage
-                key={index}
-                src={image.src}
-                alt={image.alt}
-                caption={image.caption}
-                onClick={() => lightbox.open(index)}
-                priority={index === 0}
-              />
-            ))}
-          </div>
-        )}
       </div>
+
+      {/* Images */}
+      {post.images && post.images.length > 0 && (
+        <div className="my-10 grid gap-6 sm:my-12 sm:gap-8">
+          {post.images.map((image, index) => (
+            <LightboxImage
+              key={index}
+              src={image.src}
+              alt={image.alt}
+              caption={image.caption}
+              onClick={() => lightbox.open(index)}
+              priority={index === 0}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Lightbox modal */}
       <Lightbox

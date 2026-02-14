@@ -24,6 +24,7 @@ import { october2025Posts } from '@/content/blog-posts/2025-october'
 import { november2025Posts } from '@/content/blog-posts/2025-november'
 import { december2025Posts } from '@/content/blog-posts/2025-december'
 import { january2026Posts } from '@/content/blog-posts/2026-january'
+import { february2026Posts } from '@/content/blog-posts/2026-february'
 
 // Combine all individual blog posts
 const allBlogPosts = [
@@ -43,6 +44,7 @@ const allBlogPosts = [
   ...november2025Posts,
   ...december2025Posts,
   ...january2026Posts,
+  ...february2026Posts,
 ]
 
 // Generate static params for all blog posts at build time
@@ -99,7 +101,7 @@ export async function generateMetadata({ params }:{ params: Promise<{ year: stri
   }
 
   return generatePageMetadata({
-    title: metadata?.title || 'Travel Blog Post - Living Gambit',
+    title: metadata?.title || 'Travel Blog Post - The Value Engine',
     description: metadata?.excerpt || 'Discover amazing travel adventures and cultural insights from around the world.',
     path: `/blog/${year}/${slug}`,
     images: metadata?.image ? [metadata.image] : [],
@@ -123,7 +125,7 @@ export default async function Page({ params }: { params: Promise<{ year: string;
     ])
 
     return (
-      <main className="min-h-screen bg-black pt-24">
+      <main className="min-h-screen app-surface pt-20 pb-24 sm:pt-24 sm:pb-0">
         {/* JSON-LD structured data for article */}
         <script
           type="application/ld+json"
@@ -135,18 +137,18 @@ export default async function Page({ params }: { params: Promise<{ year: string;
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
 
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           {/* Breadcrumb navigation */}
           <Breadcrumb
             items={generateBlogBreadcrumbs(year, slug, post.title)}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           />
 
           {/* Article header with schema markup */}
           <article itemScope itemType="https://schema.org/BlogPosting">
-            <header className="mb-12 border-b border-white/10 pb-12">
+            <header className="mb-10 border-b border-[var(--ui-border-subtle)] pb-8 sm:mb-12 sm:pb-12">
               {/* Meta info */}
-              <div className="flex flex-wrap items-center gap-6 text-sm text-white/40 mb-6">
+              <div className="mb-5 flex flex-col items-start gap-3 text-sm text-[var(--ui-text-subtle)] sm:mb-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4" />
                   <span itemProp="locationCreated" itemScope itemType="https://schema.org/Place">
@@ -174,12 +176,12 @@ export default async function Page({ params }: { params: Promise<{ year: string;
                 </div>
 
                 <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
-                  <span itemProp="name">Living Gambit</span>
+                  <span itemProp="name">The Value Engine</span>
                 </div>
               </div>
 
               {/* Title */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extralight tracking-tight text-white leading-tight" itemProp="headline">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extralight tracking-tight text-[var(--ui-text-primary)] leading-tight" itemProp="headline">
                 {post.title}
               </h1>
             </header>
@@ -191,40 +193,40 @@ export default async function Page({ params }: { params: Promise<{ year: string;
         </div>
 
         {/* More Adventures Section */}
-        <section className="max-w-4xl mx-auto px-6 py-16 mt-12 border-t border-white/10">
-          <div className="flex items-center justify-between mb-8">
+        <section className="mx-auto mt-10 max-w-4xl border-t border-[var(--ui-border-subtle)] px-4 py-12 sm:mt-12 sm:px-6 sm:py-16">
+          <div className="mb-7 flex flex-col items-start gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <span className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase block mb-2">
+              <span className="font-mono text-xs tracking-[0.2em] text-[var(--ui-text-subtle)] uppercase block mb-2">
                 [ Continue Reading ]
               </span>
-              <h2 className="text-2xl font-extralight text-white">More Adventures</h2>
+              <h2 className="text-2xl font-extralight text-[var(--ui-text-primary)]">More Adventures</h2>
             </div>
             <Link
               href="/blog"
-              className="group inline-flex items-center gap-2 text-white/40 hover:text-white/60 transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-subtle)] px-4 py-2 text-[var(--ui-text-subtle)] transition-colors hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-accent)]"
             >
               <span className="text-xs uppercase tracking-wider">View All</span>
               <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+          <div className="grid md:grid-cols-2 gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]">
             {blogMetadata.slice(0, 4).map((relatedPost) => (
               <Link
                 key={relatedPost.link}
                 href={relatedPost.link}
-                className="group block bg-black p-6 hover:bg-white/5 transition-colors"
+                className="group block bg-[var(--ui-bg-strong)] p-5 transition-colors hover:bg-[var(--ui-bg-soft)] sm:p-6"
               >
-                <span className="font-mono text-xs tracking-wider text-white/30 uppercase block mb-3">
+                <span className="font-mono text-xs tracking-wider text-[var(--ui-text-subtle)] uppercase block mb-3">
                   {new Date(relatedPost.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </span>
-                <h3 className="font-light text-white group-hover:text-white/80 mb-2 line-clamp-2 transition-colors">
+                <h3 className="font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] mb-2 line-clamp-2 transition-colors">
                   {relatedPost.title}
                 </h3>
-                <p className="text-sm text-white/40 line-clamp-2">
+                <p className="text-sm text-[var(--ui-text-muted)] line-clamp-2">
                   {relatedPost.excerpt}
                 </p>
-                <div className="flex items-center gap-2 text-white/30 group-hover:text-white/50 transition-all duration-300 mt-4">
+                <div className="flex items-center gap-2 text-[var(--ui-text-subtle)] group-hover:text-[var(--ui-accent)] transition-all duration-300 mt-4">
                   <span className="text-xs uppercase tracking-wider">Read</span>
                   <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                 </div>
@@ -232,6 +234,14 @@ export default async function Page({ params }: { params: Promise<{ year: string;
             ))}
           </div>
         </section>
+
+        <Link
+          href="/blog"
+          className="fixed bottom-4 left-4 right-4 z-40 inline-flex items-center justify-center gap-2 rounded-full border border-[var(--ui-border-strong)] bg-[var(--ui-bg-strong)] px-5 py-3 text-[var(--ui-text-primary)] shadow-lg backdrop-blur-sm transition-colors hover:text-[var(--ui-accent)] sm:hidden"
+        >
+          <span className="font-mono text-xs uppercase tracking-wider">Browse all stories</span>
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </Link>
       </main>
     )
   }
@@ -239,37 +249,38 @@ export default async function Page({ params }: { params: Promise<{ year: string;
   // If no specific post found, try to load all posts for the month/slug
   const { loadBlogPosts } = await import('@/utils/blog-loader')
   const posts = await loadBlogPosts(year, slug)
+  const monthMetadata = blogMetadata.find((entry) => entry.link === `/blog/${year}/${slug}`)
 
   if (posts.length > 0) {
     return (
-      <main className="min-h-screen bg-black pt-24">
-        <div className="max-w-4xl mx-auto px-6 py-12">
+      <main className="min-h-screen app-surface pt-20 sm:pt-24">
+        <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
           {/* Breadcrumb navigation */}
           <Breadcrumb
             items={[
               { name: 'Blog', href: '/blog' },
               { name: `${slug.charAt(0).toUpperCase() + slug.slice(1)} ${year}`, href: `/blog/${year}/${slug}` }
             ]}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           />
 
-          <header className="mb-16">
-            <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
+          <header className="mb-10 sm:mb-16">
+            <span className="font-mono text-sm tracking-[0.2em] text-[var(--ui-accent)] uppercase block mb-4">
               [ {slug.charAt(0).toUpperCase() + slug.slice(1)} {year} ]
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
               Travel Stories
             </h1>
-            <p className="text-white/50 text-lg mt-6 max-w-2xl">
+            <p className="mt-4 max-w-2xl text-base text-[var(--ui-text-muted)] sm:mt-6 sm:text-lg">
               Adventures and reflections from {slug.charAt(0).toUpperCase() + slug.slice(1)} {year}
             </p>
           </header>
 
-          <div className="space-y-24">
+          <div className="space-y-16 sm:space-y-24">
             {posts.map((blogPost) => (
-              <article key={blogPost.id} className="border-b border-white/10 pb-24 last:border-b-0">
+              <article key={blogPost.id} className="border-b border-[var(--ui-border-subtle)] pb-16 last:border-b-0 sm:pb-24">
                 <header className="mb-8">
-                  <div className="flex flex-wrap items-center gap-6 text-sm text-white/40 mb-4">
+                  <div className="mb-4 flex flex-col items-start gap-3 text-sm text-[var(--ui-text-subtle)] sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
                     <div className="flex items-center gap-2">
                       <MapPin className="h-4 w-4" />
                       <span className="font-mono text-xs tracking-wider uppercase">{blogPost.location}</span>
@@ -288,22 +299,22 @@ export default async function Page({ params }: { params: Promise<{ year: string;
                       </div>
                     )}
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-extralight text-white leading-tight">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-extralight text-[var(--ui-text-primary)] leading-tight">
                     {blogPost.title}
                   </h2>
                 </header>
 
-                <div className="prose prose-lg max-w-none">
-                  <div className="text-white/70 whitespace-pre-wrap leading-relaxed font-light">
+                <div className="max-w-[68ch]">
+                  <div className="whitespace-pre-wrap break-words text-[var(--ui-text-muted)] font-light text-[clamp(1rem,2.8vw,1.14rem)] leading-8 sm:leading-9">
                     {blogPost.content}
                   </div>
                 </div>
 
                 {blogPost.images && blogPost.images.length > 0 && (
-                  <div className="grid gap-8 my-12">
+                  <div className="my-10 grid gap-6 sm:my-12 sm:gap-8">
                     {blogPost.images.map((image, index) => (
                       <figure key={index} className="relative group">
-                        <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[4/3] overflow-hidden border border-white/10">
+                        <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[4/3] overflow-hidden border border-[var(--ui-border-subtle)]">
                           <Image
                             src={image.src}
                             alt={image.alt}
@@ -314,7 +325,7 @@ export default async function Page({ params }: { params: Promise<{ year: string;
                           />
                         </div>
                         {image.caption && (
-                          <figcaption className="text-sm text-white/40 text-center mt-4 font-mono tracking-wider">
+                          <figcaption className="mt-4 text-center font-mono text-xs tracking-wider text-[var(--ui-text-subtle)] sm:text-sm">
                             {image.caption}
                           </figcaption>
                         )}
@@ -330,22 +341,64 @@ export default async function Page({ params }: { params: Promise<{ year: string;
     )
   }
 
+  if (monthMetadata) {
+    return (
+      <main className="min-h-screen app-surface pt-20 sm:pt-24">
+        <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
+          <Breadcrumb
+            items={[
+              { name: 'Blog', href: '/blog' },
+              { name: `${slug.charAt(0).toUpperCase() + slug.slice(1)} ${year}`, href: `/blog/${year}/${slug}` }
+            ]}
+            className="mb-8 sm:mb-12"
+          />
+
+          <header className="mb-10 sm:mb-14">
+            <span className="font-mono text-sm tracking-[0.2em] text-[var(--ui-accent)] uppercase block mb-4">
+              [ {slug.charAt(0).toUpperCase() + slug.slice(1)} {year} ]
+            </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
+              Travel Stories
+            </h1>
+            <p className="mt-4 max-w-2xl text-base text-[var(--ui-text-muted)] sm:mt-6 sm:text-lg">
+              {monthMetadata.excerpt}
+            </p>
+          </header>
+
+          <section className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] p-6 sm:p-8">
+            <h2 className="text-xl sm:text-2xl font-light text-[var(--ui-text-primary)]">First Post Coming Soon</h2>
+            <p className="mt-3 text-sm sm:text-base text-[var(--ui-text-secondary)] leading-relaxed">
+              This month section is live. Add your first February 2026 entry and it will appear here automatically.
+            </p>
+            <Link
+              href="/blog"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 text-[var(--ui-text-primary)] transition-colors hover:bg-[var(--ui-accent)] hover:text-[var(--ui-on-accent)]"
+            >
+              <span className="font-mono text-xs uppercase tracking-wider">Back to all stories</span>
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </Link>
+          </section>
+        </div>
+      </main>
+    )
+  }
+
   // No content found at all
   return (
-    <main className="min-h-screen bg-black pt-24">
-      <div className="max-w-4xl mx-auto px-6 py-12 text-center">
-        <span className="font-mono text-sm tracking-[0.2em] text-white/40 uppercase block mb-4">
+    <main className="min-h-screen app-surface pt-20 sm:pt-24">
+      <div className="mx-auto max-w-4xl px-4 py-10 text-center sm:px-6 sm:py-12">
+        <span className="font-mono text-sm tracking-[0.2em] text-[var(--ui-text-subtle)] uppercase block mb-4">
           [ 404 ]
         </span>
-        <h1 className="text-4xl font-extralight text-white mb-6">Post Not Found</h1>
-        <p className="text-lg text-white/50 mb-12">
+        <h1 className="mb-6 text-3xl font-extralight text-[var(--ui-text-primary)] sm:text-4xl">Post Not Found</h1>
+        <p className="mb-12 text-base text-[var(--ui-text-muted)] sm:text-lg">
           The blog post you&apos;re looking for doesn&apos;t exist or hasn&apos;t been published yet.
         </p>
         <Link
           href="/blog"
-          className="group inline-flex items-center gap-2 text-white font-medium border border-white/80 rounded-full px-6 py-3 hover:bg-white hover:text-black transition-all duration-200"
+          className="group inline-flex items-center gap-2 text-[var(--ui-text-primary)] font-medium border border-[var(--ui-border-strong)] rounded-full px-6 py-3 hover:bg-[var(--ui-accent)] hover:text-[var(--ui-on-accent)] transition-all duration-200"
         >
-          <span className="uppercase text-sm tracking-wider">View All Stories</span>
+          <span className="uppercase text-xs tracking-wider sm:text-sm">View All Stories</span>
           <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </Link>
       </div>

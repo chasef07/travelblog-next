@@ -6,8 +6,8 @@ import { BlogPost } from '@/types/blog'
  */
 
 export const siteConfig = {
-  name: 'Living Gambit',
-  description: 'Travel, Adventure, Capitalism. Reengineering life from the ground up through solo journeys across 19 countries.',
+  name: 'The Value Engine',
+  description: 'Lifestyle engineering for real value: high-performance work, healthy systems, and sustainable long-term growth.',
   url: 'https://chasefagen.com',
   author: {
     name: 'Chase Fagen',

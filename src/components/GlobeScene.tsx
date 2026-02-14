@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useMemo, useState, memo, useCallback } from 'react'
+import { useRef, useMemo, useState, memo, useCallback, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Line, Html } from '@react-three/drei'
 import * as THREE from 'three'
@@ -20,6 +20,28 @@ interface GeoJSONFeature {
 interface GeoJSON {
   type: string
   features: GeoJSONFeature[]
+}
+
+type GlobeTheme = {
+  sceneBg: string
+  sphereColor: string
+  lineColor: string
+  markerColor: string
+  arcColor: string
+  labelColor: string
+  labelMutedColor: string
+  loadingTextColor: string
+}
+
+const DEFAULT_GLOBE_THEME: GlobeTheme = {
+  sceneBg: '#f2e8d8',
+  sphereColor: '#e6d6be',
+  lineColor: '#b69d80',
+  markerColor: '#d5672f',
+  arcColor: '#d5672f',
+  labelColor: '#2f2218',
+  labelMutedColor: '#6b5743',
+  loadingTextColor: '#6b5743',
 }
 
 // Convert lat/lng to 3D coordinates on sphere
@@ -104,7 +126,17 @@ function processGeoJSONToLines(geoJSON: GeoJSON, radius: number): THREE.Vector3[
 }
 
 // Globe with real country outlines from GeoJSON
-const GlobeWireframe = memo(function GlobeWireframe({ radius, geoData }: { radius: number, geoData: GeoJSON | null }) {
+const GlobeWireframe = memo(function GlobeWireframe({
+  radius,
+  geoData,
+  sphereColor,
+  lineColor,
+}: {
+  radius: number
+  geoData: GeoJSON | null
+  sphereColor: string
+  lineColor: string
+}) {
   const countryPaths = useMemo(() => {
     if (!geoData) return []
     return processGeoJSONToLines(geoData, radius * 1.001)
@@ -115,7 +147,7 @@ const GlobeWireframe = memo(function GlobeWireframe({ radius, geoData }: { radiu
       {/* Base sphere - always rendered */}
       <mesh>
         <sphereGeometry args={[radius, 48, 48]} />
-        <meshBasicMaterial color="#1a1714" />
+        <meshBasicMaterial color={sphereColor} />
       </mesh>
 
       {/* Country outlines - rendered when data loads */}
@@ -123,7 +155,7 @@ const GlobeWireframe = memo(function GlobeWireframe({ radius, geoData }: { radiu
         <Line
           key={`country-${i}`}
           points={points}
-          color="#444444"
+          color={lineColor}
           lineWidth={0.8}
         />
       ))}
@@ -140,7 +172,12 @@ function LocationMarker({
   isSelected,
   onHover,
   onLeave,
-  onClick
+  onClick,
+  markerColor,
+  labelColor,
+  labelMutedColor,
+  markerSize,
+  compactLabel,
 }: {
   position: THREE.Vector3
   country: CountryData
@@ -150,6 +187,11 @@ function LocationMarker({
   onHover: () => void
   onLeave: () => void
   onClick: () => void
+  markerColor: string
+  labelColor: string
+  labelMutedColor: string
+  markerSize: number
+  compactLabel: boolean
 }) {
   const markerRef = useRef<THREE.Mesh>(null)
 
@@ -162,7 +204,7 @@ function LocationMarker({
 
   const formatCoord = (val: number, isLat: boolean) => {
     const dir = isLat ? (val >= 0 ? 'N' : 'S') : (val >= 0 ? 'E' : 'W')
-    return `${Math.abs(val).toFixed(4)}${dir}`
+    return `${Math.abs(val).toFixed(compactLabel ? 2 : 4)}${dir}`
   }
 
   return (
@@ -173,27 +215,37 @@ function LocationMarker({
         onPointerOut={onLeave}
         onClick={onClick}
       >
-        <boxGeometry args={[0.04, 0.04, 0.04]} />
-        <meshBasicMaterial color="#f97316" />
+        <boxGeometry args={[markerSize, markerSize, markerSize]} />
+        <meshBasicMaterial color={markerColor} />
       </mesh>
 
       {(isHovered || isSelected) && (
         <Html
-          position={[0.08, 0.05, 0]}
+          position={[markerSize * 2.2, markerSize * 1.5, 0]}
           style={{
             pointerEvents: 'none',
             whiteSpace: 'nowrap',
+            maxWidth: compactLabel ? '120px' : 'none',
           }}
-          distanceFactor={3}
+          distanceFactor={compactLabel ? 3.8 : 3}
         >
           <div className="transition-opacity duration-200">
-            <div className="text-white font-mono text-sm tracking-wider font-medium uppercase">
+            <div
+              className={`font-mono tracking-wider font-medium uppercase ${compactLabel ? 'text-[11px]' : 'text-sm'}`}
+              style={{ color: labelColor }}
+            >
               {country.name}
             </div>
-            <div className="text-white/50 font-mono text-xs tracking-wide">
+            <div
+              className={`font-mono tracking-wide ${compactLabel ? 'text-[10px]' : 'text-xs'}`}
+              style={{ color: labelMutedColor }}
+            >
               {formatCoord(country.coordinates[0], true)},
             </div>
-            <div className="text-white/50 font-mono text-xs tracking-wide">
+            <div
+              className={`font-mono tracking-wide ${compactLabel ? 'text-[10px]' : 'text-xs'}`}
+              style={{ color: labelMutedColor }}
+            >
               {formatCoord(country.coordinates[1], false)}
             </div>
           </div>
@@ -204,14 +256,26 @@ function LocationMarker({
 }
 
 // Arc path component
-function ArcPath({ start, end, radius }: { start: THREE.Vector3, end: THREE.Vector3, radius: number }) {
+function ArcPath({
+  start,
+  end,
+  radius,
+  color,
+  lineWidth,
+}: {
+  start: THREE.Vector3
+  end: THREE.Vector3
+  radius: number
+  color: string
+  lineWidth: number
+}) {
   const points = useMemo(() => createArc(start, end, radius), [start, end, radius])
 
   return (
     <Line
       points={points}
-      color="#f97316"
-      lineWidth={1.5}
+      color={color}
+      lineWidth={lineWidth}
       transparent
       opacity={0.6}
     />
@@ -222,17 +286,32 @@ function ArcPath({ start, end, radius }: { start: THREE.Vector3, end: THREE.Vect
 function Scene({
   onSelectCountry,
   selectedCountry,
-  geoData
+  geoData,
+  theme,
+  isMobile,
 }: {
   onSelectCountry: (country: CountryData | null) => void
   selectedCountry: CountryData | null
   geoData: GeoJSON | null
+  theme: GlobeTheme
+  isMobile: boolean
 }) {
   const groupRef = useRef<THREE.Group>(null)
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null)
   const [autoRotate, setAutoRotate] = useState(true)
+  const resumeRotateTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const radius = 2
+  const radius = isMobile ? 1.75 : 2
+  const markerSize = isMobile ? 0.052 : 0.04
+  const arcLineWidth = isMobile ? 1.1 : 1.5
+
+  useEffect(() => {
+    return () => {
+      if (resumeRotateTimeoutRef.current) {
+        clearTimeout(resumeRotateTimeoutRef.current)
+      }
+    }
+  }, [])
 
   // Initial rotation to show Japan (longitude ~138°E)
   const initialRotation = useMemo(() => {
@@ -285,17 +364,35 @@ function Scene({
       <OrbitControls
         enableZoom={true}
         enablePan={false}
-        minDistance={3}
-        maxDistance={8}
+        minDistance={isMobile ? 2.6 : 3}
+        maxDistance={isMobile ? 6.8 : 8}
+        rotateSpeed={isMobile ? 0.8 : 1}
+        enableDamping={true}
+        dampingFactor={0.08}
         autoRotate={false}
-        onStart={() => setAutoRotate(false)}
+        onStart={() => {
+          if (resumeRotateTimeoutRef.current) {
+            clearTimeout(resumeRotateTimeoutRef.current)
+          }
+          setAutoRotate(false)
+        }}
         onEnd={() => {
-          setTimeout(() => setAutoRotate(true), 3000)
+          if (resumeRotateTimeoutRef.current) {
+            clearTimeout(resumeRotateTimeoutRef.current)
+          }
+          resumeRotateTimeoutRef.current = setTimeout(() => {
+            setAutoRotate(true)
+          }, 1400)
         }}
       />
 
       <group ref={setGroupRef}>
-        <GlobeWireframe radius={radius} geoData={geoData} />
+        <GlobeWireframe
+          radius={radius}
+          geoData={geoData}
+          sphereColor={theme.sphereColor}
+          lineColor={theme.lineColor}
+        />
 
         {arcs.map((arc, i) => (
           <ArcPath
@@ -303,6 +400,8 @@ function Scene({
             start={arc.start}
             end={arc.end}
             radius={radius}
+            color={theme.arcColor}
+            lineWidth={arcLineWidth}
           />
         ))}
 
@@ -317,6 +416,11 @@ function Scene({
             onHover={() => setHoveredCountry(country.name)}
             onLeave={() => setHoveredCountry(null)}
             onClick={() => onSelectCountry(selectedCountry?.name === country.name ? null : country)}
+            markerColor={theme.markerColor}
+            labelColor={theme.labelColor}
+            labelMutedColor={theme.labelMutedColor}
+            markerSize={markerSize}
+            compactLabel={isMobile}
           />
         ))}
       </group>
@@ -334,38 +438,110 @@ export default function GlobeScene({
   selectedCountry: CountryData | null
   geoData: GeoJSON | null
 }) {
+  const [isMounted, setIsMounted] = useState(false)
   const [isReady, setIsReady] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const [theme, setTheme] = useState<GlobeTheme>(DEFAULT_GLOBE_THEME)
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    const updateTheme = () => {
+      const styles = getComputedStyle(document.documentElement)
+      const pick = (name: string, fallback: string) => styles.getPropertyValue(name).trim() || fallback
+
+      setTheme({
+        sceneBg: pick('--ui-body-bg', pick('--ui-globe-bg', pick('--ui-bg-strong', DEFAULT_GLOBE_THEME.sceneBg))),
+        sphereColor: pick('--ui-globe-sphere', pick('--ui-bg-elevated', DEFAULT_GLOBE_THEME.sphereColor)),
+        lineColor: pick('--ui-globe-line', pick('--ui-border-strong', DEFAULT_GLOBE_THEME.lineColor)),
+        markerColor: pick('--ui-accent', DEFAULT_GLOBE_THEME.markerColor),
+        arcColor: pick('--ui-accent', DEFAULT_GLOBE_THEME.arcColor),
+        labelColor: pick('--ui-text-primary', DEFAULT_GLOBE_THEME.labelColor),
+        labelMutedColor: pick('--ui-text-muted', DEFAULT_GLOBE_THEME.labelMutedColor),
+        loadingTextColor: pick('--ui-text-muted', DEFAULT_GLOBE_THEME.loadingTextColor),
+      })
+    }
+
+    updateTheme()
+
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          updateTheme()
+          break
+        }
+      }
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 767px)')
+    const updateMobile = () => setIsMobile(query.matches)
+    updateMobile()
+    query.addEventListener('change', updateMobile)
+    return () => query.removeEventListener('change', updateMobile)
+  }, [])
+
+  useEffect(() => {
+    if (rendererRef.current) {
+      rendererRef.current.setClearColor(theme.sceneBg, 0)
+    }
+  }, [theme.sceneBg])
+
+  if (!isMounted) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-[var(--ui-bg-strong)]">
+        <span className="font-mono tracking-wider text-sm text-[var(--ui-text-muted)]">LOADING GLOBE...</span>
+      </div>
+    )
+  }
 
   return (
     <div className="w-full h-full relative">
       {/* Loading state shown until canvas is ready */}
       <div
-        className="absolute inset-0 flex items-center justify-center bg-[#1a1714] transition-opacity duration-700 pointer-events-none"
-        style={{ opacity: isReady ? 0 : 1 }}
+        className="absolute inset-0 flex items-center justify-center transition-opacity duration-700 pointer-events-none"
+        style={{ background: 'transparent', opacity: isReady ? 0 : 1 }}
       >
-        <div className="text-white/40 font-mono tracking-wider text-sm">LOADING GLOBE...</div>
+        <div
+          className="font-mono tracking-wider text-sm"
+          style={{ color: theme.loadingTextColor }}
+        >
+          LOADING GLOBE...
+        </div>
       </div>
 
       <Canvas
-        camera={{ position: [0, 0, 7], fov: 45 }}
+        camera={{ position: [0, 0, isMobile ? 6.4 : 7], fov: isMobile ? 47 : 45 }}
         style={{
-          background: '#1a1714',
+          background: 'transparent',
           width: '100%',
           height: '100%',
           opacity: isReady ? 1 : 0,
           transition: 'opacity 0.7s ease-in-out'
         }}
-        dpr={[1, 1.5]}
+        dpr={isMobile ? [1, 1.25] : [1, 1.5]}
         gl={{
           antialias: true,
-          alpha: false,
+          alpha: true,
           powerPreference: 'high-performance',
           stencil: false,
           depth: true
         }}
         frameloop="always"
-        onCreated={(state) => {
-          console.log('Canvas created, camera z position:', state.camera.position.z)
+        onCreated={({ gl }) => {
+          rendererRef.current = gl
+          gl.setClearColor(theme.sceneBg, 0)
           // Small delay to ensure first frame is rendered
           requestAnimationFrame(() => {
             setIsReady(true)
@@ -377,6 +553,8 @@ export default function GlobeScene({
           onSelectCountry={onSelectCountry}
           selectedCountry={selectedCountry}
           geoData={geoData}
+          theme={theme}
+          isMobile={isMobile}
         />
       </Canvas>
     </div>

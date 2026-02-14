@@ -7,7 +7,7 @@ function Skeleton({
   return (
     <div
       className={cn(
-        "animate-pulse bg-white/5 rounded",
+        "animate-pulse bg-[var(--ui-bg-soft)] rounded",
         className
       )}
       {...props}
@@ -18,7 +18,7 @@ function Skeleton({
 // Skeleton specifically for blog/content cards
 function CardSkeleton({ className }: { className?: string }) {
   return (
-    <div className={cn("bg-black", className)}>
+    <div className={cn("bg-[var(--ui-bg-strong)]", className)}>
       {/* Image placeholder */}
       <Skeleton className="h-48 w-full rounded-none" />
       {/* Content */}
@@ -47,7 +47,7 @@ function GridSkeleton({
   columns?: string
 }) {
   return (
-    <div className={cn("grid gap-px bg-white/10 border border-white/10", columns)}>
+    <div className={cn("grid gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]", columns)}>
       {Array.from({ length: count }).map((_, i) => (
         <CardSkeleton key={i} />
       ))}
