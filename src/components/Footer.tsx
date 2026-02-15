@@ -2,7 +2,15 @@
 
 import Link from 'next/link'
 import { memo } from 'react'
-import { Instagram, Twitter, ArrowUpRight } from 'lucide-react'
+import { Instagram, Github, ArrowUpRight, LucideProps } from 'lucide-react'
+
+function XIcon(props: LucideProps) {
+  return (
+    <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+    </svg>
+  )
+}
 
 const Footer = memo(function Footer(){
   const currentYear = new Date().getFullYear()
@@ -25,8 +33,13 @@ const Footer = memo(function Footer(){
     {
       name: "X",
       href: "https://x.com/chasef07",
-      icon: Twitter,
-    }
+      icon: XIcon,
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/chasef07",
+      icon: Github,
+    },
   ]
 
   return (
