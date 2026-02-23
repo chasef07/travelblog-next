@@ -40,5 +40,25 @@ Spending so much time in WhatsApp lately has me thinking about communication and
 
 We are building healthcare agents during the day, paddling out at dawn, eating casado with the crew at night. These routines remind me that presence is a muscle. Tech should serve it, not siphon it. For now, I am just grateful the tools are letting me stay close to the waves while still showing up for the people counting on us.`,
     images: []
+  },
+  {
+    id: 'santa-teresa-last-days-yerba-mate',
+    title: 'Last Days in Santa Teresa: Surfing, Yerba Mate, and Gratitude',
+    date: 'February 23, 2026',
+    location: 'Santa Teresa, Costa Rica',
+    country: 'Costa Rica',
+    slug: 'santa-teresa-last-days-yerba-mate',
+    year: '2026',
+    excerpt: 'Wrapping up 1.5 months in Santa Teresa with reflections on surfing, discovering yerba mate, entrepreneurship, and heading back to Florida after 3 months abroad.',
+    content: `This is my last couple days in Santa Teresa. It has been a great 1.5 months here improving my surfing and working. I will return to Florida after 3 months outside of the US! Not 10 months like my previous trip but a commendable amount!
+
+Surfing has become a big part of my life. It is a new challenge, a new skill, and a new way of improving my brain and body. I would like to continue improving my surfing skills. That means living next to a warm weather consistent surf break!
+
+Also a big part of my life I have discovered here in Santa Teresa is Yerba Mate. I have never been a big coffee drinker or caffeine drinker. I have always loved Chinese and Japanese green teas though. Yerba Mate is a loose leaf herb that has a nice caffeine effect as well. It is also like a ritual. You need a special cup, a special straw, a skill how to form the drink. You can buy a bunch of accessories too if you desire!
+
+Lastly I should mention the work aspect of the past three months. It has been such a privilege to be an entrepreneur and my own boss. Sometimes the days are long, you have to deal with annoying customers or vendors, but it is all worth it for the lifestyle and freedom. I will continue to be grateful and work hard to not take this lifestyle for granted and to continue it.
+
+As for what's next? I will be back in Florida for a little before planning out my next attack.`,
+    images: []
   }
 ]
