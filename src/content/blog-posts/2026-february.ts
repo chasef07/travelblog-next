@@ -2,25 +2,23 @@ import { BlogPost } from '../../types/blog'
 
 export const february2026Posts: BlogPost[] = [
   {
-    id: 'santa-teresa-surfing-building-rhythm',
-    title: 'Santa Teresa: Surfing, Building, and Finding Rhythm',
-    date: 'February 14, 2026',
+    id: 'santa-teresa-last-days-yerba-mate',
+    title: 'Last Days in Santa Teresa: Surfing, Yerba Mate, and Gratitude',
+    date: 'February 23, 2026',
     location: 'Santa Teresa, Costa Rica',
     country: 'Costa Rica',
-    slug: 'santa-teresa-surfing-building-rhythm',
+    slug: 'santa-teresa-last-days-yerba-mate',
     year: '2026',
-    excerpt: 'A month into Santa Teresa: surfing at sunrise, building with Kyle, and shifting from travel mode to mission mode.',
-    content: `I know I have not posted in close to a month. Sorry to all my fans. Here in Santa Teresa, I have been in the exact routine I wanted for the past six months, maybe even the past year.
+    excerpt: 'Wrapping up 1.5 months in Santa Teresa with reflections on surfing, discovering yerba mate, entrepreneurship, and heading back to Florida after 3 months abroad.',
+    content: `This is my last couple days in Santa Teresa. It has been a great 1.5 months here improving my surfing and working. I will return to Florida after 3 months outside of the US! Not 10 months like my previous trip but a commendable amount!
 
-Kyle and I wake up and surf every morning, moving our bodies in beautiful nature with monkeys howling around us. Then we come back, drink yerba mate, and work hard to grow our business. We are trying to build something real that improves the healthcare experience.
+Surfing has become a big part of my life. It is a new challenge, a new skill, and a new way of improving my brain and body. I would like to continue improving my surfing skills. That means living next to a warm weather consistent surf break!
 
-I really love Santa Teresa. As you know, it has helped me get my mind and body working in sync. I am also really grateful for Kyle, for pushing me to be a better man, business partner, and leader.
+Also a big part of my life I have discovered here in Santa Teresa is Yerba Mate. I have never been a big coffee drinker or caffeine drinker. I have always loved Chinese and Japanese green teas though. Yerba Mate is a loose leaf herb that has a nice caffeine effect as well. It is also like a ritual. You need a special cup, a special straw, a skill how to form the drink. You can buy a bunch of accessories too if you desire!
 
-I do not have anything deeply profound to share right now. I am just enjoying the grind and working hard. It is a blessing to support myself and work for myself.
+Lastly I should mention the work aspect of the past three months. It has been such a privilege to be an entrepreneur and my own boss. Sometimes the days are long, you have to deal with annoying customers or vendors, but it is all worth it for the lifestyle and freedom. I will continue to be grateful and work hard to not take this lifestyle for granted and to continue it.
 
-I was thinking about last February, when I was in Laos, going cafe to cafe and country to country, giving myself space to think about who I wanted to become. Looking back now, I am like: wow, how did I spend so much time just traveling and gallivanting? It was beautiful and amazing, but now I have a fire in my belly to make a difference. If a day goes by without real work, I feel a void.
-
-That is what I am most grateful for as I get closer to 26: working hard and building services, software, and systems that people pay for and trust to improve their lives. That is truly amazing. And it is within reach for more people than they think.`,
+As for what's next? I will be back in Florida for a little before planning out my next attack.`,
     images: []
   },
   {
@@ -42,23 +40,25 @@ We are building healthcare agents during the day, paddling out at dawn, eating c
     images: []
   },
   {
-    id: 'santa-teresa-last-days-yerba-mate',
-    title: 'Last Days in Santa Teresa: Surfing, Yerba Mate, and Gratitude',
-    date: 'February 23, 2026',
+    id: 'santa-teresa-surfing-building-rhythm',
+    title: 'Santa Teresa: Surfing, Building, and Finding Rhythm',
+    date: 'February 14, 2026',
     location: 'Santa Teresa, Costa Rica',
     country: 'Costa Rica',
-    slug: 'santa-teresa-last-days-yerba-mate',
+    slug: 'santa-teresa-surfing-building-rhythm',
     year: '2026',
-    excerpt: 'Wrapping up 1.5 months in Santa Teresa with reflections on surfing, discovering yerba mate, entrepreneurship, and heading back to Florida after 3 months abroad.',
-    content: `This is my last couple days in Santa Teresa. It has been a great 1.5 months here improving my surfing and working. I will return to Florida after 3 months outside of the US! Not 10 months like my previous trip but a commendable amount!
+    excerpt: 'A month into Santa Teresa: surfing at sunrise, building with Kyle, and shifting from travel mode to mission mode.',
+    content: `I know I have not posted in close to a month. Sorry to all my fans. Here in Santa Teresa, I have been in the exact routine I wanted for the past six months, maybe even the past year.
 
-Surfing has become a big part of my life. It is a new challenge, a new skill, and a new way of improving my brain and body. I would like to continue improving my surfing skills. That means living next to a warm weather consistent surf break!
+Kyle and I wake up and surf every morning, moving our bodies in beautiful nature with monkeys howling around us. Then we come back, drink yerba mate, and work hard to grow our business. We are trying to build something real that improves the healthcare experience.
 
-Also a big part of my life I have discovered here in Santa Teresa is Yerba Mate. I have never been a big coffee drinker or caffeine drinker. I have always loved Chinese and Japanese green teas though. Yerba Mate is a loose leaf herb that has a nice caffeine effect as well. It is also like a ritual. You need a special cup, a special straw, a skill how to form the drink. You can buy a bunch of accessories too if you desire!
+I really love Santa Teresa. As you know, it has helped me get my mind and body working in sync. I am also really grateful for Kyle, for pushing me to be a better man, business partner, and leader.
 
-Lastly I should mention the work aspect of the past three months. It has been such a privilege to be an entrepreneur and my own boss. Sometimes the days are long, you have to deal with annoying customers or vendors, but it is all worth it for the lifestyle and freedom. I will continue to be grateful and work hard to not take this lifestyle for granted and to continue it.
+I do not have anything deeply profound to share right now. I am just enjoying the grind and working hard. It is a blessing to support myself and work for myself.
 
-As for what's next? I will be back in Florida for a little before planning out my next attack.`,
+I was thinking about last February, when I was in Laos, going cafe to cafe and country to country, giving myself space to think about who I wanted to become. Looking back now, I am like: wow, how did I spend so much time just traveling and gallivanting? It was beautiful and amazing, but now I have a fire in my belly to make a difference. If a day goes by without real work, I feel a void.
+
+That is what I am most grateful for as I get closer to 26: working hard and building services, software, and systems that people pay for and trust to improve their lives. That is truly amazing. And it is within reach for more people than they think.`,
     images: []
   }
 ]
