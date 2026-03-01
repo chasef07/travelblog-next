@@ -2,6 +2,20 @@ import { BlogPost } from '../../types/blog'
 
 export const february2026Posts: BlogPost[] = [
   {
+    id: 'leaving-santa-teresa-lessons-learned',
+    title: 'Leaving Santa Teresa: Lessons in Leadership and Identity',
+    date: 'February 27, 2026',
+    location: 'Florida, USA',
+    country: 'Costa Rica',
+    slug: 'leaving-santa-teresa-lessons-learned',
+    year: '2026',
+    excerpt: 'Landing back in Florida feeling more out of place at home than anywhere else in the world, and why that is exactly the point.',
+    content: `I've been shared a meal with a family in the mountains of Vietnam. I volunteered in the volcanic farmland of Laos. I drove to the north east of Iceland. I've drank with mountain people in Nepal. Sat on the floor of a high speed train in China and Japan. Hunted with a tribe in Tanzania. Had intercontinental ballistic missiles rain down on me in Israel. Hiked an active volcano in Guatemala. Yet somehow, I feel the most out of place, the most different from others, at the airport in Florida I have just landed at. But that is okay, I have worked diligently to craft the person, business, lifestyle and ego I am today and it is not for everyone.
+
+The past month in Santa Teresa has taught me valuable lessons. Kyle and I came to Costa Rica this time as the Data Buddies, now we are leaving as more confident, more directed, more focused leaders and business men. When we started this business it was just about trying to get something to work, be able to have people pay us for an idea. Now that we have proven this is possible, it is about growing this life and defending it with all your power. In entrepreneurship you cannot be complacent because it can all be taken away from you in the snap of a finger. You need to have a plan to sustain and grow the business to support the amazing life we are building for ourselves. It is vital to be curious to keep on searching for new ideas, to have humility, to be able to change your mind and your opinions for better ones. To have self pride and respect so people do not walk all over you.`,
+    images: []
+  },
+  {
     id: 'santa-teresa-last-days-yerba-mate',
     title: 'Last Days in Santa Teresa: Surfing, Yerba Mate, and Gratitude',
     date: 'February 23, 2026',

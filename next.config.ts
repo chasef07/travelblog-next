@@ -37,7 +37,7 @@ const nextConfig: NextConfig = {
     // Improve tree-shaking for large libraries
     config.optimization = {
       ...config.optimization,
-      sideEffects: true,
+      sideEffects: false,
     }
 
     // Optimize CSS for critical path

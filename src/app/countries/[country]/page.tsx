@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${countryInfo.name} Travel Guide | The Value Engine`,
+    title: `${countryInfo.name} Travel Guide | Lifestyle Engineering`,
     description: countryInfo.description,
   };
 }

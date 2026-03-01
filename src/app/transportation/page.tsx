@@ -23,7 +23,7 @@ export default function Page() {
               </h1>
             </div>
             <p className="text-[var(--ui-text-muted)] text-lg leading-relaxed max-w-md md:text-right">
-              Comprehensive ratings and practical tips for getting around in 14+ countries.
+              Comprehensive ratings and practical tips for getting around in 20 countries.
             </p>
           </div>
 

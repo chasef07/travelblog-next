@@ -50,7 +50,7 @@ const Footer = memo(function Footer(){
           {/* Brand */}
           <div>
             <span className="font-editorial text-2xl tracking-tight text-[var(--ui-text-primary)] block mb-3">
-              The Value Engine
+              Lifestyle Engineering
             </span>
             <p className="text-[var(--ui-text-secondary)] text-base leading-relaxed max-w-sm font-body italic">
               Lifestyle engineering for real value.
@@ -101,7 +101,7 @@ const Footer = memo(function Footer(){
         {/* Bottom Section */}
         <div className="pt-8 border-t border-[var(--ui-border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-[var(--ui-text-muted)] text-xs font-mono tracking-wider">
-            © {currentYear} THE VALUE ENGINE
+            © {currentYear} LIFESTYLE ENGINEERING
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="text-[var(--ui-accent)] text-xs font-mono tracking-wide">

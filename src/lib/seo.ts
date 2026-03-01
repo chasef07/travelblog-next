@@ -2,11 +2,11 @@ import { Metadata } from 'next'
 import { BlogPost } from '@/types/blog'
 
 /**
- * SEO configuration and utilities for Lone Horizons travel blog
+ * SEO configuration and utilities for Lifestyle Engineering travel blog
  */
 
 export const siteConfig = {
-  name: 'The Value Engine',
+  name: 'Lifestyle Engineering',
   description: 'Lifestyle engineering for real value: high-performance work, healthy systems, and sustainable long-term growth.',
   url: 'https://chasefagen.com',
   author: {
@@ -192,14 +192,6 @@ export function generateWebsiteJsonLd(): object {
       '@type': 'Person',
       name: siteConfig.author.name,
       url: siteConfig.url
-    },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteConfig.url}/search?q={search_term_string}`
-      },
-      'query-input': 'required name=search_term_string'
     },
     sameAs: [
       `https://twitter.com/${siteConfig.author.twitter?.replace('@', '')}`,

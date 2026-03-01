@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { getAllCountries } from '@/content/countries-data';
 
 export const metadata: Metadata = {
-  title: 'Countries Explored | The Value Engine',
+  title: 'Countries Explored | Lifestyle Engineering',
   description: 'Explore travel stories, food guides, and practical tips organized by country. 20 nations across the Middle East, Africa, Asia, and Central America.',
 };
 

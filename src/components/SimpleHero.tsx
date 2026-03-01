@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Sparkles } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { blogIndex } from '@/content/blogIndex'
 import HeroGlobeMobile from './HeroGlobeMobile'
@@ -38,9 +38,12 @@ export default function SimpleHero() {
             transition={{ duration: 0.55 }}
             className="mb-5 inline-flex max-w-full items-center gap-1.5 rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] px-3 py-1.5 sm:mb-7 sm:gap-2 sm:px-4 sm:py-2"
           >
-            <Sparkles className="h-3 w-3 shrink-0 text-[var(--ui-accent)] sm:h-3.5 sm:w-3.5" />
+            <span className="relative flex h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/40" />
+              <span className="relative inline-flex h-full w-full rounded-full bg-green-500" />
+            </span>
             <span className="block truncate whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ui-text-muted)] sm:text-xs sm:tracking-[0.22em]">
-              Currently in Santa Teresa, Costa Rica
+              Currently in Clearwater, Florida
             </span>
           </motion.div>
 
@@ -50,12 +53,12 @@ export default function SimpleHero() {
             transition={{ duration: 0.6, delay: 0.08 }}
             className="font-editorial-display text-4xl leading-[0.95] tracking-tight text-[var(--ui-text-primary)] sm:text-6xl md:text-7xl xl:text-8xl"
           >
-            The Value{' '}
+            Lifestyle{' '}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: 'var(--gradient-primary)' }}
             >
-              Engine
+              Engineering
             </span>
           </motion.h1>
 
@@ -65,7 +68,7 @@ export default function SimpleHero() {
             transition={{ duration: 0.55, delay: 0.18 }}
             className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--ui-text-secondary)] sm:mt-6 sm:text-lg md:text-xl"
           >
-            Build hard, stay healthy, and compound real value over the long game.
+            Don&apos;t let life control you, you control life.
           </motion.p>
 
           <motion.div

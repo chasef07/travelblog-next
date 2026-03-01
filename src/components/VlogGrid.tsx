@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Play, X } from 'lucide-react'
 import { vlogsData, Vlog } from '../content/vlogs-data'
 
@@ -24,6 +25,7 @@ export default function VlogGrid() {
               className="w-full h-full"
               allowFullScreen
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              loading="lazy"
             />
           </div>
           <div className="p-6 border-t border-[var(--ui-border-subtle)]">
@@ -87,10 +89,13 @@ function VlogCard({
     >
       {/* Thumbnail */}
       <div className="relative aspect-video overflow-hidden">
-        <img
+        <Image
           src={`https://img.youtube.com/vi/${vlog.youtubeId}/maxresdefault.jpg`}
           alt={vlog.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
         />
 
         {/* Overlay */}

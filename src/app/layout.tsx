@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Fraunces, Source_Sans_3, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -7,8 +8,29 @@ import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
 
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-fraunces',
+  display: 'swap',
+})
+
+const sourceSans3 = Source_Sans_3({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-source-sans-3',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+})
+
 export const metadata: Metadata = generatePageMetadata({
-  title: 'The Value Engine - Lifestyle Engineering for Real Value',
+  title: 'Lifestyle Engineering - Real Value Through Work, Health, and Growth',
   description: 'Work hard, stay healthy, and grow sustainably. Lifestyle engineering, travel lessons, and systems for long-term performance.',
   keywords: ['solo travel blog', 'Asia travel guide', 'Africa travel tips', 'cultural travel experiences', 'backpacking Asia', 'solo travel guides', 'travel photography', 'authentic travel stories', 'budget travel tips', 'cultural immersion travel'],
   images: ['/assets/images/misc/posttrip.jpg']
@@ -18,7 +40,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
   const websiteJsonLd = generateWebsiteJsonLd()
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${fraunces.variable} ${sourceSans3.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -50,7 +72,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         <link rel="manifest" href="/site.webmanifest" />
 
         {/* RSS Feed */}
-        <link rel="alternate" type="application/rss+xml" title="The Value Engine RSS Feed" href="/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Lifestyle Engineering RSS Feed" href="/feed.xml" />
 
         {/* Website structured data */}
         <script
@@ -79,7 +101,9 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         )}
 
         <Header />
+        <div id="main-content">
         {children}
+        </div>
         <Footer />
         <SpeedInsights />
         <Analytics />

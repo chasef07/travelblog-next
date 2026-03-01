@@ -209,7 +209,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'SV-flag.jpg',
     region: 'Central America',
     description: 'Bitcoin nation, surf paradise, and Central America\'s best-kept secret.',
-    heroImage: '/assets/images/misc/elsalvador-hero.jpg',
+    heroImage: '/assets/images/misc/elsalvador-surfcity.jpg',
     dates: { firstVisit: '2025-11-15' },
     highlights: ['El Tunco', 'Bitcoin Beach', 'Surf Culture', 'Pupusas']
   }

@@ -101,7 +101,7 @@ export async function generateMetadata({ params }:{ params: Promise<{ year: stri
   }
 
   return generatePageMetadata({
-    title: metadata?.title || 'Travel Blog Post - The Value Engine',
+    title: metadata?.title || 'Travel Blog Post - Lifestyle Engineering',
     description: metadata?.excerpt || 'Discover amazing travel adventures and cultural insights from around the world.',
     path: `/blog/${year}/${slug}`,
     images: metadata?.image ? [metadata.image] : [],
@@ -176,7 +176,7 @@ export default async function Page({ params }: { params: Promise<{ year: string;
                 </div>
 
                 <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
-                  <span itemProp="name">The Value Engine</span>
+                  <span itemProp="name">Lifestyle Engineering</span>
                 </div>
               </div>
 
