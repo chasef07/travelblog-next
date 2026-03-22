@@ -43,7 +43,7 @@ export default function SimpleHero() {
               <span className="relative inline-flex h-full w-full rounded-full bg-green-500" />
             </span>
             <span className="block truncate whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ui-text-muted)] sm:text-xs sm:tracking-[0.22em]">
-              Currently in Clearwater, Florida
+              Currently in Paramus, New Jersey
             </span>
           </motion.div>
 
