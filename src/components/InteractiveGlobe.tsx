@@ -138,7 +138,7 @@ export default function InteractiveGlobe() {
   }
 
   return (
-    <section id="journey" className="app-surface relative overflow-hidden border-t border-[var(--ui-border-subtle)] py-14 sm:py-20">
+    <section id="journey" className="app-surface relative overflow-hidden py-14 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section header */}
         <motion.div

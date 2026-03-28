@@ -8,27 +8,27 @@ export default function SimpleCountriesGrid() {
   const countries = getAllCountries()
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9">
+    <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5">
       {countries.map((country, index) => (
         <Link
           key={country.name}
           href={`/countries/${country.slug}`}
-          className="group relative flex min-h-[116px] flex-col items-center justify-center gap-3 border-r border-b border-[var(--ui-border-subtle)] px-3 py-4 transition-colors duration-300 hover:bg-[var(--ui-accent-soft)]"
+          className="group flex flex-col items-center justify-center gap-2 border-b border-r border-dashed border-[var(--ui-border-strong)] px-2 py-4 aspect-square sm:aspect-auto sm:flex-row sm:items-center sm:justify-start sm:gap-3 sm:px-4 sm:py-3 transition-colors duration-100 hover:bg-[var(--ui-accent-soft)]"
         >
           {/* Flag */}
-          <div className="relative h-10 w-14 overflow-hidden rounded-md border border-[var(--ui-border-subtle)] shadow-sm">
+          <div className="relative h-8 w-11 shrink-0 overflow-hidden">
             <Image
               src={`/assets/images/flags/${country.flag}`}
               alt={`${country.name} flag`}
               fill
               className="object-cover"
-              sizes="56px"
-              priority={index < 8}
+              sizes="44px"
+              priority={index < 6}
             />
           </div>
 
           {/* Country name */}
-          <span className="text-[11px] sm:text-xs font-mono tracking-wider uppercase text-[var(--ui-text-muted)] group-hover:text-[var(--ui-accent)] transition-colors duration-300 text-center leading-tight">
+          <span className="text-[11px] font-mono font-medium tracking-[0.24em] uppercase text-[var(--ui-text-muted)] group-hover:text-[var(--ui-text-primary)] transition-colors duration-100">
             {country.name}
           </span>
         </Link>

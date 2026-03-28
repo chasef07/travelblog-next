@@ -52,18 +52,13 @@ export default function Header(){
     >
       Skip to content
     </a>
-    <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 px-3 transition-all duration-300 sm:px-4 md:px-6 lg:px-8",
-      isScrolled ? "pt-2" : "pt-3 sm:pt-4"
-    )}>
-      <div className={cn(
-        "mx-auto flex max-w-7xl items-center justify-between rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-header-bg)] backdrop-blur-md shadow-sm transition-all duration-300",
-        isScrolled ? "px-3 py-1.5 sm:px-4" : "px-4 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3"
-      )}>
-        <Link href="/" className="flex items-center gap-3" aria-label="Lifestyle Engineering home">
-          <svg className="shrink-0 text-[var(--ui-accent)]" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--ui-border-subtle)] bg-[var(--ui-header-bg)] backdrop-blur-md transition-all duration-200">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 md:px-8">
+        <Link href="/" className="flex items-center gap-2" aria-label="Lifestyle Engineering home">
+          <svg className="shrink-0 text-[var(--ui-text-primary)]" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
           </svg>
+          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] md:hidden">Chase Fagen</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -71,7 +66,7 @@ export default function Header(){
             <Link
               key={href}
               href={href}
-              className="text-xs font-mono tracking-wider uppercase text-[var(--ui-text-secondary)] transition-colors hover:text-[var(--ui-accent)]"
+              className="text-xs font-mono tracking-[0.22em] font-medium uppercase text-[var(--ui-text-secondary)] transition-colors duration-100 hover:text-[var(--ui-accent)]"
             >
               {label}
             </Link>
@@ -94,51 +89,43 @@ export default function Header(){
         </div>
       </div>
 
-      {isMobileNavOpen ? (
-        <div className="md:hidden">
-          <div
-            className="fixed inset-0 z-40 bg-[var(--ui-bg-strong)] backdrop-blur-md"
-            onClick={() => setMobileNavOpen(false)}
-          >
-            <div
-              id="mobile-nav"
-              className="mx-auto flex min-h-full w-full max-w-screen-sm flex-col items-center justify-center gap-8 px-6 py-8"
-              onClick={(event) => event.stopPropagation()}
-              role="dialog"
-              aria-modal="true"
-              aria-label="Mobile navigation"
-            >
-              <div className="absolute top-6 right-6">
-                <button
-                  type="button"
-                  onClick={() => setMobileNavOpen(false)}
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "h-10 w-10 rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] text-[var(--ui-text-primary)] shadow-sm"
-                  )}
-                  aria-label="Close navigation"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-              <ThemeSwitcher className="absolute left-6 top-6" />
-              <nav className="flex flex-col items-center space-y-6 w-full">
-                {navLinks.map(({ href, label }) => (
-                  <Link
-                    key={href}
-                    href={href}
-                    className="text-xl font-mono tracking-wider uppercase text-[var(--ui-text-secondary)] transition-colors hover:text-[var(--ui-accent)]"
-                    onClick={() => setMobileNavOpen(false)}
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-          </div>
-        </div>
-      ) : null}
     </header>
+
+    {isMobileNavOpen ? (
+      <div className="fixed inset-0 z-[60] bg-[var(--ui-body-bg)] md:hidden">
+        <div
+          id="mobile-nav"
+          className="flex min-h-full w-full flex-col items-center justify-center gap-8 px-6 py-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <div className="absolute top-4 right-5">
+            <button
+              type="button"
+              onClick={() => setMobileNavOpen(false)}
+              className="inline-flex h-10 w-10 items-center justify-center border border-[var(--ui-border-subtle)] text-[var(--ui-text-primary)]"
+              aria-label="Close navigation"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <ThemeSwitcher className="absolute left-5 top-4" />
+          <nav className="flex flex-col items-center space-y-6 w-full">
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="text-xl font-mono tracking-[0.22em] font-medium uppercase text-[var(--ui-text-secondary)] transition-colors duration-100 hover:text-[var(--ui-accent)]"
+                onClick={() => setMobileNavOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
+    ) : null}
     </>
   )
 }

@@ -24,17 +24,22 @@ export default function Page(){
       {/* Enhanced Hero Section with Profile Image */}
       <SimpleHero />
 
+      {/* Section Divider */}
+      <div className="app-surface relative">
+        <div className="section-divider mx-auto max-w-7xl" />
+      </div>
+
       {/* Countries Explored */}
       <section
         id="countries"
-        className="app-surface py-14 sm:py-20 relative overflow-hidden border-t border-[var(--ui-border-subtle)]"
+        className="app-surface py-14 sm:py-20 relative overflow-hidden"
         aria-labelledby="countries-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           {/* Section header */}
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 md:gap-6 mb-10 sm:mb-12">
             <div>
-              <span className="font-mono text-sm tracking-[0.2em] text-[var(--ui-accent)] uppercase block mb-4">
+              <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase block mb-4">
                 [ Countries Explored ]
               </span>
               <h2 id="countries-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
@@ -47,15 +52,25 @@ export default function Page(){
           </div>
 
           {/* Countries grid */}
-          <div className="border-t border-l border-[var(--ui-border-subtle)]">
+          <div className="border border-dashed border-[var(--ui-border-strong)]">
             <SimpleCountriesGrid />
           </div>
         </div>
       </section>
 
 
+      {/* Section Divider */}
+      <div className="app-surface relative">
+        <div className="section-divider-ticks mx-auto max-w-7xl" />
+      </div>
+
       {/* Interactive 3D Globe */}
       <InteractiveGlobe />
+
+      {/* Section Divider */}
+      <div className="app-surface relative">
+        <div className="section-divider mx-auto max-w-7xl" />
+      </div>
 
       {/* Streamlined Content Navigation */}
       <QuickContentNav />

@@ -39,7 +39,7 @@ export function SectionHeader({
         className="h-px w-8"
         style={{ background: 'linear-gradient(to right, transparent, var(--ui-accent))', opacity: 0.6 }}
       />
-      <span className="font-mono text-xs tracking-[0.25em] text-[var(--ui-accent)] uppercase">
+      <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase">
         {volume ? `Vol. ${volume} — ${label}` : label}
       </span>
       <div
@@ -102,7 +102,7 @@ export function SubSectionHeader({
     <div className={cn('mb-12', className)}>
       <div className="flex items-center gap-3 mb-3">
         <div className="h-px w-6 bg-[var(--ui-accent)] opacity-60" />
-        <span className="font-mono text-xs tracking-[0.2em] text-[var(--ui-accent)] uppercase">
+        <span className="font-mono text-[11px] font-medium tracking-[0.28em] text-[var(--ui-accent)] uppercase">
           {label}
         </span>
       </div>

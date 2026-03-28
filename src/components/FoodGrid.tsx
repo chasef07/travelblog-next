@@ -70,7 +70,7 @@ function CountrySection({ country, items }: { country: string; items: FoodItem[]
     <section className="space-y-8">
       {/* Country Header */}
       <div className="border-b border-[var(--ui-border-subtle)] pb-4">
-        <span className="font-mono text-xs tracking-[0.2em] text-[var(--ui-text-muted)] uppercase block mb-2">
+        <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase block mb-2">
           [ {country} ]
         </span>
         <h2 className="text-2xl font-extralight text-[var(--ui-text-primary)]">{country} Cuisine</h2>
@@ -109,15 +109,15 @@ function FoodCard({ item, index }: { item: FoodItem; index: number }) {
 
       {/* Content */}
       <div className="p-6 space-y-3">
-        <span className="font-mono text-xs tracking-wider text-[var(--ui-text-subtle)] uppercase">
+        <span className="font-mono text-[10px] font-medium tracking-[0.24em] text-[var(--ui-text-subtle)] uppercase">
           {item.country}
         </span>
 
-        <h3 className="text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-300">
+        <h3 className="text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-100">
           {item.name}
         </h3>
 
-        <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed group-hover:text-[var(--ui-text-secondary)] transition-colors line-clamp-3">
+        <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed group-hover:text-[var(--ui-text-secondary)] transition-colors duration-150 line-clamp-3">
           {item.description}
         </p>
       </div>

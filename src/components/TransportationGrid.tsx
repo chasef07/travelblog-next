@@ -61,29 +61,29 @@ export default function TransportationGrid() {
 
   return (
     <div className="space-y-10">
-      <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-5">
+      <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-3">
+        <div className="bg-[var(--ui-bg-strong)] p-6">
           <div className="flex items-center gap-2 text-[var(--ui-text-subtle)]">
             <TrendingUp className="h-4 w-4" />
-            <span className="font-mono text-xs uppercase tracking-[0.2em]">Average Score</span>
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">Average Score</span>
           </div>
           <div className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">{summary.average}</div>
           <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Across {summary.total} countries</p>
         </div>
 
-        <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-5">
+        <div className="bg-[var(--ui-bg-strong)] p-6">
           <div className="flex items-center gap-2 text-[var(--ui-text-subtle)]">
             <Languages className="h-4 w-4" />
-            <span className="font-mono text-xs uppercase tracking-[0.2em]">Top Network</span>
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">Top Network</span>
           </div>
           <div className="mt-3 text-2xl font-light text-[var(--ui-text-primary)]">{summary.best.country}</div>
           <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Score {summary.best.score.toFixed(1)} / 10</p>
         </div>
 
-        <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-5">
+        <div className="bg-[var(--ui-bg-strong)] p-6">
           <div className="flex items-center gap-2 text-[var(--ui-text-subtle)]">
             <BadgeDollarSign className="h-4 w-4" />
-            <span className="font-mono text-xs uppercase tracking-[0.2em]">Reliable Transit</span>
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">Reliable Transit</span>
           </div>
           <div className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">{summary.strong}</div>
           <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Countries scoring 7.0+</p>
@@ -173,7 +173,7 @@ function TransportCard({ transport, rank }: { transport: TransportInfo; rank: nu
 
         <div className="flex-1 space-y-4">
           <div>
-            <h3 className="text-xl font-light text-[var(--ui-text-primary)] transition-colors duration-300 group-hover:text-[var(--ui-accent)]">
+            <h3 className="text-xl font-light text-[var(--ui-text-primary)] transition-colors duration-100 group-hover:text-[var(--ui-accent)]">
               {transport.country}
             </h3>
             <p className="mt-3 leading-relaxed font-light text-[var(--ui-text-muted)]">

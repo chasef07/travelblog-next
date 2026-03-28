@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Fraunces, Source_Sans_3, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -8,17 +8,10 @@ import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
 
-const fraunces = Fraunces({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-fraunces',
-  display: 'swap',
-})
-
-const sourceSans3 = Source_Sans_3({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-source-sans-3',
+  variable: '--font-inter',
   display: 'swap',
 })
 
@@ -40,7 +33,7 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
   const websiteJsonLd = generateWebsiteJsonLd()
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${fraunces.variable} ${sourceSans3.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -48,11 +41,11 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
               (function() {
                 try {
                   var stored = localStorage.getItem('value-engine-theme') || localStorage.getItem('living-gambit-theme');
-                  var allowed = ['sunset', 'coast', 'graphite'];
-                  var theme = allowed.indexOf(stored || '') >= 0 ? stored : 'sunset';
+                  var allowed = ['light', 'graphite'];
+                  var theme = allowed.indexOf(stored || '') >= 0 ? stored : 'light';
                   document.documentElement.setAttribute('data-theme', theme);
                 } catch (e) {
-                  document.documentElement.setAttribute('data-theme', 'sunset');
+                  document.documentElement.setAttribute('data-theme', 'light');
                 }
               })();
             `,

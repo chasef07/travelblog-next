@@ -59,7 +59,7 @@ const Footer = memo(function Footer(){
 
           {/* Navigation */}
           <nav className="flex flex-col gap-3">
-            <span className="font-mono text-xs tracking-[0.2em] text-[var(--ui-accent)] uppercase mb-2">
+            <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase mb-2">
               Explore
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-12 gap-y-3">
@@ -67,7 +67,7 @@ const Footer = memo(function Footer(){
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="group inline-flex items-center gap-1 text-[var(--ui-text-secondary)] hover:text-[var(--ui-accent)] text-sm font-body tracking-wide transition-colors duration-200"
+                  className="group inline-flex items-center gap-1 text-[var(--ui-text-secondary)] hover:text-[var(--ui-accent)] text-sm font-mono tracking-[0.18em] uppercase transition-colors duration-100"
                 >
                   {link.name}
                   <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
@@ -78,7 +78,7 @@ const Footer = memo(function Footer(){
 
           {/* Social */}
           <div className="flex flex-col gap-3">
-            <span className="font-mono text-xs tracking-[0.2em] text-[var(--ui-accent)] uppercase mb-2">
+            <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase mb-2">
               Connect
             </span>
             <div className="flex items-center gap-4">
@@ -89,7 +89,7 @@ const Footer = memo(function Footer(){
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="group flex items-center justify-center w-10 h-10 border border-[var(--ui-border-subtle)] rounded-sm hover:border-[var(--ui-border-strong)] hover:bg-[var(--ui-accent-soft)] transition-all duration-200"
+                  className="group flex items-center justify-center w-10 h-10 border border-[var(--ui-border-subtle)] rounded-sm hover:border-[var(--ui-accent)] hover:bg-[var(--ui-accent-soft)] transition-all duration-100"
                 >
                   <social.icon className="h-4 w-4 text-[var(--ui-text-secondary)] group-hover:text-[var(--ui-accent)] transition-colors duration-200" />
                 </Link>

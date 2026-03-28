@@ -2,6 +2,18 @@ import { BlogPost } from '../../types/blog'
 
 export const march2026Posts: BlogPost[] = [
   {
+    id: 'clearwater-back-home-building-the-temple',
+    title: 'Back Home in Florida: Building the Temple',
+    date: 'March 28, 2026',
+    location: 'Clearwater, Florida',
+    country: 'United States',
+    slug: 'clearwater-back-home-building-the-temple',
+    year: '2026',
+    excerpt: 'Back home in Florida after my business trip, reflecting on a fast-paced month as my 26th birthday approaches and Passover draws near.',
+    content: `I am back home in Florida after my business trip. The weather in Florida is fantastic. Being in the sun makes you so much more energized. As March is coming to a close I reflect on this fast-paced, work-centric month with gratitude. As my 26th birthday approaches in 10 days I am blown away by the growth and progress of my 25th year of life. With Passover around the corner all the stories align. Escaping from Egypt, wandering in the desert, to establish a holy empire. This is a parallel to my life. As I begin to lay the foundation of my inner holy temple I must know there will be hardships and struggles to build it into a great complex enduring throughout time and history.`,
+    images: []
+  },
+  {
     id: 'paramus-nj-working-hard-head-down',
     title: 'Paramus NJ: Working Hard and Head Down',
     date: 'March 22, 2026',

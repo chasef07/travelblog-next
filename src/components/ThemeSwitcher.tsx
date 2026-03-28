@@ -4,15 +4,14 @@ import { Palette } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 
-type ThemeId = 'sunset' | 'coast' | 'graphite'
+type ThemeId = 'light' | 'graphite'
 
 const STORAGE_KEY = 'value-engine-theme'
 const LEGACY_STORAGE_KEY = 'living-gambit-theme'
 
 const themes: Array<{ id: ThemeId; label: string; swatch: string }> = [
-  { id: 'sunset', label: 'Sunset', swatch: 'linear-gradient(135deg, #d5672f, #f0d7b2)' },
-  { id: 'coast', label: 'Coast', swatch: 'linear-gradient(135deg, #0f7f90, #d6edf2)' },
-  { id: 'graphite', label: 'Graphite', swatch: 'linear-gradient(135deg, #4fc5b7, #202a3a)' },
+  { id: 'light', label: 'Light', swatch: 'linear-gradient(135deg, #ffffff, #e0e0e0)' },
+  { id: 'graphite', label: 'Dark', swatch: 'linear-gradient(135deg, #00e89d, #050507)' },
 ]
 
 function applyTheme(theme: ThemeId) {
@@ -20,13 +19,13 @@ function applyTheme(theme: ThemeId) {
 }
 
 export default function ThemeSwitcher({ className }: { className?: string }) {
-  const [activeTheme, setActiveTheme] = useState<ThemeId>('sunset')
+  const [activeTheme, setActiveTheme] = useState<ThemeId>('light')
 
   useEffect(() => {
     const currentTheme = document.documentElement.getAttribute('data-theme') as ThemeId | null
     const storedTheme = localStorage.getItem(STORAGE_KEY) as ThemeId | null
     const legacyTheme = localStorage.getItem(LEGACY_STORAGE_KEY) as ThemeId | null
-    const nextTheme: ThemeId = currentTheme || storedTheme || legacyTheme || 'sunset'
+    const nextTheme: ThemeId = currentTheme || storedTheme || legacyTheme || 'light'
 
     setActiveTheme(nextTheme)
     applyTheme(nextTheme)

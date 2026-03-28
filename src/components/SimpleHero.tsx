@@ -20,17 +20,8 @@ export default function SimpleHero() {
   const latestMonthLabel = latestPost?.displayDate ?? 'Latest'
 
   return (
-    <section className="app-surface relative min-h-[100svh] overflow-hidden border-b border-[var(--ui-border-subtle)] pt-24 pb-8 sm:min-h-0 sm:pt-28 sm:pb-14 md:pt-36 md:pb-24">
-      <div
-        className="pointer-events-none absolute -right-28 top-16 h-80 w-80 rounded-full blur-3xl"
-        style={{ background: 'var(--ui-accent-soft)' }}
-      />
-      <div
-        className="pointer-events-none absolute -left-20 bottom-10 h-64 w-64 rounded-full blur-3xl"
-        style={{ background: 'var(--ui-accent-soft)' }}
-      />
-
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-6 px-5 sm:gap-10 sm:px-6 lg:grid-cols-[1.5fr_1fr] lg:items-end lg:gap-12">
+    <section className="app-surface relative min-h-[100svh] overflow-hidden pt-24 pb-8 sm:min-h-0 sm:pt-28 sm:pb-14 md:pt-36 md:pb-24">
+      <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:gap-10 sm:px-6 lg:grid-cols-[1.5fr_1fr] lg:items-end lg:gap-12">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -42,8 +33,8 @@ export default function SimpleHero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/40" />
               <span className="relative inline-flex h-full w-full rounded-full bg-green-500" />
             </span>
-            <span className="block truncate whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ui-text-muted)] sm:text-xs sm:tracking-[0.22em]">
-              Currently in Paramus, New Jersey
+            <span className="block truncate whitespace-nowrap font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--ui-text-muted)] sm:text-[11px] sm:tracking-[0.28em]">
+              Currently in Clearwater, Florida
             </span>
           </motion.div>
 
@@ -53,13 +44,7 @@ export default function SimpleHero() {
             transition={{ duration: 0.6, delay: 0.08 }}
             className="font-editorial-display text-4xl leading-[0.95] tracking-tight text-[var(--ui-text-primary)] sm:text-6xl md:text-7xl xl:text-8xl"
           >
-            Lifestyle{' '}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: 'var(--gradient-primary)' }}
-            >
-              Engineering
-            </span>
+            Lifestyle Engineering
           </motion.h1>
 
           <motion.p
@@ -68,7 +53,7 @@ export default function SimpleHero() {
             transition={{ duration: 0.55, delay: 0.18 }}
             className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--ui-text-secondary)] sm:mt-6 sm:text-lg md:text-xl"
           >
-            Don&apos;t let life control you, you control life.
+            My thoughts and ideas.
           </motion.p>
 
           <motion.div
@@ -79,7 +64,7 @@ export default function SimpleHero() {
           >
             <Link
               href={latestMonthHref}
-              className="inline-flex items-center gap-2 rounded-full border border-transparent bg-[var(--ui-accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ui-on-accent)] transition-colors hover:bg-[var(--ui-accent-hover)] sm:px-6 sm:py-3 sm:text-xs sm:tracking-[0.18em]"
+              className="inline-flex items-center gap-2 rounded-full border border-transparent bg-[var(--ui-accent)] px-5 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-on-accent)] transition-colors duration-100 hover:bg-[var(--ui-accent-hover)] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
             >
               Latest: {latestMonthLabel}
               <ArrowUpRight className="h-4 w-4" />
@@ -100,22 +85,22 @@ export default function SimpleHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="hidden rounded-3xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] p-7 backdrop-blur-sm lg:block"
+          className="hidden border border-dashed border-[var(--ui-border-strong)] bg-[var(--ui-bg-soft)] p-7 backdrop-blur-sm lg:block"
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--ui-text-muted)]">
+          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--ui-accent)]">
             Journey Snapshot
           </p>
           <p className="mt-4 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
             Built from one-way tickets, notebooks, and a carry-on backpack.
             Every page here is field-tested.
           </p>
-          <div className="mt-7 grid grid-cols-3 gap-3 border-t border-[var(--ui-border-subtle)] pt-5">
+          <div className="mt-7 grid grid-cols-3 gap-3 border-t border-dashed border-[var(--ui-border-subtle)] pt-5">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <span className="block font-editorial text-3xl leading-none text-[var(--ui-accent)]">
                   {stat.value}
                 </span>
-                <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+                <span className="mt-1 block font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-subtle)]">
                   {stat.label}
                 </span>
               </div>

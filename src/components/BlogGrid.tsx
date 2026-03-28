@@ -91,24 +91,24 @@ export const BlogGrid = memo(function BlogGrid() {
               {/* Content Section */}
               <div className="space-y-4 p-5 sm:p-6">
                 {/* Date */}
-                <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)] uppercase">
+                <span className="font-mono text-[11px] font-medium tracking-[0.24em] text-[var(--ui-text-muted)] uppercase">
                   {post.displayDate}
                 </span>
 
                 {/* Title */}
-                <h2 className="text-base sm:text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-300 line-clamp-2 leading-snug">
+                <h2 className="text-base sm:text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-100 line-clamp-2 leading-snug">
                   {post.title}
                 </h2>
 
                 {/* Excerpt */}
-                <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed line-clamp-3 sm:line-clamp-2 group-hover:text-[var(--ui-text-secondary)] transition-colors duration-300">
+                <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed line-clamp-3 sm:line-clamp-2 group-hover:text-[var(--ui-text-secondary)] transition-colors duration-150">
                   {post.excerpt}
                 </p>
 
                 {/* Read More */}
-                <div className="flex items-center gap-2 text-[var(--ui-text-subtle)] group-hover:text-[var(--ui-accent)] transition-all duration-300 pt-2">
-                  <span className="text-xs uppercase tracking-wider">Read</span>
-                  <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                <div className="flex items-center gap-2 text-[var(--ui-text-subtle)] group-hover:text-[var(--ui-accent)] transition-all duration-100 pt-2">
+                  <span className="text-xs font-mono font-medium uppercase tracking-[0.22em]">Read</span>
+                  <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150" />
                 </div>
               </div>
             </Link>
