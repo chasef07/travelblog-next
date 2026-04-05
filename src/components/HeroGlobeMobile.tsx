@@ -55,10 +55,7 @@ async function fetchGeoJSON(): Promise<GeoJSON> {
 export default function HeroGlobeMobile() {
   const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
   const [geoData, setGeoData] = useState<GeoJSON | null>(null)
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === 'undefined') return false
-    return window.matchMedia('(max-width: 1023px)').matches
-  })
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const query = window.matchMedia('(max-width: 1023px)')

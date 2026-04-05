@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get latest tag
+        id: latest_tag
+        run: |
+          latest=$(git tag --sort=-v:refname | head -n 1)
+          echo "tag=${latest:-v0.0.0}" >> "$GITHUB_OUTPUT"
+
+      - name: Bump version
+        id: bump
+        run: |
+          tag="${{ steps.latest_tag.outputs.tag }}"
+          tag="${tag#v}"
+          IFS='.' read -r major minor patch <<< "$tag"
+          patch=$((patch + 1))
+          new_tag="v${major}.${minor}.${patch}"
+          echo "new_tag=$new_tag" >> "$GITHUB_OUTPUT"
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          tag="${{ steps.latest_tag.outputs.tag }}"
+          if [ "$tag" = "v0.0.0" ]; then
+            log=$(git log --oneline -10)
+          else
+            log=$(git log --oneline "${tag}..HEAD")
+          fi
+          {
+            echo "notes<<EOF"
+            echo "$log"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.bump.outputs.new_tag }}
+          name: ${{ steps.bump.outputs.new_tag }}
+          body: ${{ steps.notes.outputs.notes }}
+          generate_release_notes: false

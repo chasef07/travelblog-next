@@ -302,7 +302,11 @@ function getMonthFromSlug(slug: string): string {
     // 2026 February
     'santa-teresa-surfing-building-rhythm': 'february',
     // 2026 March
+    'clearwater-back-home-building-the-temple': 'march',
     'paramus-nj-working-hard-head-down': 'march',
+    // 2026 April
+    'approaching-26-april-reflections': 'april',
+    'turning-26-reflections-from-claude': 'april',
   };
 
   return slugToMonth[slug] || 'january';

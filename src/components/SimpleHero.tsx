@@ -1,18 +1,71 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { blogIndex } from '@/content/blogIndex'
+import { type CountryData } from '@/utils/comprehensive-map-data'
 import HeroGlobeMobile from './HeroGlobeMobile'
 
-const stats = [
-  { value: '20', label: 'Countries' },
-  { value: '4', label: 'Continents' },
-  { value: '16', label: 'Months' },
-]
+const GlobeScene = dynamic(() => import('./GlobeScene'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center bg-[var(--ui-bg-strong)]">
+      <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)]">LOADING GLOBE...</span>
+    </div>
+  ),
+})
+
+interface GeoJSONGeometry {
+  type: string
+  coordinates: number[] | number[][] | number[][][] | number[][][][]
+}
+
+interface GeoJSONFeature {
+  type: string
+  geometry: GeoJSONGeometry
+}
+
+interface GeoJSON {
+  type: string
+  features: GeoJSONFeature[]
+}
+
+let geoJSONCache: GeoJSON | null = null
+let geoJSONPromise: Promise<GeoJSON> | null = null
+
+async function fetchGeoJSON(): Promise<GeoJSON> {
+  if (geoJSONCache) return geoJSONCache
+  if (geoJSONPromise) return geoJSONPromise
+  geoJSONPromise = fetch(
+    'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
+  )
+    .then((r) => r.json())
+    .then((data) => { geoJSONCache = data; return data })
+    .catch((e) => { geoJSONPromise = null; console.error('Failed to load GeoJSON:', e); throw e })
+  return geoJSONPromise
+}
 
 export default function SimpleHero() {
+  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
+  const [geoData, setGeoData] = useState<GeoJSON | null>(null)
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const query = window.matchMedia('(min-width: 1024px)')
+    const update = () => setIsDesktop(query.matches)
+    update()
+    query.addEventListener('change', update)
+    return () => query.removeEventListener('change', update)
+  }, [])
+
+  useEffect(() => {
+    if (!isDesktop) return
+    fetchGeoJSON().then(setGeoData).catch(() => {})
+  }, [isDesktop])
+
   const latestPost = [...blogIndex].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   )[0]
@@ -81,32 +134,26 @@ export default function SimpleHero() {
           </motion.div>
         </div>
 
-        <motion.aside
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="hidden border border-dashed border-[var(--ui-border-strong)] bg-[var(--ui-bg-soft)] p-7 backdrop-blur-sm lg:block"
-        >
-          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--ui-accent)]">
-            Journey Snapshot
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
-            Built from one-way tickets, notebooks, and a carry-on backpack.
-            Every page here is field-tested.
-          </p>
-          <div className="mt-7 grid grid-cols-3 gap-3 border-t border-dashed border-[var(--ui-border-subtle)] pt-5">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <span className="block font-editorial text-3xl leading-none text-[var(--ui-accent)]">
-                  {stat.value}
-                </span>
-                <span className="mt-1 block font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-subtle)]">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </motion.aside>
+        {isDesktop && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            <div className="h-[400px] w-full overflow-hidden rounded-2xl">
+              <GlobeScene
+                onSelectCountry={setSelectedCountry}
+                selectedCountry={selectedCountry}
+                geoData={geoData}
+              />
+            </div>
+            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ui-text-muted)] sm:text-[11px] sm:tracking-[0.18em]">
+              {selectedCountry
+                ? `${selectedCountry.name} • ${selectedCountry.visitDate}`
+                : 'Click and drag to explore destinations'}
+            </p>
+          </motion.div>
+        )}
       </div>
     </section>
   )

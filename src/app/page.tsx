@@ -1,22 +1,8 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import SimpleHero from "../components/SimpleHero"
 import SimpleCountriesGrid from "../components/SimpleCountriesGrid"
 import QuickContentNav from "../components/QuickContentNav"
-
-const InteractiveGlobe = dynamic(() => import("../components/InteractiveGlobe"), {
-  loading: () => (
-    <section className="app-surface py-14 sm:py-20 relative overflow-hidden border-t border-[var(--ui-border-subtle)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="h-[340px] sm:h-[600px] flex items-center justify-center">
-          <div className="text-[var(--ui-text-muted)] font-mono tracking-wider text-sm">LOADING GLOBE...</div>
-        </div>
-      </div>
-    </section>
-  ),
-  ssr: false
-})
 
 export default function Page(){
   return (
@@ -58,14 +44,6 @@ export default function Page(){
         </div>
       </section>
 
-
-      {/* Section Divider */}
-      <div className="app-surface relative">
-        <div className="section-divider-ticks mx-auto max-w-7xl" />
-      </div>
-
-      {/* Interactive 3D Globe */}
-      <InteractiveGlobe />
 
       {/* Section Divider */}
       <div className="app-surface relative">
