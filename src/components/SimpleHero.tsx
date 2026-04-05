@@ -91,14 +91,31 @@ export default function SimpleHero() {
             </span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.08 }}
-            className="font-editorial-display text-4xl leading-[0.95] tracking-tight text-[var(--ui-text-primary)] sm:text-6xl md:text-7xl xl:text-8xl"
-          >
-            Lifestyle Engineering
-          </motion.h1>
+          <h1 className="font-editorial-display text-4xl leading-[0.95] tracking-tight text-[var(--ui-text-primary)] sm:text-6xl md:text-7xl xl:text-8xl">
+            {'Lifestyle Engineering'.split(' ').map((word, wi) => {
+              const charOffset = 'Lifestyle Engineering'.split(' ').slice(0, wi).join(' ').length + (wi > 0 ? 1 : 0)
+              return (
+                <span key={wi} className="inline-block whitespace-nowrap">
+                  {word.split('').map((char, ci) => (
+                    <motion.span
+                      key={ci}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: 0.1 + (charOffset + ci) * 0.03,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      className="inline-block"
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                  {wi < 1 && <span className="inline-block" style={{ width: '0.3em' }} />}
+                </span>
+              )
+            })}
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }}

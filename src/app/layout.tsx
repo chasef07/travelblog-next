@@ -3,6 +3,8 @@ import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import BootSequence from '../components/BootSequence'
+import SmoothScroll from '../components/SmoothScroll'
 import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
@@ -93,6 +95,8 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           </>
         )}
 
+        <BootSequence />
+        <SmoothScroll />
         <Header />
         <div id="main-content">
         {children}

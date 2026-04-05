@@ -486,6 +486,23 @@ html,body{font-size:18px;line-height:1.7}
   display: none;
 }
 
+/* Boot sequence CRT scanlines */
+.boot-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanline-drift 8s linear infinite;
+}
+
+@keyframes scanline-drift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(6px); }
+}
+
 /* Editorial decorative elements */
 .editorial-rule {
   display: flex;

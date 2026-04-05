@@ -3,6 +3,7 @@
 import SimpleHero from "../components/SimpleHero"
 import SimpleCountriesGrid from "../components/SimpleCountriesGrid"
 import QuickContentNav from "../components/QuickContentNav"
+import RevealText from "../components/RevealText"
 
 export default function Page(){
   return (
@@ -28,9 +29,9 @@ export default function Page(){
               <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase block mb-4">
                 [ Countries Explored ]
               </span>
-              <h2 id="countries-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
+              <RevealText as="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
                 20 Nations
-              </h2>
+              </RevealText>
             </div>
             <p className="text-[var(--ui-text-secondary)] text-base sm:text-lg leading-relaxed max-w-md md:text-right">
               From the Middle East to Southeast Asia, Africa to Central America.

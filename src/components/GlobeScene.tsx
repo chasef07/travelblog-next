@@ -3,6 +3,7 @@
 import { useRef, useMemo, useState, memo, useCallback, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Line, Html } from '@react-three/drei'
+import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing'
 import * as THREE from 'three'
 import { fullJourneyData, type CountryData } from '@/utils/comprehensive-map-data'
 
@@ -216,7 +217,7 @@ function LocationMarker({
         onClick={onClick}
       >
         <boxGeometry args={[markerSize, markerSize, markerSize]} />
-        <meshBasicMaterial color={markerColor} />
+        <meshStandardMaterial color={markerColor} emissive={markerColor} emissiveIntensity={0.8} />
       </mesh>
 
       {(isHovered || isSelected) && (
@@ -556,6 +557,15 @@ export default function GlobeScene({
           theme={theme}
           isMobile={isMobile}
         />
+        <EffectComposer>
+          <Bloom
+            intensity={0.3}
+            luminanceThreshold={0.8}
+            luminanceSmoothing={0.9}
+            mipmapBlur
+          />
+          <Vignette eskil={false} offset={0.3} darkness={0.4} />
+        </EffectComposer>
       </Canvas>
     </div>
   )
