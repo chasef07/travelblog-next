@@ -1,12 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { blogIndex } from '@/content/blogIndex'
 import { type CountryData } from '@/utils/comprehensive-map-data'
+import { fetchGeoJSON, type GeoJSON } from '@/utils/geojson-loader'
 import HeroGlobeMobile from './HeroGlobeMobile'
 
 const GlobeScene = dynamic(() => import('./GlobeScene'), {
@@ -17,36 +18,6 @@ const GlobeScene = dynamic(() => import('./GlobeScene'), {
     </div>
   ),
 })
-
-interface GeoJSONGeometry {
-  type: string
-  coordinates: number[] | number[][] | number[][][] | number[][][][]
-}
-
-interface GeoJSONFeature {
-  type: string
-  geometry: GeoJSONGeometry
-}
-
-interface GeoJSON {
-  type: string
-  features: GeoJSONFeature[]
-}
-
-let geoJSONCache: GeoJSON | null = null
-let geoJSONPromise: Promise<GeoJSON> | null = null
-
-async function fetchGeoJSON(): Promise<GeoJSON> {
-  if (geoJSONCache) return geoJSONCache
-  if (geoJSONPromise) return geoJSONPromise
-  geoJSONPromise = fetch(
-    'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
-  )
-    .then((r) => r.json())
-    .then((data) => { geoJSONCache = data; return data })
-    .catch((e) => { geoJSONPromise = null; console.error('Failed to load GeoJSON:', e); throw e })
-  return geoJSONPromise
-}
 
 export default function SimpleHero() {
   const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
@@ -66,9 +37,7 @@ export default function SimpleHero() {
     fetchGeoJSON().then(setGeoData).catch(() => {})
   }, [isDesktop])
 
-  const latestPost = [...blogIndex].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  )[0]
+  const latestPost = useMemo(() => blogIndex[0], [])
   const latestMonthHref = latestPost ? `/blog/${latestPost.year}/${latestPost.slug}` : '/blog'
   const latestMonthLabel = latestPost?.displayDate ?? 'Latest'
 
@@ -87,7 +56,7 @@ export default function SimpleHero() {
               <span className="relative inline-flex h-full w-full rounded-full bg-green-500" />
             </span>
             <span className="block truncate whitespace-nowrap font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--ui-text-muted)] sm:text-[11px] sm:tracking-[0.28em]">
-              Currently in Clearwater, Florida
+              Currently in San Diego, California
             </span>
           </motion.div>
 
@@ -123,7 +92,7 @@ export default function SimpleHero() {
             transition={{ duration: 0.55, delay: 0.18 }}
             className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--ui-text-secondary)] sm:mt-6 sm:text-lg md:text-xl"
           >
-            My thoughts and ideas.
+            Field-tested maps, rankings, and dispatches for where to surf, work, think, and live.
           </motion.p>
 
           <motion.div
@@ -133,11 +102,25 @@ export default function SimpleHero() {
             className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4"
           >
             <Link
-              href={latestMonthHref}
+              href="/atlas"
               className="inline-flex items-center gap-2 rounded-full border border-transparent bg-[var(--ui-accent)] px-5 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-on-accent)] transition-colors duration-100 hover:bg-[var(--ui-accent-hover)] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
             >
-              Latest: {latestMonthLabel}
+              Explore the atlas
               <ArrowUpRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/journey"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] transition-colors duration-100 hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
+            >
+              Follow the journey
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href={latestMonthHref}
+              className="inline-flex items-center gap-2 rounded-full border border-transparent px-4 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--ui-text-muted)] transition-colors duration-100 hover:text-[var(--ui-accent)] sm:text-[11px]"
+            >
+              Latest: {latestMonthLabel}
+              <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
           </motion.div>
 

@@ -1,44 +1,7 @@
 import { MetadataRoute } from 'next'
 import { blogMetadata } from '@/content/blog-data'
+import { allBlogPosts } from '@/content/blog-registry'
 import { siteConfig } from '@/lib/seo'
-
-// Import all blog post files for individual post URLs
-import { september2024Posts } from '@/content/blog-posts/2024-september'
-import { october2024Posts } from '@/content/blog-posts/2024-october'
-import { november2024Posts } from '@/content/blog-posts/2024-november'
-import { december2024Posts } from '@/content/blog-posts/2024-december'
-import { january2025Posts } from '@/content/blog-posts/2025-january'
-import { february2025Posts } from '@/content/blog-posts/2025-february'
-import { march2025Posts } from '@/content/blog-posts/2025-march'
-import { april2025Posts } from '@/content/blog-posts/2025-april'
-import { may2025Posts } from '@/content/blog-posts/2025-may'
-import { june2025Posts } from '@/content/blog-posts/2025-june'
-import { july2025Posts } from '@/content/blog-posts/2025-july'
-import { august2025Posts } from '@/content/blog-posts/2025-august'
-import { october2025Posts } from '@/content/blog-posts/2025-october'
-import { november2025Posts } from '@/content/blog-posts/2025-november'
-import { december2025Posts } from '@/content/blog-posts/2025-december'
-import { january2026Posts } from '@/content/blog-posts/2026-january'
-
-// Combine all individual blog posts
-const allBlogPosts = [
-  ...september2024Posts,
-  ...october2024Posts,
-  ...november2024Posts,
-  ...december2024Posts,
-  ...january2025Posts,
-  ...february2025Posts,
-  ...march2025Posts,
-  ...april2025Posts,
-  ...may2025Posts,
-  ...june2025Posts,
-  ...july2025Posts,
-  ...august2025Posts,
-  ...october2025Posts,
-  ...november2025Posts,
-  ...december2025Posts,
-  ...january2026Posts,
-]
 
 /**
  * Dynamic sitemap generation for Lifestyle Engineering travel blog

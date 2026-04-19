@@ -1,7 +1,4 @@
-'use client'
-
 import Link from 'next/link'
-import { memo } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 
 type IconProps = React.SVGProps<SVGSVGElement> & { className?: string }
@@ -32,16 +29,16 @@ function XIcon(props: IconProps) {
   )
 }
 
-const Footer = memo(function Footer(){
+export default function Footer(){
   const currentYear = new Date().getFullYear()
 
   const navigationLinks = [
-    { name: "Journey", href: "/#journey" },
-    { name: "Blog", href: "/blog" },
-    { name: "Vlogs", href: "/vlogs" },
+    { name: "Atlas", href: "/atlas" },
+    { name: "Maps", href: "/maps" },
+    { name: "Journey", href: "/journey" },
+    { name: "Countries", href: "/countries" },
     { name: "Food", href: "/food" },
     { name: "Transport", href: "/transportation" },
-    { name: "Packing", href: "/packing-checklist" }
   ]
 
   const socialLinks = [
@@ -143,6 +140,4 @@ const Footer = memo(function Footer(){
       </div>
     </footer>
   )
-})
-
-export default Footer
+}

@@ -1,0 +1,124 @@
+import Link from 'next/link'
+import { ArrowUpRight, MapPin } from 'lucide-react'
+import { generatePageMetadata } from '@/lib/seo'
+import { atlasIntents, mapProducts } from '@/content/maps-data'
+import { getPlacesByTheme } from '@/content/places-data'
+
+export const metadata = generatePageMetadata({
+  title: 'Atlas',
+  description: 'Explore the atlas by intent: surf towns, cafe + work spots, spiritual places, and long-stay travel intelligence.',
+  path: '/atlas',
+  images: mapProducts.map((product) => product.image),
+  keywords: ['travel atlas', 'travel intelligence', 'long-stay travel', 'surf town map'],
+})
+
+export default function AtlasPage() {
+  const surfPlaces = [...getPlacesByTheme('surf')].sort((a, b) => b.scores.surf - a.scores.surf)
+
+  return (
+    <main className="min-h-screen app-surface pt-20 sm:pt-24">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
+        <header className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <span className="mb-4 block font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--ui-accent)]">
+              [ Atlas ]
+            </span>
+            <h1 className="font-editorial-display text-4xl tracking-tight text-[var(--ui-text-primary)] sm:text-5xl md:text-6xl">
+              Explore by intent
+            </h1>
+            <p className="mt-5 text-lg leading-relaxed text-[var(--ui-text-secondary)]">
+              The atlas is where lived experience turns into useful filters, rankings, and shortlists for people deciding where to go, stay, and build.
+            </p>
+          </div>
+
+          <Link
+            href="/journey"
+            className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
+          >
+            Follow the journey
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </header>
+
+        <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 xl:grid-cols-4">
+          {atlasIntents.map((intent) => (
+            <Link
+              key={intent.id}
+              href={intent.href}
+              className="group bg-[var(--ui-bg-strong)] p-6 transition-colors hover:bg-[var(--ui-bg-soft)]"
+            >
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+                {intent.stat}
+              </span>
+              <h2 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)] transition-colors group-hover:text-[var(--ui-accent)]">
+                {intent.title}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">{intent.description}</p>
+              <div className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)] transition-colors group-hover:text-[var(--ui-accent)]">
+                Explore
+                <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <section className="mt-16">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl">
+              <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+                [ Surf Town Atlas ]
+              </span>
+              <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">First real dataset</h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)] sm:text-base">
+                This is the start of the atlas as a real intelligence layer. Each place is being scored against the actual lifestyle criteria that matter.
+              </p>
+            </div>
+            <Link
+              href="/maps#surf-town-atlas"
+              className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
+            >
+              Open surf atlas
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] lg:grid-cols-2">
+            {surfPlaces.map((place) => (
+              <div key={place.id} className="bg-[var(--ui-bg-strong)] p-6 sm:p-7">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+                      {place.region}
+                    </span>
+                    <h3 className="mt-2 text-2xl font-light text-[var(--ui-text-primary)]">{place.name}</h3>
+                    <p className="mt-2 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)] font-mono">
+                      <MapPin className="h-3 w-3" />
+                      {place.country}
+                    </p>
+                  </div>
+
+                  <span className="font-editorial text-3xl leading-none text-[var(--ui-accent)]">
+                    {place.scores.surf.toFixed(1)}
+                  </span>
+                </div>
+
+                <p className="mt-4 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.shortVerdict}</p>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {place.bestFor.slice(0, 3).map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-[var(--ui-border-subtle)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-muted)]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </main>
+  )
+}

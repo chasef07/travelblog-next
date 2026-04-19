@@ -3,17 +3,15 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Button, buttonVariants } from './ui/button'
-import { cn } from '@/lib/utils'
-import ThemeSwitcher from './ThemeSwitcher'
+import { Button } from './ui/button'
 
 const navLinks = [
+  { href: "/atlas", label: "Atlas" },
+  { href: "/maps", label: "Maps" },
+  { href: "/journey", label: "Journey" },
   { href: "/countries", label: "Countries" },
-  { href: "/blog", label: "Stories" },
-  { href: "/recommendations", label: "Picks" },
   { href: "/food", label: "Food" },
   { href: "/transportation", label: "Transport" },
-  { href: "/packing-checklist", label: "Packing" }
 ]
 
 export default function Header(){
@@ -54,11 +52,14 @@ export default function Header(){
     </a>
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--ui-border-subtle)] bg-[var(--ui-header-bg)] backdrop-blur-md transition-all duration-200">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 md:px-8">
-        <Link href="/" className="flex items-center gap-2" aria-label="Lifestyle Engineering home">
+        <Link href="/" className="flex items-center gap-3" aria-label="Lifestyle Engineering home">
           <svg className="shrink-0 text-[var(--ui-text-primary)]" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
           </svg>
-          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] md:hidden">Chase Fagen</span>
+          <div className="flex flex-col">
+            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)]">Lifestyle Engineering</span>
+            <span className="hidden text-[11px] text-[var(--ui-text-subtle)] md:block">Travel intelligence</span>
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -74,7 +75,6 @@ export default function Header(){
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeSwitcher className="hidden md:flex" />
           <Button
             variant="ghost"
             size="icon"
@@ -110,7 +110,6 @@ export default function Header(){
               <X className="h-5 w-5" />
             </button>
           </div>
-          <ThemeSwitcher className="absolute left-5 top-4" />
           <nav className="flex flex-col items-center space-y-6 w-full">
             {navLinks.map(({ href, label }) => (
               <Link

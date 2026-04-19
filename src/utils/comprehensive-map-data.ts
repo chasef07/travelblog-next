@@ -1,4 +1,5 @@
 import type { BlogPost } from '@/types/blog'
+import { allBlogPosts } from '@/content/blog-registry'
 
 export interface CountryData {
   name: string
@@ -226,87 +227,10 @@ export const fullJourneyData: CountryData[] = [
   }
 ]
 
-// Function to dynamically count all blog posts
-function getTotalBlogPostCount(): number {
-  let totalCount = 0;
-
-  // Count 2024 posts
-  try {
-    const { september2024Posts } = require('../content/blog-posts/2024-september');
-    totalCount += september2024Posts.length;
-  } catch {}
-  try {
-    const { october2024Posts } = require('../content/blog-posts/2024-october');
-    totalCount += october2024Posts.length;
-  } catch {}
-  try {
-    const { november2024Posts } = require('../content/blog-posts/2024-november');
-    totalCount += november2024Posts.length;
-  } catch {}
-  try {
-    const { december2024Posts } = require('../content/blog-posts/2024-december');
-    totalCount += december2024Posts.length;
-  } catch {}
-
-  // Count 2025 posts
-  try {
-    const { january2025Posts } = require('../content/blog-posts/2025-january');
-    totalCount += january2025Posts.length;
-  } catch {}
-  try {
-    const { february2025Posts } = require('../content/blog-posts/2025-february');
-    totalCount += february2025Posts.length;
-  } catch {}
-  try {
-    const { march2025Posts } = require('../content/blog-posts/2025-march');
-    totalCount += march2025Posts.length;
-  } catch {}
-  try {
-    const { april2025Posts } = require('../content/blog-posts/2025-april');
-    totalCount += april2025Posts.length;
-  } catch {}
-  try {
-    const { may2025Posts } = require('../content/blog-posts/2025-may');
-    totalCount += may2025Posts.length;
-  } catch {}
-  try {
-    const { june2025Posts } = require('../content/blog-posts/2025-june');
-    totalCount += june2025Posts.length;
-  } catch {}
-  try {
-    const { july2025Posts } = require('../content/blog-posts/2025-july');
-    totalCount += july2025Posts.length;
-  } catch {}
-  try {
-    const { august2025Posts } = require('../content/blog-posts/2025-august');
-    totalCount += august2025Posts.length;
-  } catch {}
-  try {
-    const { october2025Posts } = require('../content/blog-posts/2025-october');
-    totalCount += october2025Posts.length;
-  } catch {}
-  try {
-    const { november2025Posts } = require('../content/blog-posts/2025-november');
-    totalCount += november2025Posts.length;
-  } catch {}
-  try {
-    const { december2025Posts } = require('../content/blog-posts/2025-december');
-    totalCount += december2025Posts.length;
-  } catch {}
-
-  // Count 2026 posts
-  try {
-    const { january2026Posts } = require('../content/blog-posts/2026-january');
-    totalCount += january2026Posts.length;
-  } catch {}
-
-  return totalCount;
-}
-
 // Calculate journey stats
 export const journeyStats = {
   totalCountries: 20, // Excluding Florida/USA return home
-  totalBlogPosts: getTotalBlogPostCount(),
+  totalBlogPosts: allBlogPosts.length,
   durationMonths: 10,
   continents: 4, // Asia, Africa, Europe (Georgia), Central America
   startDate: 'September 2024',

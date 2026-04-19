@@ -60,9 +60,8 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      // Cache static assets aggressively
       {
-        source: '/_next/static/:path*',
+        source: '/assets/:path*',
         headers: [
           {
             key: 'Cache-Control',
@@ -71,7 +70,7 @@ const nextConfig: NextConfig = {
         ]
       },
       {
-        source: '/images/:path*',
+        source: '/data/:path*',
         headers: [
           {
             key: 'Cache-Control',

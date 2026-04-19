@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { type CountryData } from '@/utils/comprehensive-map-data'
+import { fetchGeoJSON, type GeoJSON } from '@/utils/geojson-loader'
 
 const GlobeScene = dynamic(() => import('./GlobeScene'), {
   ssr: false,
@@ -12,45 +13,6 @@ const GlobeScene = dynamic(() => import('./GlobeScene'), {
     </div>
   ),
 })
-
-interface GeoJSONGeometry {
-  type: string
-  coordinates: number[] | number[][] | number[][][] | number[][][][]
-}
-
-interface GeoJSONFeature {
-  type: string
-  geometry: GeoJSONGeometry
-}
-
-interface GeoJSON {
-  type: string
-  features: GeoJSONFeature[]
-}
-
-let geoJSONCache: GeoJSON | null = null
-let geoJSONPromise: Promise<GeoJSON> | null = null
-
-async function fetchGeoJSON(): Promise<GeoJSON> {
-  if (geoJSONCache) return geoJSONCache
-  if (geoJSONPromise) return geoJSONPromise
-
-  geoJSONPromise = fetch(
-    'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      geoJSONCache = data
-      return data
-    })
-    .catch((error) => {
-      geoJSONPromise = null
-      console.error('Failed to load GeoJSON:', error)
-      throw error
-    })
-
-  return geoJSONPromise
-}
 
 export default function HeroGlobeMobile() {
   const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)

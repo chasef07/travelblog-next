@@ -1,22 +1,13 @@
-export type BlogMeta={year:number;slug:string;title:string;date:string;displayDate:string;excerpt:string;image:string};
-export const blogIndex:BlogMeta[]=[
-{year:2026,slug:'april',title:'April 2026: Turning 26',date:'2026-04-01',displayDate:'April 2026',excerpt:'Claude read every post from the past year and reflected on what to know about 25-year-old Chase and what he is growing into at 26.',image:'/assets/images/misc/fagenboyz.jpg'},
-{year:2026,slug:'march',title:'March 2026: United States, Working Hard',date:'2026-03-01',displayDate:'March 2026',excerpt:'Back home in Florida deploying AI agents, attending conferences, and chasing deals in New Jersey.',image:'/assets/images/misc/rays-game.jpg'},
-{year:2026,slug:'february',title:'February 2026: Santa Teresa, Surfing and Building',date:'2026-02-01',displayDate:'February 2026',excerpt:'A new month in Santa Teresa focused on deep work, consistent surfing, and building the next chapter.',image:'/assets/images/misc/santateresa-boys.jpg'},
-{year:2026,slug:'january',title:'January 2026: Exploring El Salvador',date:'2026-01-07',displayDate:'January 2026',excerpt:'Leaving Guatemala for El Salvador\'s surf coast, a chance encounter with a pastor, and thoughts on government and infrastructure.',image:'/assets/images/misc/elsalvador-surfcity.jpg'},
-{year:2025,slug:'december',title:'December 2025: Guatemala Galavanting',date:'2025-12-17',displayDate:'December 2025',excerpt:'Arriving in Guatemala after Hanukkah with family - one last backpacking adventure before starting a new section of life.',image:'/assets/images/blog/2025/december/guatflag.jpg'},
-{year:2025,slug:'november',title:'November 2025: Arriving in Panama',date:'2025-11-02',displayDate:'November 2025',excerpt:'First impressions of Bocas del Toro, Panama - exploring viber cafes, cultural authenticity, and what makes a place feel like home.',image:'/assets/images/misc/panama-dive.jpg'},
-{year:2025,slug:'october',title:'October 2025: Business in Costa Rica',date:'2025-10-09',displayDate:'October 2025',excerpt:'Leaving Florida for a Costa Rica build sprint while doubling down on AI consulting with Kyle and family perspective shifts.',image:'/assets/images/misc/costa-business.jpg'},
-{year:2025,slug:'august',title:'August 2025: Coming Home to Florida',date:'2025-08-02',displayDate:'August 2025',excerpt:"Reverse culture shock and finding home again after a year of global adventures. Reflections on returning to Florida and what 'home' means now.",image:'/assets/images/misc/posttrip.jpg'},
-{year:2025,slug:'july',title:'July 2025: Hokkaido, the Northern Gem of Japan',date:'2025-07-01',displayDate:'July 2025',excerpt:'Hokkaido cuisine, nature, and culture',image:'/assets/images/food/sush.jpg'},
-{year:2025,slug:'june',title:'June 2025: Indonesia',date:'2025-06-01',displayDate:'June 2025',excerpt:'From surfing worldclass waves to temple-hopping in Bali, Indonesia is a whirlwind of ancient culture, amazing wildlife, and adventure.',image:'/assets/images/misc/indoprof.jpg'},
-{year:2025,slug:'may',title:'May 2025: Island Hopping in the Philippines',date:'2025-05-01',displayDate:'May 2025',excerpt:'Turquoise waterfalls, epic snorkeling, crazy surfing, and laid-back beach vibes — the Philippines hits hard in every direction.',image:'/assets/images/misc/canyoneering.jpg'},
-{year:2025,slug:'april',title:'April 2025: Motorbiking Vietnam',date:'2025-04-01',displayDate:'April 2025',excerpt:'Ride with me across terraced rice fields while enjoying traditional Vietnamese cuisine.',image:'/assets/images/misc/droneshotrice.jpg'},
-{year:2025,slug:'march',title:'March 2025: Chilling in Cambodia',date:'2025-03-01',displayDate:'March 2025',excerpt:'From the ancient temples of Angkor Wat to the pristine beaches of Koh Rong, exploring the wonders of Cambodia.',image:'/assets/images/misc/kohsdach.jpg'},
-{year:2025,slug:'february',title:'February 2025: Adventures in Laos',date:'2025-02-01',displayDate:'February 2025',excerpt:"Journeying through Laos' traditional villages and beautiful landscapes, discovering the heart of Southeast Asia.",image:'/assets/images/misc/laosfall-2.jpg'},
-{year:2025,slug:'january',title:'January 2025: Thailand Discos',date:'2025-01-01',displayDate:'January 2025',excerpt:'From island parties to serene sunsets, experiencing the allure of Thailand.',image:'/assets/images/misc/fullmoon-2.jpg'},
-{year:2024,slug:'december',title:'December 2024: Trekking in Nepal',date:'2024-12-01',displayDate:'December 2024',excerpt:'Exploring the majestic Himalayas and vibrant streets of Kathmandu. From ancient temples to mountain adventures.',image:'/assets/images/misc/namaste8-2.jpg'},
-{year:2024,slug:'november',title:'November 2024: Safaris of East Africa',date:'2024-11-01',displayDate:'November 2024',excerpt:'From the vast savannas of Tanzania to the perfectious coffee of Rwanda.',image:'/assets/images/misc/serengeti-2.jpg'},
-{year:2024,slug:'october',title:'October 2024: Investing in Georgia',date:'2024-10-01',displayDate:'October 2024',excerpt:'Discovering the rich culture and ancient traditions of Georgia, from the vibrant streets of Tbilisi to the stunning mountains of Gudauri.',image:'/assets/images/misc/blarg-2.jpg'},
-{year:2024,slug:'september',title:'September 2024: Connecting in Israel',date:'2024-09-01',displayDate:'September 2024',excerpt:'The start of my world adventure, from the final days in Florida to the first experiences in Israel.',image:'/assets/images/misc/holyholy.jpg'},
-];
+import { blogArchives } from '@/content/blog-registry'
+
+export type BlogMeta = {
+  year: number
+  slug: string
+  title: string
+  date: string
+  displayDate: string
+  excerpt: string
+  image: string
+}
+
+export const blogIndex: BlogMeta[] = blogArchives

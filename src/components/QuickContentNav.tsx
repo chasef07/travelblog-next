@@ -2,48 +2,49 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Backpack, MapPin, Plane, Utensils, Video } from 'lucide-react'
+import { ArrowRight, Coffee, Compass, MapPin, Route } from 'lucide-react'
+import { atlasIntents } from '@/content/maps-data'
 
 const contentSections = [
   {
-    id: 'vlogs',
-    title: 'Video Stories',
-    subtitle: 'Watch the journey unfold',
-    description: 'Short-form and long-form video across continents.',
-    icon: Video,
-    href: '/vlogs',
-    stat: '5',
-    statLabel: 'Episodes',
+    id: 'surf',
+    title: atlasIntents[0].title,
+    subtitle: 'Warm water + waves',
+    description: atlasIntents[0].description,
+    icon: Compass,
+    href: atlasIntents[0].href,
+    stat: atlasIntents[0].stat,
+    statLabel: 'Priority lens',
   },
   {
-    id: 'food',
-    title: 'Food Adventures',
-    subtitle: 'Local flavors first',
-    description: 'Street staples and regional dishes worth a detour.',
-    icon: Utensils,
-    href: '/food',
-    stat: '10+',
-    statLabel: 'Dishes',
+    id: 'work',
+    title: atlasIntents[1].title,
+    subtitle: 'Laptop-first shortlist',
+    description: atlasIntents[1].description,
+    icon: Coffee,
+    href: atlasIntents[1].href,
+    stat: atlasIntents[1].stat,
+    statLabel: 'Priority lens',
   },
   {
-    id: 'transportation',
-    title: 'Transportation',
-    subtitle: 'Move smarter',
-    description: 'How to navigate countries without wasting time or money.',
-    icon: Plane,
-    href: '/transportation',
-    stat: '20+',
-    statLabel: 'Guides',
+    id: 'spiritual',
+    title: atlasIntents[2].title,
+    subtitle: 'Beauty + depth',
+    description: atlasIntents[2].description,
+    icon: MapPin,
+    href: atlasIntents[2].href,
+    stat: atlasIntents[2].stat,
+    statLabel: 'Priority lens',
   },
   {
-    id: 'packing',
-    title: 'Packing System',
-    subtitle: 'Minimal gear stack',
-    description: 'The exact setup for year-long travel with one carry-on.',
-    icon: Backpack,
-    href: '/packing-checklist',
-    stat: '35',
-    statLabel: 'Essentials',
+    id: 'journey',
+    title: atlasIntents[3].title,
+    subtitle: 'Chronological route',
+    description: atlasIntents[3].description,
+    icon: Route,
+    href: atlasIntents[3].href,
+    stat: atlasIntents[3].stat,
+    statLabel: 'Core pillar',
   },
 ]
 
@@ -62,22 +63,21 @@ export default function QuickContentNav() {
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] px-3 py-1.5">
               <MapPin className="h-3.5 w-3.5 text-[var(--ui-accent)]" />
               <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--ui-text-muted)]">
-                Curated Resources
+                Explore by intent
               </span>
             </div>
             <h2 className="font-editorial text-4xl tracking-tight text-[var(--ui-text-primary)] md:text-5xl lg:text-6xl">
-              Build Your Route
+              Atlas entry points
             </h2>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-[var(--ui-text-secondary)]">
-              Story first, systems second. Use these sections to turn inspiration
-              into practical action.
+              Start with the question you actually care about and move from lived narrative into useful place intelligence.
             </p>
           </div>
           <Link
-            href="/blog"
+            href="/maps"
             className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--ui-border-strong)] px-5 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.24em] text-[var(--ui-text-primary)] transition-all duration-100 hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
           >
-            Start with stories
+            See paid maps
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>

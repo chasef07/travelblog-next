@@ -1,28 +1,21 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import '@fontsource/source-sans-3/300.css'
+import '@fontsource/source-sans-3/400.css'
+import '@fontsource/source-sans-3/500.css'
+import '@fontsource/source-sans-3/600.css'
+import '@fontsource/source-sans-3/700.css'
+import '@fontsource/jetbrains-mono/400.css'
+import '@fontsource/jetbrains-mono/500.css'
+import '@fontsource/fraunces/400.css'
+import '@fontsource/fraunces/600.css'
 import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import BootSequence from '../components/BootSequence'
 import SmoothScroll from '../components/SmoothScroll'
-import Script from 'next/script'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
-})
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Lifestyle Engineering - Real Value Through Work, Health, and Growth',
@@ -35,30 +28,13 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
   const websiteJsonLd = generateWebsiteJsonLd()
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var stored = localStorage.getItem('value-engine-theme') || localStorage.getItem('living-gambit-theme');
-                  var allowed = ['light', 'graphite'];
-                  var theme = allowed.indexOf(stored || '') >= 0 ? stored : 'light';
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {
-                  document.documentElement.setAttribute('data-theme', 'light');
-                }
-              })();
-            `,
-          }}
-        />
         {/* DNS prefetch for external domains (lighter than preconnect) */}
         <link rel="dns-prefetch" href="https://a.basemaps.cartocdn.com" />
         <link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" />
         <link rel="dns-prefetch" href="https://c.basemaps.cartocdn.com" />
         <link rel="dns-prefetch" href="https://d.basemaps.cartocdn.com" />
-        <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
 
         {/* Favicons - multiple formats for broad compatibility */}
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -80,18 +56,21 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
-            <Script
+            <script
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-              strategy="afterInteractive"
+              async
             />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
+            <script
+              id="google-analytics"
+              dangerouslySetInnerHTML={{
+                __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-              `}
-            </Script>
+              `,
+              }}
+            />
           </>
         )}
 

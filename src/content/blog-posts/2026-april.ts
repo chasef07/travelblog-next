@@ -2,6 +2,22 @@ import { BlogPost } from '../../types/blog'
 
 export const april2026Posts: BlogPost[] = [
   {
+    id: 'san-diego-ron-friendship',
+    title: 'San Diego With Ron',
+    date: 'April 19, 2026',
+    location: 'San Diego, California',
+    country: 'United States',
+    slug: 'san-diego-ron-friendship',
+    year: '2026',
+    excerpt: 'Visiting Ron in San Diego and reflecting on surf towns, American cities, and the value of long friendships.',
+    content: `I have been in San Diego for the past few days visiting my amazing friend Ron Cahlon. We have shared many great adventures together over the years, and I flew across the United States to see the new life he is building here in San Diego.
+
+San Diego is a pretty cool, laid-back surf city with multiple great surf breaks year-round, beautiful nature, and consistently great weather. At the end of the day, it is still a normal American city, just with the added benefits of surf and sunshine. I like that so many people here are active and out doing things all day long.
+
+I still feel drawn to living in a walkable small town, but San Diego has a lot of what I value and enjoy. I am also very grateful to have had a friend like Ron for the past eight years. We have traveled to Spain, Israel, Africa, and more together. Friendships like that are rare, and they remind me how important it is to value your relationships and work hard to maintain the connection and keep growing together.`,
+    images: []
+  },
+  {
     id: 'approaching-26-april-reflections',
     title: 'Approaching 26',
     date: 'April 5, 2026',
