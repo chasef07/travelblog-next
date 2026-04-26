@@ -14,14 +14,15 @@ export async function GET() {
   const baseUrl = siteConfig.url
 
   const sortedPosts = [...blogIndex].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   )
 
-  const rssItems = sortedPosts.map((post) => {
-    const postUrl = `${baseUrl}/blog/${post.year}/${post.slug}`
-    const pubDate = new Date(post.date).toUTCString()
+  const rssItems = sortedPosts
+    .map((post) => {
+      const postUrl = `${baseUrl}/blog/${post.year}/${post.slug}`
+      const pubDate = new Date(post.date).toUTCString()
 
-    return `    <item>
+      return `    <item>
       <title>${escapeXml(post.title)}</title>
       <link>${postUrl}</link>
       <guid isPermaLink="true">${postUrl}</guid>
@@ -30,7 +31,8 @@ export async function GET() {
       <author>${siteConfig.author.email} (${siteConfig.author.name})</author>
       <category>Travel</category>
     </item>`
-  }).join('\n')
+    })
+    .join('\n')
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">

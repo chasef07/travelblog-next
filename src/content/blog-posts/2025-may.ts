@@ -1,4 +1,4 @@
-import { BlogPost } from '../../types/blog';
+import { BlogPost } from '../../types/blog'
 
 export const may2025Posts: BlogPost[] = [
   {
@@ -9,9 +9,10 @@ export const may2025Posts: BlogPost[] = [
     country: 'Philippines',
     slug: 'siargao-surfing-philippines-critique',
     year: '2025',
-    excerpt: 'Two surf sessions at Rock Island, improving technique and wave selection while reflecting on moon phases, religious supremacy, and honest Philippines critique.',
+    excerpt:
+      'Two surf sessions at Rock Island, improving technique and wave selection while reflecting on moon phases, religious supremacy, and honest Philippines critique.',
     content: `Two surf session today. This morning at rock island had nice right handed waves. I am working on being more aggressive after pop up to get speed and go right into the pocket of the wave. I like the technicalities of surfing. Today I really improved my searching for waves and picking which one to take. I have really been improving. 5 hours out on the surf board flies by. It is important to check which tide you are surfing at. If the tide is going out you need to make sure you do not get taken out to the sea and paddle back to shore in time. The tides of the ocean are a cool phenomena. The ocean tides are primarily caused by the gravitational pull of the moon. Humans are 60% water content. Somehow most people do not believe the moon and its phases have a great effect on the human psyche and experience. Kabbalah and Ayurveda support this, check it out. One thing aI have been thinking about recently are there are three types of people: religious supremacist, one love Rastas, and stupid people who just don't think deeply. Most religions believe theirs is the best and supreme. I want to try avoid this form of religious supremacy. When you recognize the oneness of all things flowing through everything with infinite love, it makes no sense that a religion could be better than another. Everything is one! Ok last thing I have been wanting to say for a while. Philippines is my least favorite country on my travels. That is not to say I do not enjoy my time here. I am still glad I came. The best thing about the Philippines is for sure the aquatic life. However the Philippines lacks culture, it's expensive, and there is nothing super unique. You get way better beaches in culture in Central America, and SE Asia. Also Filipino people here are quite stupid on average. Even though I am filled with ho ho ho compassion it is annoying sometimes.`,
-    images: []
+    images: [],
   },
   {
     id: 'epic-surfing-day-siargao',
@@ -21,7 +22,8 @@ export const may2025Posts: BlogPost[] = [
     country: 'Philippines',
     slug: 'epic-surfing-day-siargao',
     year: '2025',
-    excerpt: 'After a 4 AM start, finally achieving surfing success at Stumpy\'s and Cemetery breaks - 5 hours in the water and standing up properly for the first time.',
+    excerpt:
+      "After a 4 AM start, finally achieving surfing success at Stumpy's and Cemetery breaks - 5 hours in the water and standing up properly for the first time.",
     content: `Today was one of the dopest days ever.
 
 I woke up at 4 AM in Cebu to catch a flight to Siargao, the surfing capital of the Philippines. Technically, it's the low season here—both for tourism and for waves—so I wasn't even sure there'd be anything to ride.
@@ -89,9 +91,15 @@ What a day.
 
 I hope I sleep like a rock tonight—because I need to surf tomorrow.`,
     images: [
-      { src: '/assets/images/misc/surfrack.jpg', alt: 'Surf rack motorbike setup' },
-      { src: '/assets/images/misc/siargaotefillin.jpg', alt: 'Tefillin in Siargao' }
-    ]
+      {
+        src: '/assets/images/misc/surfrack.jpg',
+        alt: 'Surf rack motorbike setup',
+      },
+      {
+        src: '/assets/images/misc/siargaotefillin.jpg',
+        alt: 'Tefillin in Siargao',
+      },
+    ],
   },
   {
     id: 'port-barton-kayaking-meaningful-calls',
@@ -101,7 +109,8 @@ I hope I sleep like a rock tonight—because I need to surf tomorrow.`,
     country: 'Philippines',
     slug: 'port-barton-kayaking-meaningful-calls',
     year: '2025',
-    excerpt: 'Kayaking adventure in Port Barton with Rachel, encountering a massive box jellyfish, and meaningful conversations about love, marriage, and life paths.',
+    excerpt:
+      'Kayaking adventure in Port Barton with Rachel, encountering a massive box jellyfish, and meaningful conversations about love, marriage, and life paths.',
     content: `I'm sitting in a coffee shop in Puerto Princesa, waiting for my flight to Siargao via Cebu.
 
 Yesterday was a great day in Port Barton. Rachel and I rented a kayak and spent the entire day exploring beautiful, secluded beaches. It was incredibly relaxing and fun. Traveling with Rachel has been amazing — I've done things I wouldn't typically do alone.
@@ -132,10 +141,16 @@ All of those places seem to have what I'm looking for: beautiful nature and beac
 
 Anyway, I'm still waiting on this flight. Looking forward to a week in Siargao to cap off my time in the Philippines before heading to Indonesia.`,
     images: [
-      { src: '/assets/images/misc/whitebeachme-2.jpg', alt: 'Port Barton white beach' },
-      { src: '/assets/images/misc/mepbbeach-2.jpg', alt: 'Me at Port Barton beach' },
-      { src: '/assets/images/misc/rachsun-2.jpg', alt: 'Rachel sunset' }
-    ]
+      {
+        src: '/assets/images/misc/whitebeachme-2.jpg',
+        alt: 'Port Barton white beach',
+      },
+      {
+        src: '/assets/images/misc/mepbbeach-2.jpg',
+        alt: 'Me at Port Barton beach',
+      },
+      { src: '/assets/images/misc/rachsun-2.jpg', alt: 'Rachel sunset' },
+    ],
   },
   {
     id: 'port-barton-8-months-reflection',
@@ -145,7 +160,8 @@ Anyway, I'm still waiting on this flight. Looking forward to a week in Siargao t
     country: 'Philippines',
     slug: 'port-barton-8-months-reflection',
     year: '2025',
-    excerpt: 'Eight months of world travel reflection - from El Nido ziplining to financial reality checks and the importance of playfulness in life.',
+    excerpt:
+      'Eight months of world travel reflection - from El Nido ziplining to financial reality checks and the importance of playfulness in life.',
     content: `8 months, folks!
 It's been 8 months on my trip around the world—living out of a backpack, adventuring, and just being. I've been having a lot of thoughts lately, so let's go for an old-fashioned stream-of-consciousness post! Buckle up—I think this one's going to be a wild ride.
 
@@ -168,8 +184,11 @@ Sometimes I get worked up thinking about what I'll do next—and that pulls me a
 Who knows? I might be home in 2 months, 3 months, 1 year… or two.`,
     images: [
       { src: '/assets/images/misc/zippy-2.jpg', alt: 'Ziplining adventure' },
-      { src: '/assets/images/misc/portbarton-2.jpg', alt: 'Port Barton scenery' }
-    ]
+      {
+        src: '/assets/images/misc/portbarton-2.jpg',
+        alt: 'Port Barton scenery',
+      },
+    ],
   },
   {
     id: 'el-nido-future-planning-rabbi-mendy',
@@ -179,7 +198,8 @@ Who knows? I might be home in 2 months, 3 months, 1 year… or two.`,
     country: 'Philippines',
     slug: 'el-nido-future-planning-rabbi-mendy',
     year: '2025',
-    excerpt: 'Deep conversation with Rabbi Mendy Plotkin about post-trip planning, rejecting material possessions, and the tension of returning home.',
+    excerpt:
+      'Deep conversation with Rabbi Mendy Plotkin about post-trip planning, rejecting material possessions, and the tension of returning home.',
     content: `Yesterday night I talked with my very dear and close friend Rabbi Mendy Plotkin. We gave each other much-needed life updates and reflections. He asked me if I have thought about what comes next after this trip. As I have mentioned, I am beginning to steer my ship back to shore, which is a bittersweet feeling. I am not lost in the middle of the sea anymore and need to plan my return.
 
 I told Mendy that what helps me plan my next steps is starting with what I will not be doing. I will not be moving to a new American city. I will not be working an in-person job in the US. With those two stipulations, it narrows the question much more. I think about a remote, asynchronous job, freelancing, or doing an awesome business with my friends — that would be cool. At the end of the day, it's all part of the Surrender Experiment, and I'm not really stressed about it.
@@ -189,7 +209,7 @@ While conveying these ideas to Mendy, I realized a theme: I do not want more mat
 I love being able to stay nimble in this ever-changing world — intellectually and physically. The thought of buying a new TV, a car, or an apartment literally repulses me. The idea of living in a big urban city with noise pollution, homelessness, fast food, and gross billboards everywhere is haunting.
 
 When I think these thoughts, I realize I'm not that excited to return home. I love the adventure. I love the nomadic lifestyle. However, I know and understand this is a crucial step in the hero's journey — to continue to develop all of my intellectual, emotional, and spiritual faculties, and put them into practice.`,
-    images: []
+    images: [],
   },
   {
     id: 'el-nido-arrival-boat-expedition',
@@ -199,7 +219,8 @@ When I think these thoughts, I realize I'm not that excited to return home. I lo
     country: 'Philippines',
     slug: 'el-nido-arrival-boat-expedition',
     year: '2025',
-    excerpt: 'Completing an incredible 3-day boat expedition from Coron to El Nido - snorkeling with diverse marine life and connecting with travelers from around the world.',
+    excerpt:
+      'Completing an incredible 3-day boat expedition from Coron to El Nido - snorkeling with diverse marine life and connecting with travelers from around the world.',
     content: `After an unforgettable three-day, two-night boat expedition from Coron, I've finally arrived in El Nido. The journey — organized through Keelooma — was nothing short of magical and one of the most memorable experiences I've had in the Philippines so far.
 
 Being completely disconnected from the outside world, swimming for hours in crystal-clear blue water, and feasting on fresh fish and tropical fruits every day — it made me feel truly alive.
@@ -210,10 +231,19 @@ My favorite part of the trip? Snorkeling in pristine waters and exploring vibran
 
 That's about it for now! I've got two more weeks left in the Philippines, split between Palawan and Siargao. Looking forward to a whole lot of surfing, workouts, relaxing, and soaking up the sun.`,
     images: [
-      { src: '/assets/images/misc/smileme-2.jpg', alt: 'Smiling on boat expedition' },
-      { src: '/assets/images/misc/huts-2.jpg', alt: 'Beach huts on expedition' },
-      { src: '/assets/images/misc/snorkeling-2.jpg', alt: 'Snorkeling adventure' }
-    ]
+      {
+        src: '/assets/images/misc/smileme-2.jpg',
+        alt: 'Smiling on boat expedition',
+      },
+      {
+        src: '/assets/images/misc/huts-2.jpg',
+        alt: 'Beach huts on expedition',
+      },
+      {
+        src: '/assets/images/misc/snorkeling-2.jpg',
+        alt: 'Snorkeling adventure',
+      },
+    ],
   },
   {
     id: 'coron-palawan-arrival',
@@ -223,7 +253,8 @@ That's about it for now! I've got two more weeks left in the Philippines, split 
     country: 'Philippines',
     slug: 'coron-palawan-arrival',
     year: '2025',
-    excerpt: 'Feeling great and energized after Bohol, arriving in Coron and preparing for a 3-day boat expedition to El Nido through remote islands.',
+    excerpt:
+      'Feeling great and energized after Bohol, arriving in Coron and preparing for a 3-day boat expedition to El Nido through remote islands.',
     content: `Well, I do not have much to write about — I think that is a good thing. I am feeling great and energized. I have been working out hard, eating less meat and lots of fresh fruits, and being more present.
 
 I was on the island of Bohol for three days and two nights, where I did some paddle boarding and spent time on a nice beach.
@@ -233,7 +264,7 @@ Today, I rode a motorbike, car, ferry, and plane to arrive in Coron, Palawan.
 In a couple of days, I will embark on a three-day, two-night boat expedition from Coron to El Nido, visiting remote islands and disconnecting even more.
 
 Tomorrow, I will do some island hopping and enjoy the beautiful landscapes here.`,
-    images: []
+    images: [],
   },
   {
     id: 'siquijor-healing-island-reflections',
@@ -243,7 +274,8 @@ Tomorrow, I will do some island hopping and enjoy the beautiful landscapes here.
     country: 'Philippines',
     slug: 'siquijor-healing-island-reflections',
     year: '2025',
-    excerpt: 'Recovering energy on the mystical healing island of Siquijor, reflecting on my love for teaching and the balance between intellect and simple living.',
+    excerpt:
+      'Recovering energy on the mystical healing island of Siquijor, reflecting on my love for teaching and the balance between intellect and simple living.',
     content: `Well, it was a great couple of days on the healing island of Siquijor. Coming into the Philippines, I was almost down for the count—exhausted and lacking the energy or chutzpah to continue traveling. But after some solid time relaxing, working out, disconnecting, and taking things slow, I'm back, baby!
 
 Siquijor is a beautiful island filled with lush jungles, clear waters, scenic cliffs, and a few beaches. I'm a bit of a beach snob—growing up in Florida and having seen many stunning places around the world, I have to admit the beaches here in the Philippines haven't really impressed me yet. But hopefully, as I head toward Palawan, which is known for having the best beaches in the country, I'll be mesmerized. And if not, that's okay too!
@@ -259,7 +291,7 @@ I think my greatest gift—my standout skill—is my intellect. Yes, I'm gratefu
 Then again, during this trip, I've come to deeply appreciate the simple, grounded lifestyle—doing something you love, moving your body, and not obsessing over how much money you make.
 
 The tension between chasing a career rooted in intellect and wealth versus embracing a simple, natural, and healthy life is a lifelong dance. I'm excited to navigate that dance, and I feel like I'm beginning to understand the rhythm and how to manage the balance.`,
-    images: []
+    images: [],
   },
   {
     id: 'siquijor-arrival-kawasan-falls',
@@ -269,7 +301,8 @@ The tension between chasing a career rooted in intellect and wealth versus embra
     country: 'Philippines',
     slug: 'siquijor-arrival-kawasan-falls',
     year: '2025',
-    excerpt: 'Epic travel day to Siquijor island, incredible canyoneering adventure at Kawasan Falls, and meeting American entrepreneur Charles in Moalboal.',
+    excerpt:
+      'Epic travel day to Siquijor island, incredible canyoneering adventure at Kawasan Falls, and meeting American entrepreneur Charles in Moalboal.',
     content: `Motorbike from Moalboal to the bus station, bus to the port near Cebu, tuk-tuk to the port itself, ferry to Dumaguete, tuk-tuk to the port near Dumaguete, ferry to Siquijor, and motorbike to my accommodation in Siquijor.
 A long travel day, but all things considered, it was smooth, painless, and cheap. I'm on a new island now—Siquijor—and I'm looking forward to adventuring around it!
 
@@ -289,19 +322,26 @@ While I've loved traveling solo and thrive as a lone wolf, I've come to apprecia
 
 I'm excited to explore more of Siquijor!`,
     images: [
-      { src: '/assets/images/misc/stachefall.jpg', alt: 'Canyoneering at waterfall' },
-      { src: '/assets/images/misc/watermee-2.jpg', alt: 'Swimming in turquoise waters' }
-    ]
+      {
+        src: '/assets/images/misc/stachefall.jpg',
+        alt: 'Canyoneering at waterfall',
+      },
+      {
+        src: '/assets/images/misc/watermee-2.jpg',
+        alt: 'Swimming in turquoise waters',
+      },
+    ],
   },
   {
     id: 'moalboal-exhaustion-hero-journey',
-    title: 'Moalboal Recovery - The Hero\'s Journey Continues',
+    title: "Moalboal Recovery - The Hero's Journey Continues",
     date: '2025-05-05',
     location: 'Moalboal, Philippines',
     country: 'Philippines',
     slug: 'moalboal-exhaustion-hero-journey',
     year: '2025',
-    excerpt: 'Reflecting on exhaustion after the motorbike accident, understanding what energizes me, and recognizing my ship is steering toward shore.',
+    excerpt:
+      'Reflecting on exhaustion after the motorbike accident, understanding what energizes me, and recognizing my ship is steering toward shore.',
     content: `Okay, enough of the history recap—let's get real. I'm going to take you on a journey through the current state of my internal dialogue.
 Ever since I hit a dog and crashed my bike, I've felt exhausted. It's true: when your body is healing, the immune system is active—sending cells to repair tissue and prevent infection—which uses up a lot of energy. Inflammation releases chemicals like cytokines, which can make you feel fatigued or sluggish. Tissue regeneration and rebuilding require increased protein synthesis and cell activity, which also draw on your body's resources.
 I hate feeling exhausted and tired. Being energized, I've realized, is one of the most important things you can do for yourself as a human. If you're not energized, you can't give to others, crack jokes, or train your mind and body.
@@ -321,9 +361,15 @@ Now, for the first time in human history, you can make a living and earn money f
 I don't want to plan too far ahead. I want to preserve spontaneity. I think the best approach is to point your ship in a direction and see where the waves take you—rather than trying to force a specific course.
 After all, the best laid plans of mice and men often go awry.`,
     images: [
-      { src: '/assets/images/misc/moalboalbeach.jpg', alt: 'Moalboal beach scenery' },
-      { src: '/assets/images/misc/cebuwaterfall.jpg', alt: 'Cebu waterfall adventure' }
-    ]
+      {
+        src: '/assets/images/misc/moalboalbeach.jpg',
+        alt: 'Moalboal beach scenery',
+      },
+      {
+        src: '/assets/images/misc/cebuwaterfall.jpg',
+        alt: 'Cebu waterfall adventure',
+      },
+    ],
   },
   {
     id: 'philippines-arrival-spanish-history',
@@ -333,7 +379,8 @@ After all, the best laid plans of mice and men often go awry.`,
     country: 'Philippines',
     slug: 'philippines-arrival-spanish-history',
     year: '2025',
-    excerpt: 'Arriving in Cebu after Singapore, exploring the deep Spanish colonial influence and comparing the energy of Singapore vs Dubai as city-states.',
+    excerpt:
+      'Arriving in Cebu after Singapore, exploring the deep Spanish colonial influence and comparing the energy of Singapore vs Dubai as city-states.',
     content: `After a successful 36 hours in Singapore, it's back to the developing world. I arrived in Cebu, Philippines early this morning and slept the whole way on the direct flight from Singapore.
 
 Before diving into what's in store here in the Philippines, here are a few takeaways from my time in Singapore. Based on first impressions, I thought I was really going to like it. But in the end, it felt kind of bland. The city lacked energy. It's a uniquely chill and efficient place to live, but it doesn't really ignite anything in you. Between the two small, futuristic city-states, I'd take Dubai over Singapore. Dubai has more vibrancy, more ambition, and just feels more alive. Singapore markets itself with bold claims about wild architecture and sustainability—some of that is there, but it wasn't as striking or overwhelming as I expected.
@@ -345,7 +392,7 @@ The Philippines is a country of over 7,000 islands, with deep Spanish roots that
 Spanish influence began in 1521 when Portuguese explorer Ferdinand Magellan—sailing under the Spanish crown—arrived in the Philippines. His arrival marked the beginning of European interest in the islands. Magellan was killed shortly after landing, during the Battle of Mactan, right here in Cebu, by the local chieftain Lapu-Lapu, who is now celebrated as a national hero. Despite Magellan's death, Spain returned and successfully colonized the archipelago in the late 1500s. Spanish rule lasted for over 300 years, until 1898, when the U.S. took control following the Spanish-American War.
 
 That long colonial period left a deep imprint on everything—from town names and food to language and religion. Catholic festivals, Spanish surnames, and colonial churches are everywhere. Even today, walking around parts of the Philippines can feel like stepping into a hybrid of Latin American and Southeast Asian culture.`,
-    images: []
+    images: [],
   },
   {
     id: 'singapore-exploration-city-state',
@@ -355,10 +402,11 @@ That long colonial period left a deep imprint on everything—from town names an
     country: 'Singapore',
     slug: 'singapore-exploration-city-state',
     year: '2025',
-    excerpt: 'First impressions of Singapore - from humble fishing village to global financial powerhouse, exploring Little India and hawker center culture.',
+    excerpt:
+      'First impressions of Singapore - from humble fishing village to global financial powerhouse, exploring Little India and hawker center culture.',
     content: `Travel day to Singapore! I arrived in Singapore this afternoon safely and smoothly. 
 Let's recap the history and current state of the rich city-state before my two-night exploration here! Once a humble Malay fishing village known as Temasek, Singapore's transformation began in 1819 when Sir Stamford Raffles of the British East India Company established it as a strategic free port, quickly turning the island into a vital hub for global trade. 
 Through the 19th and early 20th centuries, it flourished under British colonial rule until it faced Japanese occupation during World War II, a traumatic chapter that lasted from 1942 to 1945. After the war, Singapore moved toward self-governance in 1959 and briefly joined Malaysia in 1963, only to be expelled two years later, forcing the fledgling nation into sudden independence in 1965. What followed was one of the most remarkable development stories of the modern world: under the leadership of Lee Kuan Yew, Singapore built a highly efficient, corruption-free government, emphasized education and urban planning, and opened its doors to foreign investment, becoming a global powerhouse in finance, technology, and shipping despite having almost no natural resources. Today, Singapore is a tightly woven fabric of cultures, shaped by its rich ethnic mosaic made up of roughly 75% Chinese, 15% Malay, 7% Indian, and a remaining 3% comprising Eurasians and other minority groups. This diversity is reflected in everything from its cuisine and architecture to its festivals and neighborhoods, with English as the main working language alongside widespread use of Mandarin, Malay, Tamil, and the colorful local slang known as Singlish. After the flight I took the clean and efficient public transport about 30 minutes to my hostel in Little India. The crazy thing about Singapore is how expensive it is—hostel beds in an 18-person dorm room are over 40 dollars a night! This high cost of living is part of Singapore's broader economic story: despite its small size and lack of natural resources, it has become one of the world's richest countries thanks to strategic planning, pro-business policies, and an emphasis on global trade and finance. Its GDP stands at over $500 billion USD, with a GDP per capita of around $85,000, making it one of the wealthiest nations globally. Singapore's key exports include electronics, pharmaceuticals, petroleum products, and financial services, and it's home to one of the busiest ports and airports in the world. My first impressions of Singapore are overwhelmingly positive—it's instantly likable and captivating. The country is a fascinating fusion of some of my favorite cultural influences—Asian and Indian—wrapped in a sleek, ultra-modern, and first-world presentation. It is immaculately clean, feels incredibly safe, and signs warning of hefty fines for everything from littering to fighting are posted everywhere, reinforcing its reputation for strict order. In Little India, the streets pulse with life: rows of electronic shops, barbershops, clothing stalls, and clusters of young men chatting in Tamil give the area the feel of southern India transplanted into the heart of Southeast Asia. One thing I realized is that for a country to succeed, it must find a way to attract and retain global capital—both the wealthy and the financial institutions that support them. Singapore is a masterclass in this strategy: its low corporate tax rates (around 17%), lack of capital gains tax, robust legal protections, political stability, and streamlined regulations have made it a magnet for multinational banks, investment firms, and high-net-worth individuals. This is a model that countries like Vietnam—despite their growing economic momentum—should look to emulate if they want to elevate themselves further on the world stage. After settling in, I looked up the famous hawker center in Little India for cheap, authentic Indian food. I had really good mutton biryani—tender, spicy, and deeply flavorful. Hawker centers are a uniquely Singaporean institution: open-air food courts packed with individual vendors, or "hawkers," who specialize in just one or two dishes perfected over years or even generations. They're an affordable, communal way for locals and tourists alike to enjoy the city's multicultural cuisine, and many stalls have even earned Michelin recognition. After a satisfying dinner, I walked back to the hostel to get a good night's rest before a long and action-packed day tomorrow.`,
-    images: []
-  }
-];
+    images: [],
+  },
+]

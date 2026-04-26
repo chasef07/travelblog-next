@@ -1,6 +1,6 @@
-import Image from "next/image"
-import Link from "next/link"
-import { getAllCountries } from "@/content/countries-data"
+import Image from 'next/image'
+import Link from 'next/link'
+import { getAllCountries } from '@/content/countries-data'
 
 export default function SimpleCountriesGrid() {
   const countries = getAllCountries()

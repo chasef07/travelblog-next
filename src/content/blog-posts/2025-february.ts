@@ -1,4 +1,4 @@
-import { BlogPost } from '../../types/blog';
+import { BlogPost } from '../../types/blog'
 
 export const february2025Posts: BlogPost[] = [
   {
@@ -9,13 +9,17 @@ export const february2025Posts: BlogPost[] = [
     country: 'Cambodia',
     slug: 'koh-sdach-paradise',
     year: '2025',
-    excerpt: 'Discovering a hidden gem - a fishing island turned resort paradise with saunas, cold plunges, and learning to backflip.',
+    excerpt:
+      'Discovering a hidden gem - a fishing island turned resort paradise with saunas, cold plunges, and learning to backflip.',
     content: `I am in a small fishing island off the southwest of Cambodia. Nobody came to this island until a hostel chain, Mad Monkey, opened a beautiful hostel. It is more of a resort. For 8 dollars a night it includes a sauna, steam room, cold plunge, jacuzzi, infinity pool, outdoor gym, private beach, and comfy beds. It opened a month ago. I rushed here to get into a nice routine, relax, and unwind. As you know I love saunas and cold plunges. I have taken the past couple of days to disconnect and improve my mind and body. Yesterday I went out on a boat with people from the hostel and we banana boated and fished. It was a lot of fun. I am very proud to announce that I am a part of the flip community or flipper community. I learned how to do a backflip from the boat! I never thought I would be a flipper but I was able to do it pretty easily on my first try. Another tool to my tool belt. I also learned that I like Flat White coffee. I never heard of this type of coffee in the US. A flat white is an espresso-based coffee drink made with a shot (or double shot) of espresso and steamed milk, topped with a thin layer of microfoam (smooth, velvety milk foam). It originated in Australia or New Zealand and is known for its strong coffee flavor and silky texture. Essentially, if you prefer a bolder coffee taste with a creamy texture, go for a flat white. If you like a milkier, smoother drink, a latte is a better choice. I will be chilling in Koh Sdach for another couple of days before moving on to another island of Cambodia. Shabbat Shalom.`,
     images: [
-      { src: '/assets/images/misc/kohsdach.jpg', alt: 'Koh Sdach island paradise' },
+      {
+        src: '/assets/images/misc/kohsdach.jpg',
+        alt: 'Koh Sdach island paradise',
+      },
       { src: '/assets/images/misc/1b2g.jpg', alt: 'Friends on the boat' },
-      { src: '/assets/images/misc/fishing.jpg', alt: 'Fishing adventure' }
-    ]
+      { src: '/assets/images/misc/fishing.jpg', alt: 'Fishing adventure' },
+    ],
   },
   {
     id: 'phnom-penh-first-impressions',
@@ -25,9 +29,10 @@ export const february2025Posts: BlogPost[] = [
     country: 'Cambodia',
     slug: 'phnom-penh-first-impressions',
     year: '2025',
-    excerpt: 'First impressions of Cambodia\'s capital - cleaner and more developed than expected, with Japanese influence and great sauna culture.',
+    excerpt:
+      "First impressions of Cambodia's capital - cleaner and more developed than expected, with Japanese influence and great sauna culture.",
     content: `Good afternoon from Phnom Penh. Before I give my first impressions of Cambodia I think I need to go back to my Lao review to give it the respect it deserves. I entered Lao solo traveling, with little plan and no bookings. I embraced the spontaneity of the adventure, not booking accommodation or tickets in advance. I really liked traveling this way. You get cheaper deals, and better finds. It always worked out thankfully. I was able to change my plans on a dime because I had all the flexibility in the world. That is all. I took a 10 hour bus from Don Det to the capital of Cambodia, Phnom Penh, yesterday. I booked the VIP bus for 35 dollars which had nice reclining chairs, solid wifi and a meal included. It was totally worth it. The ride was super long and exhausting but not the worst thing. Immediately when I arrived in Phnom Penh I realized it was way nicer and cleaner than I expected. Maybe this is because I was coming from Lao. Walking around today I was really impressed. There are really nice high rise apartments being built, tons of vibe cafes, and a bunch of international restaurants. Today I started my day by going to the sauna and cold plunge. I found a place for five dollars. Wow it made me feel amazing after a 10 hour bus ride. It makes my body and mind sharp. I would do it everyday if I could. I walked around the city and saw Japanese influence with sushi restaurants, flags, and more. As I said the city is pretty clean for a SE Asian city. I went to the mall to get some toiletries. It was really nice being able to be a consumer again. I like consuming. I think being in Lao for a month gassed me. Now I have the option of what kind of food to eat, where to go and more. It is nice and is making me feel better. Taking it chill today before heading to the islands. I need to learn more about Cambodian culture and some basic phrases. I find myself saying Lao phrases because I was in so deep!`,
-    images: []
+    images: [],
   },
   {
     id: 'don-det-backpacker-paradise',
@@ -37,13 +42,23 @@ export const february2025Posts: BlogPost[] = [
     country: 'Laos',
     slug: 'don-det-backpacker-paradise',
     year: '2025',
-    excerpt: 'Final days in Laos on the river island of Don Det, reflecting on a month of authentic cultural immersion and planning the next adventure.',
+    excerpt:
+      'Final days in Laos on the river island of Don Det, reflecting on a month of authentic cultural immersion and planning the next adventure.',
     content: `I am in Don Det. I left the organic farm yesterday (Thursday) morning. Don Det is part of the very southern region of Lao called the "4000 islands" It is a group of islands in the Mekong River. A river island! Don Det is solely a backpacker destination. I arrived and an older gentleman named Adrian sold me a bungalow with a Riverview and hammock for 10 dollars. This place is like stepping back in time he said. He was a backpacker for many years and decided to settle down here. I have noticed a handful of older, western gentleman who are staying here long term. It is laid back with nothing to do, nice nature, and rustic. I read online that it is a backpackers paradise. I could see that. If you want to chill in a hammock all day by the river and ride a bicycle around, this is the place for you. Adrian, the old British guy who sold me the bungalow, also wrote a book. He sold me on his book too. It is titled "South East Asia In Yer Face". It is a chronicles of his backpacking experiences. He seemed nice and genuine and a good story teller so I bought it for 10 dollars. Today I biked around the island. It is really hot here. I was deciding whether to stay another day or leave to Cambodia. After much contemplation I realized my time in Lao, a month as of today, is complete and finished and I will leave tomorrow. While I think of it, here are my Lao highlights: Lao herbal steam room, Nong Khiaw nature and trekking, and waving, smiling, cute kids. It was an incredible, authentic experience into a culture that is still intact, and not overrun by tourists. Though quite poor, they live happily. It is sad that they do not have much social mobility or path to make more money and move up the ladder. I think I am feeling this tension of what to do because I need a new experience. Hopefully Cambodia, a new country and culture will reinvigorate me. Also I am looking forward to meeting new people. In Thailand I met a lot of people, because it is a backpacker hub. Then a subset follow the route to Lao. Lao is a lot less backpacked. I got tired of seeing the same faces in lao on the same route. I was able to break away from it after leaving Vang Vieng. Also I was staying in privates because it is just as cheap as dorms. Now all of the sudden I have the desire to go back to social hostels and hopefully meet a new batch of fresh faces. I am looking to a lot of time on the Cambodian beaches, and the equinox in Angkor Wat. I want to stay in places longer as I mentioned instead of bouncing around. I will first try this on the Cambodian beaches. Maybe I should let you all know a couple new places came on my radar recently. I am interested in going to Chengdu, China and exploring Indonesia thoroughly for a month. The next part of this trip will consist of a lot of beach and surf time. I will make sure to get lost on the way too don't worry. I liked the time on the farm and days like today to chill and relax, but now I have a fire to pick up the gears! One month until the equinox! 1.5 months until my birthday!`,
     images: [
-      { src: '/assets/images/misc/hammock.jpg', alt: 'Hammock life in Don Det' },
-      { src: '/assets/images/misc/bikebag.jpg', alt: 'Biking around the island' },
-      { src: '/assets/images/misc/yerface.jpg', alt: 'South East Asia In Yer Face book' }
-    ]
+      {
+        src: '/assets/images/misc/hammock.jpg',
+        alt: 'Hammock life in Don Det',
+      },
+      {
+        src: '/assets/images/misc/bikebag.jpg',
+        alt: 'Biking around the island',
+      },
+      {
+        src: '/assets/images/misc/yerface.jpg',
+        alt: 'South East Asia In Yer Face book',
+      },
+    ],
   },
   {
     id: 'farm-life-reflections',
@@ -53,9 +68,10 @@ export const february2025Posts: BlogPost[] = [
     country: 'Laos',
     slug: 'farm-life-reflections',
     year: '2025',
-    excerpt: 'Deep reflections on farm life, the purpose of travel, and contemplating the future while chopping wood and building websites.',
+    excerpt:
+      'Deep reflections on farm life, the purpose of travel, and contemplating the future while chopping wood and building websites.',
     content: `Time to reflect. This will be a hardcore flow of consciousness. Today I chopped wood for a solid hour. It was interesting doing something so primal and so repetitive. I reflected how people used to do this for thousands of years to make fire and thousands of people still do this today. Is chopping wood about accuracy or precision? Chopping one piece takes a while. You miss the mark many times but eventually you create a singular crease which goes deeper and deeper. Is there a metaphor in here for life? Probably. You have to keep shooting shots around a targeted goal, and eventually you will succeed. The past 5 days I have been living in the 3rd world, maybe 3.5 world fully. I appreciate the 1st world more than ever. I thought farm life would be relaxing and liberating. It has those aspects but I still crave more. I like seeing different places and meeting different people on a day to day basis. On the farm you walk around the same 200 square meters all day. I like places with a nice river, clean air, and more walkability. I have never missed a nice mall more than now. Maybe I am not a farm guy, or this is just not my conception of farm life. The days are slow but they somehow have passed by quickly. I think it was because I worked on the website for a good portion. By the way sharedhappyfarm.com is live now. It was nice giving a small Lao business immediate value with my technical skills. It is so much more than what I could have given in the kitchen or the farm. I really needed to be hand held in the kitchen and farm aspects unfortunately. I think with technology and AI we are really becoming a different species which is sad but also exciting. I used AI to help make the website for them. I am not even kidding it accomplished a task in a couple hours it would take me weeks to do without it. It is really scary and exciting how powerful this AI stuff will be. Why was I born into this body at this time? Why were you not born into the body of a rural Lao child? These are kind of silly questions to ask but it makes you wonder… What is my purpose here? I have slept terribly since being here. Last night I was a little sick and I think I was tossing and turning all night. I might have even been hallucinating I am not sure if I was truly asleep. I think I sweat out my fever though and feeling better. I have been dreaming about death recently. I got shot by a Joker-esque character in my dream a couple nights ago. Whenever I die in a dream a warm sensation covers my body and I wake up. I am an intellectual at heart. I should devote more focused time to intellectual activities. I used this time on the farm to slow down from moving so much. I am not sure if the farm actually rejuvenated me. Am I getting travel fatigue? I am almost 5 months in. I might be getting tired from moving place to place, following some route. I should do more crazy things. This was a crazy thing too. I said I was going to be radically present. I think I am improving but still not there yet. We are less than two months out from my 25th birthday. Wow! I drove a semi-automatic motorbike on the Thakhek loop and I thought about shifting into different gears. These next 2 months I will be shifting up to gear 4. But everyone knows you cannot drive in gear 4 always. You have to dance between gear 3,2,1, and even neutral. It is designed into the cosmic blueprint that the winter is for lower gears, slower life. I can feel my engine rumbling. It has been rumbling for a while. I might leave the farm tomorrow. I might not. It depends how I sleep. My body is in shambles from these beds. I might hitchhike back to Pakse. I might not. I have never hitchhiked but think it would complete my Lao experience. If you are reading this I appreciate you. Thank you for being alive, thank you for caring about me. I care about you.`,
-    images: []
+    images: [],
   },
   {
     id: 'farm-passionfruit-smoothie',
@@ -65,9 +81,10 @@ export const february2025Posts: BlogPost[] = [
     country: 'Laos',
     slug: 'farm-passionfruit-smoothie',
     year: '2025',
-    excerpt: 'Making passionfruit smoothies and tending the soil while learning about farm life and the global soil crisis.',
+    excerpt:
+      'Making passionfruit smoothies and tending the soil while learning about farm life and the global soil crisis.',
     content: `I made myself a passionfruit smoothie today. I used 10 fresh passion fruits, a splash of water, and a touch of honey. It was nice and fresh. I also made a couple eggs and ate some fresh gooseberries and passionfruit jam. I got to do my 100 pushups, some sit ups and stretches after that. Today I did a little bit of farm work, tending to the land and the vegetables. I picked some weeds from the lettuce containment and turned over the soil. While touching the soil I felt connected to the Earth and realized how it was very nice soil, not too dry or crunchy. Good soil is a balance of sand, silt, and clay which holds moisture while allows drainage. Soil must be rich in organic matter, such as compost, decomposed leaves, and manure to improve fertility and structure. Organic matter helps retain moisture and supports beneficial microbes. Nutrients in the soil include nitrogen, promotes leafy growth, phosphorous, helps with root development, potassium, improves disease resistance and plant health, and other micronutrients like iron, calcium, magnesium… Most plants thrive in slightly acidic to neutral soil (pH 6.0 -7.0). That is your review on soil. Actually, the Earth's soil is going through a huge crisis right now. Sadhguru started the Save Soil global movement to address the soil crisis. He notes that 52% of agricultural soil is already degraded. Lack of organic content turns soil into sand which can cause food crisis, water scarcity, lack of bio-diversity, migration, and more. After tending to the land I went on a solid run around the farm. The road is dirt, uneven, and filled with rocks. Running makes me feel powerful. I hate it but I think that is why it makes me feel strong and accomplished. I like waving to the local children and getting the longest stares. I like doing hard things that suck. I will continue to put myself in uncomfortable situations to grow. Oh also today I reviewed the ski apartment numbers Zach and I bought in Gudauri Georgia. We are still in the red due to the management company doubling the HOA fees and having to replace the lock of our door. However, we will be in the green soon due to strong snow in late February. Zach and I bounced off some good ideas on how to have a killer season next season. I may make a website for our apartment and specifically market it to Israelis. I want to buy more international properties because it is fun. Life is fun. If you are not having fun in your life you are doing something extremely wrong. At dinner tonight I thought about all the different people that passed through. Today was calmer, quiet and not as talkative. People like to talk in their native language, which is understandable. But this creates an isolated environment and not as inclusive for conversation for all. I am pretty tired and it is only 20:00. I am not sure if I will make it a whole week on the farm. There is not as much farm work and I am almost done with the website. I am eating the same food everyday. It is good but I would like some variety.`,
-    images: []
+    images: [],
   },
   {
     id: 'waterfall-adventure-spark-plug',
@@ -77,13 +94,23 @@ export const february2025Posts: BlogPost[] = [
     country: 'Laos',
     slug: 'waterfall-adventure-spark-plug',
     year: '2025',
-    excerpt: 'An epic waterfall adventure with motorbike breakdowns, local hospitality, and discussions about Poland\'s impressive development.',
+    excerpt:
+      "An epic waterfall adventure with motorbike breakdowns, local hospitality, and discussions about Poland's impressive development.",
     content: `Wow what a day. I had some great conversations and experiences today. I woke up and took the morning slow. The farm serves breakfast to all of the guests in the morning and people chat. I talked with a Polish guy who just finished his PhD in physics. He is researching nanotechnology fabrication which is what I studied a fair bit in school. It was nice talking shop and tech with him. I am still really interested in photonics, but it is so difficult to fabricate photonic devices cheaply and at scale. The electronic industry is so mature and has done amazing things to produce fantastic devices at scale. I still think photonics may be able to break into the AI interconnect space between GPUs due to low power and speed benefits. Next we talked no nonsense immigration policy of Poland. It was refreshing to hear his perspectives. Poland is super hard on immigration and does not let anyone in except they are working. There are no free social handouts like in France. Also he highlighted Poland's reverse immigration policy, which attracts people of Polish descent back to the thriving country. This is funny he mentioned because my friend Zach just got his Polish citizenship! Poland is expected to pass England in GDP by 2030 and will have the strongest military in Europe. He estimates in the coming year they will spend about 5% of the GDP on military. I really think Poland is doing amazing things economically and politically wise and the proof is there. Immigration and free social handouts are killing Europe, making them unsafe and stagnating the economy. This conversation in the morning was great and refreshing. After that I added a nice slideshow feature to the Shared Happy Farm website. When it is complete I will add it here. It looks really professional, sleek, and nice right now, I am really happy about it. I read a good amount of my book too. I changed over to "The Three Musketeers" by Alexandre Dumas because "Devils" by Dostoevsky was too slow and boring. Dumas is great! In the afternoon Mr. Tu told me I could take the motorbike to a local waterfall. There is another volunteer here who is French woman who came with me. I do not know her name. She is doing art for the farm. The motorbike ride was one of the craziest of my life. If I was not the number one scooter driver in Gainesville, FL I surely would've fell. The terrain was rugged and bumpy and crazy. Anyway on the drive there the motorbike died. I could not figure out for the life of me what happened. We assumed it ran out of gas or just stopped working. To give you an idea, this is a really shitty bike. It has no mirrors, no side panels, the speed dial does not work properly, and the engine chugs like crazy. The French girl and I spent probably 45 mins in the middle of a side road on rural Laos trying to kick start this thing. We tried everything. We decided to walk the bike back up the main road and ask for help or call the Farm. We took it to a local convenience shack and filled up some gas. We were hopeful it was just a gas problem. After filling up with gas, the bike still did not start. After an hour of this we almost gave up and called the owner to pick us up. Then the owner of the local shack's son came back and looked at the bike. He discovered on the bottom of the bike a small chord unplugged. It was the spark plug. A spark plug is a device that ignites the fuel-air mixture in an engine by sending an electric spark into the combustion chamber After plugging it back in the bike worked! We decided to still go to the waterfall even though it took so long and it was overcast. The waterfall was a super local scene, we were the only non-locals. Immediately when we arrived a group of Lao people invited us to eat and drink with them. Of course I could not resist. It was so nice and welcoming of them. We drank a couple beers, had goat with a nice spicy sauce, and laughed and took pictures together. I did a jersey swap with a guy there. I got a small Lao soccer jersey and he got a long sleeve white Faherty shirt. He said that BeerLao makes his soul happy and that they love just hanging with friends by the waterfall listening to Lao EDM mixes. It was such a wholesome scene and I am very grateful they extended a welcoming hand. I still strive to be this welcoming and kind. After staying for an hour and half about we went to find a secret waterfall. The road was so shit that I almost wiped out. As I said, I won the Gainesville Olympics for top scooter driver so I was able to navigate the shit rocky dirt roads while buzzed in the Lao countryside. This is why I quit my job obviously! I do not think you understand how terrible this dirt path was I want to emphasize this more. Everywhere was huge boulders and it was so so even and covered in dirt. It was uphill and downhill. I prevailed without falling. After a great adventure we drove back to the farm. On the way the bike gave us more problems. This time the spark plug actually popped out completely. Luckily it fell out right near we got it fixed the first time. We pulled over and the locals rushed to our aid. Even though we can't speak to each other they were so kind and helpful. A small boy brought out some tools and was able to get the spark plug back in. While this was all happening Mr. Tu comes running out of nowhere. He drove to Pakse this morning to drop off his sister and on the way back he saw us broke down on the side of the road. We told him that the locals were very kind and helpful. We drove back on more terrible roads and the bike broke down one or two more times but we fixed it ourselves. Upon arriving back on the farm I was so tired from the fiasco I took a nap. I woke up for dinner time upon a handful new guests. I had the best conversation I have had at the farm with an Australian and Norwegian man. We talked about whether it is a big deal to squat while you poop. In Asia lots of time the toilet has no seat or is just a hole in the ground so you need to get in a yogi squat to poop. I was told I do not look American or 24 again which I have not heard in a while! I like when people comment on this I think it is a good thing. The Australian guy, Erik told me he was a snowboard instructor and does the certifications! I told him I was interested earlier in my trip in getting certified in Japan but it did not seem like it would work out. He told me I could come between June-October to get certified. I am highly considering it. The Norwegian guy Lars was very cool and funny too. I really want to visit Norway and Denmark soon. Overall it was a beautiful day with great interactions.`,
     images: [
-      { src: '/assets/images/misc/laobeermeal.jpg', alt: 'Sharing a meal and Beer Lao with locals at the waterfall' },
-      { src: '/assets/images/misc/jerseyswap.jpg', alt: 'Jersey swap with a local Lao guy' },
-      { src: '/assets/images/misc/farmwaterfall.jpg', alt: 'The waterfall adventure location' }
-    ]
+      {
+        src: '/assets/images/misc/laobeermeal.jpg',
+        alt: 'Sharing a meal and Beer Lao with locals at the waterfall',
+      },
+      {
+        src: '/assets/images/misc/jerseyswap.jpg',
+        alt: 'Jersey swap with a local Lao guy',
+      },
+      {
+        src: '/assets/images/misc/farmwaterfall.jpg',
+        alt: 'The waterfall adventure location',
+      },
+    ],
   },
   {
     id: 'first-farm-day-website-work',
@@ -93,13 +120,20 @@ export const february2025Posts: BlogPost[] = [
     country: 'Laos',
     slug: 'first-farm-day-website-work',
     year: '2025',
-    excerpt: 'First full day volunteering at the organic farm - discovering my unique contribution by building their website instead of traditional farm work.',
+    excerpt:
+      'First full day volunteering at the organic farm - discovering my unique contribution by building their website instead of traditional farm work.',
     content: `Today was my first full day on the farm, here are my initial thoughts. The farm is slow, the farm is patient. Arriving yesterday afternoon I felt antsy. I'm typically good at being bored but I feel like I should be doing something. But this is how millions of people live. I expected to get to the farm and hit the ground running with many tasks. However, the farm doesn't need to be tended every second of the day. The farm does its thing and evolves over time to produce the most exquisite output. You can't be a farm that does everything. Master certain things. Here they specialize in passion fruit, avocado, and other simple veggies. I do not see any cows for milking which probably takes a lot of work. The beginning of any new beginning is always the most uncomfortable. I met the owner and moved some bamboo and cleared some brush, very simple tasks. I focused on being the best I could at moving bamboo, at sweeping leaves. It's a lot more difficult to unwind than I expected. The brain doesn't know what it wants it's so weird. Wants two contradictory things at the same time. It says I should slow down and then it says keep going! Last night I talked with all French people. They said don't make fun of animals online because of animal right! I found that so funny. I asked them if they are optimistic of the future of France and they laughed in my face, of course not. I asked why Europe does not have any AI companies or working on any emerging industries. The resounding answer was too much EU regulation. I am really happy the US is taking steps to not become like Europe. They are too busy protesting about what you say online about animals than building AI and tech companies. That was a hodge podge of thoughts from yesterday evening. Today the owner of the farm, Mr Du asked me if I ever had experience with content or making a website. Funny enough I do from making this blog. He really wanted to build a website and some instagram reels so I agreed to help him out. The only reason I am on my laptop publishing this blog is because of the work I did on his website today. I expected to come to the farm as a digital detox, work the farm manually, and have no wifi at all. It should be noted this farm doubles as a guesthouse for other guests to stay overnight. At first I was disappointed not to work the farm, but then realized that I can contribute something unique and meaningful not everybody can do. Most people, even elderly men and women, can tend to the farm. Not everyone can build a working website from scratch. As much as I try to escape the strangle hold of technology and social media it always bats it eyes telling you its always here. I just have to hold myself accountable as to how much to use it. Also this farm is fully vegetarian. As you may know I eat a lot of meat but I thought it would be good to surrender to whatever they feed me here I have tried beet juice, lettuce, carrots, gooseberries, passionfruit, pumpkin, and more from their farm. I actually feel really energetic and my belly does not hurt. Finally, I was asked in the afternoon to sweep some leaves. I realized there were a few tools to do this task. At first I started with the rake. I knew it was not the most efficient but wanted to try it slowly. I ended up being suggested to use a simple broom and broom pan by a woman here. There are lots of different tools to do one job. Sometimes you pick the most efficient, sometimes not. Overall, it feels nice contributing something unique that is a specific skill not everyone can do. I could work the farm, but so can the old ladies here. I was expecting to do farm work but it is better to make a bigger impact.`,
     images: [
       { src: '/assets/images/misc/farmlife.JPG', alt: 'Farm life in Paksong' },
-      { src: '/assets/images/misc/rooftopfarm.jpg', alt: 'Rooftop view of the farm' },
-      { src: '/assets/images/misc/farmset.jpg', alt: 'Farm setting and environment' }
-    ]
+      {
+        src: '/assets/images/misc/rooftopfarm.jpg',
+        alt: 'Rooftop view of the farm',
+      },
+      {
+        src: '/assets/images/misc/farmset.jpg',
+        alt: 'Farm setting and environment',
+      },
+    ],
   },
   {
     id: 'volunteering-commitment-rural-laos',
@@ -109,9 +143,10 @@ export const february2025Posts: BlogPost[] = [
     country: 'Laos',
     slug: 'volunteering-commitment-rural-laos',
     year: '2025',
-    excerpt: 'Taking the leap into volunteering at an organic farm in rural Laos, extending my visa and embracing a slower pace of life.',
+    excerpt:
+      'Taking the leap into volunteering at an organic farm in rural Laos, extending my visa and embracing a slower pace of life.',
     content: `I am doing it. I am going to volunteer in the middle of rural Laos on an organic farm. I have been talking about volunteering for a while now and I am happy I finally found a nice experience to commit to. Right before committing to the volunteering this morning some tension arose. Should I keep moving? How will I get there? What if I don't like it? I have been on the go for so long, moving to different places every couple of days. It has become against my nature to sit and stay at a place for a week or more. But, that is exactly what I need in this trip at this point. To be comfortable not on the move, not going on a crazy adventure each day, but to focus on a single task over a longer period and perfect it. This is a microcosm for life. Eventually I will want to build and work on a directed goal in career and family. I know I thrive when I put my head down and grind on one thing. Over the past few months maybe I have lost that because I have been going from one crazy experience to the next. Anyway to be able to do this volunteering experience I had to extend my visa in Laos. Thankfully my friend told me to check when my visa expired which I would have never thought of. At the border the officers did not tell me how long the visa is. I had to check on the stamp they gave me which it said it was 28 days. This morning I had to go to the immigration office and fill out a visa extension form. I needed a photocopy of my passport, a passport photo, and money to extend it. It was about 8 dollars to extend my visa for an extra week, which I think is worth it to fulfill my commitment to volunteer in this country. I found out about this farm when I rented a motorbike from a shop. I asked the owner if he knew of any volunteering experiences and he recommended me Shared Happy Farm. Online it had raving reviews of people coming for a farm stay or for food. I messaged the owner of the farm and he was so nice and personable and welcomed me. He wanted me to stay for a month or two but I told him I could only commit to 7 days right now. I also had another volunteering experience to build camping platforms in the Pakse area. What made me commit to farming was really the warmth of the host. He messaged with a voice note on whats app which made it feel like he really cared and made a connection. I realized this is really important in life and in business. When someone is deciding to pick between two equal products or experiences, making a friendly personal connection really helps give you an edge. I want to improve on putting that out there for everyone I meet. Being more friendly and personable. Anyway I am at a local bus station now waiting to take a bus to the middle of nowhere. There are no other tourists or white people. I have to tell the driver where to drop me off on the way and hopefully it works out. Here's to a new adventure, taking it slow and into the details.`,
-    images: []
+    images: [],
   },
   {
     id: 'battle-asian-bus-ride',
@@ -121,7 +156,8 @@ export const february2025Posts: BlogPost[] = [
     country: 'Laos',
     slug: 'battle-asian-bus-ride',
     year: '2025',
-    excerpt: 'A masterful breakdown of the art of war that is taking buses in Southeast Asia, from the Dictator to the cornucopia of 7-Eleven.',
+    excerpt:
+      'A masterful breakdown of the art of war that is taking buses in Southeast Asia, from the Dictator to the cornucopia of 7-Eleven.',
     content: `Let me take you onto the battlefield of an Asian bus ride. It all starts with the bus station. Sometimes, you know the bus schedule; other times, you just show up and hope a bus is leaving soon. Today, I couldn't find any information, so I went to the station at 10 AM. I asked for a ticket to Pakse and was given one for 200k kip.
 
 I was directed to a bus and asked the driver when it was leaving. "12," he said—two hours from now. Not ideal, but not the end of the world. In the past, I've arrived 30 minutes early and barely snagged the last seat. There are no assigned seats, so marking your territory immediately is crucial. They pack the buses full to the brim. People will be standing or sitting on the floor—you can be sure of that. You just have to hope it's not you.
@@ -153,7 +189,7 @@ The next leg of the journey is standard. The Dictator makes stops in small villa
 After eight hours, you're exhausted. The sun has set. You nod at the driver and the Dictator as you wait for your bag beneath the bus. The battle is over, but the war isn't won yet. The station is far from the city center. You still need to find a tuk-tuk to your accommodation.
 
 This is the art of war.`,
-    images: []
+    images: [],
   },
   {
     id: 'thakhek-motorbike-loop',
@@ -163,13 +199,23 @@ This is the art of war.`,
     country: 'Laos',
     slug: 'thakhek-motorbike-loop',
     year: '2025',
-    excerpt: 'Reflecting on simplicity and intellectual purpose after completing a 4-day motorbike loop through rural Laos with waterfalls and limestone formations.',
+    excerpt:
+      'Reflecting on simplicity and intellectual purpose after completing a 4-day motorbike loop through rural Laos with waterfalls and limestone formations.',
     content: `I just returned back to Thakhek from a 4 day 3 night motorbike loop around rural Lao. It was nice to be on a bike for a couple of days, driving wherever you want. The highlights included two waterfalls where I had to scramble over some rocks, a nice viewpoint to see 65 million year old limestone formations, and waving to the local children along the way. It always brightens my day when I see the children waving and smiling, even though they live very impoverished lives. A repetitive theme of my trip seems to be enjoying living simple. Throughout the many rural, poor areas of Africa and SE Asia I have been to the people are so warm and friendly even though they lack basic material goods. As I travel the world with solely a backpack on my back it reminds me to stay simple and not overcomplicate things. On a similar note I talked to a friend the other day on FaceTime about my trip. He asked me to drop some insights and learnings from my trip. I did not have any big insights or profound ideas to share. That in itself is profound! The past 5 years I have been studying and learning to understand the depths of Truth and creation. I thought every word that needed to be spoken must be ground-shaking. But as I said, living simply and appreciating your basic life is the most profound idea of all. Now with all this being said, it is important not to live too simply. I am very grateful I was gifted with a strong body and intellectual mind. It is imperative that I use both to the best of my abilities to impact and give back to the world. The strong body part is pretty straight forward to me that I think I figured it out. It is important to stay in shape to maximize your longevity and to be energized on a daily basis. The intellectuality piece is a lot more tricky. With this growing chaotic world it is becoming ever more difficult to discern what is the best area to commit my intellectual capacities to. I am naturally gifted at math and science, and I do actually like these fields as well. When I look to the future on how to make money there has not been a clearer field than technology and AI. The mistake I made in my previous job was working for a big American corporation where your work is not valued or matters. Maybe I could see myself working at a startup for a cause I really care about. I really think that working for a big American corporation in your early 20s emasculates young men. I plan to write an essay on this to provide a real argument. Ever since quitting my job and taking my life and decisions into my own hands I feel a fire and a sense of manhood I have not felt before. When you walk into a huge corporation with your shirt tucked in and playing actor to get a raise and doing work you really don't care about it completely strips away all important masculine qualities for a young 20 year old to curate. Finally it is crazy to think I am only 4.5 months in on a possibly 12 month journey around the world. I am trying to be patient not to rush to where I am going but to enjoy the present. It is really about the journey, not the destination.`,
     images: [
-      { src: '/assets/images/misc/buddhabike.jpg', alt: 'Buddha statue during the motorbike loop' },
-      { src: '/assets/images/misc/firebike.jpg', alt: 'Fiery sunset on the motorbike adventure' },
-      { src: '/assets/images/misc/greenbike.jpg', alt: 'Green landscapes on the motorbike loop' }
-    ]
+      {
+        src: '/assets/images/misc/buddhabike.jpg',
+        alt: 'Buddha statue during the motorbike loop',
+      },
+      {
+        src: '/assets/images/misc/firebike.jpg',
+        alt: 'Fiery sunset on the motorbike adventure',
+      },
+      {
+        src: '/assets/images/misc/greenbike.jpg',
+        alt: 'Green landscapes on the motorbike loop',
+      },
+    ],
   },
   {
     id: 'barbershop-urban-design',
@@ -179,12 +225,16 @@ This is the art of war.`,
     country: 'Laos',
     slug: 'barbershop-urban-design',
     year: '2025',
-    excerpt: 'Getting a top-tier haircut in Vientiane and reflecting on urban overcrowding vs. peaceful countryside living.',
+    excerpt:
+      'Getting a top-tier haircut in Vientiane and reflecting on urban overcrowding vs. peaceful countryside living.',
     content: `Woke up this morning and got a haircut in Vientiane at a really cool barbershop. I really love barbershops because it feels like you are transported back in time if the vibe is set correctly. The shop had incredible decor and nice throwback tunes. It has been fun getting haircuts in different countries along my journey. Today was a fantastic cut. Here are the rankings of the haircuts I have had 1. Georgia (refer to Georgia post for the magical haircut I had) 2. Laos 3. Dubai 4. Thailand (two haircuts both sub par). It should be noted I do not just walk into a random shop. I diligently read reviews to find the best one in the given town. This barbershop today was top tier. Anyway after my haircut I took a 6 hour bus ride down to Thakhek Tomorrow I start a four day journey through rural Lao on a motorbike exploring the stunning landscapes and authentic culture. I am very excited for the adventure that awaits. Since that is the only recap for the day I want to briefly comment on city and countryside life. I have become fascinated by urban design and even suburban design. After talking to my European friends and comparing and contrasting the places we live I noticed something really staggering. American cities and suburbs are so damn overcrowded. I saw the population and beautiful nature of the European suburbs and was stunned. I really felt the chaos of urbanization and overcrowdedness when I lived in Dallas for two years. Even in the suburbs of Tampa Bay it is too crowded. The constant noise, simulation, and go-go-go mentality creates unwanted mental pressure which can obscure your thoughts and intuition. It is clear living in nature, in tune with the cycle of life is the best. It would be great to have a farm and some animals someday. Since everything is One, picking your surroundings is essential to building your individual vessel.`,
     images: [
-      { src: '/assets/images/misc/barbershop.jpg', alt: 'The barbershop in Vientiane' },
-      { src: '/assets/images/misc/haircut.jpg', alt: 'Fresh haircut results' }
-    ]
+      {
+        src: '/assets/images/misc/barbershop.jpg',
+        alt: 'The barbershop in Vientiane',
+      },
+      { src: '/assets/images/misc/haircut.jpg', alt: 'Fresh haircut results' },
+    ],
   },
   {
     id: 'vientiane-capital-herbal-sauna',
@@ -194,9 +244,10 @@ This is the art of war.`,
     country: 'Laos',
     slug: 'vientiane-capital-herbal-sauna',
     year: '2025',
-    excerpt: 'Taking the high-speed train to Vientiane, enjoying the absence of homelessness, and indulging in herbal saunas and poke bowls.',
+    excerpt:
+      'Taking the high-speed train to Vientiane, enjoying the absence of homelessness, and indulging in herbal saunas and poke bowls.',
     content: `Wow it's so nice not seeing homeless people for 4 months. I just realized this. I thought I saw a homeless person standing limp in the street but it was just a tree! Homelessness really ruins a city, makes it unsafe, and makes it dirty. Nowhere I have been my whole trip had homeless people just in the streets. Yes there is some extreme poverty and begging but no tent cities or cracked out people. Anyway I took the speed train to the capital of Lao today, Vientiane. People have been saying bad things about this place how you only need one night or even skip it completely. I think it's important as the international landscaper to see the capital city. There is a reason it's the capital. I have actually really enjoyed my day and time here! There are really nice cafes and restaurants lining the streets and very nice markets across the Mekong river. I had one of the best herbal wet saunas of my life accompanied by a honey coffee body scrub. I also ate an amazing poke bowl for the first time since Israel. In USA I ate a poke bowl almost every week, it is my favorite. It is essential on longterm travels to balance out the on the go lifestyle with days to just do some chores like laundry and get new supplies at the mall. Since Lao is a 3rd world country the best place to do that is the capital city.`,
-    images: []
+    images: [],
   },
   {
     id: 'paramotor-sunset-life-sharing',
@@ -206,13 +257,23 @@ This is the art of war.`,
     country: 'Laos',
     slug: 'paramotor-sunset-life-sharing',
     year: '2025',
-    excerpt: 'Epic paramotoring experience at sunset and realizing that life is for sharing experiences with others, not forcing solitude.',
+    excerpt:
+      'Epic paramotoring experience at sunset and realizing that life is for sharing experiences with others, not forcing solitude.',
     content: `Life is for sharing. I have a lot of thoughts today. I want to give a recap of last evening and today but want to get to some introspection. Yesterday I did paramotoring for the first time and it was one of the coolest experiences ever. I went up high into the sky at sunset and flew over the beautiful landscape of Vang Vieng. I highly recommend it to anyone. Now today. I have been on the go ever since I started solo traveling. Recently I have had the itch to find some seclusion, volunteer, and get into a routine. Today I woke up and rented a motorbike to drive an hour to a village. I only saw one picture on instagram about it and have heard nobody talk about it here. I was excited to see what this adventure would get me into. I have been traveling with my friends I met in Thailand for about two weeks now and today was supposed to be the day I return to being solo. When I took the bike and left the city I was stopped at a toll station to get on the highway. The officer there said that it is only for cars so I had to turn around. It was okay because I rerouted to avoid tolls. I drove 1.5 hours outside of Vang Vieng before turning another checkpoint for the same highway. Again the officers said only cars around. I looked on my maps to se if there was any other way to get to this town, but there was not. I was faced with the decision to either find a new small village and see where it takes me or return back to Vang Vieng. When I started the motorbike drive this morning leaving my friend of two weeks I immediately felt something was wrong. I started to ask myself why I was forcing this seclusion idea. Yes it is true I want to get into a routine, but I also realized I really enjoy sharing experiences with others. This Is the meaning of life. Sharing your energy to others or a grand vision and giving it your all. Yes solo backpacking is cool and you really have so much time to introspect and iron out your ego. However, when it comes to creating experiences it is best shared with others. That being said I still am going to find some seclusive introspective time when the time is right, but it is not something that needs to be forced. For personal growth obviously being alone is key, but for experiencing life sharing is the way to go. That is a feature of nature and creation because making a family and babies is the only way the human race perpetuates. After I got back to Vang Vieng from my two hour motorbike ride I needed to workout hard. I did pushups, sit-ups and Bulgarian split squats. I have been working out and getting into great shape on this trip but I think I can give even more. I really want to fix my hip pain and I am not putting in enough work to do so. After my workout I found a place to train Muay Thai. I had a 1-1 session with a pro Peruvian Muay Thai fighter. He worked me hard and it was so technical. From the angle of your steps before a kick to how far your elbow should be when you throw an elbow. What I know for sure is all your power is generated in your hips. You need to throw your entire being into a kick or a punch. He commented how I was stiff in my shoulders and I need to relax. This is sadly a genetic predisposition of mine. It was nice to train Muay Thai again for the first time in Lao. I learned a lot today from my bike extravaganza and I am excited to see how I will curate the rest of my trip.`,
     images: [
-      { src: '/assets/images/misc/paramotor.jpg', alt: 'Paramotoring experience in Vang Vieng' },
-      { src: '/assets/images/misc/paramotor2.jpg', alt: 'Sunset paramotoring over Vang Vieng' },
-      { src: '/assets/images/misc/vvsunset.jpg', alt: 'Beautiful Vang Vieng sunset' }
-    ]
+      {
+        src: '/assets/images/misc/paramotor.jpg',
+        alt: 'Paramotoring experience in Vang Vieng',
+      },
+      {
+        src: '/assets/images/misc/paramotor2.jpg',
+        alt: 'Sunset paramotoring over Vang Vieng',
+      },
+      {
+        src: '/assets/images/misc/vvsunset.jpg',
+        alt: 'Beautiful Vang Vieng sunset',
+      },
+    ],
   },
   {
     id: 'blue-lagoons-bicycle-adventure',
@@ -222,12 +283,22 @@ This is the art of war.`,
     country: 'Laos',
     slug: 'blue-lagoons-bicycle-adventure',
     year: '2025',
-    excerpt: 'Exploring Vang Vieng by bicycle, visiting blue lagoons with rope swings, and meeting fellow travelers from around the world.',
+    excerpt:
+      'Exploring Vang Vieng by bicycle, visiting blue lagoons with rope swings, and meeting fellow travelers from around the world.',
     content: `I am writing this Monday morning at 8 AM. I have been waking up early ever since the 3 day trek in. Nong Khiaw which I have liked. Yesterday was a great day and one of my favorites of the trip so far. Anton Rachel and I rented bicycles and rove around the whole town of Vang Xiang. Vang Vieng is a nice backpacker village with a river and tons of limestone carts surrounding the town. I have not rode a bicycle in a really long time so it was a great idea. Vang Vieng is known for multiple blue lagoons where you can chill, swim, and jump off rope swings. We biked about an hour to one of the many blue lagoons. The roads here are covered in potholes and not paved at all so it was pretty difficult to bike. I had a city bike with only one gear which made it difficult. At the blue lagoon I led a yoga session for my friends and ate some corn before going for a swim. I did not know the exact definition of a lagoon so here it is: a shallow body of water separated from a larger body of water by a barrier. The lagoons in Vang Vieng are fed by underground springs and streams. After going to the first lagoon we biked to lunch before headed to another lagoon. The next lagoon we went to had more rope swings and jumps. I did a rope swing and tried to do a back flip off of it but landed on my face. I am not a flipper. I was pretty tired from biking all day but the nice lagoon water woke me up. After a full day we biked during sunset almost two hours. The landscapes were so stunning and beautiful. We saw children laughing and playing. Hot air balloons and paramotors filled the skies. Today I am going to do paramotoring at sunset which I am so excited about. I have been moving city to city pretty quickly for about a month. I am looking forward to finding a place to get into a nice routine for a little. From Nong Khiaw a couple days ago I took the beautiful Lao China railway. I want to share some thoughts about the China-Lao relationship, the recent world economic forum, cardinal vs celestial north, and some more. Oh also I met a really cool and nice guy in my hostel dorm yesterday, Ofri from a north kibbutz of Israel. We talked about life and scaling wealth. He was so genuine and full of love. It was such a great conversation and connection.`,
     images: [
-      { src: '/assets/images/misc/biking.jpg', alt: 'Biking around Vang Vieng' },
-      { src: '/assets/images/misc/vvviews.jpg', alt: 'Stunning Vang Vieng landscape views' },
-      { src: '/assets/images/misc/vvviews2.jpg', alt: 'More beautiful Vang Vieng scenery' }
-    ]
-  }
-];
+      {
+        src: '/assets/images/misc/biking.jpg',
+        alt: 'Biking around Vang Vieng',
+      },
+      {
+        src: '/assets/images/misc/vvviews.jpg',
+        alt: 'Stunning Vang Vieng landscape views',
+      },
+      {
+        src: '/assets/images/misc/vvviews2.jpg',
+        alt: 'More beautiful Vang Vieng scenery',
+      },
+    ],
+  },
+]

@@ -1,4 +1,4 @@
-import { BlogPost } from '../../types/blog';
+import { BlogPost } from '../../types/blog'
 
 export const july2025Posts: BlogPost[] = [
   {
@@ -9,7 +9,8 @@ export const july2025Posts: BlogPost[] = [
     country: 'United States',
     slug: 'home-sweet-florida',
     year: '2025',
-    excerpt: 'The journey comes full circle - landing back home in Florida after 10 months around the world, surprising family and readjusting to American life.',
+    excerpt:
+      'The journey comes full circle - landing back home in Florida after 10 months around the world, surprising family and readjusting to American life.',
     content: `I landed at Tampa International Airport early Friday morning around 5:30 AM. My brother Blake graciously picked me up, which was much appreciated. I never told my parents I was coming home and was ready to surprise them. Blake drove me to my mom's house, and we arrived at 6:30 AM. She was just getting up for work. We knocked at the door and she was in shock—still tired, but it was a nice surprise. It felt cool and refreshing to be back home in Florida after so long.
 
 Afterward, I drove my mom to work and took her car to surprise my dad. Since I sold my car before my trip, I'm at the whims of using my parents' cars for transport. Pinellas County has so many roads and nowhere is walkable. I drove a total of two hours my first day back around town, which is totally not sustainable. I stopped at red lights every two minutes. This reinforced my desire to live in a walkable city with public transport.
@@ -28,10 +29,16 @@ I don't want to get too comfortable though.
 
 A couple of weeks ago, I was surfing and swimming with whale sharks, or motorbiking through Vietnam, or hunting with a tribe. Now I'm back in the U.S., ready to prepare for my next adventure. Oh also I am going to continue to post and update this website do not worry!`,
     images: [
-      { src: '/assets/images/misc/melman.jpg', alt: 'Breakfast with friend Melman after returning home' },
-      { src: '/assets/images/misc/boatblake.jpg', alt: 'Boat day with Blake and mom' },
-      { src: '/assets/images/misc/posttrip.jpg', alt: 'Post-trip reflections' }
-    ]
+      {
+        src: '/assets/images/misc/melman.jpg',
+        alt: 'Breakfast with friend Melman after returning home',
+      },
+      {
+        src: '/assets/images/misc/boatblake.jpg',
+        alt: 'Boat day with Blake and mom',
+      },
+      { src: '/assets/images/misc/posttrip.jpg', alt: 'Post-trip reflections' },
+    ],
   },
   {
     id: 'la-layover-griffin',
@@ -41,7 +48,8 @@ A couple of weeks ago, I was surfing and swimming with whale sharks, or motorbik
     country: 'United States',
     slug: 'la-layover-griffin',
     year: '2025',
-    excerpt: '8-hour LAX layover turns into a perfect Manhattan Beach adventure with my old TI colleague Griffin - rediscovering America through fresh eyes.',
+    excerpt:
+      '8-hour LAX layover turns into a perfect Manhattan Beach adventure with my old TI colleague Griffin - rediscovering America through fresh eyes.',
     content: `I took a 10-hour flight from Tokyo to LAX with a middle seat—classic. Didn't sleep much, but I got to watch Star Wars and The Godfather, which helped pass the time. All in all, the flight was pretty straightforward, just a bit uncomfortable from the lack of sleep. I landed around noon and had an 8-hour layover ahead of me.
 
 Originally, I planned to just hang at the airport. But randomly, my buddy Griffin Laser—who I worked with at TI in Dallas—was in LA house-sitting his cousin's place. Not only that, he was off work and offered to pick me up. Total coincidence, perfect timing.
@@ -62,9 +70,15 @@ I thought I might feel out of place being back, but I didn't. Honestly, after mo
 
 Now I'm sitting at the gate, waiting for my last flight. I haven't really slept, so the day feels endless—woke up in Tokyo, spent the afternoon in LA, and now I'm flying home. I think once I see my family, that's when it'll really hit.`,
     images: [
-      { src: '/assets/images/misc/griff.jpg', alt: 'Reconnecting with Griffin in Manhattan Beach' },
-      { src: '/assets/images/misc/griff2.jpg', alt: 'Electric bike adventure in LA' }
-    ]
+      {
+        src: '/assets/images/misc/griff.jpg',
+        alt: 'Reconnecting with Griffin in Manhattan Beach',
+      },
+      {
+        src: '/assets/images/misc/griff2.jpg',
+        alt: 'Electric bike adventure in LA',
+      },
+    ],
   },
   {
     id: 'ten-months-complete-sapporo',
@@ -74,9 +88,10 @@ Now I'm sitting at the gate, waiting for my last flight. I haven't really slept,
     country: 'Japan',
     slug: 'ten-months-complete-sapporo',
     year: '2025',
-    excerpt: 'Ten months down on this incredible journey. Reflections on Japan, intellectual focus, and the endless possibilities ahead.',
+    excerpt:
+      'Ten months down on this incredible journey. Reflections on Japan, intellectual focus, and the endless possibilities ahead.',
     content: `Wow, ten months down on this incredible trip. The past few weeks in Japan have been very slow, and very reflective. I was excited to come back to Japan, but after traveling through the rawness of SE Asia, it did not hit the same. I could even make an argument that now Japan is my least favorite Asian country! They have amazing food yes, but the society is so isolated and the culture is not welcoming. It has been rainy here most of my time, and hot. I chose to come to Hokkaido for unspoiled nature and laid back vibes. I guess I really got it, except the nature is not that good. I would only recommend coming here for skiing. Even then I think there are way better places. Anyway it is interesting how the places you enjoy change upon your age and experience. I hit the sauna and cold plunge almost everyday which was nice. But slow days, in the rain really draw you inward. I have recently had a passion to direct my intellectuality towards a single focus. The amazing thing about backpacking is you are so open to everything, not a care in the world, experiencing different places and cultures. You lack clear objectives sometimes and ways to direct your energy. This is good and bad! You find ways that get you energized, like working out, writing, meditating. But now, ten months in, I feel the fire to fully commit to one thing and create. It could be my own business, it could be a startup, or even just a side project. There is so much to learn it is crazy! This was the best decision of my life and I recommend anybody to do a longterm backpacking trip. People have been telling me I should write a book which I have been exploring. I like writing but a whole book is a lot. Good thing is there are AI tools you can guide the vision and they will write for you! Take control of your own life. I used to try and give some advice but all I can say is figure your shit out yourself and have the courage to take the leap. If you feel tied down do something about it. Now after quitting my job and travelling the world I proved to myself I can always be agile. If I want to fly to South America and find indigenous tribes there I can and will, if I want to start a business I can and will, if I want to join the IDF I can and will. Nothing can hold me back. I have gone through the gauntlet and emerged. Possibilities are endless, and the fire shall not fade.`,
-    images: []
+    images: [],
   },
   {
     id: 'art-of-letting-go-otaru',
@@ -86,7 +101,8 @@ Now I'm sitting at the gate, waiting for my last flight. I haven't really slept,
     country: 'Japan',
     slug: 'art-of-letting-go-otaru',
     year: '2025',
-    excerpt: 'A comprehensive essay on the art of detachment - learning to love without clinging, create without ego, and live from true freedom.',
+    excerpt:
+      'A comprehensive essay on the art of detachment - learning to love without clinging, create without ego, and live from true freedom.',
     content: `The Art of Letting Go: Learning Detachment Through Experience
 
 One of the most important lessons I've learned—maybe the most important lesson for anyone trying to become their highest self—is the lesson of detachment.
@@ -205,7 +221,7 @@ When you let go of your grip, you realize life was never trying to take anything
 Not the small self, filled with labels and roles. But the Self that remains when all else falls away.
 
 And from that place, you can walk through the world in total involvement and total freedom.`,
-    images: []
+    images: [],
   },
   {
     id: 'niseko-money-mastery',
@@ -215,7 +231,8 @@ And from that place, you can walk through the world in total involvement and tot
     country: 'Japan',
     slug: 'niseko-money-mastery',
     year: '2025',
-    excerpt: 'Biking through rainy Japanese countryside and contemplating the "no money, no honey" reality - the need to master a specific skill for future success.',
+    excerpt:
+      'Biking through rainy Japanese countryside and contemplating the "no money, no honey" reality - the need to master a specific skill for future success.',
     content: `The past two days I've been in Niseko, a world-famous ski destination known for its abundance of powdery snow. In the summer, it's much slower and more relaxed. Typically, you can enjoy stunning views of Mt. Yotei, but during my stay, it's been rainy and cloudy.
 
 I biked an hour to a neighboring town to visit an onsen. The ride was tough—full of hills—and my quads were on fire. But the solitude gave me space to think and reflect. I'm deeply grateful for this incredible adventure. Even riding through pouring rain in the Japanese countryside—those are the moments you don't get every day.
@@ -235,7 +252,7 @@ When you narrow your criteria to only working on things you care about—and onl
 I'm passionate about wellness, the energy industry, drones and eVTOL, quantum mechanics, photonics and optics, and decentralized finance. Travel helps you cast your net wide—to test what excites you. But when it's time to return, you need to gather all the fish in your net and choose a favorite. I haven't chosen mine yet—but you get the idea.
 
 As I looked at myself in the mirror of the onsen shower, I felt proud. I can be hard on myself, always focused on where I can grow and improve. But I'm also proud of the man I've become and the growth I've experienced—especially over the past 10 months, and really, the past few years.`,
-    images: []
+    images: [],
   },
   {
     id: 'lake-toya-world-reflections',
@@ -245,9 +262,10 @@ As I looked at myself in the mirror of the onsen shower, I felt proud. I can be 
     country: 'Japan',
     slug: 'lake-toya-world-reflections',
     year: '2025',
-    excerpt: 'Three peaceful days at Lake Toya contemplating the beautiful yet troubled world and searching for the perfect place to raise a family.',
+    excerpt:
+      'Three peaceful days at Lake Toya contemplating the beautiful yet troubled world and searching for the perfect place to raise a family.',
     content: `Been here in Lake Toya for three nights. Hitting the onsen, working out, and contemplating life on lake side walks. I do not have too much to report. 10 months straight of introspection leaves you pretty still inside, in a good way. I talked with my friend Zach yesterday and as always we had thought provoking conversations. He asked me what I thought of the world, since I have travelled almost halfway around it. I did not know how to answer it. I think the world is so beautiful, but also so messed up. There is so much amazing nature, smiling faces, and culture to experience. But also the world is riddled with bad actors, corruption, war, environmental problems, and negligence. I love this world and I am optimistic about its future. Next as I mentioned before, a big part of this trip was to explore potential places where I want to live, raise a family, and raise children. I want a place I will be excited about raising a family and children. As I mentioned I love nature and small walkable cities. I think living by the beach or the mountains is a must. I would like a place where the cost of living is justified. There is clean air and a nice community. I can see myself living in the third world, but I also like modern luxuries too. That being said I still do not have a place in mind. I have some ideas but it is best to keep searching!`,
-    images: []
+    images: [],
   },
   {
     id: 'noboribetsu-onsen-science',
@@ -257,9 +275,10 @@ As I looked at myself in the mirror of the onsen shower, I felt proud. I can be 
     country: 'Japan',
     slug: 'noboribetsu-onsen-science',
     year: '2025',
-    excerpt: 'Deep dive into the science and culture of Japanese onsen - from mineral classifications to healing properties and the path to becoming an international bathhouse expert.',
+    excerpt:
+      'Deep dive into the science and culture of Japanese onsen - from mineral classifications to healing properties and the path to becoming an international bathhouse expert.',
     content: `An onsen is a natural hot spring in Japan. By law—specifically the Hot Springs Act—an onsen is defined as hot water, mineral water, or water vapor that naturally springs from underground at a temperature of at least 25°C (77°F) and contains certain minerals. The water is geothermally heated, often due to volcanic activity, though it can also come from deep underground aquifers or fossilized seawater. Japan classifies onsen waters into ten types based on mineral content: simple onsen, carbon dioxide (CO₂), bicarbonate (HCO₃), chloride (Cl), iodine-containing (added in 2014), sulfate (SO₄), iron (Fe), sulfur (S), acidic (low pH), and radon (Rn). Soaking in an onsen is one of the most special experiences in Japan, and here in Noboribetsu—one of the country's top onsen towns—you can find five of the ten types in one place. Today I spent two blissful hours hopping between various hot and cold pools, steam rooms, saunas, and both indoor and outdoor baths. Each mineral has different healing properties, from lowering blood pressure to softening the skin to helping with chronic conditions. Personally, I love the sulfur springs—milky white in color, with a strange smell—and said to help with hardening of the arteries and chronic dermatitis. Mineral baths and sauna rituals have become some of my favorite health and wellness practices, and it all started here in Japan about a year and a half ago. Since then, I've explored incredible facilities in Korea, Iceland, Georgia, Laos, Cambodia, China, Hungary, and even a Russian-style banya in Dallas. I like to think I'm on the path to becoming an international sauna and bathhouse expert, though I still need to visit Finland—the birthplace of sauna culture—before I can truly be certified. In Japan, men and women bathe separately in onsens. As always, you remove your shoes before entering, store your belongings in a locker, and keep the key on your wrist. Then you strip naked. Usually, you are hit with a bunch of 60+ year old Japanese uncircumcised penises all around you. Everyone is totally comfortable. At first, it's a little weird, but after a few times, it becomes freeing. Before entering any bath, you need to wash yourself—there are small stools lined up in front of mirrors with hand-held showerheads, soap, shampoo, conditioner, and a bucket for rinsing. Once clean, you're free to soak and explore. I like to alternate between hot and cold pools, do a sauna session, then cold plunge and chill outside with some tea. Today's onsen had a sulfur waterfall that poured directly over your head, which felt both healing and mind-opening. There were ultrasonic jacuzzis, full-body reclining tubs, and beautiful minimalist design throughout—clean wooden interiors, soft lighting, and peaceful vibes. Inside the sauna, you'll find tiered benches for different heat levels. I always pay attention to the details: Is the heat electric or wood-fired? What kind of thermometer is used? Is the timer a clock or an hourglass? Can guests pour water on the coals or is it automated? These things matter. Someday, I'd love to bring a thoughtfully designed sauna and onsen-style experience to the U.S.—inspired by everything I've learned from these global traditions.`,
-    images: []
+    images: [],
   },
   {
     id: 'noboribetsu-slow-contemplation',
@@ -269,7 +288,8 @@ As I looked at myself in the mirror of the onsen shower, I felt proud. I can be 
     country: 'Japan',
     slug: 'noboribetsu-slow-contemplation',
     year: '2025',
-    excerpt: 'First full day in rural Japan - embracing unsettling stillness and reflecting on key lessons learned from 10 months of travel.',
+    excerpt:
+      'First full day in rural Japan - embracing unsettling stillness and reflecting on key lessons learned from 10 months of travel.',
     content: `Today was a super slow, meditative day—my first full day in rural Japan, far removed from the chaos and stimulation of the city. 
 
 It's almost unsettling to step outside and hear nothing: no cars, no shouting, no buzz of city life—just pure stillness. 
@@ -292,8 +312,11 @@ And surprisingly, most people are incredibly kind and willing to help—well, ex
 
 Another takeaway: don't tell white lies. Be authentic. In the beginning, when people criticized America, I'd tiptoe around the topic. But over time, I became unapologetically myself. And finally, I've been reflecting on the modern-day feudal system—and how to live like a 21st-century aristocrat. Traveling exposes you to every type of person: the partygoers, the yogis, the digital nomads, the aimless drifters. If you want to be a high-performing, high-value individual in this noisy world, you have to draw clear lines around your life. You need standards. One of mine has effectively been no drinking. That choice has changed my health, mental clarity, and energy. It's a powerful social and personal signal of self-respect. This trip has helped crystallize so many of these ideas. As I sat today in silence, soaking in the natural hot water, I realized how far I've come—not just in distance, but in clarity.`,
     images: [
-      { src: '/assets/images/misc/contemplate.jpg', alt: 'Contemplating in the Japanese countryside' }
-    ]
+      {
+        src: '/assets/images/misc/contemplate.jpg',
+        alt: 'Contemplating in the Japanese countryside',
+      },
+    ],
   },
   {
     id: 'hadzabe-versus-modern-life',
@@ -303,7 +326,8 @@ Another takeaway: don't tell white lies. Be authentic. In the beginning, when pe
     country: 'Japan',
     slug: 'hadzabe-versus-modern-life',
     year: '2025',
-    excerpt: 'Contrasting the present-focused life of Tanzanian hunter-gatherers and Himalayan yak herders with our fragmented modern existence - maybe we need less, not more.',
+    excerpt:
+      'Contrasting the present-focused life of Tanzanian hunter-gatherers and Himalayan yak herders with our fragmented modern existence - maybe we need less, not more.',
     content: `At the crack of dawn in the savannahs of Tanzania, the Hadzabe hunter-gatherers begin their day. One by one, they step out of their hand-built wooden huts into the crisp morning air, their breath forming clouds in the early light. The fire still smolders from the night before, its embers glowing softly as men gather around it, whispering strategy and sharpening arrows. Children stretch in the dust, women begin sorting berries and roots. There's no rush—only rhythm. No calendars, no deadlines—only the single, pressing goal: find food.
 
 The air smells like dry earth and woodsmoke. You can hear the distant chatter of birds, the crunch of feet on dirt, the soft thwick of a bowstring being tested. In their eyes, there is no trace of anxiety. No thoughts about taxes or TikToks. Their minds are occupied by the land, by the animals they track, by the shared work ahead. They are present—fully, deeply present.
@@ -329,7 +353,7 @@ I think back to the yak herder again—his steady gaze, the way he stirred his t
 Maybe we don't need more pleasure, more novelty, more distraction. Maybe we just need fewer decisions. A smaller radius. A craft to return to. A rhythm we can follow.
 
 Maybe the path forward isn't in doing more, but in doing less—better.`,
-    images: []
+    images: [],
   },
   {
     id: 'shiraoi-cash-crisis',
@@ -339,13 +363,14 @@ Maybe the path forward isn't in doing more, but in doing less—better.`,
     country: 'Japan',
     slug: 'shiraoi-cash-crisis',
     year: '2025',
-    excerpt: 'Getting stranded without cash in expensive Japan, relying on stranger kindness, and finding freedom in having no plan in a tiny rural town.',
+    excerpt:
+      'Getting stranded without cash in expensive Japan, relying on stranger kindness, and finding freedom in having no plan in a tiny rural town.',
     content: `Ok, I'm getting pissed off. I've talked about this before—getting the most value for your money—and right now, it's Friday here in Sapporo, and I still don't have a place to stay. The cheapest I can find is around $70 a night, which is honestly insane. Traveling has really made me reflect on the value of money, and here are the top three countries where your money stretches the furthest: Vietnam, where you can get healthy, delicious food for two dollars and stay in a room overlooking rice fields for ten; it's absolutely unmatched. Georgia also offers cheap food and accommodation, with the added bonus of a super affordable and efficient transportation system. Then there's Thailand—amazing pad Thai for three bucks, cheap stays right on the beach, nothing better. Honorable mentions go to Laos, which is incredibly cheap but lacks the same quality of food and lodging, and Indonesia, which has amazing and healthy food at great prices, but accommodation can be a bit more expensive. Anyway, I'm seriously frustrated with how pricey Japan is, but I remind myself that I'm here exploring—a total blessing. I'm debating whether to stay another night in Sapporo and catch a $20 standing-room baseball game or head to a small coastal town known as one of Japan's best onsen destinations. I'm leaning toward the adventure, but I need to figure out how to get more cash. A few hours later, after asking around at hostels, hotels, and cafés with no success, I started to feel like there's something cultural about people here being hesitant to help strangers—maybe the language barrier, maybe just different social norms. Feeling a bit discouraged, I realized I'd have better luck asking a Westerner, someone with better English who might be more willing to help. I spotted two guys around my age walking down the street and asked for help—they generously stopped and agreed. One was a British guy named Elliott, and the other was Swedish. I used Wise to instantly transfer USD to Elliott's account, and he withdrew yen for me at a 7-Eleven. It felt weird being so helpless and reliant on someone else's kindness, and yeah, I lost a bit of money in the double currency conversion—this is exactly why we need Bitcoin to take over the world—but Wise seriously saved me. With cash in hand, I jumped on a train to Shiraoi, a rural town I chose only because it had the cheapest hostel I could find in Hokkaido—$21 a night—and it happened to be near a famous onsen town I wanted to check out. As I stepped off the train into this tiny place, I asked myself, what the hell am I doing here? But honestly, I kind of love that feeling—being somewhere totally unfamiliar, with no plan and no idea what I'll do next. That's real freedom. I made it to the hostel, which was actually really nice, asked a few questions, and settled in without a clue of what tomorrow holds—and that's a good thing. It reminded me of high school, when you'd ask your friends, "What are we doing this weekend?" and the answer was always "nothing," so you'd come up with the craziest ideas to kill time and have fun. Traveling feels like that sometimes. People keep asking me, "What are you doing in northern Japan?" or "What are you going to do in Laos?"—and it almost tricks you into thinking you have to do something. Sure, there are lots of cool activities out there, but after 10 months on the road (and it really hits around month five), you realize that sometimes the only thing there is to do… is just travel.`,
     images: [
       { src: '/assets/images/food/sush.jpg', alt: 'Amazing Japanese sushi' },
       { src: '/assets/images/food/ramen.jpg', alt: 'Perfect bowl of ramen' },
-      { src: '/assets/images/misc/crabbyb.jpg', alt: 'Fresh crab in Japan' }
-    ]
+      { src: '/assets/images/misc/crabbyb.jpg', alt: 'Fresh crab in Japan' },
+    ],
   },
   {
     id: 'sapporo-arrival-comfort-questioning',
@@ -355,7 +380,8 @@ Maybe the path forward isn't in doing more, but in doing less—better.`,
     country: 'Japan',
     slug: 'sapporo-arrival-comfort-questioning',
     year: '2025',
-    excerpt: 'Arriving in Hokkaido\'s capital and questioning whether modern comfort and convenience come at the cost of vitality and meaning.',
+    excerpt:
+      "Arriving in Hokkaido's capital and questioning whether modern comfort and convenience come at the cost of vitality and meaning.",
     content: `I made it to the capital of Hokkaido: Sapporo.
 
 Today brought a mix of internal and external realizations. After nearly a year of not watching TV, I saw a screen playing volleyball in the sauna. I was reminded how much of TV, entertainment, and modern comfort is just noise. A distraction. I do like sports and competition though.
@@ -377,7 +403,7 @@ But here's the catch—I know I have more to give. More intellect to exhaust, mo
 That's why I'm excited to try my hand at entrepreneurship. I want to create something of value, something meaningful—something that gives me the freedom to curate an international lifestyle while contributing in a way that matters.
 
 For now, Sapporo is just the latest mirror reflecting the trade-offs we all live with. And I'm paying attention.`,
-    images: []
+    images: [],
   },
   {
     id: 'tokyo-toilet-paper-portal',
@@ -387,7 +413,8 @@ For now, Sapporo is just the latest mirror reflecting the trade-offs we all live
     country: 'Japan',
     slug: 'tokyo-toilet-paper-portal',
     year: '2025',
-    excerpt: 'Symbolic toilet paper moment marks transition from chaotic Southeast Asia to ordered Japan - contrasting spiritual raw culture with technological efficiency.',
+    excerpt:
+      'Symbolic toilet paper moment marks transition from chaotic Southeast Asia to ordered Japan - contrasting spiritual raw culture with technological efficiency.',
     content: `This morning marked a surprisingly symbolic moment: for the first time in six months, I threw my toilet paper into the toilet instead of a trash can beside it.
 
 Why? Because I've just arrived in Japan.
@@ -414,7 +441,7 @@ In Japan, it's different. While Shinto shrines and ancient Buddhist temples dot 
 Being back in Japan — now with Southeast Asia in my rearview mirror — makes the contrast even more vivid. I find myself asking: What kind of world do I want to live in? One that's spiritual, raw, messy, and deeply human? Or one that's organized, safe, clean, and efficient?
 
 Maybe the best part is getting to bounce between both.`,
-    images: []
+    images: [],
   },
   {
     id: 'bali-visa-nightmare',
@@ -424,7 +451,8 @@ Maybe the best part is getting to bounce between both.`,
     country: 'Indonesia',
     slug: 'bali-visa-nightmare',
     year: '2025',
-    excerpt: 'Missing my Tokyo flight due to Indonesian visa bureaucracy, losing wallet and cards, cash withdrawal crisis, and the kindness of strangers.',
+    excerpt:
+      'Missing my Tokyo flight due to Indonesian visa bureaucracy, losing wallet and cards, cash withdrawal crisis, and the kindness of strangers.',
     content: `Well folks, I should be writing this from an airplane on the way to Tokyo via Hanoi — but I'm not. I'm in Kuta, Bali. Let me tell you why.
 
 It all really started back in December, over six months ago, when an ATM machine ate my debit card in Bangkok, Thailand. It sucked, because my Chase debit card refunds foreign transaction fees when withdrawing money — but it wasn't the end of the world. I was able to use my Chase credit card for cash advances over the past six months. It cost me $10 every time I withdrew money — not ideal, but I had to do it.
@@ -493,7 +521,7 @@ Not all travel is glamorous.
 Take visa rules seriously.
 Check the fine print.
 It's only money — you can always make more.`,
-    images: []
+    images: [],
   },
   {
     id: 'flores-whale-sharks-indonesia-finale',
@@ -503,7 +531,8 @@ It's only money — you can always make more.`,
     country: 'Indonesia',
     slug: 'flores-whale-sharks-indonesia-finale',
     year: '2025',
-    excerpt: 'Final day in Indonesia after an incredible 4-day cruise - swimming with whale sharks, seeing Komodo dragons, and reflecting on a month of diverse experiences.',
+    excerpt:
+      'Final day in Indonesia after an incredible 4-day cruise - swimming with whale sharks, seeing Komodo dragons, and reflecting on a month of diverse experiences.',
     content: `Today is my last day in Indonesia.
 
 I arrived in Flores from Lombok via a 4-day, 3-night cruise with the company Wanua. I had previously done a 3-day, 2-night cruise between islands in the Philippines and loved it, so I was excited for this one in Indo. This time, we slept on the boat every night instead of camping on small islands.
@@ -530,9 +559,18 @@ Be on the lookout for some deep introspection coming to the blog soon—I owe it
 
 Not much more to say today. Thanks for sticking with me on these adventures.`,
     images: [
-      { src: '/assets/images/misc/wanua.jpg', alt: 'Wanua cruise boat adventure' },
-      { src: '/assets/images/misc/wanua2.jpg', alt: 'Swimming with whale sharks' },
-      { src: '/assets/images/misc/wanua3.jpg', alt: 'Beautiful Indonesian waters' }
-    ]
-  }
-];
+      {
+        src: '/assets/images/misc/wanua.jpg',
+        alt: 'Wanua cruise boat adventure',
+      },
+      {
+        src: '/assets/images/misc/wanua2.jpg',
+        alt: 'Swimming with whale sharks',
+      },
+      {
+        src: '/assets/images/misc/wanua3.jpg',
+        alt: 'Beautiful Indonesian waters',
+      },
+    ],
+  },
+]

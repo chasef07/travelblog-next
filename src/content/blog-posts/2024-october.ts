@@ -1,4 +1,4 @@
-import { BlogPost } from '../../types/blog';
+import { BlogPost } from '../../types/blog'
 
 export const october2024Posts: BlogPost[] = [
   {
@@ -9,7 +9,8 @@ export const october2024Posts: BlogPost[] = [
     country: 'Kenya',
     slug: 'nairobi-arrival',
     year: '2024',
-    excerpt: 'Flight from Dubai to Nairobi, deep conversation with a 44-year-old Kenyan man, and first taste of Kenyan nightlife.',
+    excerpt:
+      'Flight from Dubai to Nairobi, deep conversation with a 44-year-old Kenyan man, and first taste of Kenyan nightlife.',
     content: `The flight from Dubai to Nairobi was 5 hours. Emirates was a nice airline but it did not blow me away. The food was pretty good, I had some beef and rice. I watched half of Killer of the Flower Moon until a man started talking with me. His name was Komora, a 44 year old Kenyan man visiting his family. Somehow we ended up talking for two hours. He told me his whole life story and gave me some advice.
 
 Komora was a flight attendant and has travelled to 66 countries. He has a son that lives in Helsinki Finland and a daughter who lives in Auckland New Zealand. He said he found out that he is not the biological father of the daughter and needs to tell her. He was in Dubai visiting his brother who is struggling with his marriage. He really poured his heart out to me in an authentic way.
@@ -22,8 +23,8 @@ We talked about marriage a while and the importance of it and he said he wishes 
 
 I arrived at the hostel at 9pm. The Ubers here are extremely cheap and the safest ways round the city. Komora recommended not to use the public transport. Zach and I met up with Josh Katz's fraternity brother Hugh at Nairobi Street Kitchen. Hugh lives here and works for his parents consulting business bringing large fortune 100 companies to Africa and Asia. I tried my first Kenyan beer and we danced to some afro-beats.`,
     images: [
-      { src: '/assets/images/misc/tusker.jpg', alt: 'Tusker beer in Kenya' }
-    ]
+      { src: '/assets/images/misc/tusker.jpg', alt: 'Tusker beer in Kenya' },
+    ],
   },
   {
     id: 'dubai-visa-delay',
@@ -33,7 +34,8 @@ I arrived at the hostel at 9pm. The Ubers here are extremely cheap and the safes
     country: 'UAE',
     slug: 'dubai-visa-delay',
     year: '2024',
-    excerpt: 'Missing the flight to Nairobi due to visa issues, spending an unexpected day in Dubai airport.',
+    excerpt:
+      'Missing the flight to Nairobi due to visa issues, spending an unexpected day in Dubai airport.',
     content: `Well, today I woke up at 7 AM to catch a 9AM flight to Nairobi. I still had not received my visa by the time I woke up. Zach and I went to the airport in Sharjah and we were running late. We only could bring 10kg carry on so they tried to make us pay for our extra weight of baggage. This cut down on more of our time.
 
 Air Arabia informed me I could not get on the flight without a visa. I knew this was coming but was hoping that the visa would come in before the flight. Zach ended up taking the flight and I had to wait and figure out when and if my visa would arrive.
@@ -45,7 +47,7 @@ I found out there was an Emirates flight out of Dubai at 3:30 pm. I booked it th
 In the Dubai airport there's so many British people I do not know why. It's a little too posh for my liking. Dubai does a good job of merging futurism and conservative Islam values. It's an interesting dynamic. I stopped by the Emirates NBD bank to inquire how trading on the stock exchange works here. Now I'm waiting for my flight to Nairobi at the lounges in Dubai.
 
 Not ideal situation but it is a good lesson to learn to check all the visa laws ahead of time. Being from the US we are fortunate to travel visa free to many countries but this was the first time I needed a visa before even boarding a flight.`,
-    images: []
+    images: [],
   },
   {
     id: 'sharjah-layover',
@@ -55,7 +57,8 @@ Not ideal situation but it is a good lesson to learn to check all the visa laws 
     country: 'UAE',
     slug: 'sharjah-layover',
     year: '2024',
-    excerpt: 'Overnight layover in Sharjah, closing the Georgian apartment deal, and visa complications for Kenya.',
+    excerpt:
+      'Overnight layover in Sharjah, closing the Georgian apartment deal, and visa complications for Kenya.',
     content: `I am writing this from Sharjah, UAE. I have an overnight layover here before going to Kenya tomorrow, hopefully. Today we went to the house of justice to transfer the property rights of the new apartment to Zach and myself. We literally brought our bags because we had to go to the airport directly after. It was a quick and efficient process. We closed the deal with an hour left in Georgia!
 
 We headed to the airport and five minutes before our flight I was called to the front desk. The Air Arabia attendee said I could not get on the flight since I did not have a visa to get into Kenya. I did not know I even needed a visa, I thought you could get it there. I started to scramble what to do. I quickly went online and filled out the visa application. It cost 200 dollars for an expedited visa.
@@ -66,8 +69,11 @@ When I landed in the UAE for the first time I immediately noticed some things. T
 
 After Africa I will come back and spend a couple days in Dubai to see how I like it. George, who sold us the apartment said Dubai is the place to make money. It's very foreigner friendly for investment and I'm curious about the opportunity there. Headed to bed now because I have to wake up pretty early.`,
     images: [
-      { src: '/assets/images/misc/goari.jpg', alt: 'Mother Goari from the guesthouse in Tbilisi' }
-    ]
+      {
+        src: '/assets/images/misc/goari.jpg',
+        alt: 'Mother Goari from the guesthouse in Tbilisi',
+      },
+    ],
   },
   {
     id: 'last-night-tbilisi',
@@ -77,7 +83,8 @@ After Africa I will come back and spend a couple days in Dubai to see how I like
     country: 'Georgia',
     slug: 'last-night-tbilisi',
     year: '2024',
-    excerpt: 'Final night in Georgia after closing an apartment deal, reflections on the journey and key takeaways.',
+    excerpt:
+      'Final night in Georgia after closing an apartment deal, reflections on the journey and key takeaways.',
     content: `Tonight is my last night in Georgia. It has been an amazing 2.5 weeks in this special and unique country. Zach and I were able to close a deal on an apartment in the up and coming ski region literally on the last day we were here. I did not realize how much effort goes into making a deal and wiring large sums of money internationally. I learned so much about business and negotiating!
 
 This is why I quit my job, to curate awesome experiences and take calculated risks. I want to build something my family and future family will be proud of. Georgia has so much beautiful nature and there is so much to do. Also the country is incredibly cheap and I believe it should be on everyone's lists in the next five years.
@@ -94,9 +101,12 @@ Another idea that occurred to me throughout my time here is how two different pe
 5. I do not mind the cold, but I am a Florida boy at heart and prefer the temperate climates
 6. Continue to strive to be completely present in every interaction`,
     images: [
-      { src: '/assets/images/misc/overlook.jpg', alt: 'Overlook view in Georgia' },
-      { src: '/assets/images/misc/padel.jpg', alt: 'Playing padel in Georgia' }
-    ]
+      {
+        src: '/assets/images/misc/overlook.jpg',
+        alt: 'Overlook view in Georgia',
+      },
+      { src: '/assets/images/misc/padel.jpg', alt: 'Playing padel in Georgia' },
+    ],
   },
   {
     id: 'sighnagi-wine-country',
@@ -106,7 +116,8 @@ Another idea that occurred to me throughout my time here is how two different pe
     country: 'Georgia',
     slug: 'sighnagi-wine-country',
     year: '2024',
-    excerpt: 'Exploring traditional Georgian winemaking in Sighnagi, learning about ancient qvevri fermentation methods.',
+    excerpt:
+      'Exploring traditional Georgian winemaking in Sighnagi, learning about ancient qvevri fermentation methods.',
     content: `Zach and I went to the city of Sighnagi today. The city is known for traditional wine making methods which date back 8,000 years! The Georgian traditional method to ferment the wine uses large clay pots called qvevri.
 
 The qvevri vessels are semi-porous, allowing micro-oxygenation, which enhances the complexity of the wine. Their egg-like shape encourages circulation, improving fermentation and flavor development. Unlike modern stainless steel vats, qvevri vessels require no additional preservatives or chemicals. This method relies on natural fermentation, making it a staple of organic winemaking.
@@ -115,10 +126,13 @@ Wines made in qvevri tend to be robust, earthy, and tannic, with complex flavors
 
 Overall it was really cool learning about such an ancient technology and the wines were very unique. Also at lunch today overlooking the city, I decided I am going to reinvigorate learning complex mathematics and quantum electrodynamics again.`,
     images: [
-      { src: '/assets/images/misc/wine1.jpg', alt: 'Traditional Georgian wine making' },
+      {
+        src: '/assets/images/misc/wine1.jpg',
+        alt: 'Traditional Georgian wine making',
+      },
       { src: '/assets/images/misc/wine4.jpg', alt: 'Qvevri wine vessels' },
-      { src: '/assets/images/misc/wine3.jpg', alt: 'Wine tasting in Sighnagi' }
-    ]
+      { src: '/assets/images/misc/wine3.jpg', alt: 'Wine tasting in Sighnagi' },
+    ],
   },
   {
     id: 'clarity-ultimate-currency',
@@ -128,7 +142,8 @@ Overall it was really cool learning about such an ancient technology and the win
     country: 'Georgia',
     slug: 'clarity-ultimate-currency',
     year: '2024',
-    excerpt: 'A profound reflection on clarity triggered by a shirt tag, exploring consumption, intuition, and the nature of currency.',
+    excerpt:
+      'A profound reflection on clarity triggered by a shirt tag, exploring consumption, intuition, and the nature of currency.',
     content: `I woke up this morning to the sound of church bells. I woke up slow and groggy. I took a shower and brushed my teeth. As I was putting on my shirt for the day I noticed a tag on the inside of my shirt for the first time. It says "CLARITY IS THE ULTIMATE CURRENCY". I wear this shirt a lot and I never noticed this profound statement.
 
 I began to dissect what this means and why I have never noticed it. This statement is serendipitous because it encapsulates adventure capitalism. How do you gain clarity? Why is clarity the ultimate form of currency? What is currency?
@@ -142,7 +157,7 @@ It all comes down to one thing, consumption. There are various forms of consumpt
 **Why is clarity not just a form of currency but the ULTIMATE?** Usually when people think of currency it is to buy something for themselves, a nice car or new shoes etc. However, when you attain true clarity you understand that the whole point of creation is for the other, to be selfless, to have humility, to give.
 
 Therefore, when you enhance and sharpen your clarity and use it as a form of currency you are able to give yourself fully! This means you are able to serve humanity, the planet and the universe to the ULTIMATE extent.`,
-    images: []
+    images: [],
   },
   {
     id: 'barber-and-shabbat',
@@ -152,7 +167,8 @@ Therefore, when you enhance and sharpen your clarity and use it as a form of cur
     country: 'Georgia',
     slug: 'barber-and-shabbat',
     year: '2024',
-    excerpt: 'Meeting the apartment seller, getting the best haircut ever, and enjoying Shabbat dinner with new friends.',
+    excerpt:
+      'Meeting the apartment seller, getting the best haircut ever, and enjoying Shabbat dinner with new friends.',
     content: `Today was an action packed day. I woke up and the owner of the guest house, Mother Goari, made Zach and I breakfast. It was a traditional Georgian breakfast with pancake things and vegetables with nuts.
 
 After breakfast we went to drop our laundry off for a much needed wash. While waiting for my laundry I read a few pages of my book, The Old Man and the Sea, while Zach went to the Bank of Georgia to finalize opening a bank account.
@@ -164,7 +180,7 @@ We met at his nail salon he owns in Tbilisi which was cool. I really enjoyed tal
 I walked 40 minutes to a barbershop appointment I had down Rustaveli street. I went to Partizan Barber shop and my barber was Arsen. He was a magician with the scissors. **It was probably the best haircut I ever had.** He didn't speak any English. I just showed him a picture and he went to town. He was meticulous and focused. He used this blow dryer with an attachment which was super cool. He also trimmed my facial hair which was a first for me. It was 25 dollars total! In the US that service easily could be 75-100 dollars.
 
 After getting cut up I walked back and got ready for Shabbat. At the Shabbat meal I met two cool guys, Yosef and Yaakov. They told me their life stories and we laughed and enjoyed. It was a really nice time. I just have 5 more days left in Georgia. Hopefully we can close the deal on the apartment in the ski region as well as head to the wine region to relax and explore.`,
-    images: []
+    images: [],
   },
   {
     id: 'prometheus-cave',
@@ -174,12 +190,13 @@ After getting cut up I walked back and got ready for Shabbat. At the Shabbat mea
     country: 'Georgia',
     slug: 'prometheus-cave',
     year: '2024',
-    excerpt: 'Exploring the incredible Prometheus Cave near Kutaisi with Jared and Zach on Jared\'s last day.',
+    excerpt:
+      "Exploring the incredible Prometheus Cave near Kutaisi with Jared and Zach on Jared's last day.",
     content: `Back in Tbilisi, drove all day today. Just wanted to drop these pictures from today. Jared, Zach and I went to Prometheus Cave which is near Kutaisi. Today is Jared's last night. I am very grateful for him coming all the way to Georgia for a week. The three of us are lucky enough to have been on a handful of great adventures together.`,
     images: [
       { src: '/assets/images/misc/cave.jpg', alt: 'Inside Prometheus Cave' },
-      { src: '/assets/images/misc/man.jpg', alt: 'Exploring the cave' }
-    ]
+      { src: '/assets/images/misc/man.jpg', alt: 'Exploring the cave' },
+    ],
   },
   {
     id: 'tskaltubo-analysis',
@@ -189,7 +206,8 @@ After getting cut up I walked back and got ready for Shabbat. At the Shabbat mea
     country: 'Georgia',
     slug: 'tskaltubo-analysis',
     year: '2024',
-    excerpt: 'Comprehensive analysis of Georgia after a week in the country, from Tbilisi to the countryside.',
+    excerpt:
+      'Comprehensive analysis of Georgia after a week in the country, from Tbilisi to the countryside.',
     content: `It stopped raining and the sun peaked through the clouds this morning! I walked the property of the hotel and enjoyed the smells of the nature after the rain. I was able to regain some clarity with the pause in rain. Your environment really plays a huge role in your psyche. It's crucial to surround yourself with the proper nature that best suits you.
 
 That's why traveling is so important. You are able to deduce which nature you want to diffuse with. I've been in Georgia for a week and want to give my proper analysis of the country.
@@ -207,7 +225,7 @@ That's why traveling is so important. You are able to deduce which nature you wa
 **Politics** - The country really wants to be a part of the EU but it seems like there is much corruption in the government.
 
 Overall I really like Georgia and recommend it to any one looking for a unique new country to visit. There's skiing, history, hiking, beaches, caves, and more.`,
-    images: []
+    images: [],
   },
   {
     id: 'tskaltubo-spa',
@@ -217,7 +235,8 @@ Overall I really like Georgia and recommend it to any one looking for a unique n
     country: 'Georgia',
     slug: 'tskaltubo-spa',
     year: '2024',
-    excerpt: 'Four days without sun and a bizarre Soviet-era spa experience in the mineral waters of Tskaltubo.',
+    excerpt:
+      'Four days without sun and a bizarre Soviet-era spa experience in the mineral waters of Tskaltubo.',
     content: `I have not seen the sun in four days. Not being in sunlight definitely affects your energy levels. I have always lived in warm climate places and never experienced the seasonal darkness people talk about. It is obvious that sunlight is crucial for life, but I never realized how much of an affect it can play on the human system.
 
 I am currently in a small down called Tskaltubo, outside of the third biggest city in Georgia, Kutaisi. This place is known for its hot springs and healing mineral waters. There is a lot of abandoned soviet architecture here. Joseph Stalin would come to this place for the healing properties of the waters.
@@ -227,7 +246,7 @@ Today Zach, Jared and I went to one of the spas. **It was a super weird and uniq
 I sat in the mineral bath for ten minutes and then the nurse used a pressurized water gun to massage my body. It was weird but funny. The mineral waters here are enriched with radon which gives them their special properties. We are going back tomorrow for another session.
 
 We have another night here, but I am looking forward to being back in the sunlight in Tbilisi. Today marks one month of the start of my trip. The days all merge together and each day is filled to the brim with new experiences.`,
-    images: []
+    images: [],
   },
   {
     id: 'batumi-realignment',
@@ -237,7 +256,8 @@ We have another night here, but I am looking forward to being back in the sunlig
     country: 'Georgia',
     slug: 'batumi-realignment',
     year: '2024',
-    excerpt: 'Getting off center in rainy Batumi, realigning my purpose, and grounding at Chabad.',
+    excerpt:
+      'Getting off center in rainy Batumi, realigning my purpose, and grounding at Chabad.',
     content: `I have been off center the past two days. I am getting over the phase of the trip where it feels like a vacation and transitioning into this lifestyle for the next six months. On vacation you are always on the go to sight see and explore. However, now the traveling is my lifestyle, I am a traveler.
 
 The past two days have been slow due to the rain here in Batumi on the Black Sea, and I believe it knocked me off my focus. This morning I woke up and went on a walk to realign and remember why I decided to do this. I wanted to adventure and travel the world, to experience different places and cultures while I am young and healthy. I want to take calculated risks and try my hand at investing and starting a business, to build something for my future family and friends.
@@ -247,7 +267,7 @@ On the slow days when there is not much excitement some doubts can start to cree
 All you are left to do is trudge along in the valley in the dark of night. Now you are in the depths of a gorge, not knowing where you started or where the end is. **It is required of a young man to continue along the journey, even when it is difficult and uncomfortable.** It is required to trust your former intuition of why you started the journey in the first place.
 
 After my walk Zach and I went to Chabad of Batumi. It was my first time getting to go to Chabad on the travels. There were about 50 people there and it was really beautiful to ground myself. We met really cool Israeli's who were also traveling. An older gentleman, Yoram told us all of his travel stories and investment advice. We talked with Yaella and a drummer guy who were about our age about traveling as well. It was so nice talking with them and hearing their stories.`,
-    images: []
+    images: [],
   },
   {
     id: 'sunny-tbilisi',
@@ -257,7 +277,8 @@ After my walk Zach and I went to Chabad of Batumi. It was my first time getting 
     country: 'Georgia',
     slug: 'sunny-tbilisi',
     year: '2024',
-    excerpt: 'First sunny day in Georgia exploring Tbilisi, meeting with Levan, riding the gondola, and traditional sulfur baths.',
+    excerpt:
+      'First sunny day in Georgia exploring Tbilisi, meeting with Levan, riding the gondola, and traditional sulfur baths.',
     content: `I woke up and went on a nice city walk alone. I walked down the main street of Tbilisis, Rustavel Avenue. It was the first sunny day in Georgia, a beautiful 65 degrees and sunny. I walked across the Bridge of Peace and took in the natural beauty of the place.
 
 After my walk I met up with Zach to meet Levan for lunch. Levan is a local Georgian who helped us last year understand the Georgian economy and tax laws. After lunch we met up with Jared and had a glass of semi-sweet white Georgian wine.
@@ -269,9 +290,15 @@ Later that evening we enjoyed a nice sulphur bath. Georgia is known for their ho
 After the sulphur baths we enjoyed traditional Georgian cuisine which was really yummy. To end our night we went to a karaoke bar and the boys all got to sing their favorite songs!`,
     images: [
       { src: '/assets/images/misc/levan.jpg', alt: 'Meeting with Levan' },
-      { src: '/assets/images/misc/lands.jpg', alt: 'Beautiful Georgian landscape' },
-      { src: '/assets/images/misc/blarg.jpg', alt: 'The boys enjoying Georgia' }
-    ]
+      {
+        src: '/assets/images/misc/lands.jpg',
+        alt: 'Beautiful Georgian landscape',
+      },
+      {
+        src: '/assets/images/misc/blarg.jpg',
+        alt: 'The boys enjoying Georgia',
+      },
+    ],
   },
   {
     id: 'gudauri-apartment-tour',
@@ -281,7 +308,8 @@ After the sulphur baths we enjoyed traditional Georgian cuisine which was really
     country: 'Georgia',
     slug: 'gudauri-apartment-tour',
     year: '2024',
-    excerpt: 'Touring apartments in Gudauri ski resort, learning about real estate investment, and preparing for business decisions.',
+    excerpt:
+      'Touring apartments in Gudauri ski resort, learning about real estate investment, and preparing for business decisions.',
     content: `Wow what a day. I woke up pretty late at about 11:30. Zach and I went to tour apartments in Gudauri at around 12:30. There was a whole fiasco with getting a key to see the apartment. The realtor was not with us so we had to go to the various front desks to see the places.
 
 We saw 4 different units in total. One unit stuck out which was a one bedroom with an amazing balcony overlooking the main plaza. We met with the property manager of the unit and he gave us some very valuable information.
@@ -289,7 +317,7 @@ We saw 4 different units in total. One unit stuck out which was a one bedroom wi
 After seeing the units we said goodbye to Gudauri and drove back to Tbilisi. A 2 hour drive turned into 3 hours with traffic. Zach and I returned to our guest house and got Thai food for dinner. We had been eating a lot of Georgian food already. We discussed business over a nice glass of semi-sweet wine.
 
 It was a jam packed day and I learned so much about investment strategies and real estate so quickly! Jared's flight got delayed so he should arrive tomorrow early in the morning. Looking forward to the triangulation and for the Blargvengers to reunite!`,
-    images: []
+    images: [],
   },
   {
     id: 'arrival-in-georgia',
@@ -299,7 +327,8 @@ It was a jam packed day and I learned so much about investment strategies and re
     country: 'Georgia',
     slug: 'arrival-in-georgia',
     year: '2024',
-    excerpt: 'First day in Georgia, exploring the capital Tbilisi and driving to the ski region of Gudauri.',
+    excerpt:
+      'First day in Georgia, exploring the capital Tbilisi and driving to the ski region of Gudauri.',
     content: `I landed in the country of Georgia in the capital of Tbilisi at 00:30 on Monday. The flight was a little bumpy and I was dehydrated. I was excited to get to the first new country on the trip. Zach and I had been talking about going to Georgia for over a year now and it was such a great feeling for a year's worth of ideas and planning to come into reality.
 
 When I landed I started to take note of all of the details of Georgia. I first noticed a lot of election related billboards. On October 26th Georgia will undergo a monumental election to decide the fate of the country. They will elect a 150 person parliament. If the incumbent stays in power, Georgia is more likely to become closer to Russia, however if the opposition wins, Georgia has a clear path paved towards joining the European Union.
@@ -310,8 +339,8 @@ When we drove to our hostel we stopped for gas. The gas here is super cheap due 
 
 We drove two hours from Tbilisi high into the mountains. It was rainy and cold but we talked to some locals and received very valuable information. **It was cool being on the frontier, as an adventure capitalist for the first time.** We learned so much just from being there and exploring. Tomorrow we meet with realtors to tour some units.`,
     images: [
-      { src: '/assets/images/misc/gehat.jpg', alt: 'First day in Georgia' }
-    ]
+      { src: '/assets/images/misc/gehat.jpg', alt: 'First day in Georgia' },
+    ],
   },
   {
     id: 'leaving-israel',
@@ -321,7 +350,8 @@ We drove two hours from Tbilisi high into the mountains. It was rainy and cold b
     country: 'Israel',
     slug: 'leaving-israel',
     year: '2024',
-    excerpt: 'Final reflections from Jerusalem before departing for Georgia, key takeaways from three weeks in Israel.',
+    excerpt:
+      'Final reflections from Jerusalem before departing for Georgia, key takeaways from three weeks in Israel.',
     content: `I am sitting in a nice outdoor Internet cafe in Jerusalem. I leave for Georgia in about 5 hours. I wanted to reflect on my biggest takeaways from my three weeks in Israel.
 
 **Key Takeaways:**
@@ -335,7 +365,7 @@ We drove two hours from Tbilisi high into the mountains. It was rainy and cold b
 8. Judaism can be done in infinite ways
 9. Drink lots of water
 10. Israelis lack chivalry. Being chivalrous is a loving way to live`,
-    images: []
+    images: [],
   },
   {
     id: 'yom-kippur-jerusalem',
@@ -345,7 +375,8 @@ We drove two hours from Tbilisi high into the mountains. It was rainy and cold b
     country: 'Israel',
     slug: 'yom-kippur-jerusalem',
     year: '2024',
-    excerpt: 'Observing Yom Kippur in Jerusalem, spending time in nature, and reflecting on my final night in Israel.',
+    excerpt:
+      'Observing Yom Kippur in Jerusalem, spending time in nature, and reflecting on my final night in Israel.',
     content: `Today was Yom Kippur. I woke up late and sat on the balcony of our Airbnb. Around 1300 Ron Zach and I walked to Gan Sacher Park. We met some interesting people in the park. We spent about 4 hours there throwing frisbee, laying in the grass, and philosophizing.
 
 It's important to bring out your childish nature and not take life too seriously. Channeling childish energy can pave the way for true connection to the infinite.
@@ -356,9 +387,12 @@ The people are so welcoming and treat you like their own. I want to bring this w
 
 In the first three weeks here in Israel I learned so much about myself and my outlook on life. I'm looking forward to further growing and integrating my learnings from Israel throughout the trip.`,
     images: [
-      { src: '/assets/images/misc/chossid2.jpg', alt: 'Yom Kippur in Jerusalem' },
-      { src: '/assets/images/misc/chossid1.jpg', alt: 'Reflective moment' }
-    ]
+      {
+        src: '/assets/images/misc/chossid2.jpg',
+        alt: 'Yom Kippur in Jerusalem',
+      },
+      { src: '/assets/images/misc/chossid1.jpg', alt: 'Reflective moment' },
+    ],
   },
   {
     id: 'chaim-and-selichot',
@@ -368,7 +402,8 @@ In the first three weeks here in Israel I learned so much about myself and my ou
     country: 'Israel',
     slug: 'chaim-and-selichot',
     year: '2024',
-    excerpt: 'Traveling from Netanya to Jerusalem, reuniting with FSU friend Chaim, and meeting an IDF hero.',
+    excerpt:
+      'Traveling from Netanya to Jerusalem, reuniting with FSU friend Chaim, and meeting an IDF hero.',
     content: `I woke up in Netanya and got a passion fruit and mango smoothie. It was really yummy. Ron Zach and I then took a two hour bus from Netanya to Jerusalem. It was a long journey but we got to Jerusalem at around 15:30.
 
 After settling into our Airbnb Ron and I went to Gan Sacher to get a nice workout in. The air was so crisp and the weather was so nice.
@@ -382,8 +417,11 @@ He told us how the IDF tried to airstrike a mansion base in Lebanon but it was s
 After the Shuk we went to the old city for selichot. We sang songs and danced together. It was great energy and an awesome time!`,
     images: [
       { src: '/assets/images/misc/Chaim.JPG', alt: 'Reunion with Chaim' },
-      { src: '/assets/images/misc/Selichot.jpg', alt: 'Selichot in the Old City' }
-    ]
+      {
+        src: '/assets/images/misc/Selichot.jpg',
+        alt: 'Selichot in the Old City',
+      },
+    ],
   },
   {
     id: 'netanya-family',
@@ -393,7 +431,8 @@ After the Shuk we went to the old city for selichot. We sang songs and danced to
     country: 'Israel',
     slug: 'netanya-family',
     year: '2024',
-    excerpt: 'Meeting Ron\'s Safta and family in Netanya, hearing stories from Libya, and enjoying the French atmosphere.',
+    excerpt:
+      "Meeting Ron's Safta and family in Netanya, hearing stories from Libya, and enjoying the French atmosphere.",
     content: `Today was a great day. I woke up in Tel Aviv and packed my bags and caught the bus to Netanya to meet up with my good friend Ron from college. Ron was one of the first people I met at University of Florida freshman year.
 
 Zach and I got off the bus and walked to his Safta's (Grandmother's) house. She was there with two of her siblings. She made an amazing lunch for us. It was really nice seeing her hang out with her siblings at such an old age. They all live within walking distance of each other and hang out a lot. **That is one thing I value a lot about the Israeli lifestyle, family over everything.**
@@ -407,8 +446,8 @@ It was so cool to spend time with Ron and his family. Ron Zach and I then went t
 After dinner Zach and I met Ron and his father on the beach for his dad's birthday. He was really cool and we talked about surfing. We closed the night by going to a city wide concert that was taking place right outside our Airbnb. It was a band called Akiva. We finished the night by philosophizing about love on the beach while looking up at the stars and hearing the waves crash.`,
     images: [
       { src: '/assets/images/misc/busstop.jpg', alt: 'Bus stop in Israel' },
-      { src: '/assets/images/misc/safta.jpg', alt: 'With Ron\'s Safta' }
-    ]
+      { src: '/assets/images/misc/safta.jpg', alt: "With Ron's Safta" },
+    ],
   },
   {
     id: 'october-7th-anniversary',
@@ -418,7 +457,8 @@ After dinner Zach and I met Ron and his father on the beach for his dad's birthd
     country: 'Israel',
     slug: 'october-7th-anniversary',
     year: '2024',
-    excerpt: 'Running for the hostages on the one-year anniversary of October 7th, experiencing sirens and meeting friends.',
+    excerpt:
+      'Running for the hostages on the one-year anniversary of October 7th, experiencing sirens and meeting friends.',
     content: `I started my day energized and inspired. I wrapped tefillin and got dressed to do a hard run for the year anniversary of October 7th. I started walking down the board walk with my headphones in. I noticed the natural beauty of this place. 
 
 Literally 5 seconds later I see people running to the shelter. It's crazy on the anniversary of October 7th the people of Israel still are dealing with this. I heard booms from the interceptions. After I ran my fastest 5k yet, 22:04. **I ran for the hostages who have been strong for a year and for all the beautiful lives lost a year ago today.** If I could emulate a sliver of their strength I'd be happy.
@@ -431,8 +471,8 @@ After I met up with my friend Neev who moved here from Dallas. It was great seei
     images: [
       { src: '/assets/images/food/squid.JPG', alt: 'Squid ink face paint' },
       { src: '/assets/images/misc/memorial.jpg', alt: 'October 7th memorial' },
-      { src: '/assets/images/misc/neev.jpg', alt: 'Reunion with Neev' }
-    ]
+      { src: '/assets/images/misc/neev.jpg', alt: 'Reunion with Neev' },
+    ],
   },
   {
     id: 'knesset-visit',
@@ -442,7 +482,8 @@ After I met up with my friend Neev who moved here from Dallas. It was great seei
     country: 'Israel',
     slug: 'knesset-visit',
     year: '2024',
-    excerpt: 'Visiting the Israeli Knesset with former camp counselor Itay, learning about Israeli politics, and returning to Tel Aviv.',
+    excerpt:
+      'Visiting the Israeli Knesset with former camp counselor Itay, learning about Israeli politics, and returning to Tel Aviv.',
     content: `Today I woke up in Jerusalem and checked out of our Airbnb. Zack and I headed to the Knesset to meet our camp counselor from Camp Coleman, Itay Gliner. Itay was my counselor at camp over ten years ago. Every time I have been back to Israel my friends and I have made it a point to see him. In 2016, 2022 and now in 2024.
 
 We rode the bus up the hill to the Knesset. It was hard getting in at first since we were it in a formal tour but eventually they let us in with some explaining. We met Itay and he took us to his office. **He is the press secretary for the speaker of the Knesset!**
@@ -455,10 +496,16 @@ After the great time with him we headed to TLV via train. It was an easy trip th
 
 After our workout Zach showed me his favorite burger he ever had. it was pretty yummy in dizengoff square. The rest of the night Zach Marissa and I got drinks at bars. It was a Sunday night so it was pretty quiet. All in all it was a very nice day.`,
     images: [
-      { src: '/assets/images/misc/Itay.jpg', alt: 'Reuniting with Itay at the Knesset' },
-      { src: '/assets/images/misc/knesset.jpg', alt: 'Inside the Israeli Knesset' },
-      { src: '/assets/images/misc/Boys.jpg', alt: 'The boys in Israel' }
-    ]
+      {
+        src: '/assets/images/misc/Itay.jpg',
+        alt: 'Reuniting with Itay at the Knesset',
+      },
+      {
+        src: '/assets/images/misc/knesset.jpg',
+        alt: 'Inside the Israeli Knesset',
+      },
+      { src: '/assets/images/misc/Boys.jpg', alt: 'The boys in Israel' },
+    ],
   },
   {
     id: 'rosh-hashanah-second-day',
@@ -468,13 +515,14 @@ After our workout Zach showed me his favorite burger he ever had. it was pretty 
     country: 'Israel',
     slug: 'rosh-hashanah-second-day',
     year: '2024',
-    excerpt: 'Second day of Rosh Hashanah at the Kotel and an unexpected encounter with a homeless man.',
+    excerpt:
+      'Second day of Rosh Hashanah at the Kotel and an unexpected encounter with a homeless man.',
     content: `I went to the Kotel again in the morning for the second day of Rosh Hashanah. I did the same routine as the day before. When leaving the Kotel a guy stopped me and asked me if wanted to join a Soodah. I asked him what a Soodah was. He explained it is a feast, which is different from a meal. A meal is to eat but a feast is to commemorate and celebrate and food is the mode to do that. I liked that explanation.
 
 I ended up talking to this guy for 1.5 hours. He was born in Brooklyn but lives in Israel. He seems about my age. He told me how he is homeless and mentally ill. He gets 4,000 sheckels from the government each month but spends it all in a day. He goes around begging for money. I listened to his story.
 
 He started saying how flat concrete is terrible and destroys the human body and how it's best to walk barefoot in the woods. He also said I should buy a tent and live in the forest to save money. He had interesting ideas and I tried to listen to him openly but after 1.5 hours of talking it was clear he was mentally ill. He said he had mental illness but didn't specify what.`,
-    images: []
+    images: [],
   },
   {
     id: 'rosh-hashanah-first-day',
@@ -484,7 +532,8 @@ He started saying how flat concrete is terrible and destroys the human body and 
     country: 'Israel',
     slug: 'rosh-hashanah-first-day',
     year: '2024',
-    excerpt: 'Quiet Rosh Hashanah in Jerusalem, reflecting at the Kotel and enjoying the silence of the holy city.',
+    excerpt:
+      'Quiet Rosh Hashanah in Jerusalem, reflecting at the Kotel and enjoying the silence of the holy city.',
     content: `In Jerusalem everything is closed. Barely any cars on the street and nothing to do. I woke up and went to the Kotel alone. At the Western Wall it was not very crowded, people must have been doing Rosh Hashanah services at their synagogues.
 
 It was cool listening to the shofar constantly. I did a silent reflection and meditation and prayed for my friends and family. One sefardic Torah scroll stuck out to me which had the Choshen, the priestly breastplate with twelve gems. It was stunning. I loved seeing all the various groups pray and blow the shofar differently.
@@ -494,7 +543,7 @@ In the afternoon Zach and I threw the frisbee in the park. We are pretty good an
 **It's super nice not having any noise pollution these past few days.** There's no honking or yelling or other sounds. In big urban city centers you don't realize how bad the noise can be for mental clarity. That's why it's so important to be in nature to reflect. In the US when driving a majority of the day or living in a crowded neighborhood you never get silence.
 
 Noise and frequency is the basis of creation so it's extremely important what noise and music and sounds you expose yourself to. The past couple days with no sounds has been so great for mental clarity.`,
-    images: []
+    images: [],
   },
   {
     id: 'rosh-hashanah-eve',
@@ -504,7 +553,8 @@ Noise and frequency is the basis of creation so it's extremely important what no
     country: 'Israel',
     slug: 'rosh-hashanah-eve',
     year: '2024',
-    excerpt: 'Experiencing an intense spiritual gathering with a renowned rabbi in Mea Shearim on Rosh Hashanah eve.',
+    excerpt:
+      'Experiencing an intense spiritual gathering with a renowned rabbi in Mea Shearim on Rosh Hashanah eve.',
     content: `The past few days have been very chill but filled with very memorable moments. Wednesday night started Rosh Hashanah, the Jewish New year. It's a two day festival where Jews crown Hashem as king and recommit to the oneness and make goals to strive for the next year.
 
 On Wednesday night Zach and I joined a local family's Rosh Hashanah dinner. It was very nice of them to host us. During dinner the host commented how later that evening he was going to see a big rabbi, Reb Itche Meir Morgenstern. The host told us he is the biggest Tzadik of our generation, a very high and righteous being.
@@ -528,7 +578,7 @@ After the prayer he scurried off into a private room. When he scurried off behin
 The rabbi did hand signals for when the congregation to stop and to keep going. After the service everyone pushed to the front to get a blessing from the rabbi. It reminded me of the Travis Scott crowd crunch. It was a mad house. I got my blessing from him as he looked me in the eye and motioned his hand.
 
 We walked out of the prayers and enter red to reality. That place was a portal to an alternate universe. It was pretty weird how crazy all the congregation was about one man. It weirded me out but it was cool catching a glimpse into their community and lifestyle. I did not have any crazy spiritual experience while being in his presence. It was more just a show and a mad house in there.`,
-    images: []
+    images: [],
   },
   {
     id: 'iran-missile-attack',
@@ -538,7 +588,8 @@ We walked out of the prayers and enter red to reality. That place was a portal t
     country: 'Israel',
     slug: 'iran-missile-attack',
     year: '2024',
-    excerpt: 'Experiencing 200 Iranian ballistic missiles targeting Israel, running to shelters, and confronting terrorism firsthand.',
+    excerpt:
+      'Experiencing 200 Iranian ballistic missiles targeting Israel, running to shelters, and confronting terrorism firsthand.',
     content: `Today I experienced being under attack by 200 intercontinental ballistic missiles. I want to first start with some thoughts and then I will convey the story via writing and video.
 
 **This was the first time I had feared for my life and experienced the psychological effects of terrorism.** It is really sad to me that I was personally under attack for being Jewish and being in Israel. In the US and on social media you always see videos and news but it never really feels personal or an attack on your life until you are under fire.
@@ -586,6 +637,6 @@ Like I mentioned for all we know more terrorists could be in the street or more 
 We made it back to the hostel and got our phones and told everyone we are safe. It was around 2230. All the restaurants were closed and we were still hungry. We decided to go back out and look for food. I was nervous going out to the street still but it was important not to let the psychological terror get to me.
 
 Most places were closed but some bars were open. The streets were dead. People glanced at me weird as i walked the street. Luckily a grocery store was open and I got hummus and chips. We made it back to the hostel still shaken up and on high alert. We stayed up late talking to our parents and processing everything. **Wow what a day I'll never forget.**`,
-    images: []
-  }
-];
+    images: [],
+  },
+]

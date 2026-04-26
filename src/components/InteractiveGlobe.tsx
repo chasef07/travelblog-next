@@ -3,19 +3,33 @@
 import { useState, useEffect, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import { journeyStats, type CountryData } from '@/utils/comprehensive-map-data'
-import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion'
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useTransform,
+  animate,
+} from 'framer-motion'
 
 const GlobeScene = dynamic(() => import('./GlobeScene'), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center bg-[var(--ui-bg-strong)]">
-      <span className="font-mono tracking-wider text-sm text-[var(--ui-text-muted)]">LOADING GLOBE...</span>
+      <span className="font-mono tracking-wider text-sm text-[var(--ui-text-muted)]">
+        LOADING GLOBE...
+      </span>
     </div>
   ),
 })
 
 // Animated counter component
-function AnimatedCounter({ value, duration = 2 }: { value: number, duration?: number }) {
+function AnimatedCounter({
+  value,
+  duration = 2,
+}: {
+  value: number
+  duration?: number
+}) {
   const count = useMotionValue(0)
   const rounded = useTransform(count, (latest) => Math.round(latest))
   const [displayValue, setDisplayValue] = useState(0)
@@ -23,10 +37,10 @@ function AnimatedCounter({ value, duration = 2 }: { value: number, duration?: nu
   useEffect(() => {
     const controls = animate(count, value, {
       duration,
-      ease: "easeOut",
+      ease: 'easeOut',
     })
 
-    const unsubscribe = rounded.on("change", (v) => setDisplayValue(v))
+    const unsubscribe = rounded.on('change', (v) => setDisplayValue(v))
 
     return () => {
       controls.stop()
@@ -70,14 +84,14 @@ async function fetchGeoJSON(): Promise<GeoJSON> {
 
   // Start new fetch and cache the promise
   geoJSONPromise = fetch(
-    'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
+    'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson',
   )
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       geoJSONCache = data
       return data
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('Failed to load GeoJSON:', error)
       geoJSONPromise = null // Reset on error to allow retry
       throw error
@@ -88,7 +102,9 @@ async function fetchGeoJSON(): Promise<GeoJSON> {
 
 // Main export component
 export default function InteractiveGlobe() {
-  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
+  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(
+    null,
+  )
   const [geoData, setGeoData] = useState<GeoJSON | null>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [isMobile, setIsMobile] = useState(() => {
@@ -106,7 +122,7 @@ export default function InteractiveGlobe() {
           observer.disconnect()
         }
       },
-      { rootMargin: '200px' }
+      { rootMargin: '200px' },
     )
 
     if (containerRef.current) {
@@ -121,7 +137,7 @@ export default function InteractiveGlobe() {
     if (!isVisible) return
 
     fetchGeoJSON()
-      .then(data => setGeoData(data))
+      .then((data) => setGeoData(data))
       .catch(() => {}) // Error already logged in fetchGeoJSON
   }, [isVisible])
 
@@ -138,14 +154,17 @@ export default function InteractiveGlobe() {
   }
 
   return (
-    <section id="journey" className="app-surface relative overflow-hidden py-14 sm:py-20">
+    <section
+      id="journey"
+      className="app-surface relative overflow-hidden py-14 sm:py-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
           className="mb-10 flex flex-col gap-5 sm:mb-12 md:flex-row md:items-start md:justify-between md:gap-6"
         >
           <div>
@@ -165,10 +184,7 @@ export default function InteractiveGlobe() {
 
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
           {/* Globe Container */}
-          <div
-            ref={containerRef}
-            className="lg:col-span-2 w-full"
-          >
+          <div ref={containerRef} className="lg:col-span-2 w-full">
             <div className="overflow-hidden rounded-2xl h-[340px] sm:h-[500px] md:h-[600px] w-full">
               {isVisible && (
                 <GlobeScene
@@ -185,7 +201,7 @@ export default function InteractiveGlobe() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: '-100px' }}
             className="space-y-4 sm:space-y-6"
           >
             <AnimatePresence mode="wait">
@@ -201,7 +217,9 @@ export default function InteractiveGlobe() {
                       <span className="font-mono text-xs tracking-wider text-[var(--ui-accent)] uppercase">
                         {selectedCountry.visitDate}
                       </span>
-                      <h3 className="mt-1 text-xl sm:text-2xl font-light text-[var(--ui-text-primary)]">{selectedCountry.name}</h3>
+                      <h3 className="mt-1 text-xl sm:text-2xl font-light text-[var(--ui-text-primary)]">
+                        {selectedCountry.name}
+                      </h3>
                     </div>
 
                     <p className="mb-5 sm:mb-6 text-sm sm:text-base text-[var(--ui-text-secondary)] leading-relaxed">
@@ -210,7 +228,10 @@ export default function InteractiveGlobe() {
 
                     <div className="space-y-1.5 sm:space-y-2">
                       {selectedCountry.highlights.map((highlight, index) => (
-                        <div key={index} className="text-xs sm:text-sm text-[var(--ui-text-muted)] flex items-center gap-2.5 sm:gap-3">
+                        <div
+                          key={index}
+                          className="text-xs sm:text-sm text-[var(--ui-text-muted)] flex items-center gap-2.5 sm:gap-3"
+                        >
                           <div className="w-1 h-1 bg-[var(--ui-accent)]" />
                           {highlight}
                         </div>
@@ -231,9 +252,13 @@ export default function InteractiveGlobe() {
                   exit={{ opacity: 0 }}
                 >
                   <div className="rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] p-4 sm:p-6 backdrop-blur-sm">
-                    <h3 className="font-light text-lg mb-2 text-[var(--ui-text-primary)]">Select a destination</h3>
+                    <h3 className="font-light text-lg mb-2 text-[var(--ui-text-primary)]">
+                      Select a destination
+                    </h3>
                     <p className="text-[var(--ui-text-muted)] text-sm">
-                      {isMobile ? 'Tap any marker to explore.' : 'Click on any marker to explore.'}
+                      {isMobile
+                        ? 'Tap any marker to explore.'
+                        : 'Click on any marker to explore.'}
                     </p>
                   </div>
                 </motion.div>
@@ -249,15 +274,25 @@ export default function InteractiveGlobe() {
             >
               <div className="p-3.5 sm:p-4 text-center border-r border-[var(--ui-border-subtle)]">
                 <div className="text-xl sm:text-2xl font-extralight text-[var(--ui-accent)]">
-                  <AnimatedCounter value={journeyStats.totalCountries} duration={1.5} />
+                  <AnimatedCounter
+                    value={journeyStats.totalCountries}
+                    duration={1.5}
+                  />
                 </div>
-                <div className="text-xs text-[var(--ui-text-muted)] uppercase tracking-wider mt-1">Countries</div>
+                <div className="text-xs text-[var(--ui-text-muted)] uppercase tracking-wider mt-1">
+                  Countries
+                </div>
               </div>
               <div className="p-3.5 sm:p-4 text-center">
                 <div className="text-xl sm:text-2xl font-extralight text-[var(--ui-accent)]">
-                  <AnimatedCounter value={journeyStats.totalBlogPosts} duration={2} />
+                  <AnimatedCounter
+                    value={journeyStats.totalBlogPosts}
+                    duration={2}
+                  />
                 </div>
-                <div className="text-xs text-[var(--ui-text-muted)] uppercase tracking-wider mt-1">Stories</div>
+                <div className="text-xs text-[var(--ui-text-muted)] uppercase tracking-wider mt-1">
+                  Stories
+                </div>
               </div>
             </motion.div>
           </motion.div>

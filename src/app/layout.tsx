@@ -11,7 +11,6 @@ import '@fontsource/fraunces/600.css'
 import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import BootSequence from '../components/BootSequence'
 import SmoothScroll from '../components/SmoothScroll'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
@@ -19,12 +18,28 @@ import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Lifestyle Engineering - Real Value Through Work, Health, and Growth',
-  description: 'Work hard, stay healthy, and grow sustainably. Lifestyle engineering, travel lessons, and systems for long-term performance.',
-  keywords: ['solo travel blog', 'Asia travel guide', 'Africa travel tips', 'cultural travel experiences', 'backpacking Asia', 'solo travel guides', 'travel photography', 'authentic travel stories', 'budget travel tips', 'cultural immersion travel'],
-  images: ['/assets/images/misc/posttrip.jpg']
+  description:
+    'Work hard, stay healthy, and grow sustainably. Lifestyle engineering, travel lessons, and systems for long-term performance.',
+  keywords: [
+    'solo travel blog',
+    'Asia travel guide',
+    'Africa travel tips',
+    'cultural travel experiences',
+    'backpacking Asia',
+    'solo travel guides',
+    'travel photography',
+    'authentic travel stories',
+    'budget travel tips',
+    'cultural immersion travel',
+  ],
+  images: ['/assets/images/misc/posttrip.jpg'],
 })
 
-export default function RootLayout({ children }:{children: React.ReactNode}){
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const websiteJsonLd = generateWebsiteJsonLd()
 
   return (
@@ -43,7 +58,12 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         <link rel="manifest" href="/site.webmanifest" />
 
         {/* RSS Feed */}
-        <link rel="alternate" type="application/rss+xml" title="Lifestyle Engineering RSS Feed" href="/feed.xml" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Lifestyle Engineering RSS Feed"
+          href="/feed.xml"
+        />
 
         {/* Website structured data */}
         <script
@@ -52,7 +72,6 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
         />
       </head>
       <body suppressHydrationWarning className="min-h-screen flex flex-col">
-
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
@@ -74,12 +93,9 @@ export default function RootLayout({ children }:{children: React.ReactNode}){
           </>
         )}
 
-        <BootSequence />
         <SmoothScroll />
         <Header />
-        <div id="main-content">
-        {children}
-        </div>
+        <div id="main-content">{children}</div>
         <Footer />
         <SpeedInsights />
         <Analytics />

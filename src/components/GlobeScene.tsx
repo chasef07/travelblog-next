@@ -3,9 +3,11 @@
 import { useRef, useMemo, useState, memo, useCallback, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Line, Html } from '@react-three/drei'
-import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing'
 import * as THREE from 'three'
-import { fullJourneyData, type CountryData } from '@/utils/comprehensive-map-data'
+import {
+  fullJourneyData,
+  type CountryData,
+} from '@/utils/comprehensive-map-data'
 
 // GeoJSON types
 interface GeoJSONGeometry {
@@ -46,7 +48,11 @@ const DEFAULT_GLOBE_THEME: GlobeTheme = {
 }
 
 // Convert lat/lng to 3D coordinates on sphere
-function latLngToVector3(lat: number, lng: number, radius: number): THREE.Vector3 {
+function latLngToVector3(
+  lat: number,
+  lng: number,
+  radius: number,
+): THREE.Vector3 {
   const phi = (90 - lat) * (Math.PI / 180)
   const theta = (lng + 180) * (Math.PI / 180)
 
@@ -58,7 +64,11 @@ function latLngToVector3(lat: number, lng: number, radius: number): THREE.Vector
 }
 
 // Create arc between two points on the globe
-function createArc(start: THREE.Vector3, end: THREE.Vector3, radius: number): THREE.Vector3[] {
+function createArc(
+  start: THREE.Vector3,
+  end: THREE.Vector3,
+  radius: number,
+): THREE.Vector3[] {
   const points: THREE.Vector3[] = []
   const segments = 50
 
@@ -82,7 +92,10 @@ function createArc(start: THREE.Vector3, end: THREE.Vector3, radius: number): TH
 }
 
 // Process GeoJSON coordinates into line segments for the globe
-function processGeoJSONToLines(geoJSON: GeoJSON, radius: number): THREE.Vector3[][] {
+function processGeoJSONToLines(
+  geoJSON: GeoJSON,
+  radius: number,
+): THREE.Vector3[][] {
   const lines: THREE.Vector3[][] = []
 
   const processCoordinates = (coords: number[][], r: number) => {
@@ -204,7 +217,7 @@ function LocationMarker({
   })
 
   const formatCoord = (val: number, isLat: boolean) => {
-    const dir = isLat ? (val >= 0 ? 'N' : 'S') : (val >= 0 ? 'E' : 'W')
+    const dir = isLat ? (val >= 0 ? 'N' : 'S') : val >= 0 ? 'E' : 'W'
     return `${Math.abs(val).toFixed(compactLabel ? 2 : 4)}${dir}`
   }
 
@@ -217,7 +230,7 @@ function LocationMarker({
         onClick={onClick}
       >
         <boxGeometry args={[markerSize, markerSize, markerSize]} />
-        <meshStandardMaterial color={markerColor} emissive={markerColor} emissiveIntensity={0.8} />
+        <meshStandardMaterial color={markerColor} />
       </mesh>
 
       {(isHovered || isSelected) && (
@@ -270,7 +283,10 @@ function ArcPath({
   color: string
   lineWidth: number
 }) {
-  const points = useMemo(() => createArc(start, end, radius), [start, end, radius])
+  const points = useMemo(
+    () => createArc(start, end, radius),
+    [start, end, radius],
+  )
 
   return (
     <Line
@@ -300,7 +316,9 @@ function Scene({
   const groupRef = useRef<THREE.Group>(null)
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null)
   const [autoRotate, setAutoRotate] = useState(true)
-  const resumeRotateTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const resumeRotateTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  )
 
   const radius = isMobile ? 1.75 : 2
   const markerSize = isMobile ? 0.052 : 0.04
@@ -321,12 +339,15 @@ function Scene({
   }, [])
 
   // Callback ref to set initial rotation when group is created
-  const setGroupRef = useCallback((group: THREE.Group | null) => {
-    if (group) {
-      group.rotation.y = initialRotation
-      groupRef.current = group
-    }
-  }, [initialRotation])
+  const setGroupRef = useCallback(
+    (group: THREE.Group | null) => {
+      if (group) {
+        group.rotation.y = initialRotation
+        groupRef.current = group
+      }
+    },
+    [initialRotation],
+  )
 
   useFrame((state, delta) => {
     if (groupRef.current && autoRotate) {
@@ -335,22 +356,34 @@ function Scene({
   })
 
   const locationPositions = useMemo(() => {
-    return fullJourneyData.map(country => ({
+    return fullJourneyData.map((country) => ({
       country,
-      position: latLngToVector3(country.coordinates[0], country.coordinates[1], radius * 1.01)
+      position: latLngToVector3(
+        country.coordinates[0],
+        country.coordinates[1],
+        radius * 1.01,
+      ),
     }))
   }, [radius])
 
   const arcs = useMemo(() => {
-    const connections: { start: THREE.Vector3, end: THREE.Vector3 }[] = []
+    const connections: { start: THREE.Vector3; end: THREE.Vector3 }[] = []
 
     for (let i = 0; i < fullJourneyData.length - 1; i++) {
       const startCountry = fullJourneyData[i]
       const endCountry = fullJourneyData[i + 1]
 
       connections.push({
-        start: latLngToVector3(startCountry.coordinates[0], startCountry.coordinates[1], radius),
-        end: latLngToVector3(endCountry.coordinates[0], endCountry.coordinates[1], radius)
+        start: latLngToVector3(
+          startCountry.coordinates[0],
+          startCountry.coordinates[1],
+          radius,
+        ),
+        end: latLngToVector3(
+          endCountry.coordinates[0],
+          endCountry.coordinates[1],
+          radius,
+        ),
       })
     }
 
@@ -416,7 +449,11 @@ function Scene({
             isSelected={selectedCountry?.name === country.name}
             onHover={() => setHoveredCountry(country.name)}
             onLeave={() => setHoveredCountry(null)}
-            onClick={() => onSelectCountry(selectedCountry?.name === country.name ? null : country)}
+            onClick={() =>
+              onSelectCountry(
+                selectedCountry?.name === country.name ? null : country,
+              )
+            }
             markerColor={theme.markerColor}
             labelColor={theme.labelColor}
             labelMutedColor={theme.labelMutedColor}
@@ -433,7 +470,7 @@ function Scene({
 export default function GlobeScene({
   onSelectCountry,
   selectedCountry,
-  geoData
+  geoData,
 }: {
   onSelectCountry: (country: CountryData | null) => void
   selectedCountry: CountryData | null
@@ -452,17 +489,36 @@ export default function GlobeScene({
   useEffect(() => {
     const updateTheme = () => {
       const styles = getComputedStyle(document.documentElement)
-      const pick = (name: string, fallback: string) => styles.getPropertyValue(name).trim() || fallback
+      const pick = (name: string, fallback: string) =>
+        styles.getPropertyValue(name).trim() || fallback
 
       setTheme({
-        sceneBg: pick('--ui-body-bg', pick('--ui-globe-bg', pick('--ui-bg-strong', DEFAULT_GLOBE_THEME.sceneBg))),
-        sphereColor: pick('--ui-globe-sphere', pick('--ui-bg-elevated', DEFAULT_GLOBE_THEME.sphereColor)),
-        lineColor: pick('--ui-globe-line', pick('--ui-border-strong', DEFAULT_GLOBE_THEME.lineColor)),
+        sceneBg: pick(
+          '--ui-body-bg',
+          pick(
+            '--ui-globe-bg',
+            pick('--ui-bg-strong', DEFAULT_GLOBE_THEME.sceneBg),
+          ),
+        ),
+        sphereColor: pick(
+          '--ui-globe-sphere',
+          pick('--ui-bg-elevated', DEFAULT_GLOBE_THEME.sphereColor),
+        ),
+        lineColor: pick(
+          '--ui-globe-line',
+          pick('--ui-border-strong', DEFAULT_GLOBE_THEME.lineColor),
+        ),
         markerColor: pick('--ui-accent', DEFAULT_GLOBE_THEME.markerColor),
         arcColor: pick('--ui-accent', DEFAULT_GLOBE_THEME.arcColor),
         labelColor: pick('--ui-text-primary', DEFAULT_GLOBE_THEME.labelColor),
-        labelMutedColor: pick('--ui-text-muted', DEFAULT_GLOBE_THEME.labelMutedColor),
-        loadingTextColor: pick('--ui-text-muted', DEFAULT_GLOBE_THEME.loadingTextColor),
+        labelMutedColor: pick(
+          '--ui-text-muted',
+          DEFAULT_GLOBE_THEME.labelMutedColor,
+        ),
+        loadingTextColor: pick(
+          '--ui-text-muted',
+          DEFAULT_GLOBE_THEME.loadingTextColor,
+        ),
       })
     }
 
@@ -470,7 +526,10 @@ export default function GlobeScene({
 
     const observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+        if (
+          mutation.type === 'attributes' &&
+          mutation.attributeName === 'data-theme'
+        ) {
           updateTheme()
           break
         }
@@ -502,7 +561,9 @@ export default function GlobeScene({
   if (!isMounted) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-[var(--ui-bg-strong)]">
-        <span className="font-mono tracking-wider text-sm text-[var(--ui-text-muted)]">LOADING GLOBE...</span>
+        <span className="font-mono tracking-wider text-sm text-[var(--ui-text-muted)]">
+          LOADING GLOBE...
+        </span>
       </div>
     )
   }
@@ -523,13 +584,16 @@ export default function GlobeScene({
       </div>
 
       <Canvas
-        camera={{ position: [0, 0, isMobile ? 6.4 : 7], fov: isMobile ? 47 : 45 }}
+        camera={{
+          position: [0, 0, isMobile ? 6.4 : 7],
+          fov: isMobile ? 47 : 45,
+        }}
         style={{
           background: 'transparent',
           width: '100%',
           height: '100%',
           opacity: isReady ? 1 : 0,
-          transition: 'opacity 0.7s ease-in-out'
+          transition: 'opacity 0.7s ease-in-out',
         }}
         dpr={isMobile ? [1, 1.25] : [1, 1.5]}
         gl={{
@@ -537,7 +601,7 @@ export default function GlobeScene({
           alpha: true,
           powerPreference: 'high-performance',
           stencil: false,
-          depth: true
+          depth: true,
         }}
         frameloop="always"
         onCreated={({ gl }) => {
@@ -557,15 +621,6 @@ export default function GlobeScene({
           theme={theme}
           isMobile={isMobile}
         />
-        <EffectComposer>
-          <Bloom
-            intensity={0.3}
-            luminanceThreshold={0.8}
-            luminanceSmoothing={0.9}
-            mipmapBlur
-          />
-          <Vignette eskil={false} offset={0.3} darkness={0.4} />
-        </EffectComposer>
       </Canvas>
     </div>
   )

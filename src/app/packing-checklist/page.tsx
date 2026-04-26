@@ -1,12 +1,17 @@
 import dynamic from 'next/dynamic'
 
-const ModernPackingChecklist = dynamic(() => import('@/components/ModernPackingChecklist'), {
-  loading: () => (
-    <div className="text-center py-12">
-      <div className="text-[var(--ui-text-subtle)] font-mono tracking-wider text-sm">LOADING CHECKLIST...</div>
-    </div>
-  )
-})
+const ModernPackingChecklist = dynamic(
+  () => import('@/components/ModernPackingChecklist'),
+  {
+    loading: () => (
+      <div className="text-center py-12">
+        <div className="text-[var(--ui-text-subtle)] font-mono tracking-wider text-sm">
+          LOADING CHECKLIST...
+        </div>
+      </div>
+    ),
+  },
+)
 
 export default function Page() {
   return (
@@ -23,7 +28,8 @@ export default function Page() {
               </h1>
             </div>
             <p className="text-[var(--ui-text-muted)] text-lg leading-relaxed max-w-md md:text-right">
-              Everything for a year-long journey across 20 countries. Battle-tested and essential.
+              Everything for a year-long journey across 20 countries.
+              Battle-tested and essential.
             </p>
           </div>
 

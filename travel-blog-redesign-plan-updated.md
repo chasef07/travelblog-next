@@ -7,6 +7,7 @@ This comprehensive redesign transforms "Lone Horizons" into a world-class travel
 ## 🎯 Design Philosophy
 
 ### Premium Travel Magazine Experience
+
 - **Immersive Storytelling**: Full-width layouts that draw readers into the journey
 - **Visual-First Approach**: Large, stunning imagery with minimal text overlay
 - **Horizontal Navigation**: Modern navigation patterns that flow naturally with content
@@ -14,6 +15,7 @@ This comprehensive redesign transforms "Lone Horizons" into a world-class travel
 - **Glassmorphism & Depth**: Sophisticated visual hierarchy with glass effects
 
 ### User Experience Principles
+
 - **Effortless Discovery**: Intuitive navigation that guides users through the journey
 - **Visual Storytelling**: Content that tells stories through imagery and layout
 - **Mobile-First**: Responsive design that works beautifully on all devices
@@ -22,6 +24,7 @@ This comprehensive redesign transforms "Lone Horizons" into a world-class travel
 ## 🏗 Layout Architecture (No Sidebar)
 
 ### 1. Header Navigation System
+
 ```typescript
 interface HeaderNavigation {
   // Sticky header with horizontal navigation
@@ -33,12 +36,14 @@ interface HeaderNavigation {
 ```
 
 ### 2. Hero Section with Integrated Navigation
+
 - **Full-screen hero** with journey statistics overlay
 - **Horizontal quick-jump navigation** embedded in hero
 - **Animated journey counter** (days traveled, countries visited, etc.)
 - **Call-to-action buttons** for primary user paths
 
 ### 3. Main Content Flow
+
 ```typescript
 interface MainLayout {
   sections: [
@@ -49,7 +54,7 @@ interface MainLayout {
     'countries-grid',
     'recent-posts-masonry',
     'food-transport-combined',
-    'newsletter-signup'
+    'newsletter-signup',
   ]
 }
 ```
@@ -57,6 +62,7 @@ interface MainLayout {
 ## 🧭 Navigation Alternatives (Replacing Sidebar)
 
 ### 1. Horizontal Journey Timeline
+
 Instead of a sidebar timeline, implement a horizontal scrolling timeline:
 
 ```typescript
@@ -68,34 +74,32 @@ interface HorizontalTimeline {
     'snap-to-destinations',
     'progress-indicator',
     'thumbnail-previews',
-    'date-markers'
+    'date-markers',
   ]
 }
 ```
 
 **Implementation:**
+
 - Horizontal scrolling cards showing journey progression
 - Sticky progress bar at top showing current position
 - Clickable destination markers with preview popups
 - Smooth scroll animations between destinations
 
 ### 2. Floating Action Navigation
+
 Modern floating navigation system:
 
 ```typescript
 interface FloatingNav {
   position: 'bottom-right' | 'center-bottom'
   triggers: ['scroll-progress', 'section-change', 'user-intent']
-  actions: [
-    'jump-to-section',
-    'search-content',
-    'share-page',
-    'bookmark-post'
-  ]
+  actions: ['jump-to-section', 'search-content', 'share-page', 'bookmark-post']
 }
 ```
 
 ### 3. Mega Menu System
+
 Comprehensive dropdown navigation:
 
 ```typescript
@@ -112,6 +116,7 @@ interface MegaMenu {
 ```
 
 ### 4. Breadcrumb Trail with Context
+
 Smart breadcrumb navigation:
 
 ```typescript
@@ -120,7 +125,7 @@ interface SmartBreadcrumb {
     'contextual-suggestions',
     'related-content-links',
     'journey-progress',
-    'quick-actions'
+    'quick-actions',
   ]
   layout: 'horizontal-pills' | 'progress-bar' | 'journey-map'
 }
@@ -129,6 +134,7 @@ interface SmartBreadcrumb {
 ## 🎨 Visual Design System
 
 ### 1. Typography Hierarchy
+
 ```css
 /* Premium Typography Scale */
 --font-display: 'Playfair Display', serif; /* For headlines */
@@ -145,19 +151,20 @@ interface SmartBreadcrumb {
 ```
 
 ### 2. Color System Enhancement
+
 ```css
 /* Light Theme */
 :root {
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --surface-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-  
+
   /* Semantic Colors */
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;
-  
+
   /* Glass Effects */
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
@@ -165,7 +172,7 @@ interface SmartBreadcrumb {
 }
 
 /* Dark Theme */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --primary-gradient: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%);
   --accent-gradient: linear-gradient(135deg, #be185d 0%, #7c2d12 100%);
   --surface-gradient: linear-gradient(135deg, #374151 0%, #1f2937 100%);
@@ -173,6 +180,7 @@ interface SmartBreadcrumb {
 ```
 
 ### 3. Animation System
+
 ```typescript
 interface AnimationSystem {
   pageTransitions: {
@@ -180,13 +188,13 @@ interface AnimationSystem {
     exit: 'slide-down' | 'fade-out' | 'shrink-fade'
     duration: '300ms' | '500ms' | '700ms'
   }
-  
+
   microInteractions: {
     hover: 'lift-shadow' | 'glow-border' | 'color-shift'
     focus: 'outline-glow' | 'scale-subtle' | 'border-expand'
     loading: 'pulse-skeleton' | 'wave-gradient' | 'dot-sequence'
   }
-  
+
   contentReveal: {
     onScroll: 'fade-up' | 'slide-left' | 'scale-in'
     stagger: '100ms' | '150ms' | '200ms'
@@ -198,6 +206,7 @@ interface AnimationSystem {
 ## 📱 Component Architecture (Updated)
 
 ### 1. Enhanced Header Component
+
 ```typescript
 interface EnhancedHeader {
   features: [
@@ -205,7 +214,7 @@ interface EnhancedHeader {
     'mega-menu-dropdowns',
     'search-integration',
     'progress-indicator',
-    'theme-toggle'
+    'theme-toggle',
   ]
   responsive: {
     desktop: 'full-horizontal-nav'
@@ -216,6 +225,7 @@ interface EnhancedHeader {
 ```
 
 ### 2. Horizontal Timeline Component
+
 ```typescript
 interface HorizontalTimelineComponent {
   data: JourneyEntry[]
@@ -224,18 +234,19 @@ interface HorizontalTimelineComponent {
     'destination-previews',
     'date-navigation',
     'progress-tracking',
-    'content-filtering'
+    'content-filtering',
   ]
   interactions: [
     'click-to-navigate',
     'scroll-to-reveal',
     'hover-previews',
-    'keyboard-navigation'
+    'keyboard-navigation',
   ]
 }
 ```
 
 ### 3. Content Discovery System
+
 ```typescript
 interface ContentDiscovery {
   components: [
@@ -243,18 +254,19 @@ interface ContentDiscovery {
     'category-filter-tabs',
     'search-with-suggestions',
     'related-content-grid',
-    'popular-tags-cloud'
+    'popular-tags-cloud',
   ]
   algorithms: [
     'recency-based',
     'popularity-based',
     'user-preference',
-    'seasonal-relevance'
+    'seasonal-relevance',
   ]
 }
 ```
 
 ### 4. Enhanced Map Integration
+
 ```typescript
 interface EnhancedMapSystem {
   features: [
@@ -262,13 +274,13 @@ interface EnhancedMapSystem {
     'journey-path-animation',
     'destination-popups',
     'photo-markers',
-    'timeline-sync'
+    'timeline-sync',
   ]
   interactions: [
     'click-for-details',
     'hover-for-preview',
     'scroll-to-navigate',
-    'filter-by-category'
+    'filter-by-category',
   ]
 }
 ```
@@ -276,6 +288,7 @@ interface EnhancedMapSystem {
 ## 📄 Page Templates
 
 ### 1. Homepage Layout (No Sidebar)
+
 ```typescript
 interface HomepageLayout {
   sections: [
@@ -308,12 +321,13 @@ interface HomepageLayout {
       name: 'recent-posts'
       height: 'auto'
       features: ['blog-grid', 'pagination', 'load-more']
-    }
+    },
   ]
 }
 ```
 
 ### 2. Blog Post Template
+
 ```typescript
 interface BlogPostLayout {
   header: {
@@ -321,19 +335,19 @@ interface BlogPostLayout {
     meta: 'date-location-tags'
     hero: 'large-featured-image'
   }
-  
+
   navigation: {
     breadcrumb: 'contextual-with-related'
     tableOfContents: 'floating-right-panel'
     previousNext: 'large-preview-cards'
   }
-  
+
   content: {
     layout: 'centered-column'
     width: 'max-w-4xl'
     features: ['reading-progress', 'social-share', 'bookmark']
   }
-  
+
   sidebar_replacement: {
     component: 'floating-toc'
     position: 'right-side-floating'
@@ -343,6 +357,7 @@ interface BlogPostLayout {
 ```
 
 ### 3. Country/Category Pages
+
 ```typescript
 interface CategoryPageLayout {
   header: {
@@ -350,12 +365,12 @@ interface CategoryPageLayout {
     stats: 'days-spent-cities-visited'
     hero: 'photo-collage-banner'
   }
-  
+
   navigation: {
     tabs: ['Overview', 'Blog Posts', 'Photos', 'Food', 'Transport']
     filters: 'date-range-city-category'
   }
-  
+
   content: {
     layout: 'masonry-grid'
     features: ['infinite-scroll', 'lightbox', 'sharing']
@@ -366,6 +381,7 @@ interface CategoryPageLayout {
 ## 🔧 Implementation Priorities (Updated)
 
 ### Phase 1: Foundation (Weeks 1-2)
+
 1. **Enhanced Header Navigation**
    - Implement sticky header with horizontal navigation
    - Add mega menu dropdowns for categories
@@ -385,6 +401,7 @@ interface CategoryPageLayout {
    - Create responsive breakpoint system
 
 ### Phase 2: Core Features (Weeks 3-4)
+
 1. **Content Discovery System**
    - Build featured content carousel
    - Implement category filter tabs
@@ -404,6 +421,7 @@ interface CategoryPageLayout {
    - Design mobile-specific navigation
 
 ### Phase 3: Advanced Features (Weeks 5-6)
+
 1. **Advanced Content Components**
    - Photo gallery with lightbox
    - Video integration and optimization
@@ -423,6 +441,7 @@ interface CategoryPageLayout {
    - Offline functionality
 
 ### Phase 4: Polish & Launch (Weeks 7-8)
+
 1. **Animation & Micro-interactions**
    - Page transition animations
    - Hover and focus states
@@ -438,18 +457,21 @@ interface CategoryPageLayout {
 ## 📊 Success Metrics
 
 ### User Experience Metrics
+
 - **Page Load Time**: < 2 seconds
 - **Time on Page**: > 3 minutes average
 - **Bounce Rate**: < 40%
 - **Mobile Usability**: 95+ score
 
 ### Engagement Metrics
+
 - **Content Discovery**: 40% increase in page views
 - **Navigation Usage**: 60% use of horizontal timeline
 - **Search Usage**: 25% increase in internal searches
 - **Social Sharing**: 50% increase in shares
 
 ### Technical Metrics
+
 - **Core Web Vitals**: All green scores
 - **Accessibility**: WCAG 2.1 AA compliance
 - **SEO Performance**: 90+ Lighthouse score
@@ -458,6 +480,7 @@ interface CategoryPageLayout {
 ## 🛠 Technical Implementation
 
 ### Key Dependencies
+
 ```json
 {
   "ui-components": [
@@ -471,16 +494,12 @@ interface CategoryPageLayout {
     "react-intersection-observer",
     "react-spring"
   ],
-  "utilities": [
-    "clsx",
-    "tailwind-merge",
-    "date-fns",
-    "fuse.js"
-  ]
+  "utilities": ["clsx", "tailwind-merge", "date-fns", "fuse.js"]
 }
 ```
 
 ### File Structure
+
 ```
 src/
 ├── components/

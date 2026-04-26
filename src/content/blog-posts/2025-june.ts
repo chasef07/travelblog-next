@@ -1,4 +1,4 @@
-import { BlogPost } from '../../types/blog';
+import { BlogPost } from '../../types/blog'
 
 export const june2025Posts: BlogPost[] = [
   {
@@ -9,7 +9,8 @@ export const june2025Posts: BlogPost[] = [
     country: 'Indonesia',
     slug: 'lombok-rinjani-trek-reflection',
     year: '2025',
-    excerpt: 'After over 9 months on the road, reflecting on growth while trekking in Tetebatu and preparing for a 4-day Komodo cruise.',
+    excerpt:
+      'After over 9 months on the road, reflecting on growth while trekking in Tetebatu and preparing for a 4-day Komodo cruise.',
     content: `Hey guys!
 
 It's been over a week since I last posted — very unlike me. I've had so much to share but decided to keep it internal for a little while.
@@ -34,10 +35,19 @@ Tomorrow, I start a four-day, three-night cruise from Lombok to the Komodo Islan
 
 I've been on the road for over nine months now and am wrapping up my time in Indonesia soon. Feeling grateful — and excited for what's next.`,
     images: [
-      { src: '/assets/images/misc/rinjani1.jpg', alt: 'Rinjani mountain views' },
-      { src: '/assets/images/misc/rinjani2.jpg', alt: 'Trekking sunrise views' },
-      { src: '/assets/images/misc/rinjani3.jpg', alt: 'Mountain summit camping' }
-    ]
+      {
+        src: '/assets/images/misc/rinjani1.jpg',
+        alt: 'Rinjani mountain views',
+      },
+      {
+        src: '/assets/images/misc/rinjani2.jpg',
+        alt: 'Trekking sunrise views',
+      },
+      {
+        src: '/assets/images/misc/rinjani3.jpg',
+        alt: 'Mountain summit camping',
+      },
+    ],
   },
   {
     id: 'manta-rays-lombok-theology',
@@ -47,7 +57,8 @@ I've been on the road for over nine months now and am wrapping up my time in Ind
     country: 'Indonesia',
     slug: 'manta-rays-lombok-theology',
     year: '2025',
-    excerpt: 'Snorkeling with majestic manta rays sparks deep thoughts about evolution, creation, and the incredible diversity of life on Earth.',
+    excerpt:
+      'Snorkeling with majestic manta rays sparks deep thoughts about evolution, creation, and the incredible diversity of life on Earth.',
     content: `This morning I woke up early to go snorkeling with manta rays. I spent two nights on the island of Nusa Penida, admiring its famous cliffside beaches. I was lucky enough to see three manta rays majestically gliding through the water. The only downside? I got super seasick. The current was crazy strong and rocky.
 
 While floating in the ocean, watching these giant, graceful creatures pass beneath me, I started thinking about the incredible variety of life on this planet. There are so many wildly different forms of existence. And here we are, humans—somehow sitting at the top of it all. I saw manta rays eating microscopic plankton, bugs crawling and flying around the beach, fish darting between coral. The sheer biodiversity is astounding.
@@ -67,9 +78,15 @@ The past two weeks exploring Bali have been amazing—its culture, shaped by Hin
 Curious to see for myself. Let's find out.`,
     images: [
       { src: '/assets/images/misc/diamond.jpg', alt: 'Diamond Beach cliffs' },
-      { src: '/assets/images/misc/kelking.jpg', alt: 'Kelingking Beach viewpoint' },
-      { src: '/assets/images/misc/snorkel.jpg', alt: 'Snorkeling with manta rays' }
-    ]
+      {
+        src: '/assets/images/misc/kelking.jpg',
+        alt: 'Kelingking Beach viewpoint',
+      },
+      {
+        src: '/assets/images/misc/snorkel.jpg',
+        alt: 'Snorkeling with manta rays',
+      },
+    ],
   },
   {
     id: 'business-ideas-meaningful-work',
@@ -79,9 +96,10 @@ Curious to see for myself. Let's find out.`,
     country: 'Indonesia',
     slug: 'business-ideas-meaningful-work',
     year: '2025',
-    excerpt: 'Using ChatGPT to research business ideas and discovering the world of AI tools for meaningful remote work opportunities.',
+    excerpt:
+      'Using ChatGPT to research business ideas and discovering the world of AI tools for meaningful remote work opportunities.',
     content: `I have been thinking a lot about business recently. I spent today using ChatGPT to research various business ideas. As some of my entrepreneurial friends and I have discussed, it is actually quite easy to make money and a business. I explored solar panel farms to name one of many ideas. There are infinite possibilities it is almost overwhelming. I realized I needed to bound the problem, bound my interests more. Maybe one of the most important things I learned from working at Texas Instruments was bounding big messy problems to something more manageable. So if I was going to start a solar panel farm I could take out huge loans and probably make a return in 6 to 8 years. It would be meaningful and interesting, however the lifestyle which comes with it is not ideal. This is a problem for any in person business. You have to stay local in one place and usually returns are slow, but relatively certain. With my keen interest in travels and tech I became certain I need to find a way to make money from my laptop. This is the first time in human history you can do so, so why not take advantage of it? This bounds my business and job search significantly. Now after condensing my space I noticed an area to reduce the size more. There are many ways to make money online that are easy but not meaningful. Whether it is a jewelry box subscription or. a dating coach there are many vain jobs I have heard of that do make money. Therefore that leaves you with meaningful jobs you can do from a laptop. With this in mind I have been researching extensively the plethora of cool AI tools out there. I am a big proponent of all the chatbots and tell all my friends to use them. However there is way more AI tools to uncover that most people never look at. You can design your own workflows and create apps. Tools like replit, cursor, n8n are tools I have never heard of until recently. There are so many cool tools that are untapped. I am excited to explore this more. I feel like I have a strong technical background and the interpersonal skills needed to build onto of the AI tools being made. It is still difficult to work really focused and hard while traveling and seeing some stuff but I look forward to getting into more of a routine to explore.`,
-    images: []
+    images: [],
   },
   {
     id: 'perfectionist-surfer-uluwatu',
@@ -91,23 +109,25 @@ Curious to see for myself. Let's find out.`,
     country: 'Indonesia',
     slug: 'perfectionist-surfer-uluwatu',
     year: '2025',
-    excerpt: 'Confronting my perfectionist nature while learning to surf at one of the world\'s most famous breaks - patience is key to mastery.',
+    excerpt:
+      "Confronting my perfectionist nature while learning to surf at one of the world's most famous breaks - patience is key to mastery.",
     content: `Ok the word Is out, I am a perfectionist! My whole life I have always wanted to be the best at everything I do. Whether it is academics or sports or just random skills. I want to perfect them all. I am very grateful I am naturally gifted at many things. I always am searching how to improve my mind body emotions and soul. Throughout this adventure I have improved myself and habits so much. However I still yearn for more. I believe this will be a life long yearning. Never to be satisfied with the status quo. Always upward and onward. On the other hand you must give yourself grace and see how far you have come and be patient. Recently I have been craving routine to get into focused high growth mode. This is pretty difficult while backpacking and moving around so much trying to see the country. However I learned from that slower is better while traveling. It is best to stay in a place at least 5 nights, preferably more if you like it. As I look to wind down my trip I begin to think about important habits I must continue. Today I went to the sauna and cold plunge on the cliffs of Uluwatu overlooking a world famous surf break. The sauna and cold plunge make me so focused and relaxed. Now back to surfing. As I mentioned I am naturally gifted at many sports, but surfing is one of the more difficult ones to get a hang of. That being said I really have only surfed for 5 days maybe, less than 20 hours total. I think I can become a pro while only just starting. That is silly. To master any skill it takes repetition, patience and time. I am going to continue to put in more hours in surfing.`,
     images: [
-      { src: '/assets/images/misc/sexyrocks.jpg', alt: 'Uluwatu cliff views' }
-    ]
+      { src: '/assets/images/misc/sexyrocks.jpg', alt: 'Uluwatu cliff views' },
+    ],
   },
   {
     id: 'balangan-beach-power-waves',
-    title: 'Balangan Beach - Feeling Nature\'s Power',
+    title: "Balangan Beach - Feeling Nature's Power",
     date: '2025-06-11',
     location: 'Uluwatu, Bali, Indonesia',
     country: 'Indonesia',
     slug: 'balangan-beach-power-waves',
     year: '2025',
-    excerpt: 'Staying beachfront at Balangan Beach, experiencing the raw power of Bali surf and witnessing the awesome force of creation.',
+    excerpt:
+      'Staying beachfront at Balangan Beach, experiencing the raw power of Bali surf and witnessing the awesome force of creation.',
     content: `Uluwatu, Bali, a pretty interesting place. I am on a really cool beach called Balangan Beach. I am paying 8 dollars a night for a private room with a fan, shared bathroom, and directly on the beach. You can hear the waves crashing at night. In the morning you can wake up and look outside and see surfers shredding it up. Waking up and walking directly on the beach is very nice and relaxing. Uluwatu is fairly removed from the spiritual hub of Ubud. You can see some temples and offerings of incense on the fronts of businesses, but not nearly as immersive as in Ubud. I really liked the immersive balinese culture in Ubud. Uluwatu is a large area with many beaches and surf breaks. The road infrastructure is terrible. There are tons of villas under construction and investment opportunities. The main shopping area near Padang Padang beach has tons of viber cafes, wellness centers, and surf shops. The surf at Balangan Beach has been a step up. Today was my first day attempting to surf here. The waves are way more powerful than in Siargao. The volume of water is crazy. It makes you realize right in front of your eyes the awesomeness of hashem's creation.`,
-    images: []
+    images: [],
   },
   {
     id: 'dennis-adventure-capitalist-ubud',
@@ -117,7 +137,8 @@ Curious to see for myself. Let's find out.`,
     country: 'Indonesia',
     slug: 'dennis-adventure-capitalist-ubud',
     year: '2025',
-    excerpt: 'An extraordinary encounter with Dennis, a 75-year-old Jewish adventure capitalist whose sound healing and life wisdom opened new possibilities.',
+    excerpt:
+      'An extraordinary encounter with Dennis, a 75-year-old Jewish adventure capitalist whose sound healing and life wisdom opened new possibilities.',
     content: `The violet flame of Saint Germain is said to be the path to immortality, capable of opening all the doors. If you're asking yourself, "What the fuck does that mean?" — I felt the same way today. It all started yesterday when I met Dennis from Southern California at an AcroYoga class at Yoga Barn. After my first AcroYoga class in Siargao, Philippines (which I enjoyed a lot), I decided to find one here in Bali. So I went to the Yoga Barn — the Mecca of yoga. Seriously, I think it's the most insane yoga facility in the world. It's a huge complex with multiple buildings and probably over 30 different classes a day. There's Hatha, Vinyasa, Kundalini, Acro, Aerial, Sound Bowl Meditation, Ecstatic Dance — and more. At the AcroYoga class, there were easily over 30 people. We paired up in groups of three: one base, one flyer, one spotter. I somehow ended up in a group with two American guys. One was a late-30s hippie yoga dude, and the other was 75-year-old Dennis. Dennis lives part of the year in Bali and part in SoCal. He's about five foot six, in great shape, and wore a large rock amulet necklace. He seemed grounded and chill.
 
 We did the class together — Dennis was very flexible and strong. Afterward, we started talking and I found out he's Jewish. He invited me to his house to try a sound healing therapy he conducts — completely free and very chill about it. I was in.
@@ -152,10 +173,19 @@ Envision yourself unbounded, with no restrictions — and do that.
 
 That's what I plan to do.`,
     images: [
-      { src: '/assets/images/misc/dennis1.jpg', alt: 'Dennis adventure capitalist setup' },
-      { src: '/assets/images/misc/dennis2.jpg', alt: 'Beautiful Bali home design' },
-      { src: '/assets/images/misc/dennis3.jpg', alt: 'Sacred sound healing space' }
-    ]
+      {
+        src: '/assets/images/misc/dennis1.jpg',
+        alt: 'Dennis adventure capitalist setup',
+      },
+      {
+        src: '/assets/images/misc/dennis2.jpg',
+        alt: 'Beautiful Bali home design',
+      },
+      {
+        src: '/assets/images/misc/dennis3.jpg',
+        alt: 'Sacred sound healing space',
+      },
+    ],
   },
   {
     id: 'balinese-spa-luwak-coffee',
@@ -165,7 +195,8 @@ That's what I plan to do.`,
     country: 'Indonesia',
     slug: 'balinese-spa-luwak-coffee',
     year: '2025',
-    excerpt: 'Experiencing authentic Balinese culture through traditional spa treatments, the famous Luwak coffee process, and sacred water temple purification.',
+    excerpt:
+      'Experiencing authentic Balinese culture through traditional spa treatments, the famous Luwak coffee process, and sacred water temple purification.',
     content: `I woke up this morning in Ubud with the scent of lemongrass lingering in the air and the promise of calm on the horizon. My day began at a traditional Balinese spa tucked into the jungle — one of those places where time seems to slow down.
 
 I got a Balinese massage, which, if I'm being honest, felt like a standard massage to me — nothing wild. But the setting? Gorgeous. The interior was beautiful, serene, and designed to make you forget about the world outside. They let me choose my massage oil, and I ended up going with a blend — a mix of all the scents, which felt symbolic of my experience in Bali so far: vibrant, earthy, and hard to pin down. Lemongrass stood out as a favorite — it's everywhere here, in the food, the drinks, the oils — and I can't get enough of it.
@@ -182,8 +213,8 @@ Driving back through Bali, I passed rice fields, jungle canopies, and — no sur
     images: [
       { src: '/assets/images/misc/balime.jpg', alt: 'Balinese spa experience' },
       { src: '/assets/images/misc/choco.jpg', alt: 'Local cacao tasting' },
-      { src: '/assets/images/misc/lewak.jpg', alt: 'Luwak coffee process' }
-    ]
+      { src: '/assets/images/misc/lewak.jpg', alt: 'Luwak coffee process' },
+    ],
   },
   {
     id: 'bali-arrival-hindu-discovery',
@@ -193,9 +224,10 @@ Driving back through Bali, I passed rice fields, jungle canopies, and — no sur
     country: 'Indonesia',
     slug: 'bali-arrival-hindu-discovery',
     year: '2025',
-    excerpt: 'Arriving in Bali and discovering the island\'s unique Hindu culture - from temples and sculptures to the peaceful spiritual energy of Ubud.',
+    excerpt:
+      "Arriving in Bali and discovering the island's unique Hindu culture - from temples and sculptures to the peaceful spiritual energy of Ubud.",
     content: `I arrived to Bali, Indonesia late last night. I had a long travel day to think about various business ideas and endeavors. One could argue that Bali is the most popular tourist destination on planet earth. When starting my trip Bali and Indonesia as a whole was not even on my radar. I wanted to avoid too touristy places and muslim countries. Indonesia does not recognize Israeli passports so I had moral qualms to even go to the country. After doing some of my own research into the history, culture and popularity of the place I decided to come. First thing that I had no idea until a three months ago is that Bali is 90% Hindu. Since I loved Nepal and Hindu culture this really enticed me. There was early Indian influence in Bali from the 1st to the 5th century and powerful Hindu kingdoms were established here later on. Also, Balinese culture and Hinduism is unique. They have their own language, traditional dress, and architecture. Aside from the unique culture Bali is most well known for the party scene and surfing. Since I am retired from partying I will be avoiding the party trap. I started off my Bali experience in a town called Ubud. Ubud is know for the traditional spiritual hub of Bali. Driving in late at night I already saw many temples and Hindu sculptures. I have been here less than 8 hours, only 2 of them have I been awake, and it already feels quite peaceful and unique. I need to go explore the town some. While in Ubud I look forward to hitting the gym, sauna, cold plunge, getting some massages, experiencing the temples here, and seeing some nice nature.`,
-    images: []
+    images: [],
   },
   {
     id: 'last-day-philippines-surfing-metaphors',
@@ -205,7 +237,8 @@ Driving back through Bali, I passed rice fields, jungle canopies, and — no sur
     country: 'Philippines',
     slug: 'last-day-philippines-surfing-metaphors',
     year: '2025',
-    excerpt: 'My last day in the Philippines brings reflections on surfing as a metaphor for dynamic living and choosing unpredictable paths over safe ones.',
+    excerpt:
+      'My last day in the Philippines brings reflections on surfing as a metaphor for dynamic living and choosing unpredictable paths over safe ones.',
     content: `Last day in the Philippines.
 
 It has been a nice month—relaxing, snorkeling, and surfing. This morning I rented a new board and went to Cloud 9. The break was big, strong, and powerful. I saw powerful, hollow barrels for the first time in my life. The only problem is how crowded it is—30 to 50 people all fighting for one wave, with the locals yelling at you to move out of the way. It can get dangerous.
@@ -229,6 +262,6 @@ As I prepare for Indonesia and also for my eventual return to the U.S., I'm taki
 In Indonesia, I'll continue to work on eating healthy, really focus on my stretching and making my body feel good, research things that interest me and ignite my intellect, stay retired from partying and drinking, and just be more open to life.
 
 Excited to see what the future holds—and hopefully I get a little lost along the way!`,
-    images: []
-  }
-];
+    images: [],
+  },
+]

@@ -9,7 +9,8 @@ export const november2025Posts: BlogPost[] = [
     country: 'USA',
     slug: 'explaining-complexity-intelligence',
     year: '2025',
-    excerpt: 'From board games to business - understanding the underlying rules of intelligence and learning how to compress complexity for customers.',
+    excerpt:
+      'From board games to business - understanding the underlying rules of intelligence and learning how to compress complexity for customers.',
     content: `Last night I was playing a game with my mom called Uzzle. Imagine a 2x1 block which has different patterns on every face. There are four faces with 2 squares per face so 8 total. You have 4 of these blocks. You pick a card and it shows you a pattern and you need to make the pattern with your given blocks. There are 4 different levels. Levels 1 and 2 were pretty straight forward, but levels 3 and 4 gave me some trouble.
 
 While playing this game I reflected how I am pretty good at board games and puzzles and strategy games and wanted to understand why. While playing Uzzle I became aware of my thought process and developed a simple rule for the game. All games are simple rules which are then built on top of each other. Actually all of intelligence are simple rules, that is why AI can even be built. There are underlying rules to a system that can be discovered and some rules that can't be discovered but exist. This is called Godel's incompleteness theorem and I think it is one of the most fascinating ideas of all time.
@@ -25,7 +26,7 @@ Now I want to go deeper into explain AI agents to small non technical owners whi
 So how do you explain an AI worker to a 60 year old doctor. At first we tried "yea it can answer emails immediatley, do a bunch of tasks in parallel, automate your busy work". This is all true but it is very difficult for a 60 year old non technical doctor to visualize. So what is a better option? So far it has been demo, if cost effective and quick enough, show the customer exactly the power that they can unlock, or step by step walk through of how it saves this much time and money and how it works simply breaking down complexity.
 
 In the end Intelligence (whether human or AI) is about compressing complexity. Your job as an entrepreneur isn't to teach the client the complexity; it's to hide the complexity so they can enjoy the result.`,
-    images: []
+    images: [],
   },
   {
     id: 'thanksgiving-reflections-masculinity-vision',
@@ -35,7 +36,8 @@ In the end Intelligence (whether human or AI) is about compressing complexity. Y
     country: 'USA',
     slug: 'thanksgiving-reflections-masculinity-vision',
     year: '2025',
-    excerpt: 'Reflections on American culture, Thanksgiving traditions, and the importance of masculine vision in modern society.',
+    excerpt:
+      'Reflections on American culture, Thanksgiving traditions, and the importance of masculine vision in modern society.',
     content: `Today is the American holiday of Thanksgiving. Over the past few years I have been out of the USA for the holiday and have not celebrated it. This year I made it semi-official that I do not celebrate the holiday. Thanksgiving celebrates when the first Pilgrims came to modern day USA and had a feast with the native population here. Then the British colonizers would go on to wipe out one of the most interesting and sophisticated indigenous populations on the planet, in my humble opinion.
 
 That is not why I do not celebrate the holiday though. I do not like the traditional food and Thanksgiving is typically spent eating a big meal with your family. Since my parents are divorced and both of my parents' families are not close enough to have a family gathering, growing up we would go to my parents' friends homes. Anyway it lost meaning in my life and I just view it as another day. Also people love celebrating things that they do not deserve but that is another topic.
@@ -47,7 +49,7 @@ Since I do not have a home base right now, and am exploring the digital nomad li
 Men must have a vision, for themselves, for their future, for their kids, for their family to carve and create. Ever since the industrial revolution, modern western men have declined in masculinity and vision. I do not want this whole post to be about this idea so I will leave it up to you to explore and to agree or disagree.
 
 I am thankful for my parents whom I have a great relationship with and for my journey and life and opportunities. I still have so much to give to my family, to the world, and to myself, to the present and to the future. I want to continue to carve my vision, improve my qualities as a man and future provider.`,
-    images: []
+    images: [],
   },
   {
     id: 'deployment-day',
@@ -57,7 +59,8 @@ I am thankful for my parents whom I have a great relationship with and for my jo
     country: 'Panama',
     slug: 'deployment-day',
     year: '2025',
-    excerpt: 'The only place with power on the island was the Chabad House. A chaotic, beautiful day of deploying our first automation into production.',
+    excerpt:
+      'The only place with power on the island was the Chabad House. A chaotic, beautiful day of deploying our first automation into production.',
     content: `The sound of the AC clicking off lightly pulls me out of sleep. It's 6:15 AM in my little yellow house in Bocas del Toro, Panama, and a soft wash of morning light sneaks through the high window above the balcony door. I blink, confused, until I remember that yesterday our Airbnb host told us the entire province would lose power from 6 to 10.
 
 Still half-asleep, I step onto the balcony and do a few slow shoulder stretches. My great friend and business partner, Kyle, and I have been on the islands of Bocas del Toro for a week and a half running our AI and software automation business, and today marks a big moment in our journey. We are deploying our first automation live into production for hundreds of users.
@@ -126,7 +129,7 @@ And even with the chaos, the mistakes, the scramble, and the stress…
 It was a beautiful Deployment Day. Full of lessons, stories, and moments we'll remember forever.
 
 Deployment Day, Deployment Day, how I love you.`,
-    images: []
+    images: [],
   },
   {
     id: 'three-phase-war',
@@ -136,19 +139,21 @@ Deployment Day, Deployment Day, how I love you.`,
     country: 'Panama',
     slug: 'three-phase-war',
     year: '2025',
-    excerpt: 'Returning home from a 10 month world tour and fighting to keep the fire alive. A journey through three phases: returning home, fighting external influences, and starting a business.',
+    excerpt:
+      'Returning home from a 10 month world tour and fighting to keep the fire alive. A journey through three phases: returning home, fighting external influences, and starting a business.',
     content: `A very good friend said to me recently that I have not shared much in recent months. I thanked him for bringing it up and I began to think why. Here is what I came up with. It has only been 3.5 months since I returned to North America, from my 10 month long backpacking world tour. In the weeks leading up to preparing to come home, I prepared myself mentally for the battle ahead. It was a necessity to take all of my learnings from my trip and to not budge on my values once returning home with many external influences. As I arrived back home I felt well equipped. I was heads down focusing on keeping my learnings and fire from my trip. For me it took about 1 month to settle back home and process every thing that was going on. When you are on the battle field fighting for your values that is your singular focus. So after a month goes by at home you start to ask yourself, now what. Parents begin to ask, friends, and most of their comments are adverse to all your values you learned on your trip. Inevitably the thoughts sneak into your mind, about retuning to a corporate job hunched over at a desk that you don't like. Which means not being on fire in life, not being healthy and connected. This is when the second battle ensues, to push out the external noise and trust in yourself and the process. To be honest I was pretty close to faltering. I applied top jobs I did not care about in places I did not want to be just to go through the motions, because what else was there to do? In this time I worked hard on the side with Kyle to combat this daunting foe. We tried idea after idea, project after project, any nothing seemed to hit. A subtle shift changed everything. We were trying to do side projects to get off the ground to make money, but side projects don't get it. We had to go full commitment to making a business, not a side project. We began to talk the talk before walking the walk. The walk came but there was necessity in the allusion of confidence. At the end of the day we were just two unemployed guys in our parent's house, can those guys really start a business? Then I reflected. All of the most inspirational entrepreneurs went through the same struggle. Imposters syndrome, living in undesirable places… So when Kyle and I committed to making a business, not kinda working on a Sid project, everything changed. So this is why I have not been sharing as much. I have been in a three phase war. 1. Returning Home 2. Fighting off External Influences 3. Starting a business. War has a negative connotation, but this is a happy war, a war I gladly chose to enlist in, fight in, and die for. Hoorah`,
-    images: []
+    images: [],
   },
   {
     id: 'ratzo-vshov-running-and-returning',
-    title: 'Ratzó v\'Shov: Running and Returning',
+    title: "Ratzó v'Shov: Running and Returning",
     date: 'November 4, 2025',
     location: 'Bocas del Toro, Panama',
     country: 'Panama',
     slug: 'ratzo-vshov-running-and-returning',
     year: '2025',
-    excerpt: 'The energy that starts a business is not the same energy that scales it. Reflections on impulse, creativity, and the balance between running and returning.',
+    excerpt:
+      'The energy that starts a business is not the same energy that scales it. Reflections on impulse, creativity, and the balance between running and returning.',
     content: `I have always thought the yin and yang is a beautiful concept and illustration. It parallels a deeply kabbalistic concept of Ratzó v'Shov, running and returning. Maybe a year and a half ago I would go on a deep spiritual discourse about the hidden meanings behind these concepts, but now my newest ego and evolution wants to be simple concise and concrete.
 
 Life is full of ups and downs, positives and negatives, and they both must coexist. Yesterday I had an amazing day where I was on fire, spiritually, mentally, and physically. Today was slow, rainy and low energy. Both are okay, and necessary. Most interestingly on my mind is how these concepts apply to business.
@@ -158,7 +163,7 @@ Life is full of ups and downs, positives and negatives, and they both must coexi
 How this relates to business is as follows. When you make your first sale on your own, sell something you made, you are super excited. It is proof that what you are making matters. The excitement is pure and can be conflated with greed if you are not careful. The natural reaction is you want to make more sales, more money. For me it is not solely for the money, but for the creative response that a sale can make. To create something, to better the life of someone else. Of course the money is nice and can be used as a tool for the future. So the natural "impulsive decision" is to try and make as many sales and money as quickly as possible. I have quickly realized that this innate nature is not the best for new businesses. The ratzo (running) is the impulse, the creative energy that closes that first sale. The shov (returning) is the grounding, reflection, structure. It is the energy to slow down a process to refine it, to perfect it, and most importantly, to make it palatable to a customer. Without shov, ratzo burns out. Without ratzo, shov stagnates. The art is keeping both alive in the balance, in the yin and yang.
 
 The key takeaway is the energy that starts a business is not the same energy that scales it. The early drive is vital, but to alchemize that drive and instinct you need patience and reflection.`,
-    images: []
+    images: [],
   },
   {
     id: 'arriving-in-bocas-del-toro',
@@ -168,8 +173,9 @@ The key takeaway is the energy that starts a business is not the same energy tha
     country: 'Panama',
     slug: 'arriving-in-bocas-del-toro',
     year: '2025',
-    excerpt: 'First impressions of Panama - from land border crossings to viber cafes and discovering what makes a place feel like home.',
+    excerpt:
+      'First impressions of Panama - from land border crossings to viber cafes and discovering what makes a place feel like home.',
     content: `Lovely readers, I have just arrived in the southernmost country of Central America, Panama. A country that is typically overlooked in the ire of travelers, but do I have some treats to tell you! Kyle and I arrived to Bocas del Toro yesterday afternoon by land and boat. From Puerto Viejo, CR. Bocas del Toro is an island archipelago off the north east coast of Panama. I have never heard of this place until recently, when talking with my Panamanian from Jacobo. I have done land boarder crossings, 3 times now, Thailand -> Laos, Laos -> Cambodia, and now Costa Rica -> Panama. It always shocks me that even thought there is some fictions line in the sand border between two places, you can immediately feel the cultural differences. Costa Rica is known for the "Pura Vida" lifestyle. To put it bluntly that just means they are a bunch of rasta hippies. It is really cool and chill in some regards, but from a cultural standpoint it is kind of bland, in food and in spirit. Coming to Panama, even though I have only been here for 24 hours, I feel a change. Walking around the main town of Bocas del Toro I really enjoyed it. There are lots of viber cafes and a community field. The locals and the tourists are intermingled. In Costa Rica, it kinda feels like hippie westerners took over and the Ticos are cool with it. I like places that are culturally rich and authentic, but also have the positive western influences. To this point I really love viber cafes. Cute cafes where you can get Kombucha, Matcha, nice seating, work, and hang with other vipers. Obviously this is a western import into these backpacking hubs. But slowly I have realized it really impacts my likings of the community. Bocas del Toro reminds me of a Siargao. As time goes a long here I will report back. But all of this is coming to mind as I explore where I want to live and give a real shot at settling down. It is a little cheaper in Panama compared to Costa Rica which is interesting. So the things that matter to be in choosing a place are : Weather, Cost of Living, Culture, Activities, Walkability, and viber cafes.`,
-    images: []
-  }
+    images: [],
+  },
 ] as const

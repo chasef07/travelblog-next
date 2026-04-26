@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 function Skeleton({
   className,
@@ -6,10 +6,7 @@ function Skeleton({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn(
-        "animate-pulse bg-[var(--ui-bg-soft)] rounded",
-        className
-      )}
+      className={cn('animate-pulse bg-[var(--ui-bg-soft)] rounded', className)}
       {...props}
     />
   )
@@ -18,7 +15,7 @@ function Skeleton({
 // Skeleton specifically for blog/content cards
 function CardSkeleton({ className }: { className?: string }) {
   return (
-    <div className={cn("bg-[var(--ui-bg-strong)]", className)}>
+    <div className={cn('bg-[var(--ui-bg-strong)]', className)}>
       {/* Image placeholder */}
       <Skeleton className="h-48 w-full rounded-none" />
       {/* Content */}
@@ -41,13 +38,18 @@ function CardSkeleton({ className }: { className?: string }) {
 // Grid skeleton for blog/food pages
 function GridSkeleton({
   count = 6,
-  columns = "md:grid-cols-2 lg:grid-cols-3"
+  columns = 'md:grid-cols-2 lg:grid-cols-3',
 }: {
   count?: number
   columns?: string
 }) {
   return (
-    <div className={cn("grid gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]", columns)}>
+    <div
+      className={cn(
+        'grid gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]',
+        columns,
+      )}
+    >
       {Array.from({ length: count }).map((_, i) => (
         <CardSkeleton key={i} />
       ))}

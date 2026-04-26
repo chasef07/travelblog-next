@@ -7,13 +7,14 @@ import { BlogPost } from '@/types/blog'
 
 export const siteConfig = {
   name: 'Lifestyle Engineering',
-  description: 'Lifestyle engineering for real value: high-performance work, healthy systems, and sustainable long-term growth.',
+  description:
+    'Lifestyle engineering for real value: high-performance work, healthy systems, and sustainable long-term growth.',
   url: 'https://chasefagen.com',
   author: {
     name: 'Chase Fagen',
     email: 'fagenchase@gmail.com',
     twitter: '@chasef07',
-    instagram: '@chasef07'
+    instagram: '@chasef07',
   },
   keywords: [
     'solo travel blog',
@@ -30,8 +31,8 @@ export const siteConfig = {
     'travel photography',
     'solo female travel',
     'adventure travel blog',
-    'travel better cheaper smarter'
-  ]
+    'travel better cheaper smarter',
+  ],
 } as const
 
 /**
@@ -45,7 +46,7 @@ export function generatePageMetadata({
   type = 'website',
   publishedTime,
   modifiedTime,
-  keywords = []
+  keywords = [],
 }: {
   title: string
   description: string
@@ -57,12 +58,17 @@ export function generatePageMetadata({
   keywords?: string[]
 }): Metadata {
   const url = `${siteConfig.url}${path}`
-  const fullTitle = title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`
-  
+  const fullTitle = title.includes(siteConfig.name)
+    ? title
+    : `${title} | ${siteConfig.name}`
+
   const defaultImage = `${siteConfig.url}/assets/images/misc/posttrip.jpg`
-  const imageUrls = images.length > 0 ? images.map(img => 
-    img.startsWith('http') ? img : `${siteConfig.url}${img}`
-  ) : [defaultImage]
+  const imageUrls =
+    images.length > 0
+      ? images.map((img) =>
+          img.startsWith('http') ? img : `${siteConfig.url}${img}`,
+        )
+      : [defaultImage]
 
   return {
     title: fullTitle,
@@ -85,7 +91,7 @@ export function generatePageMetadata({
       description,
       url,
       siteName: siteConfig.name,
-      images: imageUrls.map(url => ({
+      images: imageUrls.map((url) => ({
         url,
         width: 1200,
         height: 630,
@@ -93,13 +99,14 @@ export function generatePageMetadata({
       })),
       locale: 'en_US',
       type,
-      ...(type === 'article' && publishedTime && {
-        publishedTime,
-        modifiedTime: modifiedTime || publishedTime,
-        authors: [siteConfig.author.name],
-        section: 'Travel',
-        tags: keywords
-      })
+      ...(type === 'article' &&
+        publishedTime && {
+          publishedTime,
+          modifiedTime: modifiedTime || publishedTime,
+          authors: [siteConfig.author.name],
+          section: 'Travel',
+          tags: keywords,
+        }),
     },
     twitter: {
       card: 'summary_large_image',
@@ -126,10 +133,16 @@ export function generatePageMetadata({
 /**
  * Generate JSON-LD structured data for articles
  */
-export function generateArticleJsonLd(post: BlogPost, images: string[] = []): object {
-  const imageUrls = images.length > 0 ? images : post.images?.map(img => 
-    img.src.startsWith('http') ? img.src : `${siteConfig.url}${img.src}`
-  ) || []
+export function generateArticleJsonLd(
+  post: BlogPost,
+  images: string[] = [],
+): object {
+  const imageUrls =
+    images.length > 0
+      ? images
+      : post.images?.map((img) =>
+          img.src.startsWith('http') ? img.src : `${siteConfig.url}${img.src}`,
+        ) || []
 
   return {
     '@context': 'https://schema.org',
@@ -143,22 +156,22 @@ export function generateArticleJsonLd(post: BlogPost, images: string[] = []): ob
       url: siteConfig.url,
       sameAs: [
         `https://twitter.com/${siteConfig.author.twitter?.replace('@', '')}`,
-        `https://instagram.com/${siteConfig.author.instagram?.replace('@', '')}`
-      ]
+        `https://instagram.com/${siteConfig.author.instagram?.replace('@', '')}`,
+      ],
     },
     publisher: {
       '@type': 'Organization',
       name: siteConfig.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.url}/logo.png`
-      }
+        url: `${siteConfig.url}/logo.png`,
+      },
     },
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${siteConfig.url}/blog/${post.year}/${post.slug}`
+      '@id': `${siteConfig.url}/blog/${post.year}/${post.slug}`,
     },
     articleSection: 'Travel',
     keywords: [
@@ -166,15 +179,15 @@ export function generateArticleJsonLd(post: BlogPost, images: string[] = []): ob
       post.location,
       `${post.location} travel`,
       'travel blog',
-      'travel guide'
+      'travel guide',
     ],
     locationCreated: {
       '@type': 'Place',
-      name: post.location
+      name: post.location,
     },
     ...(post.readingTime && {
-      timeRequired: `PT${post.readingTime}M`
-    })
+      timeRequired: `PT${post.readingTime}M`,
+    }),
   }
 }
 
@@ -191,19 +204,21 @@ export function generateWebsiteJsonLd(): object {
     author: {
       '@type': 'Person',
       name: siteConfig.author.name,
-      url: siteConfig.url
+      url: siteConfig.url,
     },
     sameAs: [
       `https://twitter.com/${siteConfig.author.twitter?.replace('@', '')}`,
-      `https://instagram.com/${siteConfig.author.instagram?.replace('@', '')}`
-    ]
+      `https://instagram.com/${siteConfig.author.instagram?.replace('@', '')}`,
+    ],
   }
 }
 
 /**
  * Generate JSON-LD for breadcrumb navigation
  */
-export function generateBreadcrumbJsonLd(items: Array<{name: string, url: string}>): object {
+export function generateBreadcrumbJsonLd(
+  items: Array<{ name: string; url: string }>,
+): object {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -211,15 +226,19 @@ export function generateBreadcrumbJsonLd(items: Array<{name: string, url: string
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: item.url
-    }))
+      item: item.url,
+    })),
   }
 }
 
 /**
  * Generate JSON-LD for travel guides/destinations
  */
-export function generateTravelGuideJsonLd(destination: string, description: string, images: string[] = []): object {
+export function generateTravelGuideJsonLd(
+  destination: string,
+  description: string,
+  images: string[] = [],
+): object {
   return {
     '@context': 'https://schema.org',
     '@type': 'TravelGuide',
@@ -229,23 +248,29 @@ export function generateTravelGuideJsonLd(destination: string, description: stri
     author: {
       '@type': 'Person',
       name: siteConfig.author.name,
-      url: siteConfig.url
+      url: siteConfig.url,
     },
     publisher: {
       '@type': 'Organization',
-      name: siteConfig.name
+      name: siteConfig.name,
     },
     about: {
       '@type': 'Place',
-      name: destination
-    }
+      name: destination,
+    },
   }
 }
 
 /**
  * Generate JSON-LD for travel experiences/trips
  */
-export function generateTripJsonLd(destination: string, title: string, description: string, date: string, images: string[] = []): object {
+export function generateTripJsonLd(
+  destination: string,
+  title: string,
+  description: string,
+  date: string,
+  images: string[] = [],
+): object {
   return {
     '@context': 'https://schema.org',
     '@type': 'Trip',
@@ -255,18 +280,18 @@ export function generateTripJsonLd(destination: string, title: string, descripti
     startDate: date,
     itinerary: {
       '@type': 'Place',
-      name: destination
+      name: destination,
     },
     author: {
       '@type': 'Person',
       name: siteConfig.author.name,
-      url: siteConfig.url
+      url: siteConfig.url,
     },
     provider: {
       '@type': 'Organization',
       name: siteConfig.name,
-      url: siteConfig.url
-    }
+      url: siteConfig.url,
+    },
   }
 }
 
@@ -286,36 +311,36 @@ export function generateTravelBlogJsonLd(): object {
       url: siteConfig.url,
       sameAs: [
         `https://twitter.com/${siteConfig.author.twitter?.replace('@', '')}`,
-        `https://instagram.com/${siteConfig.author.instagram?.replace('@', '')}`
-      ]
+        `https://instagram.com/${siteConfig.author.instagram?.replace('@', '')}`,
+      ],
     },
     publisher: {
       '@type': 'Organization',
       name: siteConfig.name,
-      url: siteConfig.url
+      url: siteConfig.url,
     },
     blogPost: [],
     audience: {
       '@type': 'Audience',
-      audienceType: 'solo travelers, backpackers, cultural explorers'
+      audienceType: 'solo travelers, backpackers, cultural explorers',
     },
     about: [
       {
         '@type': 'Thing',
-        name: 'Solo Travel'
-      },
-      {
-        '@type': 'Thing', 
-        name: 'Cultural Experiences'
+        name: 'Solo Travel',
       },
       {
         '@type': 'Thing',
-        name: 'Backpacking'
+        name: 'Cultural Experiences',
       },
       {
         '@type': 'Thing',
-        name: 'Travel Photography'
-      }
-    ]
+        name: 'Backpacking',
+      },
+      {
+        '@type': 'Thing',
+        name: 'Travel Photography',
+      },
+    ],
   }
 }

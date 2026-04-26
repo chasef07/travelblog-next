@@ -46,14 +46,14 @@ export function ContentCard({
   index = 0,
   animate = true,
   className,
-  priority = false
+  priority = false,
 }: ContentCardProps) {
   const Wrapper = animate ? motion.div : 'div'
   const animationProps = animate
     ? {
         initial: { opacity: 0 },
         animate: { opacity: 1 },
-        transition: { delay: index * 0.05, duration: 0.4 }
+        transition: { delay: index * 0.05, duration: 0.4 },
       }
     : {}
 
@@ -77,7 +77,10 @@ export function ContentCard({
         {variant === 'vlog' && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-16 h-16 rounded-full border border-[var(--ui-border-strong)] bg-[var(--ui-accent)] flex items-center justify-center group-hover:bg-[var(--ui-accent-hover)] transition-colors">
-              <Play className="w-6 h-6 text-[var(--ui-on-accent)] ml-1" fill="currentColor" />
+              <Play
+                className="w-6 h-6 text-[var(--ui-on-accent)] ml-1"
+                fill="currentColor"
+              />
             </div>
           </div>
         )}
@@ -127,7 +130,7 @@ export function ContentCard({
   const cardClasses = cn(
     'group bg-[var(--ui-bg-strong)]',
     variant !== 'food' && 'hover:bg-[var(--ui-bg-soft)] transition-colors',
-    className
+    className,
   )
 
   if (href) {
@@ -142,7 +145,11 @@ export function ContentCard({
 
   if (onClick) {
     return (
-      <Wrapper {...animationProps} className={cn(cardClasses, 'cursor-pointer')} onClick={onClick}>
+      <Wrapper
+        {...animationProps}
+        className={cn(cardClasses, 'cursor-pointer')}
+        onClick={onClick}
+      >
         {content}
       </Wrapper>
     )
@@ -162,17 +169,22 @@ interface ContentGridProps {
   className?: string
 }
 
-export function ContentGrid({ children, columns = 3, className }: ContentGridProps) {
-  const colClasses = columns === 2
-    ? 'md:grid-cols-2'
-    : 'md:grid-cols-2 lg:grid-cols-3'
+export function ContentGrid({
+  children,
+  columns = 3,
+  className,
+}: ContentGridProps) {
+  const colClasses =
+    columns === 2 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'
 
   return (
-    <div className={cn(
-      'grid gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]',
-      colClasses,
-      className
-    )}>
+    <div
+      className={cn(
+        'grid gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]',
+        colClasses,
+        className,
+      )}
+    >
       {children}
     </div>
   )

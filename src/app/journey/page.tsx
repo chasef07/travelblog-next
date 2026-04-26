@@ -7,10 +7,16 @@ import { journeyStats } from '@/utils/comprehensive-map-data'
 
 export const metadata = generatePageMetadata({
   title: 'Journey',
-  description: 'The chronological route, chapters, and reflections behind Lifestyle Engineering and the atlas it is becoming.',
+  description:
+    'The chronological route, chapters, and reflections behind Lifestyle Engineering and the atlas it is becoming.',
   path: '/journey',
   images: blogArchives.slice(0, 4).map((archive) => archive.image),
-  keywords: ['travel journey', 'chronological travel story', 'field notes', 'travel chapters'],
+  keywords: [
+    'travel journey',
+    'chronological travel story',
+    'field notes',
+    'travel chapters',
+  ],
 })
 
 export default function JourneyPage() {
@@ -25,26 +31,44 @@ export default function JourneyPage() {
             The route behind the atlas
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[var(--ui-text-secondary)]">
-            The journey is the emotional backbone of the brand. It is where the movement, reflections, and changing standards for place turned into usable travel intelligence.
+            The journey is the emotional backbone of the brand. It is where the
+            movement, reflections, and changing standards for place turned into
+            usable travel intelligence.
           </p>
         </header>
 
         <section className="mb-14 grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-4">
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">Countries</span>
-            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">{journeyStats.totalCountries}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+              Countries
+            </span>
+            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
+              {journeyStats.totalCountries}
+            </div>
           </div>
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">Posts</span>
-            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">{journeyStats.totalBlogPosts}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+              Posts
+            </span>
+            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
+              {journeyStats.totalBlogPosts}
+            </div>
           </div>
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">Months</span>
-            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">{journeyStats.durationMonths}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+              Months
+            </span>
+            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
+              {journeyStats.durationMonths}
+            </div>
           </div>
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">Chapters</span>
-            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">{journeyChapters.length}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+              Chapters
+            </span>
+            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
+              {journeyChapters.length}
+            </div>
           </div>
         </section>
 
@@ -54,18 +78,27 @@ export default function JourneyPage() {
               <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
                 [ Chapters ]
               </span>
-              <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">Turning points</h2>
+              <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">
+                Turning points
+              </h2>
             </div>
           </div>
 
           <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] lg:grid-cols-2">
             {journeyChapters.map((chapter) => (
-              <section key={chapter.id} className="bg-[var(--ui-bg-strong)] p-6 sm:p-7">
+              <section
+                key={chapter.id}
+                className="bg-[var(--ui-bg-strong)] p-6 sm:p-7"
+              >
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
                   {chapter.dateRange}
                 </span>
-                <h3 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)]">{chapter.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">{chapter.summary}</p>
+                <h3 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)]">
+                  {chapter.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
+                  {chapter.summary}
+                </p>
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {chapter.countries.map((country) => (
@@ -106,7 +139,9 @@ export default function JourneyPage() {
               <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
                 [ Chronological Route ]
               </span>
-              <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">Month by month</h2>
+              <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">
+                Month by month
+              </h2>
             </div>
 
             <Link
@@ -131,7 +166,9 @@ export default function JourneyPage() {
                 <h3 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)] transition-colors group-hover:text-[var(--ui-accent)]">
                   {archive.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">{archive.excerpt}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
+                  {archive.excerpt}
+                </p>
                 <div className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)] transition-colors group-hover:text-[var(--ui-accent)]">
                   Open archive
                   <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

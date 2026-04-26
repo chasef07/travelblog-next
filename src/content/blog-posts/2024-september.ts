@@ -1,4 +1,4 @@
-import { BlogPost } from '../../types/blog';
+import { BlogPost } from '../../types/blog'
 
 export const september2024Posts: BlogPost[] = [
   {
@@ -9,7 +9,8 @@ export const september2024Posts: BlogPost[] = [
     country: 'Israel',
     slug: 'tel-aviv-relaxation-culture',
     year: '2024',
-    excerpt: 'Moving to Tel Aviv, reconnecting with friends, and discovering the Israeli approach to work-life balance.',
+    excerpt:
+      'Moving to Tel Aviv, reconnecting with friends, and discovering the Israeli approach to work-life balance.',
     content: `Today I checked out of the hostel in Jerusalem and headed to Tel Aviv. I drank a nice fruit smoothie on Ben Yehuda street. I thought about the importance of being outside early with sunlight and its benefits for the mental, emotional and physical. Seeing everyone do their own thing hustling and bustling around makes you zoom out and see how small you really are.
 
 I made it to Tel Aviv at 1600. Zach and I went to the beach for sunset. At night I met up and had a great dinner with my friend Marissa from Dallas. We caught up and talked about life and our adventurous experiences so far. She quit her job and is working as an English teacher in Israel so we have similar emotions and experiences we can talk through. It was really great to see her and I really value her friendship.
@@ -22,8 +23,11 @@ This is one aspect of Israeli society I really value and think America is extrem
 
 Even at 10 pm on a Monday afternoon I saw people sitting in the grass with friends just talking, riding bicycles and going out on the town. I'm pretty exhausted from being in the sun all day but I want to continue this idea and develop it more tomorrow. Spending all day on the beach tomorrow working out, relaxing and having fun since I don't have a job or any work to do or anywhere to be!`,
     images: [
-      { src: '/assets/images/misc/marissa.JPG', alt: 'Dinner with Marissa in Tel Aviv' }
-    ]
+      {
+        src: '/assets/images/misc/marissa.JPG',
+        alt: 'Dinner with Marissa in Tel Aviv',
+      },
+    ],
   },
   {
     id: 'volunteering-trip-ends',
@@ -33,7 +37,8 @@ Even at 10 pm on a Monday afternoon I saw people sitting in the grass with frien
     country: 'Israel',
     slug: 'volunteering-trip-ends',
     year: '2024',
-    excerpt: 'Reflections on America and freedom after one week of travel and meeting people from around the world.',
+    excerpt:
+      'Reflections on America and freedom after one week of travel and meeting people from around the world.',
     content: `Today the volunteering trip ended and marked one week since I left for my travels. There have been so many thoughts and emotions in such a short period of time.
 
 Firstly I want to discuss my thoughts about the United States of America. In the trip there were people from France, Australia, Colombia, Canada, and Israel. I have met people from around the world before but to connect with Jews from these countries was a first and hearing about their politics and views was interesting.
@@ -48,10 +53,16 @@ Overall America still has extreme social problems to work through and lots of si
 
 I am excited for tomorrow to start the trip where I have the whole time to plan and do as I wish. I have really enjoyed making working out at the calisthenics park a pillar of my routine and think this will help drive stability throughout the adventure.`,
     images: [
-      { src: '/assets/images/misc/IMG_2688.jpg', alt: 'With the boys in Jerusalem' },
+      {
+        src: '/assets/images/misc/IMG_2688.jpg',
+        alt: 'With the boys in Jerusalem',
+      },
       { src: '/assets/images/misc/IMG_2697.jpg', alt: 'At the Kotel' },
-      { src: '/assets/images/misc/IMG_2705.jpg', alt: 'Volunteering certificate' }
-    ]
+      {
+        src: '/assets/images/misc/IMG_2705.jpg',
+        alt: 'Volunteering certificate',
+      },
+    ],
   },
   {
     id: 'gaza-border-farming',
@@ -61,7 +72,8 @@ I am excited for tomorrow to start the trip where I have the whole time to plan 
     country: 'Israel',
     slug: 'gaza-border-farming',
     year: '2024',
-    excerpt: 'Picking weeds at a farm near Gaza, visiting Sderot and Nova site, and reflecting on environment and life.',
+    excerpt:
+      'Picking weeds at a farm near Gaza, visiting Sderot and Nova site, and reflecting on environment and life.',
     content: `Waking up early was brutal again. I haven't had a full night of sleep since getting here. We drove 2 hours south to the north of the Gaza border. This time we picked weeds for like three hours at a dill and cilantro farm! I picked for about 30 minutes then sat in the shade. People really loved picking that stuff! The farm gave us lunch which was nice.
 
 After we went to Sderot and the nova site. I already went to both these places a couple months ago so it was not that exciting. I still am feeling a whole mixture of emotions about the adventure and trip as a whole it is hard to explain.
@@ -73,7 +85,7 @@ I am looking forward to rosh Hashanah next week to use as an inflection point to
 Your place reflects your inner dimensions. In a spiritual sense, there really is no boundary between yourself and your environment since everything is one so you need to choose this wisely. Your entire being is shaped by your environment which then affects the inner workings of the mind and spirit.
 
 Overall I'm looking for the volunteering trip to be over to be able to think about these big questions more and devote more time to things that will make me grow. I also need to get over this jet lag asap. Much love.`,
-    images: []
+    images: [],
   },
   {
     id: 'eggplant-farm-etrogat',
@@ -83,7 +95,8 @@ Overall I'm looking for the volunteering trip to be over to be able to think abo
     country: 'Israel',
     slug: 'eggplant-farm-etrogat',
     year: '2024',
-    excerpt: 'Working on an eggplant farm, trying EtroGat drink, and exploring the Old City of Jerusalem.',
+    excerpt:
+      'Working on an eggplant farm, trying EtroGat drink, and exploring the Old City of Jerusalem.',
     content: `Today I woke up at 6:30 and we took the bus south to Moshav Shekef. There we tended to the eggplants. What we did was cut the leaves of the plants. Leaves take a lot of nutrients so when the leaves are cut the eggplant grows a lot faster. It was a pretty good experience but after an hour of leaf pulling I was done.
 
 After the volunteering in the morning I took a nap because I was still jet lagged and woke up early. After the needed nap, Zach and I went to the Etrog man and drank EtroGat, a mixture of etrog, grapefruit and gat. **Supposedly Gat or khat is illegal in the United States and the Somali pirates use it to get energized.** I need to do more research on this.
@@ -95,7 +108,7 @@ When I woke up there was a geopolitical talk which was hosted by the program. It
 **It does not feel like the adventure has officially started yet since I am on this volunteering program.** I have to be a certain places at certain times which takes away some of the freedom. I will be patient because it is almost done and they are paying for my flight basically. The volunteering feels like busy work but whatever.
 
 Once Monday comes and i will have to fill my own days doing things I want I think I will feel more invigorated. Tomorrow we wake up again at 6:30 am to volunteer at another agricultural site.`,
-    images: []
+    images: [],
   },
   {
     id: 'arrival-in-israel',
@@ -105,7 +118,8 @@ Once Monday comes and i will have to fill my own days doing things I want I thin
     country: 'Israel',
     slug: 'arrival-in-israel',
     year: '2024',
-    excerpt: 'Landing in Tel Aviv, taking the train to Jerusalem, and beginning the volunteering program.',
+    excerpt:
+      'Landing in Tel Aviv, taking the train to Jerusalem, and beginning the volunteering program.',
     content: `I had a middle seat on the flight to Tel Aviv. I slept some and it was an easy flight. I landed in Israel at 4:30 am and was able to take the 5 am train to Jerusalem. I obviously got an iced aroma coffee from the airport before the train. The train took 30 minutes to get to Jerusalem and then I had to take the lite rail to the hostel. I finally arrived around 5:45 to the hostel.
 
 Zach was asleep when I arrived and there was another roommate in the room. This first week in Israel I am doing a volunteer program. I woke up around 11 am and Zach and I got ginger shots from the etrog man and walked to Gan Sacher park. We sat and caught up in the grass and oriented ourselves together for the journey ahead.
@@ -119,7 +133,7 @@ After i crashed and took a nap. Then Zach and I walked to the shuk and ate dinne
 Also you are able to immediately tell the quality of the food and produce is so much superior. This is due to how well Israel is with agriculture and how the majority of the soil in America is over stressed and lacking the proper nutrients. It's really sad.
 
 It was a great first day but I still need to get some sleep and get over jet lag. Tomorrow we wake up early to help rehabilitate a kibbutz near the Gaza border.`,
-    images: []
+    images: [],
   },
   {
     id: 'rome-layover-adventure',
@@ -129,7 +143,8 @@ It was a great first day but I still need to get some sleep and get over jet lag
     country: 'Italy',
     slug: 'rome-layover-adventure',
     year: '2024',
-    excerpt: 'Unexpected exploration of Rome during a 7-hour layover, visiting the Colosseum and Trevi Fountain.',
+    excerpt:
+      'Unexpected exploration of Rome during a 7-hour layover, visiting the Colosseum and Trevi Fountain.',
     content: `I slept a good amount on the plane. I did have a middle seat but there was nobody to my left so I got to scoot over! I think sitting in a plane for that long takes years off your life span. My spine was so compressed and I woke up in pain in my neck and back and legs. I'm happy with the amount I slept but unhappy with how much pain it causes.
 
 **My favorite part of all long haul flights is mid flight stretchies.** This is when you stand up walk to an open area and do a full yoga flow. It usually draws eyes but who's laughing now? The people with scoliosis or being yoga limber and increasing your life span?
@@ -146,10 +161,16 @@ At this time when I just sat back and relaxed I realized that this is awesome! I
 
 I made my way back to the train station. Note I did this all without phone connection which I was pretty happy about. I used the maps and spatial awareness to get me to and from the places I needed. At the airport I got grilled pretty hard by the El Al security guy. He did his job diligently and it was fun getting questioned. I'm waiting for my flight to the Holy Land now!`,
     images: [
-      { src: '/assets/images/misc/IMG_2660.jpg', alt: 'Trevi Fountain in Rome' },
-      { src: '/assets/images/misc/IMG_2665.jpg', alt: 'Kinder and Oreo gelato' },
-      { src: '/assets/images/misc/IMG_2653.jpg', alt: 'The Colosseum' }
-    ]
+      {
+        src: '/assets/images/misc/IMG_2660.jpg',
+        alt: 'Trevi Fountain in Rome',
+      },
+      {
+        src: '/assets/images/misc/IMG_2665.jpg',
+        alt: 'Kinder and Oreo gelato',
+      },
+      { src: '/assets/images/misc/IMG_2653.jpg', alt: 'The Colosseum' },
+    ],
   },
   {
     id: 'new-york-stopover',
@@ -159,7 +180,8 @@ I made my way back to the train station. Note I did this all without phone conne
     country: 'USA',
     slug: 'new-york-stopover',
     year: '2024',
-    excerpt: 'Brunch with old camp friends in NYC, reflections on the city, and final preparations before the big journey.',
+    excerpt:
+      'Brunch with old camp friends in NYC, reflections on the city, and final preparations before the big journey.',
     content: `I woke up at 5:30 am today to catch a 7:15 flight to New York. My dad drove me to the airport and we said our goodbyes. I got a window seat and slept the whole entire flight.
 
 Upon arriving to JFK I took the subway to the lower east side to grab brunch with my close camp friends Marley and Delila. **We have been friends for over 13 years through camp and college.** Friendships like those do not come often and I really value all our memories and times together.
@@ -174,8 +196,11 @@ We ate at potluck club and it was pretty good. After that I went to Public hotel
 
 Also people dressed very fashionably which was cool and there was so many different types of people. I could see how New York was once a prosperous place but it is just not it now. It's dirty and smelly and expensive. Finally I went to back to the airport to catch my flight to Rome. I'm pretty exhausted from a really long day and I hope to sleep some on the flight. I think I have a middle seat which sucks but I'm so tired I think I will make do.`,
     images: [
-      { src: '/assets/images/misc/IMG_8571 2.jpg', alt: 'With camp friends in NYC' }
-    ]
+      {
+        src: '/assets/images/misc/IMG_8571 2.jpg',
+        alt: 'With camp friends in NYC',
+      },
+    ],
   },
   {
     id: 'final-day-florida',
@@ -185,7 +210,8 @@ Also people dressed very fashionably which was cool and there was so many differ
     country: 'USA',
     slug: 'final-day-florida',
     year: '2024',
-    excerpt: 'Last day at home with family, reflecting on growing up in Florida and preparing for the unknown journey ahead.',
+    excerpt:
+      'Last day at home with family, reflecting on growing up in Florida and preparing for the unknown journey ahead.',
     content: `I had an amazing week with my parents. It felt long but it also flew by. They were so helpful in helping me pack and unpack and get everything ready. I know it must be hard for them but I am very grateful for their love and support. I wake up at 5:30 am tomorrow for a flight to New York.
 
 In six hours starts the day I have been thinking and talking about for so long. **The crazy thing is it has not really hit me yet.** People have asked me "how do you feel?" " are you excited?" And honestly I do not know how I feel. It just feels like another day which is good. I am not scared or anxious or excited or happy or sad.
@@ -197,6 +223,6 @@ In the past when I would get excited for a trip the excitement is due to a break
 The natural beauty is stunning and I never realized it until I left. So much wildlife like dolphins and stingrays and pelicans and deer that you don't see on a daily basis elsewhere.
 
 I am going to try and get some rest. I feel exhausted from the past two weeks of packing and unpacking and getting everything ready but it all comes down to tomorrow. **I have a backpack on my back to show for all the work I put in.** Looking forward to whatever may be.`,
-    images: []
-  }
-];
+    images: [],
+  },
+]

@@ -70,7 +70,7 @@ function VlogCard({
   vlog,
   index,
   isSelected,
-  onClick
+  onClick,
 }: {
   vlog: Vlog
   index: number
@@ -101,7 +101,10 @@ function VlogCard({
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="w-14 h-14 border border-[var(--ui-border-strong)] bg-[var(--ui-accent)] rounded-full flex items-center justify-center group-hover:bg-[var(--ui-accent-hover)] transition-colors">
-            <Play className="h-6 w-6 text-[var(--ui-on-accent)] ml-1" fill="currentColor" />
+            <Play
+              className="h-6 w-6 text-[var(--ui-on-accent)] ml-1"
+              fill="currentColor"
+            />
           </div>
         </div>
 

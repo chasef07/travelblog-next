@@ -5,7 +5,16 @@ type IconProps = React.SVGProps<SVGSVGElement> & { className?: string }
 
 function InstagramIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -23,38 +32,44 @@ function GithubIcon(props: IconProps) {
 
 function XIcon(props: IconProps) {
   return (
-    <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true" {...props}>
+    <svg
+      viewBox="0 0 512 512"
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
       <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
     </svg>
   )
 }
 
-export default function Footer(){
+export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const navigationLinks = [
-    { name: "Atlas", href: "/atlas" },
-    { name: "Maps", href: "/maps" },
-    { name: "Journey", href: "/journey" },
-    { name: "Countries", href: "/countries" },
-    { name: "Food", href: "/food" },
-    { name: "Transport", href: "/transportation" },
+    { name: 'Atlas', href: '/atlas' },
+    { name: 'Maps', href: '/maps' },
+    { name: 'Journey', href: '/journey' },
+    { name: 'Vlogs', href: '/vlogs' },
+    { name: 'Countries', href: '/countries' },
+    { name: 'Food', href: '/food' },
+    { name: 'Transport', href: '/transportation' },
   ]
 
   const socialLinks = [
     {
-      name: "Instagram",
-      href: "https://www.instagram.com/chasef07/",
+      name: 'Instagram',
+      href: 'https://www.instagram.com/chasef07/',
       icon: InstagramIcon,
     },
     {
-      name: "X",
-      href: "https://x.com/chasef07",
+      name: 'X',
+      href: 'https://x.com/chasef07',
       icon: XIcon,
     },
     {
-      name: "GitHub",
-      href: "https://github.com/chasef07",
+      name: 'GitHub',
+      href: 'https://github.com/chasef07',
       icon: GithubIcon,
     },
   ]

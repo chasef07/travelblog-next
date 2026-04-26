@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 
 type ComparePlace = {
   id: string
@@ -40,12 +40,27 @@ function formatLabel(value: string) {
   return value.replace(/([A-Z])/g, ' $1')
 }
 
-export default function SurfTownComparison({ places }: { places: ComparePlace[] }) {
+export default function SurfTownComparison({
+  places,
+}: {
+  places: ComparePlace[]
+}) {
   const [leftSlug, setLeftSlug] = useState(places[0]?.slug ?? '')
-  const [rightSlug, setRightSlug] = useState(places[1]?.slug ?? places[0]?.slug ?? '')
+  const [rightSlug, setRightSlug] = useState(
+    places[1]?.slug ?? places[0]?.slug ?? '',
+  )
 
-  const leftPlace = useMemo(() => places.find((place) => place.slug === leftSlug) ?? places[0], [leftSlug, places])
-  const rightPlace = useMemo(() => places.find((place) => place.slug === rightSlug) ?? places[1] ?? places[0], [rightSlug, places])
+  const leftPlace = useMemo(
+    () => places.find((place) => place.slug === leftSlug) ?? places[0],
+    [leftSlug, places],
+  )
+  const rightPlace = useMemo(
+    () =>
+      places.find((place) => place.slug === rightSlug) ??
+      places[1] ??
+      places[0],
+    [rightSlug, places],
+  )
 
   if (!leftPlace || !rightPlace) {
     return null
@@ -101,78 +116,137 @@ export default function SurfTownComparison({ places }: { places: ComparePlace[] 
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
             {leftPlace.country}
           </span>
-          <h3 className="mt-2 text-2xl font-light text-[var(--ui-text-primary)]">{leftPlace.name}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">{leftPlace.shortVerdict}</p>
+          <h3 className="mt-2 text-2xl font-light text-[var(--ui-text-primary)]">
+            {leftPlace.name}
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
+            {leftPlace.shortVerdict}
+          </p>
         </div>
         <div className="bg-[var(--ui-bg-strong)] p-5 sm:p-6">
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
             {rightPlace.country}
           </span>
-          <h3 className="mt-2 text-2xl font-light text-[var(--ui-text-primary)]">{rightPlace.name}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">{rightPlace.shortVerdict}</p>
+          <h3 className="mt-2 text-2xl font-light text-[var(--ui-text-primary)]">
+            {rightPlace.name}
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
+            {rightPlace.shortVerdict}
+          </p>
         </div>
 
         {scoreRows.map((row) => (
-          <>
-            <div key={`${row}-label`} className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
+          <Fragment key={row}>
+            <div
+              key={`${row}-label`}
+              className="bg-[var(--ui-bg-strong)] p-4 lg:p-5"
+            >
               <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
                 {formatLabel(row)}
               </span>
             </div>
-            <div key={`${row}-left`} className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
+            <div
+              key={`${row}-left`}
+              className="bg-[var(--ui-bg-strong)] p-4 lg:p-5"
+            >
               <span className="font-editorial text-3xl leading-none text-[var(--ui-accent)]">
                 {leftPlace.scores[row].toFixed(1)}
               </span>
             </div>
-            <div key={`${row}-right`} className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
+            <div
+              key={`${row}-right`}
+              className="bg-[var(--ui-bg-strong)] p-4 lg:p-5"
+            >
               <span className="font-editorial text-3xl leading-none text-[var(--ui-accent)]">
                 {rightPlace.scores[row].toFixed(1)}
               </span>
             </div>
-          </>
+          </Fragment>
         ))}
 
         <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Ideal stay</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Ideal stay
+          </span>
         </div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{leftPlace.idealStay}</div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{rightPlace.idealStay}</div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {leftPlace.idealStay}
+        </div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {rightPlace.idealStay}
+        </div>
 
         <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Wave type</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Wave type
+          </span>
         </div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{leftPlace.waveType}</div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{rightPlace.waveType}</div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {leftPlace.waveType}
+        </div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {rightPlace.waveType}
+        </div>
 
         <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Board level</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Board level
+          </span>
         </div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{leftPlace.boardLevel}</div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{rightPlace.boardLevel}</div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {leftPlace.boardLevel}
+        </div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {rightPlace.boardLevel}
+        </div>
 
         <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Town density</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Town density
+          </span>
         </div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{leftPlace.townDensity}</div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{rightPlace.townDensity}</div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {leftPlace.townDensity}
+        </div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {rightPlace.townDensity}
+        </div>
 
         <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Internet</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Internet
+          </span>
         </div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{leftPlace.internetNote}</div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{rightPlace.internetNote}</div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {leftPlace.internetNote}
+        </div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {rightPlace.internetNote}
+        </div>
 
         <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Cost note</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Cost note
+          </span>
         </div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{leftPlace.costNote}</div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{rightPlace.costNote}</div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {leftPlace.costNote}
+        </div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {rightPlace.costNote}
+        </div>
 
         <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Seasonality</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Seasonality
+          </span>
         </div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{leftPlace.seasonality}</div>
-        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">{rightPlace.seasonality}</div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {leftPlace.seasonality}
+        </div>
+        <div className="bg-[var(--ui-bg-strong)] p-4 lg:p-5 text-sm text-[var(--ui-text-secondary)]">
+          {rightPlace.seasonality}
+        </div>
       </div>
     </section>
   )

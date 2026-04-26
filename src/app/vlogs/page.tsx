@@ -6,7 +6,7 @@ const VlogGrid = dynamic(() => import('@/components/VlogGrid'), {
     <div className="space-y-12">
       <GridSkeleton count={6} columns="md:grid-cols-2 lg:grid-cols-3" />
     </div>
-  )
+  ),
 })
 
 import { SectionHeader } from '@/components/SectionHeader'

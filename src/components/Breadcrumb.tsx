@@ -18,17 +18,14 @@ interface BreadcrumbProps {
  */
 export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
   // Always include home as first item
-  const allItems = [
-    { name: 'Home', href: '/' },
-    ...items
-  ]
+  const allItems = [{ name: 'Home', href: '/' }, ...items]
 
   // Generate JSON-LD for breadcrumbs
   const breadcrumbJsonLd = generateBreadcrumbJsonLd(
-    allItems.map(item => ({
+    allItems.map((item) => ({
       name: item.name,
-      url: `https://chasefagen.com${item.href}`
-    }))
+      url: `https://chasefagen.com${item.href}`,
+    })),
   )
 
   return (
@@ -38,16 +35,25 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      
+
       {/* Breadcrumb navigation */}
       <nav
         aria-label="Breadcrumb"
         className={`flex items-center gap-2 text-sm ${className}`}
       >
-        <ol className="flex items-center gap-2" itemScope itemType="https://schema.org/BreadcrumbList">
+        <ol
+          className="flex items-center gap-2"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
           {allItems.map((item, index) => (
-            <li key={item.href} className="flex items-center gap-2"
-                itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <li
+              key={item.href}
+              className="flex items-center gap-2"
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/ListItem"
+            >
               <meta itemProp="position" content={String(index + 1)} />
 
               {index === 0 ? (
@@ -57,7 +63,9 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
                   itemProp="item"
                 >
                   <Home className="w-4 h-4" />
-                  <span className="sr-only" itemProp="name">Home</span>
+                  <span className="sr-only" itemProp="name">
+                    Home
+                  </span>
                 </Link>
               ) : index === allItems.length - 1 ? (
                 <span
@@ -78,7 +86,10 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
               )}
 
               {index < allItems.length - 1 && (
-                <ChevronRight className="w-3 h-3 text-[var(--ui-text-subtle)]" aria-hidden="true" />
+                <ChevronRight
+                  className="w-3 h-3 text-[var(--ui-text-subtle)]"
+                  aria-hidden="true"
+                />
               )}
             </li>
           ))}
@@ -91,10 +102,14 @@ export default function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
 /**
  * Utility to generate breadcrumb items for blog posts
  */
-export function generateBlogBreadcrumbs(year: string, slug: string, title?: string): BreadcrumbItem[] {
+export function generateBlogBreadcrumbs(
+  year: string,
+  slug: string,
+  title?: string,
+): BreadcrumbItem[] {
   const items: BreadcrumbItem[] = [
     { name: 'Blog', href: '/blog' },
-    { name: year, href: `/blog/${year}` }
+    { name: year, href: `/blog/${year}` },
   ]
 
   if (title) {
@@ -107,13 +122,19 @@ export function generateBlogBreadcrumbs(year: string, slug: string, title?: stri
 /**
  * Utility to generate breadcrumb items for content sections
  */
-export function generateSectionBreadcrumbs(section: string, subsection?: string): BreadcrumbItem[] {
+export function generateSectionBreadcrumbs(
+  section: string,
+  subsection?: string,
+): BreadcrumbItem[] {
   const items: BreadcrumbItem[] = [
-    { name: capitalizeFirst(section), href: `/${section}` }
+    { name: capitalizeFirst(section), href: `/${section}` },
   ]
 
   if (subsection) {
-    items.push({ name: capitalizeFirst(subsection), href: `/${section}/${subsection}` })
+    items.push({
+      name: capitalizeFirst(subsection),
+      href: `/${section}/${subsection}`,
+    })
   }
 
   return items

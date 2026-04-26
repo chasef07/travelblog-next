@@ -5,12 +5,14 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 ## ✨ Features
 
 ### 🎨 **Modern Design System**
+
 - **Dynamic Theme Switching** - Light/dark mode with CSS custom properties
 - **Glassmorphism Effects** - Beautiful backdrop-filter designs
 - **Framer Motion Animations** - Smooth, progressive loading animations
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 
 ### 📱 **Interactive Components**
+
 - **Interactive 3D Globe** - Three.js/React Three Fiber globe with journey arcs and location markers
 - **Travel Stories** - Filterable blog posts with country/year filters
 - **Interactive Map** - Leaflet-based journey visualization
@@ -20,6 +22,7 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 - **Packing Checklist** - Interactive packing guide
 
 ### 🚀 **Performance & SEO**
+
 - **Next.js 15 App Router** - Latest React 19 with Server Components
 - **Image Optimization** - AVIF/WebP formats with lazy loading
 - **Dynamic Imports** - Code splitting for optimal loading
@@ -27,6 +30,7 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 - **Core Web Vitals** - Optimized for Google rankings
 
 ### 📊 **Content Management**
+
 - **TypeScript Content** - Type-safe blog posts and metadata
 - **Dynamic Loading** - Blog posts loaded by year/month
 - **Search & Filter** - Advanced filtering by location and date
@@ -35,6 +39,7 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 ## 🛠️ Tech Stack
 
 ### **Frontend**
+
 - **Next.js 15** - React framework with App Router
 - **React 19** - Latest React with Server Components
 - **TypeScript** - Type safety throughout
@@ -42,6 +47,7 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 - **Framer Motion** - Animation library
 
 ### **UI Components**
+
 - **Shadcn/ui** - Modern component library
 - **Three.js / React Three Fiber** - 3D globe visualization
 - **Leaflet** - Interactive 2D maps
@@ -49,6 +55,7 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 - **Dynamic Imports** - Progressive loading
 
 ### **Performance**
+
 - **Webpack** - Production-ready builds (Turbopack has compatibility issues with Three.js)
 - **Image Optimization** - Automatic format conversion
 - **Code Splitting** - Dynamic component loading
@@ -57,7 +64,8 @@ A modern, interactive travel blog built with Next.js 15, showcasing adventures a
 ## 🚀 Getting Started
 
 ### **Prerequisites**
-- Node.js 18+ 
+
+- Node.js 18+
 - npm, yarn, or pnpm
 
 ### **Installation**
@@ -133,10 +141,8 @@ export const monthYearPosts: BlogPost[] = [
     year: '2024',
     excerpt: 'Brief description...',
     content: `Full content with markdown support...`,
-    images: [
-      { src: '/assets/images/path.jpg', alt: 'Description' }
-    ]
-  }
+    images: [{ src: '/assets/images/path.jpg', alt: 'Description' }],
+  },
 ]
 ```
 
@@ -147,6 +153,7 @@ Update the respective data files in `src/content/` with new entries following th
 ## 🎨 Styling & Theming
 
 ### **CSS Custom Properties**
+
 The app uses CSS custom properties for theming:
 
 ```css
@@ -158,7 +165,7 @@ The app uses CSS custom properties for theming:
   --muted-text-color: #6b7280;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --surface-color: #1f2937;
   --text-color: #f9fafb;
   /* ... */
@@ -166,6 +173,7 @@ The app uses CSS custom properties for theming:
 ```
 
 ### **Tailwind Configuration**
+
 - Custom color palette
 - Typography scale
 - Animation utilities
@@ -174,6 +182,7 @@ The app uses CSS custom properties for theming:
 ## 🌍 Deployment
 
 ### **Vercel (Recommended)**
+
 ```bash
 # Deploy to Vercel
 npm run build
@@ -181,6 +190,7 @@ npm run build
 ```
 
 ### **Other Platforms**
+
 ```bash
 # Build for production
 npm run build
@@ -193,6 +203,7 @@ npm run build && npm run export
 ## 🔧 Configuration
 
 ### **Environment Variables**
+
 Create `.env.local` for environment-specific settings:
 
 ```env
@@ -203,27 +214,30 @@ NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
 For Vercel deployment, add these environment variables in your Vercel dashboard.
 
 ### **SEO Configuration**
+
 Update `src/lib/seo.ts` with your site metadata:
 
 ```typescript
 export const siteConfig = {
-  name: "Your Travel Blog",
-  description: "Amazing travel adventures...",
-  url: "https://your-domain.com"
+  name: 'Your Travel Blog',
+  description: 'Amazing travel adventures...',
+  url: 'https://your-domain.com',
 }
 ```
 
 ## 📊 Performance
 
 ### **Lighthouse Scores**
+
 - **Performance**: 95+
 - **Accessibility**: 100
 - **Best Practices**: 100
 - **SEO**: 100
 
 ### **Core Web Vitals**
+
 - **LCP**: < 2.5s
-- **FID**: < 100ms  
+- **FID**: < 100ms
 - **CLS**: < 0.1
 
 ## 🤝 Contributing

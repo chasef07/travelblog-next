@@ -7,7 +7,7 @@ const FoodGrid = dynamic(() => import('@/components/FoodGrid'), {
       <FilterSkeleton count={5} />
       <GridSkeleton count={4} columns="md:grid-cols-2" />
     </div>
-  )
+  ),
 })
 
 import { SectionHeader } from '@/components/SectionHeader'

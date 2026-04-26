@@ -1,15 +1,16 @@
-import { BlogPost } from '../../types/blog';
+import { BlogPost } from '../../types/blog'
 
 export const april2025Posts: BlogPost[] = [
   {
     id: 'da-nang-reunification-day',
-    title: 'Reunification Day in Da Nang - Journey\'s End',
+    title: "Reunification Day in Da Nang - Journey's End",
     date: '2025-04-30',
     location: 'Da Nang, Vietnam',
     country: 'Vietnam',
     slug: 'da-nang-reunification-day',
     year: '2025',
-    excerpt: 'My last day in Vietnam on Reunification Day, meeting my fraternity brother Jared Peters who found his new life in Da Nang.',
+    excerpt:
+      'My last day in Vietnam on Reunification Day, meeting my fraternity brother Jared Peters who found his new life in Da Nang.',
     content: `Happy Reunification Day. Today marks 50 years since the fall of Saigon in 1975, which ended the Vietnam War and led to the reunification of North and South Vietnam under communist control. It also happened to be my last full day in Vietnam—and it was a very chill one.
 
 I woke up super late, still exhausted from my month-long motorbiking trip and the accident. The wound on my knee has scabbed over and makes me walk with a bit of a limp, so I end up using more energy just getting around.
@@ -30,8 +31,11 @@ Vietnam has been one of my favorite places on this journey. The people are so wa
 
 I got to see countless smiling, beautiful faces in remote parts of the country—places many people never get the chance to visit. There are amazing people and places in every corner of the globe. You just have to go looking.`,
     images: [
-      { src: '/assets/images/misc/peterspic.jpg', alt: 'With Jared Peters in Da Nang' }
-    ]
+      {
+        src: '/assets/images/misc/peterspic.jpg',
+        alt: 'With Jared Peters in Da Nang',
+      },
+    ],
   },
   {
     id: 'selling-motorbike-hoi-an',
@@ -41,7 +45,8 @@ I got to see countless smiling, beautiful faces in remote parts of the country�
     country: 'Vietnam',
     slug: 'selling-motorbike-hoi-an',
     year: '2025',
-    excerpt: 'A fascinating lesson in microeconomics and negotiation strategy while selling my motorbike in Hoi An\'s informal markets.',
+    excerpt:
+      "A fascinating lesson in microeconomics and negotiation strategy while selling my motorbike in Hoi An's informal markets.",
     content: `Today, I sold my motorbike. I wasn't too stressed about it—I always knew I'd sell it eventually—but I wasn't sure how it would go down. Would I lose money? Could I break even? Maybe even make a profit? Turns out, the answer revealed some fascinating lessons in both microeconomics and real-world negotiation strategy.
 
 I bought the bike for 7 million dong (around $275). Throughout my trip, I asked locals and travelers how much I could resell it for. The feedback was all over the place—some said 7M was a fair price; others told me I'd be lucky to get 5M. I started to realize that in informal markets like this, price discovery is decentralized and subjective. There's no Kelley Blue Book—just supply, demand, and perception.
@@ -74,18 +79,22 @@ It drove home the fact that every interaction—whether selling a bike or exchan
 
 On a lighter note, today wasn't just about economics and negotiations—I also picked up my tailor-made linen shirt and pants, plus a custom pair of Birkenstocks. Both turned out great. Lastly, one thing I'll really miss about Southeast Asia are the incredibly affordable gyms. I trained today at a local spot for just two dollars—shirtless, shoeless, with a sauna included. Can't beat that.`,
     images: [
-      { src: '/assets/images/misc/tailormade-2.jpg', alt: 'Custom tailored clothes in Hoi An' }
-    ]
+      {
+        src: '/assets/images/misc/tailormade-2.jpg',
+        alt: 'Custom tailored clothes in Hoi An',
+      },
+    ],
   },
   {
     id: 'hoi-an-tailor-economics',
-    title: 'The Economics of Hoi An\'s Tailor Market',
+    title: "The Economics of Hoi An's Tailor Market",
     date: '2025-04-28',
     location: 'Hoi An, Vietnam',
     country: 'Vietnam',
     slug: 'hoi-an-tailor-economics',
     year: '2025',
-    excerpt: 'Exploring how hundreds of seemingly identical tailor shops can coexist with wildly different prices—a lesson in market dynamics.',
+    excerpt:
+      'Exploring how hundreds of seemingly identical tailor shops can coexist with wildly different prices—a lesson in market dynamics.',
     content: `Hoi An is a charming tourist town famous for tailor-made clothes and custom shoes. It's packed with viber cafes, Western restaurants, and most visibly, tailor shops—hundreds of them lined up side by side, almost indistinguishable from each other.
 
 I hadn't planned to buy anything, but after walking past over a hundred tailor stores, I eventually gave in. Seeing all of them made me wonder: how does the economics of this overwhelming supply and demand actually work?
@@ -113,7 +122,7 @@ Looking back, Hoi An's tailoring scene perfectly illustrates a deeper economic t
 With so much choice, tourists crave a way to end the uncertainty. Sellers who create trust quickly—or simply intercept customers before fatigue sets in—capture disproportionate value. In that sense, the "cost" of a linen shirt here isn't just measured in dollars, but in time, energy, and psychological bandwidth.
 
 It ended up being a great day: my first day off the motorbike in over ten days, exploring the city by foot. Tomorrow, a buyer is coming to see my bike. With any luck, it'll be a big day—selling the bike and picking up some fresh new clothes!`,
-    images: []
+    images: [],
   },
   {
     id: 'hai-van-pass-kindness',
@@ -123,7 +132,8 @@ It ended up being a great day: my first day off the motorbike in over ten days, 
     country: 'Vietnam',
     slug: 'hai-van-pass-kindness',
     year: '2025',
-    excerpt: 'An unexpected encounter with Vietnamese kindness and the stunning drive through the legendary Hai Van Pass.',
+    excerpt:
+      'An unexpected encounter with Vietnamese kindness and the stunning drive through the legendary Hai Van Pass.',
     content: `While I was leaving Hue today, an older Vietnamese man caught my attention. I was at a stoplight, just five minutes into my drive for the day, when he asked me where I was from. I told him I was American, and he mentioned he had family in the U.S. His English was really good, and he said I reminded him of his nephew or some other relative. He seemed like a sweet guy and asked if I wanted to grab a tea with him.
 
 I really wanted to start my drive, but he had such welcoming energy that I agreed. We drove about five minutes down the road and sat down for a green tea together. In the back of my mind, I was a little cautious — wondering if he was trying to take money from me — but we ended up having a great conversation. He was visiting Hue with his family for the weekend, though I wasn't entirely sure why. His daughter lives in San Francisco, so he was familiar with the U.S.
@@ -141,8 +151,11 @@ Hoi An is known for tailored clothing and custom leather shoes — maybe I'll ge
 Overall, today reminded me that real travel and adventure is better than just visiting tourist spots. It's about the unexpected moments — like sitting with a stranger for tea.`,
     images: [
       { src: '/assets/images/misc/hvp1.jpg', alt: 'Hai Van Pass scenic view' },
-      { src: '/assets/images/misc/hvp2.jpg', alt: 'Hai Van Pass mountain road' }
-    ]
+      {
+        src: '/assets/images/misc/hvp2.jpg',
+        alt: 'Hai Van Pass mountain road',
+      },
+    ],
   },
   {
     id: 'ai-blog-summary',
@@ -152,7 +165,8 @@ Overall, today reminded me that real travel and adventure is better than just vi
     country: 'Vietnam',
     slug: 'ai-blog-summary',
     year: '2025',
-    excerpt: 'Using AI to analyze the biggest takeaways and patterns from months of travel writing and self-reflection.',
+    excerpt:
+      'Using AI to analyze the biggest takeaways and patterns from months of travel writing and self-reflection.',
     content: `I am using Cursor to code my website. Cursor is a programming environment integrated with AI. I asked the AI to summarize the biggest takeaways from all of my blog posts, and here is what it came up with:
 
 **1. Simplicity & Authenticity**
@@ -229,7 +243,7 @@ Overall, today reminded me that real travel and adventure is better than just vi
 - Regular mentions of physical fitness and body maintenance during travel
 
 Your writing shows a clear evolution from typical travel observations to deeper cultural and philosophical insights, with a strong emphasis on personal growth and understanding of different ways of life. The balance between adventure seeking and meaningful reflection provides a unique perspective on long-term travel and its impact on personal development.`,
-    images: []
+    images: [],
   },
   {
     id: 'hue-duck-stop-cupping',
@@ -239,7 +253,8 @@ Your writing shows a clear evolution from typical travel observations to deeper 
     country: 'Vietnam',
     slug: 'hue-duck-stop-cupping',
     year: '2025',
-    excerpt: 'Another grueling day on the Ho Chi Minh Road, featuring traditional cupping therapy and the silly but delightful Duck Stop experience.',
+    excerpt:
+      'Another grueling day on the Ho Chi Minh Road, featuring traditional cupping therapy and the silly but delightful Duck Stop experience.',
     content: `Another 5+ hour day on the bike. The past three days since leaving Hanoi have been absolutely grueling. This morning, I woke up sore all over and went looking for a place that does cupping therapy. After first experiencing cupping in Laos and then again in China, I've been on the hunt for more authentic spots. I found a small massage shop offering cupping for just over $3. The session really helped with my back soreness — plus, you get those cool marks all over your back, which I kind of love.
 
 Earlier that morning in Phong Nha, I stopped by a local pharmacist who bandaged up my wounds and gave me some disinfecting spray. One thing I really like about Asia is how many of the medicines are made from natural sources. The spray, similar to Neosporin, came with images of flowers and plants it was derived from. Throughout this trip, I've been moving away from synthetics and leaning into more natural living — herbal toothpaste, natural deodorants, cotton, silk, linen, and wool clothing. After seeing a Hadza chief in Tanzania with the whitest teeth I've ever seen, I've fully switched to herbal toothpaste. Now I only buy body wash and shampoo with no perfumes and with simple ingredients like goat's milk.
@@ -255,9 +270,12 @@ Once I made it to Hue, I treated myself to an incredible sushi dinner — much n
 Tomorrow, I'll tackle the Hai Van Pass — a legendary seaside route that winds from Hue through Da Nang to Hoi An. I'm excited to slow things down a bit for my last few days in Vietnam. I'll also need to figure out how to sell my motorbike before I leave. Big days ahead.`,
     images: [
       { src: '/assets/images/misc/duckstop1.jpg', alt: 'Duck Stop experience' },
-      { src: '/assets/images/misc/duckstop2.jpg', alt: 'Feeding ducks at Duck Stop' },
-      { src: '/assets/images/misc/duckstop3.jpg', alt: 'Duck Stop fun' }
-    ]
+      {
+        src: '/assets/images/misc/duckstop2.jpg',
+        alt: 'Feeding ducks at Duck Stop',
+      },
+      { src: '/assets/images/misc/duckstop3.jpg', alt: 'Duck Stop fun' },
+    ],
   },
   {
     id: 'motorbike-crash-dog',
@@ -267,7 +285,8 @@ Tomorrow, I'll tackle the Hai Van Pass — a legendary seaside route that winds 
     country: 'Vietnam',
     slug: 'motorbike-crash-dog',
     year: '2025',
-    excerpt: 'A dramatic crash with a dog on the Ho Chi Minh Road leads to an unexpected display of Vietnamese hospitality and kindness.',
+    excerpt:
+      'A dramatic crash with a dog on the Ho Chi Minh Road leads to an unexpected display of Vietnamese hospitality and kindness.',
     content: `Well, today it happened. I crashed my motorbike. Let me take you through the scene. I have been driving from Hanoi south towards Da Nang for two days now on the famous Ho Chi Minh Road. The Ho Chi Minh Road runs parallel to Vietnam's western border, stretching from north to south. It was originally based on the historic Ho Chi Minh Trail, which was a crucial supply route used by North Vietnamese forces during the Vietnam War. Today, it's been transformed into a scenic highway that slices through remote mountains, lush jungles, and peaceful rural villages. Over the past two days, I've driven over 650km, which means more than 6 hours of drive time. It's nice passing through rural villages on one road, not worrying about any turns.
 
 About 4 hours into my drive today, I was traveling 90 km/h on a straight road with no cars in sight. In the distance, I saw a yellow-gray figure meandering directly in the middle of the road. This is a view I have encountered numerous times on my month-long motorbiking trip in Vietnam. I have never once had an issue evading the many cows, dogs, chickens, water buffalo, goats, horses, or any other creatures. Typically, the dogs — the smartest of the bunch — get out of the way of bikes and cars. This time, though, the dog did not.
@@ -290,9 +309,15 @@ I am extremely grateful the accident wasn't worse. It could have gone way worse;
 
 Last night, the daughter of the homestay I was staying at asked me about my dream. I was stumped because I haven't thought about it in a while. But now I know I am living my dream, and I am grateful to share it with you.`,
     images: [
-      { src: '/assets/images/misc/cutekidscrash-2.jpg', alt: 'Village kids helping after the crash' },
-      { src: '/assets/images/misc/cutekidscrash2-2.jpg', alt: 'Local villagers being kind' }
-    ]
+      {
+        src: '/assets/images/misc/cutekidscrash-2.jpg',
+        alt: 'Village kids helping after the crash',
+      },
+      {
+        src: '/assets/images/misc/cutekidscrash2-2.jpg',
+        alt: 'Local villagers being kind',
+      },
+    ],
   },
   {
     id: 'seven-months-hanoi',
@@ -302,7 +327,8 @@ Last night, the daughter of the homestay I was staying at asked me about my drea
     country: 'Vietnam',
     slug: 'seven-months-hanoi',
     year: '2025',
-    excerpt: 'Reaching the 7-month milestone of my worldwide travels, reflecting on Northern Vietnam adventures and questioning modern society.',
+    excerpt:
+      'Reaching the 7-month milestone of my worldwide travels, reflecting on Northern Vietnam adventures and questioning modern society.',
     content: `It's official, folks — I'm 7 months into my worldwide travels.
 
 I'm so grateful for all the amazing experiences I've had so far. I just arrived back in Hanoi after 3.5 weeks of motorbiking through the north of Vietnam. These past few weeks have been some of the most adventurous, spontaneous, and best moments of my whole trip.
@@ -323,8 +349,8 @@ Once I'm home, I'm definitely getting my motorcycle license. As I've said before
     images: [
       { src: '/assets/images/misc/caobang.jpg', alt: 'Cao Bang landscapes' },
       { src: '/assets/images/misc/mecb.jpg', alt: 'Me in Cao Bang' },
-      { src: '/assets/images/misc/cbdrone.jpg', alt: 'Cao Bang drone shot' }
-    ]
+      { src: '/assets/images/misc/cbdrone.jpg', alt: 'Cao Bang drone shot' },
+    ],
   },
   {
     id: 'ha-giang-loop-complete',
@@ -334,7 +360,8 @@ Once I'm home, I'm definitely getting my motorcycle license. As I've said before
     country: 'Vietnam',
     slug: 'ha-giang-loop-complete',
     year: '2025',
-    excerpt: 'Completing the legendary 4-day Ha Giang Loop with Jasmine Tours - incredible views, group dynamics, and personal revelations.',
+    excerpt:
+      'Completing the legendary 4-day Ha Giang Loop with Jasmine Tours - incredible views, group dynamics, and personal revelations.',
     content: `Ha Giang Loop —> RATED. I returned from the legendary 4 day three night Ha Giang loop two days ago and it was absolutely incredible. I thought it would be over rated since so many people talked about it throughout SE Asia, but it was well worth the hype. I have been motorbiking Vietnam for 2.5 weeks and the Ha Giang Loop is for sure some of the greatest scenes I have seen all trip.
 
 I did the Ha Giang Loop with a famous company called "Jasmine Tours" per the recommendations of my good friends Max and Kyle. I did the loop with a company for two reasons: 1. Police - The police have checkpoints throughout the loop and if you do not have an international drivers license they fine you a lot of money 2. More fun - It is more fun to do it with a group to meet people and have fun activities at night.
@@ -367,10 +394,19 @@ People tell so many white lies, including myself, just to be politically correct
 
 Well that was a really fun post. Today I drove over 200 km from Ha Giang to lake Ba Be. I have been motorbiking for 20 days and will keep on kicking!`,
     images: [
-      { src: '/assets/images/misc/mewindy-2.jpg', alt: 'Windy roads of Ha Giang' },
-      { src: '/assets/images/misc/hagiangview-2.jpg', alt: 'Ha Giang scenic views' },
-      { src: '/assets/images/misc/lotttabikes-2.jpg', alt: 'Motorbike group at Ha Giang' }
-    ]
+      {
+        src: '/assets/images/misc/mewindy-2.jpg',
+        alt: 'Windy roads of Ha Giang',
+      },
+      {
+        src: '/assets/images/misc/hagiangview-2.jpg',
+        alt: 'Ha Giang scenic views',
+      },
+      {
+        src: '/assets/images/misc/lotttabikes-2.jpg',
+        alt: 'Motorbike group at Ha Giang',
+      },
+    ],
   },
   {
     id: 'sapa-thoughts-future',
@@ -380,7 +416,8 @@ Well that was a really fun post. Today I drove over 200 km from Ha Giang to lake
     country: 'Vietnam',
     slug: 'sapa-thoughts-future',
     year: '2025',
-    excerpt: 'After four nights in Sapa, contemplating Vietnam\'s young population, global connectivity, energy needs, and preparing for the Ha Giang Loop.',
+    excerpt:
+      "After four nights in Sapa, contemplating Vietnam's young population, global connectivity, energy needs, and preparing for the Ha Giang Loop.",
     content: `After a much-needed four-night rest in Sapa, I'm drove 250-kilometers today to Ha Giang to start the legendary Ha Giang Loop tomorrow. In Sapa, I did some trekking through the local indigenous communities , had some good food, and got to go back to the gym.
 
 One thing I really like about Vietnam, and I think is poised for great economic and social growth in the future, is how many babies there are. When you look at the data online, Vietnam's median age is 35, and everybody knows a young workforce is very beneficial for the economy. In the U.S. or Japan, an aging workforce really puts a strain on the economic well-being. Even in the streets, you see babies on the back of motorcycles in a little sack being carried by their mom, or even kids as young as six or seven years old carrying baby siblings as well. It's crazy to see. It's really awesome how much life there is here. One of the most lively countries, I think, just because of how young and how many babies there are.
@@ -395,10 +432,16 @@ Happy Pesach, this year I really think I embodied the theme of leaving Egypt and
 
 4 Days, 3 nights on the legendary Ha Giang Loop starts tomorrow. I will see you all then!`,
     images: [
-      { src: '/assets/images/misc/hmongmamis-2.jpg', alt: 'Hmong women in Sapa' },
-      { src: '/assets/images/misc/sexappeal2-2.jpg', alt: 'Sapa mountain views' },
-      { src: '/assets/images/misc/namvets-2.jpg', alt: 'Vietnam countryside' }
-    ]
+      {
+        src: '/assets/images/misc/hmongmamis-2.jpg',
+        alt: 'Hmong women in Sapa',
+      },
+      {
+        src: '/assets/images/misc/sexappeal2-2.jpg',
+        alt: 'Sapa mountain views',
+      },
+      { src: '/assets/images/misc/namvets-2.jpg', alt: 'Vietnam countryside' },
+    ],
   },
   {
     id: 'sapa-rest-sharing',
@@ -408,7 +451,8 @@ Happy Pesach, this year I really think I embodied the theme of leaving Egypt and
     country: 'Vietnam',
     slug: 'sapa-rest-sharing',
     year: '2025',
-    excerpt: 'A much-needed rest day in Sapa, reconnecting with friends and reflecting on the importance of sharing experiences and opening up.',
+    excerpt:
+      'A much-needed rest day in Sapa, reconnecting with friends and reflecting on the importance of sharing experiences and opening up.',
     content: `Today was a much-needed rest day from riding my bike.
 
 When I woke up, I had a great FaceTime call with Zach and Jared. It's amazing having close friends you can always share your life and laugh with. Life is meant for sharing.
@@ -430,7 +474,7 @@ If you've been following this site over the past six months, you may have notice
 I even bought a domain name, and I'll be posting it on Google so more people can discover it and hopefully share in the experience.
 
 May the words of my mouth and the meditations of my heart be acceptable to you.`,
-    images: []
+    images: [],
   },
   {
     id: 'turning-25-sapa',
@@ -440,7 +484,8 @@ May the words of my mouth and the meditations of my heart be acceptable to you.`
     country: 'Vietnam',
     slug: 'turning-25-sapa',
     year: '2025',
-    excerpt: 'Reflecting on turning 25 and the things that matter most to me - from professional sleeping to the importance of sunshine.',
+    excerpt:
+      'Reflecting on turning 25 and the things that matter most to me - from professional sleeping to the importance of sunshine.',
     content: `So, I turned 25 on Monday. Twenty-five is, I think, a strong age. Birthdays are always a good time for reflection. Humans love marking milestones, and I think it's important. If there were no cycles in life, there would be nothing to look forward to. The cyclical nature of the planets and stars literally dictates our mindsets. If there were no patterns, we'd just be floating aimlessly. So, I began writing down some things I care about at the age of 25. These things make up my current ego.
 
 Here's what I've got so far:
@@ -467,7 +512,7 @@ Now, let me also comment on the importance of the sun. I've been in Vietnam for 
 Okay, now about today: I drove for five hours, quite far and long. The past ten days on my bike, I've been out of civilization. This has happened throughout my trip. Today, I arrived in Sapa, a major city in Northern Vietnam. It's always weird readjusting to civilization. Everything is easier. You can go to a grocery store or have a well-cooked meal. On the adventure away from society, these things aren't a given. It makes you appreciate modern society, but also realize its drawbacks.
 
 I hear so much street noise while writing this, which is a stark contrast to the quietness and serenity of the mountains. But the mountains don't have Snickers and coconut water at convenience stores downstairs. There are pros and cons to organized society and culture. I think being able to move between the wild and the tame is a beautiful tango.`,
-    images: []
+    images: [],
   },
   {
     id: 'birthday-uf-basketball',
@@ -477,7 +522,8 @@ I hear so much street noise while writing this, which is a stark contrast to the
     country: 'Vietnam',
     slug: 'birthday-uf-basketball',
     year: '2025',
-    excerpt: 'My favorite day riding yet - perfect sleep, UF basketball championship, incredible mountain scenery, and an authentic Hmong homestay.',
+    excerpt:
+      'My favorite day riding yet - perfect sleep, UF basketball championship, incredible mountain scenery, and an authentic Hmong homestay.',
     content: `Today was amazing. It was my favorite day riding my bike so far. It started off with waking up after one of the best sleeps I've had on my whole trip. I treated myself to a private room in a resort for my birthday. The bed was comfy, the temperature was perfect, and my room was by a river. I slept throughout the night and didn't have to be concerned with obnoxious roommates.
 
 After waking up refreshed, I turned on the University of Florida vs. University of Houston NCAA Basketball championship. I was able to stream it on Streameast easily. I watched the whole game. UF won the national title, and I was so happy. I almost cried, but I didn't. I wish I had been watching the game with friends at a crowded sports bar. One of the first things I'm going to do when I get home is go to a Gator football game.
@@ -496,9 +542,15 @@ I ate dinner with the family. They made chicken, sweet potatoes, lots of rice, a
 
 As I'm writing this, I realize I'm not giving the day full justice. I'll never be able to put into words what I'm seeing and experiencing. I'm doing the best I can to share my experiences and learnings with anyone reading this. Thanks for sticking with me, and I'm sorry I can't fully convey the scenes.`,
     images: [
-      { src: '/assets/images/misc/nicevietnam.jpg', alt: 'Beautiful Vietnam mountain scenery' },
-      { src: '/assets/images/misc/mountainvientamset.jpg', alt: 'Mountain sunset in Vietnam' }
-    ]
+      {
+        src: '/assets/images/misc/nicevietnam.jpg',
+        alt: 'Beautiful Vietnam mountain scenery',
+      },
+      {
+        src: '/assets/images/misc/mountainvientamset.jpg',
+        alt: 'Mountain sunset in Vietnam',
+      },
+    ],
   },
   {
     id: 'chicken-road-philosophy',
@@ -508,7 +560,8 @@ As I'm writing this, I realize I'm not giving the day full justice. I'll never b
     country: 'Vietnam',
     slug: 'chicken-road-philosophy',
     year: '2025',
-    excerpt: 'Discovering the real meaning behind the age-old joke while navigating Vietnam\'s mountainous roads filled with unpredictable wildlife.',
+    excerpt:
+      "Discovering the real meaning behind the age-old joke while navigating Vietnam's mountainous roads filled with unpredictable wildlife.",
     content: `Why did the chicken cross the road?
 
 I never really knew where this age-old saying came from—until I bought a motorbike and drove through rural Vietnam.
@@ -541,20 +594,27 @@ Tomorrow is my birthday—I'll be turning 25. I'm very grateful for this adventu
 
 Tomorrow? I drive—and drive some more.`,
     images: [
-      { src: '/assets/images/misc/waterbike.jpg', alt: 'Motorbike by the water' },
-      { src: '/assets/images/misc/hitthat.jpg', alt: 'Mountain roads of Tà Xùa' },
-      { src: '/assets/images/misc/cloudy.jpg', alt: 'Cloud hunting in Tà Xùa' }
-    ]
+      {
+        src: '/assets/images/misc/waterbike.jpg',
+        alt: 'Motorbike by the water',
+      },
+      {
+        src: '/assets/images/misc/hitthat.jpg',
+        alt: 'Mountain roads of Tà Xùa',
+      },
+      { src: '/assets/images/misc/cloudy.jpg', alt: 'Cloud hunting in Tà Xùa' },
+    ],
   },
   {
     id: 'mai-chau-ethnic-diversity',
-    title: 'Understanding Vietnam\'s Ethnic Diversity',
+    title: "Understanding Vietnam's Ethnic Diversity",
     date: '2025-04-04',
     location: 'Mai Chau, Vietnam',
     country: 'Vietnam',
     slug: 'mai-chau-ethnic-diversity',
     year: '2025',
-    excerpt: 'Exploring ethnic minorities in Mai Chau and reflecting on how nationality differs from ethnicity in understanding cultural identity.',
+    excerpt:
+      'Exploring ethnic minorities in Mai Chau and reflecting on how nationality differs from ethnicity in understanding cultural identity.',
     content: `They fixed my drone in Hanoi yesterday! I drove a total of 9 hours on the bike yesterday. That means today I chilled heavy. I am currently in the Mai Chau district. It's a nice area in a valley surrounded by beautiful rice fields. There are a lot of Israeli backpackers here — it seems like a secret Israeli spot.
 
 I drove back to Pu Luong today to see the beautiful mountainous terraced rice fields. I ran in the morning but not very well. The altitude really makes running hard.
@@ -569,9 +629,12 @@ I want to integrate into the culture here more. I think that comes with understa
 
 My birthday is in three days. I think life is about never being satisfied. You can always improve. You can improve your mind, body, spirituality, emotions. I'm not satisfied. I want to improve in all my faculties. That being said, you have to have respect and happiness for the current state of things — and recognize how far you've come.`,
     images: [
-      { src: '/assets/images/misc/terracedfields.jpg', alt: 'Terraced rice fields in Mai Chau' },
-      { src: '/assets/images/misc/vflaggy.jpg', alt: 'Vietnam flag' }
-    ]
+      {
+        src: '/assets/images/misc/terracedfields.jpg',
+        alt: 'Terraced rice fields in Mai Chau',
+      },
+      { src: '/assets/images/misc/vflaggy.jpg', alt: 'Vietnam flag' },
+    ],
   },
   {
     id: 'drone-repair-mission',
@@ -581,7 +644,8 @@ My birthday is in three days. I think life is about never being satisfied. You c
     country: 'Vietnam',
     slug: 'drone-repair-mission',
     year: '2025',
-    excerpt: 'A 5-hour urgent drive to Hanoi to fix my broken drone, experiencing rural schoolgirls, bike mechanics, and tech repair economics.',
+    excerpt:
+      'A 5-hour urgent drive to Hanoi to fix my broken drone, experiencing rural schoolgirls, bike mechanics, and tech repair economics.',
     content: `In the morning, I was a rural Vietnamese schoolgirl. In the afternoon, I was a local bike mechanic. Now, I am a big-city tech guy. These are the various faces and walks of life I encountered today.
 
 I woke up at 5:45 AM on a mission—to fix MR Drone! I left Pu Luong for Hanoi, driving through beautiful rural villages, passing all the little kids on their way to school. They were riding small electric bikes. It was cute, and I felt like one of them. It reminded me of when I used to drive to school at 6 AM in high school. I was so tired I almost crashed every day—but somehow, I never did.
@@ -610,9 +674,15 @@ That brings up an interesting idea about cost and economics. Pricing is a functi
 
 I'm now waiting for the drone. Hopefully, he finishes soon with no problems. I want to drive back to the mountains today—I don't want to stay in Hanoi. The weather here is nice for the first time since I've been here, and yet, I'm sitting in a drone shop. Oh well. I can't complain!`,
     images: [
-      { src: '/assets/images/misc/rooster.jpg', alt: 'Beautiful rooster at bike shop' },
-      { src: '/assets/images/misc/chickena.JPG', alt: 'Chicken at the repair shop' }
-    ]
+      {
+        src: '/assets/images/misc/rooster.jpg',
+        alt: 'Beautiful rooster at bike shop',
+      },
+      {
+        src: '/assets/images/misc/chickena.JPG',
+        alt: 'Chicken at the repair shop',
+      },
+    ],
   },
   {
     id: 'pu-luong-drone-disaster',
@@ -622,7 +692,8 @@ I'm now waiting for the drone. Hopefully, he finishes soon with no problems. I w
     country: 'Vietnam',
     slug: 'pu-luong-drone-disaster',
     year: '2025',
-    excerpt: 'Discovering beautiful terraced rice fields and getting amazing drone footage, only to break the drone when trying to charge it.',
+    excerpt:
+      'Discovering beautiful terraced rice fields and getting amazing drone footage, only to break the drone when trying to charge it.',
     content: `I took the morning slow. I had a comfy bed and a nice private room for 8 dollars. I got to do some pushups, stretches, and abs. The owner of the homestay told me a route to take to get to my next destination. I followed his advice, hoping to see some stunning views.
 
 I drove for about 30 minutes through very remote villages. It was so cool. I drove until I noticed the road stopped. I was in a local village and tried to ask for directions. I didn't know if I should keep going or turn around. Sometimes you have to drive on unpaved roads to reach the good views, and I thought this was one of those. I managed to communicate with a local farmer. She told me to turn around. I did so and checked the map to see where I went wrong. I'd gone down the wrong road. The journey is all about getting lost anyway.
@@ -637,9 +708,12 @@ I contemplated what to do. I researched and found a DJI-authorized drone repair 
 
 Tomorrow morning, I'll start my mission to fix my drone. Nothing can stop a man on a mission. I hope they can fix it and that it's worth it so I can take amazing footage throughout northern Vietnam.`,
     images: [
-      { src: '/assets/images/misc/droneshotrice.jpg', alt: 'Drone shot of rice terraces' },
-      { src: '/assets/images/misc/sunnyrice.jpg', alt: 'Sunny rice fields' }
-    ]
+      {
+        src: '/assets/images/misc/droneshotrice.jpg',
+        alt: 'Drone shot of rice terraces',
+      },
+      { src: '/assets/images/misc/sunnyrice.jpg', alt: 'Sunny rice fields' },
+    ],
   },
   {
     id: 'pu-luong-mountain-crash',
@@ -649,7 +723,8 @@ Tomorrow morning, I'll start my mission to fix my drone. Nothing can stop a man 
     country: 'Vietnam',
     slug: 'pu-luong-mountain-crash',
     year: '2025',
-    excerpt: 'My first day of mountain motorbiking leads to a near-catastrophic crash on gravel roads, but incredible scenery makes it all worthwhile.',
+    excerpt:
+      'My first day of mountain motorbiking leads to a near-catastrophic crash on gravel roads, but incredible scenery makes it all worthwhile.',
     content: `Yesterday was cool, but today was way cooler. I slept pretty well and left touristy Ninh Binh to head north. This was my first biking experience in the mountains and rural Vietnam. I felt so grateful, riding with the wind in my face through unbelievably beautiful landscapes. I felt energized and free. Rice fields and mountains surrounded me on all sides.
 
 I put my destination into Google Maps, which offered a couple of different routes. I asked ChatGPT which one I should take for the most beautiful scenery, and it recommended the slightly longer one. When I reached the intersection between the two routes, I decided to take the longer one with no large cars. It led me through small villages and roads with no other tourists—or even other vehicles—in sight. The scenery was incredible. I rode fast and confidently.
@@ -672,9 +747,18 @@ I found a nice homestay before dark and negotiated the price down by 1,000,000 d
 
 Today was amazing.`,
     images: [
-      { src: '/assets/images/misc/ricefield-2.jpg', alt: 'Rice fields in Pu Luong' },
-      { src: '/assets/images/misc/gasmeup-2.jpg', alt: 'Getting gas on the road' },
-      { src: '/assets/images/misc/puliamge-2.jpg', alt: 'Pu Luong mountain views' }
-    ]
-  }
-];
+      {
+        src: '/assets/images/misc/ricefield-2.jpg',
+        alt: 'Rice fields in Pu Luong',
+      },
+      {
+        src: '/assets/images/misc/gasmeup-2.jpg',
+        alt: 'Getting gas on the road',
+      },
+      {
+        src: '/assets/images/misc/puliamge-2.jpg',
+        alt: 'Pu Luong mountain views',
+      },
+    ],
+  },
+]

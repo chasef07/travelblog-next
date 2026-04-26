@@ -29,7 +29,7 @@ export default function FoodGrid() {
         >
           All
         </button>
-        {countries.map(country => (
+        {countries.map((country) => (
           <button
             key={country}
             onClick={() => setSelectedCountry(country)}
@@ -47,7 +47,10 @@ export default function FoodGrid() {
       {/* Food Grid */}
       <div className="space-y-16">
         {selectedCountry ? (
-          <CountrySection country={selectedCountry} items={foodData[selectedCountry]} />
+          <CountrySection
+            country={selectedCountry}
+            items={foodData[selectedCountry]}
+          />
         ) : (
           countries.map((country, index) => (
             <motion.div
@@ -65,7 +68,13 @@ export default function FoodGrid() {
   )
 }
 
-function CountrySection({ country, items }: { country: string; items: FoodItem[] }) {
+function CountrySection({
+  country,
+  items,
+}: {
+  country: string
+  items: FoodItem[]
+}) {
   return (
     <section className="space-y-8">
       {/* Country Header */}
@@ -73,7 +82,9 @@ function CountrySection({ country, items }: { country: string; items: FoodItem[]
         <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase block mb-2">
           [ {country} ]
         </span>
-        <h2 className="text-2xl font-extralight text-[var(--ui-text-primary)]">{country} Cuisine</h2>
+        <h2 className="text-2xl font-extralight text-[var(--ui-text-primary)]">
+          {country} Cuisine
+        </h2>
       </div>
 
       {/* Food Cards */}

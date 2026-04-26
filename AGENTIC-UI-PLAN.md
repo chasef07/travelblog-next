@@ -32,14 +32,14 @@ After the boot sequence and globe animation, an AI agent greets the visitor and 
 
 ### Stack
 
-| Layer | Technology | Notes |
-|-------|-----------|-------|
-| AI SDK | `ai` + `@ai-sdk/react` | Vercel AI SDK, `useChat` hook |
-| Claude Provider | `@ai-sdk/anthropic` | Native Anthropic support |
-| Default Model | Claude 3.5 Haiku | Fast, cheap, good for nav/search |
-| Complex Queries | Claude Sonnet | Comparisons, summaries, deep analysis |
-| Rate Limiting | `@upstash/ratelimit` + `@upstash/redis` | 20 msgs/hr per IP |
-| Knowledge Base | blogIndex + content files in system prompt | Cached via Anthropic prompt caching |
+| Layer           | Technology                                 | Notes                                 |
+| --------------- | ------------------------------------------ | ------------------------------------- |
+| AI SDK          | `ai` + `@ai-sdk/react`                     | Vercel AI SDK, `useChat` hook         |
+| Claude Provider | `@ai-sdk/anthropic`                        | Native Anthropic support              |
+| Default Model   | Claude 3.5 Haiku                           | Fast, cheap, good for nav/search      |
+| Complex Queries | Claude Sonnet                              | Comparisons, summaries, deep analysis |
+| Rate Limiting   | `@upstash/ratelimit` + `@upstash/redis`    | 20 msgs/hr per IP                     |
+| Knowledge Base  | blogIndex + content files in system prompt | Cached via Anthropic prompt caching   |
 
 ### Estimated Cost
 
@@ -59,36 +59,42 @@ bun add ai @ai-sdk/anthropic @ai-sdk/react zod @upstash/ratelimit @upstash/redis
 ## AI Tools (what the agent can do)
 
 ### searchPosts
+
 - **Input**: query string, optional country, optional year
 - **Returns**: matching blog posts from blogIndex
 - **Renders**: `<BlogPostCardCompact>` grid with images, excerpts, links
 - **Example**: "What did you write about surfing?" → shows 4-6 surf-related post cards
 
 ### showCountry
+
 - **Input**: country slug
 - **Returns**: country data (flag, dates, highlights, coordinates)
 - **Renders**: `<CountryDetailCard>` with flag, visit dates, stats
 - **Example**: "Tell me about Vietnam" → country card + related posts
 
 ### showFood
+
 - **Input**: country name
 - **Returns**: food items for that country
 - **Renders**: `<FoodCardCompact>` grid with dish photos and descriptions
 - **Example**: "Best food you ate?" → food cards from top countries
 
 ### navigateTo
+
 - **Input**: URL path + label
 - **Returns**: nothing (client-side only)
 - **Action**: triggers `router.push()` to navigate to the page
 - **Example**: "Take me to the packing list" → navigates to /packing-checklist
 
 ### showOnGlobe
+
 - **Input**: array of country names
 - **Returns**: country coordinates
 - **Action**: rotates the globe to highlight those countries
 - **Example**: "Show me Southeast Asia" → globe rotates, markers highlight
 
 ### surpriseMe
+
 - **Input**: none
 - **Returns**: a random interesting post with context on why it's good
 - **Renders**: single `<BlogPostCardFeatured>` with AI-written hook
@@ -130,23 +136,27 @@ src/
 ## Phase 1: MVP (2-3 days)
 
 ### 1.1 Install dependencies
+
 ```bash
 bun add ai @ai-sdk/anthropic @ai-sdk/react zod
 ```
 
 ### 1.2 Create content manifest
+
 - Script that reads all blogIndex entries + country data + food data
 - Outputs a compressed text blob for the system prompt (~30-50K tokens)
 - Include: title, date, country, excerpt, slug, key themes for each post
 - Run at build time or commit the output
 
 ### 1.3 Create API route (`/api/chat/route.ts`)
+
 - `streamText` with Claude Haiku
 - System prompt with full content manifest + personality instructions
 - Tools: `searchPosts`, `navigateTo`
 - No rate limiting yet (add in Phase 2)
 
 ### 1.4 Create AgentChat component
+
 - `useChat` hook from `@ai-sdk/react`
 - Message list with text + tool result rendering
 - Input field at the bottom
@@ -154,12 +164,14 @@ bun add ai @ai-sdk/anthropic @ai-sdk/react zod
 - Render blog post cards for `searchPosts` results
 
 ### 1.5 Create AgentGreeting component
+
 - The pre-chat state: greeting text + suggested chips
 - Chips: "The Surfing Stories", "The Business Journey", "Surprise Me", "Browse the Site ↓"
 - Clicking a chip sends it as the first message to the chat
 - "Browse the Site ↓" scrolls to the content below
 
 ### 1.6 Wire into boot sequence
+
 - After globe shrinks (Phase 2 → Phase 3 transition)
 - Agent greeting fades in
 - On first interaction, transitions to full chat mode
@@ -170,28 +182,33 @@ bun add ai @ai-sdk/anthropic @ai-sdk/react zod
 ## Phase 2: Rich Rendering (2-3 days)
 
 ### 2.1 Compact card components
+
 - `BlogPostCardCompact` — image thumbnail, title, excerpt, date, "Read →" link
 - `CountryCardCompact` — flag, country name, visit dates, post count
 - `FoodCardCompact` — dish photo, name, country, description
 - All styled to match existing glassmorphism/editorial theme
 
 ### 2.2 More tools
+
 - `showCountry` — renders country detail inline
 - `showFood` — renders food cards inline
 - `showOnGlobe` — triggers globe rotation (pass data up via state/context)
 - `surpriseMe` — random post with AI editorial hook
 
 ### 2.3 Prompt caching
+
 - Use Anthropic's `cacheControl: { type: 'ephemeral' }` on the system prompt
 - First request caches the full manifest, subsequent requests pay ~10% cost
 
 ### 2.4 Rate limiting
+
 - Install `@upstash/ratelimit` + `@upstash/redis`
 - 20 messages/hour per IP
 - 5 messages/minute burst protection
 - Graceful UI when rate limited ("You've been curious! Take a break and browse the site.")
 
 ### 2.5 Globe integration
+
 - When agent mentions countries, pass them to the globe component
 - Globe rotates to show the relevant region
 - Visual connection between chat and the 3D visualization
@@ -201,17 +218,20 @@ bun add ai @ai-sdk/anthropic @ai-sdk/react zod
 ## Phase 3: Polish (ongoing)
 
 ### 3.1 Floating agent button
+
 - On non-landing pages, show a small floating button (bottom-right)
 - Click to expand a slide-over panel (~400px wide) with the chat
 - Retains conversation history from the landing page
 - Close to collapse back to button
 
 ### 3.2 Model routing
+
 - Simple heuristic: if query contains "compare", "analyze", "summarize", "create" → use Sonnet
 - Everything else → Haiku
 - Could also route based on conversation length (longer = more complex)
 
 ### 3.3 Mobile UX
+
 - Bottom sheet UI (slides up, covers ~75% of screen)
 - Larger touch-friendly chips
 - Shorter greeting (2 lines max)
@@ -219,10 +239,12 @@ bun add ai @ai-sdk/anthropic @ai-sdk/react zod
 - Consider voice input (Web Speech API)
 
 ### 3.4 Conversation persistence
+
 - Save to localStorage so refreshing doesn't lose context
 - Clear after 24 hours or on explicit "New conversation"
 
 ### 3.5 Analytics
+
 - Log what people ask (anonymized)
 - Track which chips get clicked most
 - Track which tool results get clicked through

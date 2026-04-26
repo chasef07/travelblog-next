@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 // Bundle analyzer for checking bundle sizes
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -65,18 +65,18 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
-        ]
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
       },
       {
         source: '/data/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
-        ]
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
       },
       // Security headers for all pages
       {
@@ -84,25 +84,25 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'X-Frame-Options',
-            value: 'DENY'
+            value: 'DENY',
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            value: 'nosniff',
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
+            value: 'origin-when-cross-origin',
           },
           {
             key: 'Permissions-Policy',
-            value: 'geolocation=(), microphone=(), camera=()'
+            value: 'geolocation=(), microphone=(), camera=()',
           },
           {
             key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          }
-        ]
+            value: 'on',
+          },
+        ],
       },
       // SVG favicon caching
       {
@@ -110,12 +110,12 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, stale-while-revalidate=86400'
-          }
-        ]
-      }
+            value: 'public, max-age=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
     ]
-  }
-};
+  },
+}
 
-export default withBundleAnalyzer(nextConfig);
+export default withBundleAnalyzer(nextConfig)

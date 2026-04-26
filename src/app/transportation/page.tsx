@@ -1,12 +1,17 @@
 import dynamic from 'next/dynamic'
 
-const TransportationGrid = dynamic(() => import('@/components/TransportationGrid'), {
-  loading: () => (
-    <div className="text-center py-12">
-      <div className="text-[var(--ui-text-subtle)] font-mono tracking-wider text-sm">LOADING GUIDES...</div>
-    </div>
-  )
-})
+const TransportationGrid = dynamic(
+  () => import('@/components/TransportationGrid'),
+  {
+    loading: () => (
+      <div className="text-center py-12">
+        <div className="text-[var(--ui-text-subtle)] font-mono tracking-wider text-sm">
+          LOADING GUIDES...
+        </div>
+      </div>
+    ),
+  },
+)
 
 export default function Page() {
   return (
@@ -23,7 +28,8 @@ export default function Page() {
               </h1>
             </div>
             <p className="text-[var(--ui-text-muted)] text-lg leading-relaxed max-w-md md:text-right">
-              Comprehensive ratings and practical tips for getting around in 20 countries.
+              Comprehensive ratings and practical tips for getting around in 20
+              countries.
             </p>
           </div>
 

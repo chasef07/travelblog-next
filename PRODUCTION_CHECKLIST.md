@@ -31,6 +31,7 @@ EMAIL_API_KEY=your_email_provider_api_key
 ## 📁 File Management
 
 1. **Create Downloads Directory**:
+
    ```bash
    mkdir -p public/downloads
    ```
@@ -43,6 +44,7 @@ EMAIL_API_KEY=your_email_provider_api_key
 ## 📧 Email Integration
 
 Update `sendDownloadEmail()` in `src/app/api/stripe/webhooks/route.ts:9-27`:
+
 - Choose email service (SendGrid, Resend, etc.)
 - Implement actual email sending
 - Create email templates
@@ -50,6 +52,7 @@ Update `sendDownloadEmail()` in `src/app/api/stripe/webhooks/route.ts:9-27`:
 ## 🗄️ Database (Recommended)
 
 Replace file-based token storage with a database:
+
 - Update webhook to store in DB instead of files
 - Update `/api/download-token` to read from DB
 - Add token cleanup job for expired tokens
@@ -64,7 +67,7 @@ Replace file-based token storage with a database:
 ## 🚀 Deployment Steps
 
 1. Set all environment variables in production
-2. Deploy application 
+2. Deploy application
 3. Test Stripe webhook connectivity
 4. Test complete purchase flow
 5. Verify download links work

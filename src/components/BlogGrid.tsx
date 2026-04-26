@@ -12,13 +12,13 @@ export const BlogGrid = memo(function BlogGrid() {
 
   // Extract unique years
   const years = useMemo(() => {
-    const yearSet = new Set(blogIndex.map(post => post.year.toString()))
+    const yearSet = new Set(blogIndex.map((post) => post.year.toString()))
     return Array.from(yearSet).sort((a, b) => b.localeCompare(a))
   }, [])
 
   // Filter posts based on selected year
   const filteredPosts = useMemo(() => {
-    return blogIndex.filter(post => {
+    return blogIndex.filter((post) => {
       return selectedYear === 'all' || post.year.toString() === selectedYear
     })
   }, [selectedYear])
@@ -42,7 +42,7 @@ export const BlogGrid = memo(function BlogGrid() {
         >
           All
         </button>
-        {years.map(year => (
+        {years.map((year) => (
           <button
             key={year}
             onClick={() => setSelectedYear(year)}
@@ -72,7 +72,10 @@ export const BlogGrid = memo(function BlogGrid() {
             transition={{ delay: index * 0.05, duration: 0.4 }}
             className="group bg-[var(--ui-bg-strong)] hover:bg-[var(--ui-bg-soft)] transition-colors"
           >
-            <Link href={`/blog/${post.year}/${post.slug}`} className="block h-full touch-manipulation">
+            <Link
+              href={`/blog/${post.year}/${post.slug}`}
+              className="block h-full touch-manipulation"
+            >
               {/* Image Section */}
               <div className="relative h-44 overflow-hidden sm:h-48">
                 <Image
@@ -81,7 +84,7 @@ export const BlogGrid = memo(function BlogGrid() {
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading={index < 6 ? "eager" : "lazy"}
+                  loading={index < 6 ? 'eager' : 'lazy'}
                   priority={index < 3}
                 />
                 {/* Overlay on hover */}
@@ -107,7 +110,9 @@ export const BlogGrid = memo(function BlogGrid() {
 
                 {/* Read More */}
                 <div className="flex items-center gap-2 text-[var(--ui-text-subtle)] group-hover:text-[var(--ui-accent)] transition-all duration-100 pt-2">
-                  <span className="text-xs font-mono font-medium uppercase tracking-[0.22em]">Read</span>
+                  <span className="text-xs font-mono font-medium uppercase tracking-[0.22em]">
+                    Read
+                  </span>
                   <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150" />
                 </div>
               </div>

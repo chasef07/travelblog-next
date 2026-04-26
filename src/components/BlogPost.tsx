@@ -8,11 +8,12 @@ interface BlogPostProps {
 }
 
 export default function BlogPost({ post }: BlogPostProps) {
-  const lightboxImages = post.images?.map(img => ({
-    src: img.src,
-    alt: img.alt,
-    caption: img.caption
-  })) || []
+  const lightboxImages =
+    post.images?.map((img) => ({
+      src: img.src,
+      alt: img.alt,
+      caption: img.caption,
+    })) || []
 
   const lightbox = useLightbox(lightboxImages)
 

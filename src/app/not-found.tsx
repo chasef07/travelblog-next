@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Page Not Found | Lifestyle Engineering',
   description: 'The page you requested could not be found.',
-  robots: { index: false, follow: false }
+  robots: { index: false, follow: false },
 }
 
 export default function NotFound() {

@@ -11,13 +11,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/api/',
-          '/_next/',
-          '/admin/',
-          '/*.json$',
-          '/private/',
-        ],
+        disallow: ['/api/', '/_next/', '/admin/', '/*.json$', '/private/'],
       },
       // Specific rules for major search engines
       {

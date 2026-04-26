@@ -9,7 +9,8 @@ export const january2026Posts: BlogPost[] = [
     country: 'Costa Rica',
     slug: 'point-of-integration',
     year: '2026',
-    excerpt: 'Reflecting on how far I have come since quitting my job and traveling the world. Today marks the start of a new chapter.',
+    excerpt:
+      'Reflecting on how far I have come since quitting my job and traveling the world. Today marks the start of a new chapter.',
     content: `Today I reflected on how far I have come. Specifically, on the distance traveled since I quit my job, traveled the world, started a business, and began living the life I want to live.
 
 When you are in the moment, it is easy to miss how much you have grown. How many meaningful experiences you have accumulated. How much distance there is between who you were and who you are becoming. Today, I saw that clearly, and I did so with a smile on my face, grateful but not satisfied.
@@ -25,7 +26,7 @@ I operate primarily from humility and modesty. But there is another side that de
 This path demands growth. In business. In emotional maturity. In physical discipline. In intellectual depth.
 
 And I am ready for it.`,
-    images: []
+    images: [],
   },
   {
     id: 'santa-teresa-found-my-place',
@@ -35,7 +36,8 @@ And I am ready for it.`,
     country: 'Costa Rica',
     slug: 'santa-teresa-found-my-place',
     year: '2026',
-    excerpt: 'After weeks of searching, I found the first place in the world I feel like I could really live.',
+    excerpt:
+      'After weeks of searching, I found the first place in the world I feel like I could really live.',
     content: `I have been in Santa Teresa, Costa Rica for a week working with my great friend and business partner Kyle Shechtman. We have been surfing, working hard, and living healthy.
 
 I really love Santa Teresa. It is the first place in the world I feel like I could live, really live.
@@ -49,7 +51,7 @@ I was worried it would be too crowded and party oriented but it is not. It is a 
 I bought a surfboard recently which I am super excited about. I have been surfing hard and trying to develop my skills slowly, slowly. Surfing takes a lot of fitness and analysis.
 
 I have not been posting much on the blog because I have just been living a routined life, something I have been craving. I will be sure to post updates here when something worth sharing arises.`,
-    images: []
+    images: [],
   },
   {
     id: 'nosara-rich-american-jungle-haven',
@@ -59,7 +61,8 @@ I have not been posting much on the blog because I have just been living a routi
     country: 'Costa Rica',
     slug: 'nosara-rich-american-jungle-haven',
     year: '2026',
-    excerpt: 'Exploring Nosara with an old friend - beautiful nature and infrastructure, but lacking the youthful energy I am searching for.',
+    excerpt:
+      'Exploring Nosara with an old friend - beautiful nature and infrastructure, but lacking the youthful energy I am searching for.',
     content: `I spent the past few days with my great friend, Zach Katz. He showed me around Nosara, where he has been living the past months. We had stimulating conversations as always, surfed, and ate good food.
 
 Nosara is a town in the jungle taken over by rich Americans and wannabe rich Americans. There are mansions dotted around the area with western restaurants, yoga studios, and organic markets. The prices of food and coffee are obscene, at the level of high end US prices.
@@ -77,7 +80,7 @@ What is important to me is being active, physically and in a community, modern i
 Over the next month Kyle and I will be growing our business and really putting our heads down. I hope to get into a routine which is one thing I have been lacking for a few months.
 
 I think back to my time in Playa Cocles. Wake up, go to the beach, work, workout, surf, chill, read. That was awesome and I hope to replicate it in some ways.`,
-    images: []
+    images: [],
   },
   {
     id: 'el-tunco-surf-town-analysis',
@@ -87,7 +90,8 @@ I think back to my time in Playa Cocles. Wake up, go to the beach, work, workout
     country: 'El Salvador',
     slug: 'el-tunco-surf-town-analysis',
     year: '2026',
-    excerpt: 'Scoring El Tunco against my standardized framework - the first place I could actually see myself living for parts of the year.',
+    excerpt:
+      'Scoring El Tunco against my standardized framework - the first place I could actually see myself living for parts of the year.',
     content: `I have been in El Tunco, El Salvador for a few days now and am ready to give it my scores for potential places to live.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -130,17 +134,19 @@ COMPARISON SO FAR
 • El Paredon, Guatemala: 5.8/10
 • El Tunco, El Salvador: 8.1/10
 • Santa Teresa, Costa Rica: Coming soon...`,
-    images: []
+    images: [],
   },
   {
     id: 'guatemala-to-el-tunco',
-    title: 'From Guatemala to El Tunco: Chance Encounters, Infrastructure, and Thinking About Government',
+    title:
+      'From Guatemala to El Tunco: Chance Encounters, Infrastructure, and Thinking About Government',
     date: 'January 7, 2026',
     location: 'El Tunco, El Salvador',
     country: 'El Salvador',
     slug: 'guatemala-to-el-tunco',
     year: '2026',
-    excerpt: 'Leaving Guatemala for El Salvador\'s surf coast, a chance encounter with a pastor, and thoughts on government and infrastructure.',
+    excerpt:
+      "Leaving Guatemala for El Salvador's surf coast, a chance encounter with a pastor, and thoughts on government and infrastructure.",
     content: `Rachel and I just wrapped up an incredible three weeks in Guatemala. Honestly, Guatemala might be one of my favorite countries I have ever visited, not just in Central America but globally. The culture is rich, the food is great, the nature is stunning, and there are so many unique experiences you can only have there. I would recommend Guatemala to just about anyone.
 
 Two days ago, I left Guatemala and came to El Tunco, El Salvador, a small surf town on the coast. I am here for a week, and there were a couple reasons I decided to come.
@@ -180,6 +186,6 @@ I got a massage and cupping yesterday, and honestly, after a long and active tri
 Over the next few days, I am going to rank El Tunco in terms of Central American beach towns for livability. There are clear pros and cons compared to places like El Paredon. El Tunco is more developed and has better Wi-Fi, but it is very surf-centric. I tend to like towns that offer a bit more variety, things like beach volleyball or other community activities beyond just surfing.
 
 Still, I am excited to be here. This is El Salvador. And I am curious to see how it feels to live here, even briefly, after everything I have heard and thought about the country.`,
-    images: []
-  }
+    images: [],
+  },
 ]

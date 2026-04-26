@@ -9,13 +9,17 @@ const GlobeScene = dynamic(() => import('./GlobeScene'), {
   ssr: false,
   loading: () => (
     <div className="flex h-full w-full items-center justify-center bg-[var(--ui-bg-strong)]">
-      <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)]">LOADING GLOBE...</span>
+      <span className="font-mono text-xs tracking-wider text-[var(--ui-text-muted)]">
+        LOADING GLOBE...
+      </span>
     </div>
   ),
 })
 
 export default function HeroGlobeMobile() {
-  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
+  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(
+    null,
+  )
   const [geoData, setGeoData] = useState<GeoJSON | null>(null)
   const [isMobile, setIsMobile] = useState(false)
 

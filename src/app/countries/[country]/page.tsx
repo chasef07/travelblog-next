@@ -1,29 +1,33 @@
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-import { getAllCountries, getCountryBySlug } from '@/content/countries-data';
-import { foodData } from '@/content/food-data';
-import { getArchivesForCountry, getPostCardImage, getPostsForCountry } from '@/content/blog-registry';
-import { getPlacesByCountry } from '@/content/places-data';
-import { generatePageMetadata } from '@/lib/seo';
-import { ArrowUpRight, Clock, MapPin } from 'lucide-react';
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import Image from 'next/image'
+import { getAllCountries, getCountryBySlug } from '@/content/countries-data'
+import { foodData } from '@/content/food-data'
+import {
+  getArchivesForCountry,
+  getPostCardImage,
+  getPostsForCountry,
+} from '@/content/blog-registry'
+import { getPlacesByCountry } from '@/content/places-data'
+import { generatePageMetadata } from '@/lib/seo'
+import { ArrowUpRight, Clock, MapPin } from 'lucide-react'
 
 interface Props {
-  params: Promise<{ country: string }>;
+  params: Promise<{ country: string }>
 }
 
 export async function generateStaticParams() {
-  const countries = getAllCountries();
-  return countries.map((c) => ({ country: c.slug }));
+  const countries = getAllCountries()
+  return countries.map((c) => ({ country: c.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { country: slug } = await params;
-  const countryInfo = getCountryBySlug(slug);
+  const { country: slug } = await params
+  const countryInfo = getCountryBySlug(slug)
 
   if (!countryInfo) {
-    return { title: 'Country Not Found' };
+    return { title: 'Country Not Found' }
   }
 
   return generatePageMetadata({
@@ -31,23 +35,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: countryInfo.description,
     path: `/countries/${countryInfo.slug}`,
     images: [],
-    keywords: [countryInfo.name, `${countryInfo.name} travel`, `${countryInfo.name} blog`],
-  });
+    keywords: [
+      countryInfo.name,
+      `${countryInfo.name} travel`,
+      `${countryInfo.name} blog`,
+    ],
+  })
 }
 
 export default async function CountryPage({ params }: Props) {
-  const { country: slug } = await params;
-  const countryInfo = getCountryBySlug(slug);
+  const { country: slug } = await params
+  const countryInfo = getCountryBySlug(slug)
 
   if (!countryInfo) {
-    notFound();
+    notFound()
   }
 
   // Get food data for this country
-  const countryFood = foodData[countryInfo.name] || [];
-  const countryPosts = getPostsForCountry(countryInfo.name);
-  const countryArchives = getArchivesForCountry(countryInfo.name);
-  const countryPlaces = getPlacesByCountry(countryInfo.name);
+  const countryFood = foodData[countryInfo.name] || []
+  const countryPosts = getPostsForCountry(countryInfo.name)
+  const countryArchives = getArchivesForCountry(countryInfo.name)
+  const countryPlaces = getPlacesByCountry(countryInfo.name)
 
   return (
     <main className="min-h-screen app-surface">
@@ -61,7 +69,10 @@ export default async function CountryPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
           {/* Breadcrumb */}
           <nav className="mb-6 sm:mb-8">
-            <Link href="/countries" className="text-[var(--ui-text-subtle)] hover:text-[var(--ui-accent)] text-sm font-mono tracking-wider uppercase transition-colors">
+            <Link
+              href="/countries"
+              className="text-[var(--ui-text-subtle)] hover:text-[var(--ui-accent)] text-sm font-mono tracking-wider uppercase transition-colors"
+            >
               Countries
             </Link>
             <span className="text-[var(--ui-text-subtle)] mx-2">/</span>
@@ -112,27 +123,50 @@ export default async function CountryPage({ params }: Props) {
 
               {countryInfo.dates && (
                 <div className="mt-5 sm:mt-6 text-xs sm:text-sm text-[var(--ui-text-subtle)] font-mono">
-                  Visited: {new Date(countryInfo.dates.firstVisit).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-                  {countryInfo.dates.lastVisit && ` - ${new Date(countryInfo.dates.lastVisit).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`}
+                  Visited:{' '}
+                  {new Date(countryInfo.dates.firstVisit).toLocaleDateString(
+                    'en-US',
+                    { month: 'long', year: 'numeric' },
+                  )}
+                  {countryInfo.dates.lastVisit &&
+                    ` - ${new Date(countryInfo.dates.lastVisit).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`}
                 </div>
               )}
             </div>
 
             <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] sm:grid-cols-3 lg:grid-cols-1">
               <div className="bg-[var(--ui-bg-strong)] p-5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--ui-text-subtle)]">Stories</span>
-                <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">{countryPosts.length}</div>
-                <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Published posts</p>
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--ui-text-subtle)]">
+                  Stories
+                </span>
+                <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
+                  {countryPosts.length}
+                </div>
+                <p className="mt-1 text-sm text-[var(--ui-text-muted)]">
+                  Published posts
+                </p>
               </div>
               <div className="bg-[var(--ui-bg-strong)] p-5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--ui-text-subtle)]">Months</span>
-                <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">{countryArchives.length}</div>
-                <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Archive sections</p>
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--ui-text-subtle)]">
+                  Months
+                </span>
+                <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
+                  {countryArchives.length}
+                </div>
+                <p className="mt-1 text-sm text-[var(--ui-text-muted)]">
+                  Archive sections
+                </p>
               </div>
               <div className="bg-[var(--ui-bg-strong)] p-5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--ui-text-subtle)]">Food</span>
-                <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">{countryFood.length}</div>
-                <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Saved dishes</p>
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--ui-text-subtle)]">
+                  Food
+                </span>
+                <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
+                  {countryFood.length}
+                </div>
+                <p className="mt-1 text-sm text-[var(--ui-text-muted)]">
+                  Saved dishes
+                </p>
               </div>
             </div>
           </div>
@@ -158,16 +192,25 @@ export default async function CountryPage({ params }: Props) {
       <section className="sticky top-14 z-40 border-b border-[var(--ui-border-subtle)] bg-[var(--ui-header-bg)] backdrop-blur-sm sm:top-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="no-scrollbar flex gap-6 overflow-x-auto py-3.5 sm:gap-8 sm:py-4">
-            <a href="#stories" className="shrink-0 text-xs sm:text-sm font-mono tracking-wider text-[var(--ui-text-muted)] hover:text-[var(--ui-accent)] transition-colors uppercase">
+            <a
+              href="#stories"
+              className="shrink-0 text-xs sm:text-sm font-mono tracking-wider text-[var(--ui-text-muted)] hover:text-[var(--ui-accent)] transition-colors uppercase"
+            >
               Stories ({countryPosts.length})
             </a>
             {countryPlaces.length > 0 && (
-              <a href="#places" className="shrink-0 text-xs sm:text-sm font-mono tracking-wider text-[var(--ui-text-muted)] hover:text-[var(--ui-accent)] transition-colors uppercase">
+              <a
+                href="#places"
+                className="shrink-0 text-xs sm:text-sm font-mono tracking-wider text-[var(--ui-text-muted)] hover:text-[var(--ui-accent)] transition-colors uppercase"
+              >
                 Places ({countryPlaces.length})
               </a>
             )}
             {countryFood.length > 0 && (
-              <a href="#food" className="shrink-0 text-xs sm:text-sm font-mono tracking-wider text-[var(--ui-text-muted)] hover:text-[var(--ui-accent)] transition-colors uppercase">
+              <a
+                href="#food"
+                className="shrink-0 text-xs sm:text-sm font-mono tracking-wider text-[var(--ui-text-muted)] hover:text-[var(--ui-accent)] transition-colors uppercase"
+              >
                 Food ({countryFood.length})
               </a>
             )}
@@ -176,17 +219,29 @@ export default async function CountryPage({ params }: Props) {
       </section>
 
       {countryPlaces.length > 0 && (
-        <section id="places" className="border-t border-[var(--ui-border-subtle)] py-12 sm:py-16">
+        <section
+          id="places"
+          className="border-t border-[var(--ui-border-subtle)] py-12 sm:py-16"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="mb-8 text-2xl font-light text-[var(--ui-text-primary)]">Key places in {countryInfo.name}</h2>
+            <h2 className="mb-8 text-2xl font-light text-[var(--ui-text-primary)]">
+              Key places in {countryInfo.name}
+            </h2>
             <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 xl:grid-cols-3">
               {countryPlaces.map((place) => (
-                <article key={place.id} className="bg-[var(--ui-bg-strong)] p-5">
+                <article
+                  key={place.id}
+                  className="bg-[var(--ui-bg-strong)] p-5"
+                >
                   <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
                     {place.region}
                   </span>
-                  <h3 className="mt-2 text-xl font-light text-[var(--ui-text-primary)]">{place.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">{place.shortVerdict}</p>
+                  <h3 className="mt-2 text-xl font-light text-[var(--ui-text-primary)]">
+                    {place.name}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
+                    {place.shortVerdict}
+                  </p>
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     {place.bestFor.slice(0, 3).map((item) => (
@@ -221,14 +276,22 @@ export default async function CountryPage({ params }: Props) {
       {/* Stories Section */}
       <section id="stories" className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 className="text-2xl font-light text-[var(--ui-text-primary)] mb-8">Stories from {countryInfo.name}</h2>
+          <h2 className="text-2xl font-light text-[var(--ui-text-primary)] mb-8">
+            Stories from {countryInfo.name}
+          </h2>
 
           {countryPosts.length > 0 ? (
             <>
               <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 xl:grid-cols-3">
                 {countryPosts.map((post, index) => (
-                  <article key={post.id} className="group bg-[var(--ui-bg-strong)] transition-colors hover:bg-[var(--ui-bg-soft)]">
-                    <Link href={`/blog/${post.year}/${post.slug}`} className="block h-full">
+                  <article
+                    key={post.id}
+                    className="group bg-[var(--ui-bg-strong)] transition-colors hover:bg-[var(--ui-bg-soft)]"
+                  >
+                    <Link
+                      href={`/blog/${post.year}/${post.slug}`}
+                      className="block h-full"
+                    >
                       <div className="relative h-48 overflow-hidden">
                         <Image
                           src={getPostCardImage(post)}
@@ -271,7 +334,9 @@ export default async function CountryPage({ params }: Props) {
                         </p>
 
                         <div className="flex items-center gap-2 pt-1 text-[var(--ui-text-subtle)] transition-colors group-hover:text-[var(--ui-accent)]">
-                          <span className="font-mono text-[10px] uppercase tracking-[0.2em]">Read</span>
+                          <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
+                            Read
+                          </span>
                           <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </div>
                       </div>
@@ -285,7 +350,9 @@ export default async function CountryPage({ params }: Props) {
                   href="/blog"
                   className="inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 text-[var(--ui-text-primary)] transition-colors hover:bg-[var(--ui-accent)] hover:text-[var(--ui-on-accent)]"
                 >
-                  <span className="font-mono text-xs uppercase tracking-wider">Browse all stories</span>
+                  <span className="font-mono text-xs uppercase tracking-wider">
+                    Browse all stories
+                  </span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
@@ -293,7 +360,12 @@ export default async function CountryPage({ params }: Props) {
           ) : (
             <p className="text-[var(--ui-text-muted)] mb-8">
               No published stories are attached to this country yet. Browse the{' '}
-              <Link href="/blog" className="text-[var(--ui-accent)] hover:underline">blog page</Link>{' '}
+              <Link
+                href="/blog"
+                className="text-[var(--ui-accent)] hover:underline"
+              >
+                blog page
+              </Link>{' '}
               for the latest entries.
             </p>
           )}
@@ -302,12 +374,20 @@ export default async function CountryPage({ params }: Props) {
 
       {/* Food Section */}
       {countryFood.length > 0 && (
-        <section id="food" className="border-t border-[var(--ui-border-subtle)] py-12 sm:py-16">
+        <section
+          id="food"
+          className="border-t border-[var(--ui-border-subtle)] py-12 sm:py-16"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-2xl font-light text-[var(--ui-text-primary)] mb-8">Food in {countryInfo.name}</h2>
+            <h2 className="text-2xl font-light text-[var(--ui-text-primary)] mb-8">
+              Food in {countryInfo.name}
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {countryFood.map((item, index) => (
-                <div key={index} className="bg-[var(--ui-bg-soft)] rounded-lg overflow-hidden group border border-[var(--ui-border-subtle)]">
+                <div
+                  key={index}
+                  className="bg-[var(--ui-bg-soft)] rounded-lg overflow-hidden group border border-[var(--ui-border-subtle)]"
+                >
                   {item.image && (
                     <div className="relative h-48 overflow-hidden">
                       <Image
@@ -319,8 +399,12 @@ export default async function CountryPage({ params }: Props) {
                     </div>
                   )}
                   <div className="p-4">
-                    <h3 className="text-lg font-light text-[var(--ui-text-primary)] mb-2">{item.name}</h3>
-                    <p className="text-sm text-[var(--ui-text-muted)]">{item.description}</p>
+                    <h3 className="text-lg font-light text-[var(--ui-text-primary)] mb-2">
+                      {item.name}
+                    </h3>
+                    <p className="text-sm text-[var(--ui-text-muted)]">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -336,13 +420,25 @@ export default async function CountryPage({ params }: Props) {
             href="/countries"
             className="inline-flex items-center gap-2 text-[var(--ui-text-subtle)] hover:text-[var(--ui-accent)] transition-colors"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
-            <span className="text-sm font-mono tracking-wider uppercase">Back to all countries</span>
+            <span className="text-sm font-mono tracking-wider uppercase">
+              Back to all countries
+            </span>
           </Link>
         </div>
       </section>
     </main>
-  );
+  )
 }

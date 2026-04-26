@@ -3,7 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowUpRight, MapPin } from 'lucide-react'
-import { getPlaceBySlug, getRelatedPostsForPlace, placesData } from '@/content/places-data'
+import {
+  getPlaceBySlug,
+  getRelatedPostsForPlace,
+  placesData,
+} from '@/content/places-data'
 import { generatePageMetadata, generateBreadcrumbJsonLd } from '@/lib/seo'
 
 interface Props {
@@ -60,7 +64,10 @@ export default async function PlacePage({ params }: Props) {
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
         <nav className="mb-6 sm:mb-8">
-          <Link href="/maps" className="text-[var(--ui-text-subtle)] hover:text-[var(--ui-accent)] text-sm font-mono tracking-wider uppercase transition-colors">
+          <Link
+            href="/maps"
+            className="text-[var(--ui-text-subtle)] hover:text-[var(--ui-accent)] text-sm font-mono tracking-wider uppercase transition-colors"
+          >
             Maps
           </Link>
           <span className="mx-2 text-[var(--ui-text-subtle)]">/</span>
@@ -113,24 +120,44 @@ export default async function PlacePage({ params }: Props) {
 
         <section className="mt-12 grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-5">
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Surf</span>
-            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">{place.scores.surf.toFixed(1)}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+              Surf
+            </span>
+            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">
+              {place.scores.surf.toFixed(1)}
+            </div>
           </div>
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Work</span>
-            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">{place.scores.workability.toFixed(1)}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+              Work
+            </span>
+            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">
+              {place.scores.workability.toFixed(1)}
+            </div>
           </div>
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Walkability</span>
-            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">{place.scores.walkability.toFixed(1)}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+              Walkability
+            </span>
+            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">
+              {place.scores.walkability.toFixed(1)}
+            </div>
           </div>
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Beauty</span>
-            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">{place.scores.beauty.toFixed(1)}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+              Beauty
+            </span>
+            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">
+              {place.scores.beauty.toFixed(1)}
+            </div>
           </div>
           <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Value</span>
-            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">{place.scores.value.toFixed(1)}</div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+              Value
+            </span>
+            <div className="mt-2 font-editorial text-4xl leading-none text-[var(--ui-accent)]">
+              {place.scores.value.toFixed(1)}
+            </div>
           </div>
         </section>
 
@@ -141,7 +168,10 @@ export default async function PlacePage({ params }: Props) {
             </span>
             <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)]">
               {place.bestFor.map((item) => (
-                <div key={item} className="bg-[var(--ui-bg-strong)] p-4 text-sm text-[var(--ui-text-secondary)]">
+                <div
+                  key={item}
+                  className="bg-[var(--ui-bg-strong)] p-4 text-sm text-[var(--ui-text-secondary)]"
+                >
                   {item}
                 </div>
               ))}
@@ -154,7 +184,10 @@ export default async function PlacePage({ params }: Props) {
             </span>
             <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)]">
               {place.notFor.map((item) => (
-                <div key={item} className="bg-[var(--ui-bg-strong)] p-4 text-sm text-[var(--ui-text-secondary)]">
+                <div
+                  key={item}
+                  className="bg-[var(--ui-bg-strong)] p-4 text-sm text-[var(--ui-text-secondary)]"
+                >
                   {item}
                 </div>
               ))}
@@ -167,37 +200,67 @@ export default async function PlacePage({ params }: Props) {
             <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
               [ Practical Fit ]
             </span>
-            <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">Operational notes</h2>
+            <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">
+              Operational notes
+            </h2>
           </div>
 
           <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2">
             <div className="bg-[var(--ui-bg-strong)] p-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Ideal stay</span>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.idealStay}</p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+                Ideal stay
+              </span>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                {place.idealStay}
+              </p>
             </div>
             <div className="bg-[var(--ui-bg-strong)] p-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Wave type</span>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.waveType}</p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+                Wave type
+              </span>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                {place.waveType}
+              </p>
             </div>
             <div className="bg-[var(--ui-bg-strong)] p-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Board level</span>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.boardLevel}</p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+                Board level
+              </span>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                {place.boardLevel}
+              </p>
             </div>
             <div className="bg-[var(--ui-bg-strong)] p-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Town density</span>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.townDensity}</p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+                Town density
+              </span>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                {place.townDensity}
+              </p>
             </div>
             <div className="bg-[var(--ui-bg-strong)] p-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Internet</span>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.internetNote}</p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+                Internet
+              </span>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                {place.internetNote}
+              </p>
             </div>
             <div className="bg-[var(--ui-bg-strong)] p-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Cost note</span>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.costNote}</p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+                Cost note
+              </span>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                {place.costNote}
+              </p>
             </div>
             <div className="bg-[var(--ui-bg-strong)] p-5 md:col-span-2">
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Seasonality</span>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.seasonality}</p>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+                Seasonality
+              </span>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                {place.seasonality}
+              </p>
             </div>
           </div>
         </section>
@@ -208,7 +271,9 @@ export default async function PlacePage({ params }: Props) {
               <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
                 [ Related Dispatches ]
               </span>
-              <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">Why I think this</h2>
+              <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">
+                Why I think this
+              </h2>
             </div>
             <Link
               href="/maps#surf-town-atlas"
@@ -227,12 +292,18 @@ export default async function PlacePage({ params }: Props) {
                 className="group bg-[var(--ui-bg-strong)] p-6 transition-colors hover:bg-[var(--ui-bg-soft)]"
               >
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-                  {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                  })}
                 </span>
                 <h3 className="mt-3 text-xl font-light text-[var(--ui-text-primary)] transition-colors group-hover:text-[var(--ui-accent)]">
                   {post.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">{post.excerpt}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
+                  {post.excerpt}
+                </p>
                 <div className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)] transition-colors group-hover:text-[var(--ui-accent)]">
                   Read dispatch
                   <ArrowUpRight className="h-3 w-3" />

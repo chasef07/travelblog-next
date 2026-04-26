@@ -9,7 +9,8 @@ export const october2025Posts: BlogPost[] = [
     country: 'Panama',
     slug: 'devotion-is-intelligence',
     year: '2025',
-    excerpt: 'Exploring the spectrum of devotion and why orienting your life toward the infinite is the path to being unbounded.',
+    excerpt:
+      'Exploring the spectrum of devotion and why orienting your life toward the infinite is the path to being unbounded.',
     content: `Devotion is the most intelligent way to live. Devotion is the act of surrendering yourself to something. What do I mean by that? For the past 6 years I have digested many abstract, spiritual teachings. Little by little I have been getting better at making them palatable and more concrete to share to you.
 
 I will start this proof by contradiction. Devotion is a spectrum. On the "far left side" is devotion to yourself. This is sometimes called narcissism or selfishness. I think it is pretty clear to most people that is you walk this life only thinking about yourself you will be empty. If you only live for yourself you will come across as quite standoffish and unpleasant. If that is what you desire to be, go for it, but I think there are better ways.
@@ -33,7 +34,7 @@ The creator, the infinite, God, Hashem. This is the only thing in the universe w
 Therefore if you devote your life to the infinite love, intellect, it will cause reverberations in your human experience.
 
 Devotion is the most intelligent way to live. Why devote yourself to something finite, constricted, small, when you have access to the infinite?`,
-    images: []
+    images: [],
   },
   {
     id: 'one-week-in-puerto-viejo',
@@ -43,9 +44,10 @@ Devotion is the most intelligent way to live. Why devote yourself to something f
     country: 'Costa Rica',
     slug: 'one-week-in-puerto-viejo',
     year: '2025',
-    excerpt: 'One of the greatest weeks of my life - closing deals, living the digital nomad dream, and thinking about the future.',
+    excerpt:
+      'One of the greatest weeks of my life - closing deals, living the digital nomad dream, and thinking about the future.',
     content: `I have been in Puerto Viejo for one week. I can honestly say this has been one of the greatest weeks of my life. I feel on fire here and think this is how I want to live my life. As I mentioned previously I am outside most of the day, moving my body, with good friends and healthy food. I really like the feel of a local, not crowded beach town. Everyone is down to earth. Community is a big part of where you live. Some places attract entrepreneurs, some hippies, you just have to find the place that fits well on the spectrum for you. I really liked the feel of Bali where there are really balanced people with businesses, workout hard, and are spiritual. I said something I never thought I would say last night. There was a disco happening in the lobby of my hostel and I just wasn't feeling it. I said to Kyle, man I just want to work! Work doesn't feel like work when you own your time, you own the creative direction, and you make your own money with skills. This is what I was shooting for from my re education from my world travels. While I was home I almost thought this life style was out of reach, and I am so grateful that I have gotten a taste of it. I really want to continue to grow what Kyle and I have. As of last post I can officially say we closed our first, and second deals! It is so rewarding having a business owner believe in you, your vision, and pay you to execute. It has given me the confidence to know I can make money on my own, online from anywhere. As I think about the future, lots of things come to mind. I love being in places where I can do outdoor activities, snowboarding, surfing, volleyball, working out outside. When you have the freedom to be anywhere in the world you really can paint your own canvas. I really enjoy the routine of waking up at 6AM with the sun and going to bed early. It means you have used your energy to the potential of the day. But when you think long term, where would I like to raise kids? I am pretty sure it is not in suburban America. Where can the place I raise my kids sculpt them into the most vibrant human beings? I think a place like Puerto Viejo could be cool, but maybe a little more structure and less hippie vibes is needed. I definitely like the great weather and activities part but need a community with aspirations. I just looked up in ChatGPT I am trying to think of places to live long term and raise kids. I am in Puerto Viejo and like the weather and nature and rustic vibes. However I do not like how hippie it is. If I was to raise kids somewhere I want a small, not crowded nature centric community with more ambitious people. Any ideas?`,
-    images: []
+    images: [],
   },
   {
     id: 'clarity-in-puerto-viejo',
@@ -55,7 +57,8 @@ Devotion is the most intelligent way to live. Why devote yourself to something f
     country: 'Costa Rica',
     slug: 'clarity-in-puerto-viejo',
     year: '2025',
-    excerpt: 'Grateful reflections on health, focus, and building a business while living the digital nomad life in Puerto Viejo.',
+    excerpt:
+      'Grateful reflections on health, focus, and building a business while living the digital nomad life in Puerto Viejo.',
     content: `Wow I am so grateful. Being in Puerto Viejo, Costa Rica, I really feel like everything is coming together. I feel like my clarity of mind and health is on another level.
 
 I wake up at 7 AM, stay off my phone, and go straight to the beach to stretch and jump in the water. I am outside about 95% of the day, shoeless and shirtless, moving my body in the sun.
@@ -70,10 +73,19 @@ This vision of my life I was not sure existed: making money online for myself an
 
 I may have exciting news to share soon regarding my business endeavors.`,
     images: [
-      { src: '/assets/images/blog/2025/october/blacksandbeach.jpg', alt: 'Black sand beach in Puerto Viejo' },
-      { src: '/assets/images/blog/2025/october/ronkylefun-2.jpg', alt: 'Ron and Kyle enjoying time together in Puerto Viejo' },
-      { src: '/assets/images/blog/2025/october/workandchill-2.jpg', alt: 'Working and relaxing setup in Puerto Viejo' }
-    ]
+      {
+        src: '/assets/images/blog/2025/october/blacksandbeach.jpg',
+        alt: 'Black sand beach in Puerto Viejo',
+      },
+      {
+        src: '/assets/images/blog/2025/october/ronkylefun-2.jpg',
+        alt: 'Ron and Kyle enjoying time together in Puerto Viejo',
+      },
+      {
+        src: '/assets/images/blog/2025/october/workandchill-2.jpg',
+        alt: 'Working and relaxing setup in Puerto Viejo',
+      },
+    ],
   },
   {
     id: 'one-way-flight-to-costa-rica',
@@ -83,7 +95,8 @@ I may have exciting news to share soon regarding my business endeavors.`,
     country: 'USA',
     slug: 'one-way-flight-to-costa-rica',
     year: '2025',
-    excerpt: 'On the eve of a one-way flight, reflecting on the grind with Kyle, family roots, and committing to ship real AI value.',
+    excerpt:
+      'On the eve of a one-way flight, reflecting on the grind with Kyle, family roots, and committing to ship real AI value.',
     content: `Tomorrow I leave on a one-way trip to Costa Rica. I’ve been home for about two and a half months since returning from my ten-month backpacking adventure. The goal of that trip was a second education—to reengineer life from the ground up, to be open and learn, to just exist and flow.
 
 Now that I’ve settled back, the real adventure begins.
@@ -108,7 +121,7 @@ The past two and a half months at home have been good. I’ve grown closer to my
 As I get ready to head into another country with my backpack on my back, I think of the person who did this a year ago. I’m proud of him—and proud of where I am now. This is the continuation of the journey—the natural next step.
 
 I’ll be back on my blog grind, back on the road, with next-level devotion, focus, and upward orientation.`,
-    images: []
+    images: [],
   },
   {
     id: 'psyche-and-ai-realizations',
@@ -118,7 +131,8 @@ I’ll be back on my blog grind, back on the road, with next-level devotion, foc
     country: 'USA',
     slug: 'psyche-and-ai-realizations',
     year: '2025',
-    excerpt: 'Reflections on the hidden layers of family, building AI products with Kyle, and how real generative video already feels.',
+    excerpt:
+      'Reflections on the hidden layers of family, building AI products with Kyle, and how real generative video already feels.',
     content: `A single human psyche is so complicated, yet so simple. When we look at friends, parents, or siblings, we tend to assume that what we see on the surface is everything. But most of the human experience is lived internally—so how could we ever truly understand someone else unless they show us their inner dialogue?
 
 This idea hit me while jogging with my dad. He was telling me a story about work. I usually only see him as my father, from the perspective of home and family, but seeing him through the lens of a doctor and coworker was fascinating. I realized that I only see a sliver of him—the “dad” role—but a huge part of his personality and psyche is tied to his profession and experiences in the OR, which I’ll never fully witness.
@@ -141,13 +155,13 @@ So many people have no idea what this technology has in store. I just want to st
     images: [
       {
         src: '/assets/images/misc/beach-bum.jpg',
-        alt: 'Beach day reset on the Gulf Coast'
+        alt: 'Beach day reset on the Gulf Coast',
       },
       {
         src: '/assets/images/misc/bucs-game.jpg',
-        alt: 'Night out at the Bucs game'
-      }
-    ]
+        alt: 'Night out at the Bucs game',
+      },
+    ],
   },
   {
     id: 'south-florida-reset',
@@ -157,7 +171,8 @@ So many people have no idea what this technology has in store. I just want to st
     country: 'USA',
     slug: 'south-florida-reset',
     year: '2025',
-    excerpt: 'A Rosh Hashanah trip to South Florida sparked gratitude, perspective shifts, and a full-force commitment to AI consulting.',
+    excerpt:
+      'A Rosh Hashanah trip to South Florida sparked gratitude, perspective shifts, and a full-force commitment to AI consulting.',
     content: `
 
 I just got back from 10 days in Fort Lauderdale and Miami, celebrating Rosh Hashanah and visiting old college friends. It’s been two months since I returned from my world tour, and I figured a little in-state trip would be good for me. I’ve enjoyed settling into a routine and working out these past two months, but I was ready for a change. After all, being 25 and living at home makes that inevitable.
@@ -184,16 +199,16 @@ The Jewish New Year, 5786, began this past week, and I’m excited for what’s 
     images: [
       {
         src: '/assets/images/misc/bigjoe.jpg',
-        alt: 'Hugging Big Joe before heading home'
+        alt: 'Hugging Big Joe before heading home',
       },
       {
         src: '/assets/images/misc/dallasfriends.jpg',
-        alt: 'Dinner with the Dallas crew'
+        alt: 'Dinner with the Dallas crew',
       },
       {
         src: '/assets/images/misc/roshhash-2.jpg',
-        alt: 'Rosh Hashanah celebration in South Florida'
-      }
-    ]
-  }
+        alt: 'Rosh Hashanah celebration in South Florida',
+      },
+    ],
+  },
 ] as const

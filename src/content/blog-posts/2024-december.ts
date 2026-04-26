@@ -1,4 +1,4 @@
-import { BlogPost } from '../../types/blog';
+import { BlogPost } from '../../types/blog'
 
 export const december2024Posts: BlogPost[] = [
   {
@@ -9,9 +9,10 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'koh-tao-reflections',
     year: '2024',
-    excerpt: 'Reflecting on personal growth and travel experiences while planning for 2025 adventures on the island of Koh Tao.',
+    excerpt:
+      'Reflecting on personal growth and travel experiences while planning for 2025 adventures on the island of Koh Tao.',
     content: `Another rainy day! Let me see what is in my brain and comes to mind. Over the past couple years people have confused my nationality. I have gotten French most often. People have said I look French when I shave my head and when I have curly hair! Some people told me it is my clothing style, others say it is my "accent". I do not think I have an accent but I do believe I intonate my words in a unique way I guess. It is funny being an American in disguise. Others have noticed I am Jewish by my curly hair and start speaking to me in Hebrew, assuming I am Israeli. Once on the trip I even got Spanish! In Ko Tao right now it is about 35% people from the UK, 30% Israelis, and the remaining 25% is a mix between French, Spanish, German and Dutch. I met only one other American. It is sad Americans do not have the adventurous worldly spirit like the Europeans. I started writing my reflections of 2024 and my manifestations for 2025. I have done this the past two years and it has been cool going back and seeing the thoughts and ideas I would have. One thing huge comes to mind. 2025 will be the best year yet. Traveling has actually grounded me and solidified my perspectives and what I stand up for. The past two years I was very malleable, willing to learn and grow and try various experiences. I didn't really have things that I stood up for or solidified perspectives. I tried to be a sponge in everything I did. Now over the past three years of action packed experiences post college, I feel grounded and confident to sculpt my adult personality and draw red lines in the sand. Like I mentioned before, the age of 25 is where they say your pre frontal cortex becomes fully developed. I am really happy with how this trip has been shaping me and began to solidify my perspectives. This as I have mentioned, will make me a better brother, friend, son, husband, father. Going into the new year I have a vigor like never before. To continue to grow my intellectuality, my physicality, my emotionality, my spirituality. I think this perfectly coincides with when I will be solo traveling. Zach and I will split up in about a week and I will be alone for the rest of the travels. We have had an amazing 3.5 months together and I would not trade it for anything. That being said I am looking forward to the solo leg and seeing what it will bring. I will be traveling through north Thailand, Laos, Cambodia, Vietnam, the Philippines, and maybe more!`,
-    images: []
+    images: [],
   },
   {
     id: 'ai-tech-rainy-day',
@@ -21,9 +22,10 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'ai-tech-rainy-day',
     year: '2024',
-    excerpt: 'Deep dive into AI technology, data centers, and future opportunities while experiencing a rainy day in Koh Tao.',
+    excerpt:
+      'Deep dive into AI technology, data centers, and future opportunities while experiencing a rainy day in Koh Tao.',
     content: `First rainy day in Koh Tao, and first rainy day of the trip since Tskaltubo, Georgia! The rain makes you slow down and reflect on important things in life. This afternoon Zach and I spent time researching AI, energy, and the semiconductor industry. Zach brought up a good point that we have not talked about technology all trip. We have given ourself the space and time to think outside of what we were trained in through university and jobs, but now it is time to come back reinvigorated. If there was ever a clear market trend and wave of money flowing into an industry it is AI. There is not a single investor or futurist who is not onboard with the AI tsunami coming. With that being said, is there a way to make money from this tidal wave without working for a startup and selling your soul? We spitballed some interesting ideas. I spent some time learning about hydrogen fuel cells, high bandwidth memory chips, and networking subsystems. The state of the art data center being built by xAI requires 150 MW of power to run 100,000 GPUS and are scaling up. To put that into perspective, the average US home consumes about 1.2 kW. Therefore, the amount of power to run a data center could power about 125,000 US homes in a year! To power these data centers many companies are looking at building small modular nuclear reactors and hydrogen fuel cells. I have always been a fan of nuclear energy since learning the physics behind it in high school. There is a lot of innovation and engineering improvements to be had in this field and I am excited to follow it along. The last subtopic I want to comment on is that of networking in AI data centers. In the data centers you need fast, efficient, and low energy ways to move the data around. As AI scales, more and more data needs to be moved around the data center servers, and externally out of the data center in the fastest manner possible. In university I found a passion for photonics, the study of light. The datacenter today currently use 400 Gigabit/s ethernet protocol over fiber optic cable, but plan to scale to 800 and beyond. This can interestingly be achieved through advancements in silicon photonics. I could go on but I think that is enough for the tech talk. In the afternoon it stopped raining and Zach and I went to a latin party on the beach. I really enjoy latin culture and hope to make it to South America at the end of my trip to become really fluent in Spanish. I practiced my Spanish with Argentinians, Chileans, and spaniards. I actually got a compliment my Spanish is good! Argentina and Chile I am really interested in for the food, nature and skiing destinations. I am also interested in Colombia and Uruguay as well.`,
-    images: []
+    images: [],
   },
   {
     id: 'travel-philosophy',
@@ -33,9 +35,10 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'travel-philosophy',
     year: '2024',
-    excerpt: 'Defining my travel philosophy and sharing hidden gems like Dominical, Costa Rica and Lagos, Portugal.',
+    excerpt:
+      'Defining my travel philosophy and sharing hidden gems like Dominical, Costa Rica and Lagos, Portugal.',
     content: `Having been fortunate enough to travel to many places I have finally created an understanding of my favorite type of travel. I will outline it now. The number one thing is to stay away from places that are too touristy. I value integrating into the local culture and having an authentic experience, so it is important to go to places which do not have too many people or tourists. Next, sight seeing is cool, but it can get old. Instead of going to see temples or various historical architecture sites I would rather find an experience to integrate into the culture or activity. That being said some cities you can really integrate into the culture. A city that comes to mind is Madrid, Spain or Kyoto, Japan. Both of these cities are site seeing cities but are culturally rich enough to make you feel like you are a part of the culture. Now combining these two tenants, 1. Not too touristy or too many people and 2. Integrate into the culture through experiences instead of site seeing too much you really narrow down your options. To zoom in more, I really enjoy places which are walkable or have really good public transit to get to other spots easily. This should be a relatively small city. I also enjoy places where you can curate a community, a place where there are only a handful of restaurants or bars. Then you begin to know the locals and other people there more intimately. Again, I prefer places with beautiful nature, beaches or mountains, which offer unique or challenging experiences. Now that I have painted a pretty zoomed in picture of my prefer locations and type of travel I will highlight some places you may want to check out. They are lowkey so do not share it too much. One of my favorite trips was to Dominical, Costa Rica. Everyone knows Costa Rica is a nice destination, but everyone goes to the same places. Dominical is a tiny local town on the southeast coast of CR where you can walk everywhere shirtless and shoeless and surf all day. You can enjoy local cuisine, find waterfalls in the jungle and enjoy beautiful sunsets. This location has the culture integration, small authentic community feel, and challenging unique experiences. Next I want to highlight Lagos, Portugal. In the south of Portugal you can find beautiful authentic tiny beach towns. Lagos is a tiny touristy but still has the local feel. This is really just a vibe spot to go on the beach and eat insane seafood. As you can see beaches and beach activities are a great way to spend time in a healthy and fun way for me. I think the same experience can be achieved in a mountain town. I really enjoy snowboarding so any snowboarding town could work. I have not found one which checks all these boxes because I have not snowboarded outside the USA. I think Zermatt Switzerland would work for this. On the note of mountains I guess I will highlight Seydisfjordur, Iceland. This is a picturesque walkable mountain town in the north eastern part of Iceland. Not much to do but just take in the beauty and culture. All this is to say that Koh Tao is beautiful, has cool activities like snorkeling, but is way too touristy and has pretty much no Thai culture. The places I am looking for must have the authentic feel. Going forward for the next leg of this trip I think I can find some really lowkey gems I look forward to sharing.`,
-    images: []
+    images: [],
   },
   {
     id: 'christmas-koh-tao',
@@ -45,13 +48,20 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'christmas-koh-tao',
     year: '2024',
-    excerpt: 'Christmas day adventure exploring Koh Tao by motorbike, snorkeling with sea turtles, and discovering hidden beaches.',
+    excerpt:
+      'Christmas day adventure exploring Koh Tao by motorbike, snorkeling with sea turtles, and discovering hidden beaches.',
     content: `Woke up this morning and got a Thai milk tea at the tiki bar next to my hostel. After Zach and I rented a motorbike to explore the hard to get to parts of the island. We first stopped off at Shark Bay, a small little bay great for snorkeling. I really loved the vibe there. It was small and the tiki bar played reggae. I had a phenomenal passionfruit and mango shake there. This was the first time being away from the main touristy area and it was really nice. The water was really blue and beautiful. I rented a snorkel and went for a nice long swim. I saw beautiful colored parrot fish and even a rare sea turtle. This experience made coming to Koh Tao worth it. I at first was disappointed by it being too touristy but when you take a motorbike to the farther places from the center you get to see the majestic beauty of the island. A tropical jungle with beautiful aquatic life. It was some of the most beautiful water I have seen. While snorkeling I noticed a lot of dead or bleached coral. Coral bleaching occurs when corals expel the symbiotic algae living in their tissues, called zooxanthellae, which are essential for their health and vibrant coloration. This phenomenon happens as a stress response to environmental changes, particularly: Rising Sea Temperatures: The most common cause is prolonged exposure to elevated sea surface temperatures due to global warming. A mere one degree celsius change in water temperature can destroy coral reefs and aquatic habitats. On my travels I have really seen the starting effects of climate change first hand. City centers are over polluted and crowded, cold climates such as Nepal and Georgia are seeing less snow, and sea temperature levels are rising. We all need to do our part to help minimize greenhouse emissions to reduce global warming. After snorkeling in Shark bay Zach and I had lunch at Eagle's View. I ordered a grilled whole grouper. The waitress said her dad is a fisherman and caught the fish fresh today and I hand picked the exact fish I was going to eat. I was surprised they have grouper in the gulf of Thailand. It was really yummy but Florida grouper still reigns supreme. I explored some other lowkey beaches with the motorbike and finally found a good beach to skimboard! Hopefully tomorrow I can go back and try to ride. At sunset Zach and I went to Mango viewpoint, a high viewpoint on the mountain. It was beautiful and relaxing. It was a pain getting the motorbike up and down the mountain but it was well worth it. After sunset I got a 10 dollar haircut on the side of the road from a Thai woman. It is crazy how much you can learn about business from these small business owners. This woman has a single chair on the main walking road of Koh Tao. Everyone can see her working and how many clients she has. She has been completely full the past three days. It really proves how real estate is king, location matters, and seeing is believing. People are more inclined to pay for a service, whether it is a rock climbing gym, haircut, or club if they see the vibe and the traffic going through the place.`,
     images: [
       { src: '/assets/images/misc/kobeachy0.jpg', alt: 'Koh Tao beach view' },
-      { src: '/assets/images/misc/kobeachy1.jpg', alt: 'Koh Tao beach scenery' },
-      { src: '/assets/images/misc/mangoview.jpg', alt: 'Mango viewpoint sunset' }
-    ]
+      {
+        src: '/assets/images/misc/kobeachy1.jpg',
+        alt: 'Koh Tao beach scenery',
+      },
+      {
+        src: '/assets/images/misc/mangoview.jpg',
+        alt: 'Mango viewpoint sunset',
+      },
+    ],
   },
   {
     id: 'active-koh-tao',
@@ -61,12 +71,16 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'active-koh-tao',
     year: '2024',
-    excerpt: 'An action-packed day in Koh Tao with Muay Thai training, beach volleyball, and exploring the Israeli backpacker scene.',
+    excerpt:
+      'An action-packed day in Koh Tao with Muay Thai training, beach volleyball, and exploring the Israeli backpacker scene.',
     content: `Today was a very active day. I woke up and went to the beach to do some push ups and stretches. After waking up my body I walked the beach and the streets of Koh Tao to get an understanding of the city. I always like aimlessly wandering a new place, you always seem to stumble upon some cool places. I spent the majority of the morning running around the island looking for a working ATM. All of the shops and restaurants here only accept cash. After going to over 5 different ATMS and none of them working I gave up and decided to go read some of my book. Zach and I met up for lunch around 1300 at Flower restaurant and we had really good mango sticky rice and pad Thai. In the afternoon I played footvolley with some Israelis on the beach. The beach near my hostel is literally filled with Israelis. It is almost like they just all came from Tel Aviv to this 10m strip of beach in Koh Tao, doing the same exact things. After a good round of footvolley I went to train Muay Thai at a local gym. This was my first time properly training and I learned the proper footwork and form. I never realized how tactical and precise martial arts is. From the angle you throw a punch to the timing of the footwork to make sure you are balanced. I really enjoyed the two hour session and I learned a lot. It was a really good workout too, working my whole body. After finishing Muay Thai I went to the beach to catch sunset. To my surprise a beach volleyball net was set up, my favorite! I was able to play three games and played really well. I like beach volleyball a lot. At night Zach and I met up again and had a great dinner. I had a full white snapper. We drank some kombucha after dinner instead of alcohol to not ruin the active, healthy day I had.`,
     images: [
       { src: '/assets/images/misc/kohtao1.jpg', alt: 'Koh Tao island life' },
-      { src: '/assets/images/misc/kotao2.jpg', alt: 'Koh Tao beach activities' }
-    ]
+      {
+        src: '/assets/images/misc/kotao2.jpg',
+        alt: 'Koh Tao beach activities',
+      },
+    ],
   },
   {
     id: 'journey-to-koh-tao',
@@ -76,9 +90,10 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'journey-to-koh-tao',
     year: '2024',
-    excerpt: 'The challenging journey from mainland Thailand to Koh Tao island, including a brutal ferry ride and first impressions.',
+    excerpt:
+      'The challenging journey from mainland Thailand to Koh Tao island, including a brutal ferry ride and first impressions.',
     content: `Woke up at 5am to catch the bus + ferry to the island of Koh Tao. It seems like just yesterday I was struggling on the bus in Nepal. This country has paved roads and the bus is a double decker with water provided. The tourism infrastructure here is insane. When I got to my taxi this morning I saw the street vendors already setting up, most of them elderly. They really work hard for a couple dollars a day, hopefully more. I realized I really loved being on the frontier. Going to places untouched by too many tourists, a touch underdeveloped and really out in the world. Thailand is not that place but hopefully the beaches and sceneries are as beautiful as people say. I am looking forward already to being in the rural farms of Laos, instead of the largest tourist destination in the world, Bangkok. I'm still confused why families bring their little kids here with people blowing weed smoke everywhere. There's not much to do except eat cheap food and party. The 6 hour bus ride to the coast was pretty easy because I had a seat to myself and slept 75% of the time. Around 1300 we boarded a two hour ferry from the coast to the island of Koh Tao. These two hours were some of the most brutal. The choppiness of the water was unbelievable. People were being thrown from side to side of the catamaran. I was really fighting not to pass out or throw up. I felt squeamish to the max. I focused on a single point in the boat and tried to dial in. After the two hours of the boat ride passed I reached the shore so relieved. My entire body was tingling and my energy drained. This afternoon Zach and I were able to briefly explore the island of Koh Tao. It is very touristy as well but has nice beaches and jungle landscapes. I saw a sign for renting a skimboard and hopefully I can ride tomorrow. I used to love skim boarding the beaches of Florida and I like it because it's a lowkey sport. Excited for what unfolds here in this week in the beautiful island of Koh Tao.`,
-    images: []
+    images: [],
   },
   {
     id: 'bangkok-shabbat',
@@ -88,9 +103,10 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'bangkok-shabbat',
     year: '2024',
-    excerpt: 'Attending Shabbat dinner at Chabad Bangkok and discussing European perspectives on America with fellow travelers.',
+    excerpt:
+      'Attending Shabbat dinner at Chabad Bangkok and discussing European perspectives on America with fellow travelers.',
     content: `Last night Zach and I went to Chabad for shabbat dinner. There was over 350 people there. It was interesting because it was mostly families and older couples. The Israeli obsession with Thailand is a little strange. Maybe after being here longer I will understand. After shabbat dinner we went out to a rooftop bar which was sub par. It had a nice view of the city though. Throughout the night we chatted to a variety of people, mostly Europeans. Throughout this trip it has been interesting understanding young European sentiment of the world and America. Overall, young Europeans are very sour towards America and the greater world. They see America as a world dominator which steps over others to win. They continuously overlook the plethora of advancements and improvements in quality of life the US has brought into the globe. The question then lies, would you rather have China, Russia, or Iran as the global strongman? I think Europeans are salty and a bit jealous of the US because their countries and economies are moving in the wrong direction and they do not make a lot of money. It is crazy that throughout this trip everyone associates American people with being rich and only view me as a person with money. They often overlook that we work hard and that is why we have the best economy in the world and that is why we have money. In the EU you have the freedom to move country to country. A young Italian told us last night that Spain, Portugal, and Italy are where all the young people flock to for quality of life perks, but lacks in career development. After reading this week's edition of The Economist, I learned that Spain, Italy and Greece were indeed some of the world's best performing economies this year. Also I want to mention a word about inflation really quick since it has become a buzzword since COVID. Inflation is inherent in the economy and actually good for economic development. Moderate, controlled inflation encourages spending and investment. If you know your money is going to lose value overtime by being inflated, it spurs you to spend it on goods and invest in the marketplace to grow your money. Increased transactions in the marketplace is positive. So now you can see, healthy inflation supports demand and helps avoid deflation, which leads to reduced spending and economic stagnation. Around 2% per year is a good number to balance growth without eroding purchasing power too quick. Since COVID inflation has gone crazy, up to 5% YoY, but it is trending in the right direction now.`,
-    images: []
+    images: [],
   },
   {
     id: 'bangkok-freedom',
@@ -100,11 +116,12 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'bangkok-freedom',
     year: '2024',
-    excerpt: 'Exploring Bangkok by motorbike, visiting Iconosiam mall, and reflecting on the concept of international landscaping.',
+    excerpt:
+      'Exploring Bangkok by motorbike, visiting Iconosiam mall, and reflecting on the concept of international landscaping.',
     content: `Another midday blog post! Nothing screams freedom like riding on the back of a motorbike through Bangkok, swerving in and out of traffic and running through red lights with sandals and no helmet. Sorry mom. It was sketchy but I effectively rode a motorcycle for four years in university so I wanted to try it out. I woke up this morning a little tired and walked to a nice park to do some stretches and workout. I picked up a passionfruit juice along the way which was so fresh and yummy. It has been about a month since I worked out because it was too cold in Nepal and the trek took up all my time. I look forward to getting back on the grind here in Thailand. After the workout I headed to Iconosiam, a brand new 8 story mall in Bangkok. On the ground floor there was so much food and a floating market with street vendors. Thailand is really the master of street food and vending. There is almost any food you can think of on the street and clothes as well. The food ranges from noodles, fruit, to scorpions, alligator and worms. It was cool how they integrated the street food market into the boujee mall. I went up and down the 7 stories to see what they were selling. I got a nice Thai boba tea, edamame, and boiled peanuts! If you really know me you know I love boiled peanuts. A mall in Thailand was the last place I expected to see my niche favorite snack. I really want to try dry needling for my piriformis of my left hip so I went to an office which offered it but the doctor was not there. I arrived back at my hostel around 1500. Tonight I look forward to celebrating shabbat at Chabad here in Bangkok. The Chabad here is unreal, it has a rooftop garden, two restaurants, a lounge for backpackers, and more. It is right in the heart of the city and is at least a 10 million dollar building. It will be nice to sing and connect. On Sunday I leave for Koh Tao, an island on the southeast side of Thailand. I am really looking forward getting back to beach vibes since Kenya. Hopefully I can find an outdoor gym, play beach volleyball, and play mermaids or beached whales in the ocean.`,
     images: [
-      { src: '/assets/images/misc/thaipark.jpg', alt: 'Thai park workout' }
-    ]
+      { src: '/assets/images/misc/thaipark.jpg', alt: 'Thai park workout' },
+    ],
   },
   {
     id: 'international-landscaper',
@@ -114,9 +131,10 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'international-landscaper',
     year: '2024',
-    excerpt: 'Coining the term "international landscaper" and exploring economic disparities between the US and Asia.',
+    excerpt:
+      'Coining the term "international landscaper" and exploring economic disparities between the US and Asia.',
     content: `Midday blog! You may be able to tell that I usually write my blogs at night right before bed. When I write midday it seems like a treat because I can think deeper. I started this morning by walking the city to get a pulse of what Bangkok really is about. I bought an amazing passionfruit juice for a dollar. It was way hotter than I expected so I went back to the hostel to get my sunglasses. After, I went to a lowkey boba tea shop and got my first Thai milk tea of the trip. It lived up to my expectations and I was very pleased. The shop was in an alleyway off the main road and it was quiet. I was the only one there. I like these kinds of finds on the trip. I started to think about all of the different types of travelers there are since there are so many tourists here in Bangkok. Some travel for the most adventurous thing possible, some travel party to party, and others travel solely for food. I realized that my trip is unique and different than most people's. I coined the term "International landscaper" to describe my type of travel right now. I am traveling in a way to understand the world, geopolitics, and life better. That means going to some undesirable places for the sake of market research. I am reading a book about a tulip grower right now which might have inspired this term. A landscaper goes into the weeds to uncover something more beautiful. It leaves what it likes and discards what it dislikes. The main goal of a landscaper is to turn a garden into something more magnificent than before. I want to landscape my life, internally, and the world, externally. I am a couple days away from the 3 month anniversary of the start of my travels. I can say confidently I have learned a lot about the world, people, economics, life, and health. This trip has made me refocus my priorities in life to become the best landscaper as possible. I prioritize family and love first, health and longevity second, and money third. This list needs to be explained more to get the full fruit. I think prioritizing something other than yourself, something greater than yourself, is beneficial to society and life as a whole. You wake up everyday with a greater vision instead of being stuck in your own desires. Next, health is essential to make the biggest influence on the world. You cannot be a beacon of light and laughter and hope if you are tired, groggy, and not energized. This means there is no possible way I will ever have a career which comes before the first two priorities. Finally, I cannot believe the cost of everything here. I got a Michelin star meal for under five dollars and a massage for just over 10 dollars. It started to make me think deeper about the price disparities over food and services between the US and Asia. After doing some research it comes down to one thing, the cost of living. In the US a massage might be 100 dollars. In this price the wage of the worker is accounted for, the rent and utilities of the business, and insurance for the business and worker. Same goes for food. A $2 meal in Thailand is possible because ingredients (rice, vegetables, spices) are sourced locally, and restaurants have lower overhead costs. A $15 meal in the U.S. often incorporates imported ingredients, higher rent for the restaurant, and higher wages for staff. Even fast food, despite being "cheap," is heavily processed and reflects the high costs of production and distribution. Now the question is, is the increased cost for services and goods worth the living? So the US is a first world country privy to the best healthcare system in the world, economic stability, the strongest military in the world. Are you willing to pay more for these perks? Next time you buy a 12 dollar chipotle bowl think about how you are paying not only for the food, but for healthcare, wages, and security. In developing countries food and services can be much lower because the other factors are priced in. Do you see how the economy is just a collectively agreed upon fabric? The US could easily change labor laws or healthcare and the whole economic fabric could shift. I am not trying to make a point, just be aware of the malleability of this web of money which is abstracted out of control.`,
-    images: []
+    images: [],
   },
   {
     id: 'arrival-bangkok',
@@ -126,12 +144,13 @@ export const december2024Posts: BlogPost[] = [
     country: 'Thailand',
     slug: 'arrival-bangkok',
     year: '2024',
-    excerpt: 'Flying from Nepal to Thailand, reuniting with Zach, and first impressions of Bangkok\'s famous Khao San Road.',
+    excerpt:
+      "Flying from Nepal to Thailand, reuniting with Zach, and first impressions of Bangkok's famous Khao San Road.",
     content: `Today was a nice day. I woke up and packed my bags to head to Thailand. I spent the morning reading my new book, The Black Tulip and had a nice breakfast at 4stories. Around noon I met up with Maya and Shantel, two Israeli girls who were taking the same flight as me to Bangkok. Yesterday I went to donate my needed stuff to Chabad where there is a pile of used trekking gear for people to take. While I was there I ran into Maya and Shantel and we found out we were on the same flight to Thailand. So today we met up and shared a taxi to the airport, it was super cheap. They spent a whole 2 months in Nepal! Israelis really love to travel super slow and soak in the whole culture. At the airport I reunited with Zach who went to India for a 48 hour trip. The flight to Thailand was a brief 3.5 hours. When we landed we went to a convenience store and got seaweed snacks. It was nice being back in East Asia since my Japan trip a year ago with nice convenience store snacks. We took a 45 minute taxi to our hostel in the city center. After dropping off our bags Zach and I got mango sticky rice at a restaurant called Myth, recommended by my friend Kyle. At the ATM I took out some cash and somehow misplaced my debit card. I hope I can get a new one shipped here. After dinner we walked the streets of the place Khao San road. This place was consumption and a tourist zoo. Super loud clubs blaring music, people trying to sell you random shit, and tons of food stalls. Also in Thailand weed is legal and you can just rip bong or smoke a J anywhere. I did not realize this. The street was a little much and kind of disgusting seeing how much filth and partying was going on. On this trip I have rarely gone out or drank so it was weird seeing so many westerners go out of their way just to smoke or party. I can see why the Hangover was set in Bangkok. After walking this famous street we headed back to our hostel to rest. Looking forward to exploring the real parts of the city tomorrow.`,
     images: [
       { src: '/assets/images/misc/flight.jpg', alt: 'Flight to Bangkok' },
-      { src: '/assets/images/misc/mango.jpg', alt: 'Mango sticky rice' }
-    ]
+      { src: '/assets/images/misc/mango.jpg', alt: 'Mango sticky rice' },
+    ],
   },
   {
     id: 'farewell-nepal',
@@ -141,11 +160,15 @@ export const december2024Posts: BlogPost[] = [
     country: 'Nepal',
     slug: 'farewell-nepal',
     year: '2024',
-    excerpt: 'Reflecting on three weeks in Nepal and experiencing a therapeutic massage at Seeing Hands, a studio that employs blind masseurs.',
+    excerpt:
+      'Reflecting on three weeks in Nepal and experiencing a therapeutic massage at Seeing Hands, a studio that employs blind masseurs.',
     content: `Well today is my last day in Nepal. A total of three weeks filled with many learnings and memories. Nepal is one of my favorite countries I have ever visited and I recommend it to everyone. The people are friendly, the nature is beautiful and the culture is unique. Here are some key takeaways from my three weeks in the Himalayan gem. 1. Urban planning must be resilient for future urbanization. The narrow streets here are slammed with motorcycles and cars. The city is unable to handle the boom in urbanization. People around the globe will continue to move to city centers for opportunities so it's essential our city infrastructure can handle the expected growth. 2. Variety of food options is healthy. There is not much variety here and it made me grateful for the plethora of cuisine in the US. 3. Don't take a warm shower and toilet paper for granted 4. Warm weather makes me feel more alive/energized. It is harder to workout in the cold. 5. Need to do our part in minimizing pollution/littering/global warming, it is a big and growing issue. 6. Paved roads are an amazing invention. Also today I was able to get an hour massage at seeing hands. Seeing hands is a massage studio which employs blind people. In Asia, the tradition of blind masseur is centuries old. It is well known that their increased sense of perception and touch makes them ideally suited for massage therapists. On my travels I have ran across this place and a coffee shop in Africa which employs deaf people. I think this type of business is great for awareness and giving people with disabilities opportunities to be social and work. In the US I have never heard of such a concept and it seems that we just try to hide our disabled citizens and are ashamed. Many of these people are amazing individuals with great talents to lend a hand to. Also today I tried a tablespoon of mad honey in my tea while reading. Mad honey is a rare and potent honey derived from the nectar of Rhododendron flowers, which contain natural neurotoxins. It is praised for its medicinal properties and psychoactive effects. I felt alert and a little etheric. It was cool trying a local product straight from the Himalayas. Tomorrow I fly to Bangkok Thailand for the next leg of the journey. I have been wanting to go to Thailand for a while so I am excited to relax on the beach, train Muay Thai, and explore.`,
     images: [
-      { src: '/assets/images/misc/seeinghands.jpg', alt: 'Seeing Hands massage studio' }
-    ]
+      {
+        src: '/assets/images/misc/seeinghands.jpg',
+        alt: 'Seeing Hands massage studio',
+      },
+    ],
   },
   {
     id: 'brutal-bus-ride',
@@ -155,11 +178,12 @@ export const december2024Posts: BlogPost[] = [
     country: 'Nepal',
     slug: 'brutal-bus-ride',
     year: '2024',
-    excerpt: 'Enduring a challenging 10-hour bus ride from Pokhara to Kathmandu on bumpy, unpaved roads.',
+    excerpt:
+      'Enduring a challenging 10-hour bus ride from Pokhara to Kathmandu on bumpy, unpaved roads.',
     content: `Sometimes it is overlooked the less glamorous parts of traveling, which is traveling itself. Today I took a 10 hour bus ride from Pokhara back to Kathmandu. I booked the nicer bus with plushy seats and reclining for a couple extra bucks but it still made the transit pretty brutal. The bus took off at 7:30 in the morning and arrived in Kathmandu around 16:30. Traveling these long distances and for a long time really tests your patience. First I was told I could not recline my seat back which was annoying but not the end of the world. The Nepali guy sitting next to me decided to play his Tik Tok feed out loud for a solid thirty minutes. He also was man spreading and had his arms and legs all over me, despite being 5 foot 3. I pride myself on my patience but I did not want to deal with it anymore so I decided to move to the back of the bus. In the back of the bus the seats are more stiff so I had to roll with the punches. A couple minutes later a kid in front of me starts vomiting vigorously and audibly. At this point I just surrendered and tried to rest. I could not rest because my mind was exploring thoughts of life. Another aspect which made the trip pretty brutal was that the roads in Nepal are rarely paved. The entirety of the ride was so bumpy. At times I even got airborne from the large bumps. I was relieved to make it back to Kathmandu tonight. I felt emotional because it was the final step to complete the trek. I retrieved my bags from the trek company and relished in the busy streets of Kathmandu. I have enjoyed taking the past few days very slowly, not spending much money and recuperating after the trek and before a busy time in Thailand. Tomorrow is my last day in the great country of Nepal. Hopefully I can workout and get a massage.`,
     images: [
-      { src: '/assets/images/misc/pokhrastop.jpg', alt: 'Bus stop in Pokhara' }
-    ]
+      { src: '/assets/images/misc/pokhrastop.jpg', alt: 'Bus stop in Pokhara' },
+    ],
   },
   {
     id: 'cycles-and-emotions',
@@ -169,9 +193,10 @@ export const december2024Posts: BlogPost[] = [
     country: 'Nepal',
     slug: 'cycles-and-emotions',
     year: '2024',
-    excerpt: 'Deep meditation on emotional intelligence, the cycles of life, and the balance between masculine and feminine energies.',
+    excerpt:
+      'Deep meditation on emotional intelligence, the cycles of life, and the balance between masculine and feminine energies.',
     content: `Cycles. Today was exhausting and rejuvenating at the same time. I walked the streets of Pokhara for hours, thinking. I felt particularly emotional today and meditated on the concept emotional intelligence. Modern society, especially the younger generation, lacks emotional intelligence. So the question lies, how does one curate and enhance their emotional intelligence. In school we are taught how to sharpen cognitive intelligence, but there is nothing taught about emotional intelligence. The answer can be found in knowing how to navigate the cycles of the heart and mind. People always say that they want happiness in life as their main goal. I am here to tell you that is one of the lowest understandings of life. If anything you should make a goal of sadness! The reason is that it is impossible to be happy all the time due to the cycles of life, creation, and nature. When you orient yourself this way your whole perspective changes. Now, when you are not at your 100%, you can learn to masterfully surf the downward cycle. If you learn how to surf this wave instead of letting a tsunami crash over you and bring you to the bottom of the ocean, you are well ahead of many in the world. This relates to my trip of course. Some may think that when you quit your job and travel the world you are on cloud nine 24/7. For a part of this trip I even thought that was possible. This is of course not possible due to, you know it, cycles. So now, curating your emotional intelligence when you are going through the cycles of life is not easy. It takes time, thought, patience and pain. The best way to enhance your emotional intelligence, and effectively understand yourself better, is reflect upon the entirety of your life. Try to understand how thought patterns got created, how emotional tendencies came to be, who influenced you throughout your path. Once you understand the patterns that shape you, you can either, lean into them more if you like the emotional and cognitive tendencies you have created, or shatter them completely. Few people realize that you can completely reengineer your psyche on a daily basis if you have the emotional intelligence to do so. This is an extremely powerful tool. For example, today I had emotions and thoughts that were overwhelming and difficult. I inspected them deeper to try and understand where it was coming from. To be honest I truly do not know where this whirlwind of emotions came from, so I decided to go deeper into it. It was painful and uncomfortable in the moment. I have sharpened my cognitive intelligence to a significant degree throughout my life and travels, but sometimes the emotions supersedes cognition. Sometimes you cannot put into words or intellectualization of the emotions you are feeling and why they are coming up. Many people do themselves a disservice by constricting their emotions to words and cognitive philosophy. You literally constrict the amount you can feel and experience by doing this. When you are overwhelmed and your cognitive skills reach a dead end, you fasten your seat belt, put on your big boy pants and go for a ride. If you do not have the focus, vigor, and strength to do this, you either get sunk by the wave or you hide all your emotions in a storage box, thinking it will go away. However, they will only bubble and manifest in a more painful way later on. It could be argued suppressing your emotions is even worse than getting sunk by them because suppressing slowly eats away at you and creates unwanted physical and psychological tendencies you are unaware of. Then when you attempt to do this exercise with a storage box of emotions you have no idea where your emotional patterns come from because you tried to stuff it in a dark corner. This will be much more painful I guarantee. So now you know how to sharpen your emotional intelligence. When the going gets tough you must breathe deeper into your being and let go of unwanted cycles. Creation is ruled by cycles that we are so unaware of. The tides, the moon, the sun, and so much more. In the afternoon Zach told me it is the last full moon of the year today. This moon will rise the most far north it has in the last 18.6 years. This is yet another example of the closing of a natural cycle and the start of a new one. These times are crucial for self evolution. Don't you want your emotional and cognitive cycles to be in tune with the greater creation? Thinking about cycles made me reflect on the masculine and feminine aspects of creation as well. Note, this is about masculine and feminine, not male and female per se. The feminine energy is much more privy to cycles. This is most obviously seen through a woman's period cycles and the cycles of pregnancy. Now connecting this to emotional intelligence, what does this say about the feminine aspect inside everyone? The feminine aspect of creation is delicate, and susceptible to the cycles of life. Sometimes the feminine wants one thing on one day, and a completely different thing the next day. The feminine is like a garden which needs to be carefully tended to. This is in contrast to the masculine energy, which is steadfast and decisive. The masculine energy sets the direction and shows the feminine garden how beautifully it can grow. That being said the masculine is not as in tune with the cycles of nature and life. The reason I am exploring the masculine and feminine energies so deeply is because they are fundamental aspects of creation and therefore are essential to understand to increase emotional intelligence. When you frame the world and yourself this way many things become clear. Part of being emotionally intelligent means not trying to change the forces of nature. One must understand the feminine for what it is and the function it plays, same for the masculine. With all this in mind, it is obvious to keep cycles in the forefront of your awareness if possible. I think I grew today, by going deeper into my emotional intelligence and taking the time to myself to walk and think. It is still very difficult at times but I hope to continue to evolve into my truest self.`,
-    images: []
+    images: [],
   },
   {
     id: 'thorong-la-pass',
@@ -181,13 +206,20 @@ export const december2024Posts: BlogPost[] = [
     country: 'Nepal',
     slug: 'thorong-la-pass',
     year: '2024',
-    excerpt: 'The most challenging day of my life: crossing the Thorong La Pass at 17,769 feet in brutal -25°F conditions.',
+    excerpt:
+      'The most challenging day of my life: crossing the Thorong La Pass at 17,769 feet in brutal -25°F conditions.',
     content: `This is a recount of Monday December 9th 2024, one of the most challenging days of my life. Today I woke up at 3AM to trek through the Thorong La Pass: elevation of 5,416 m (17,769 ft). I slept in all my layers, base layer, fleece, windbreaker, down jacket, two pairs of socks, so I did not have to fumble around putting on clothes early this morning. I woke up with a slight headache due to the altitude. The starting altitude was 4500m. I put on my head lamp and went to the dining area to have a black tea and Tibetan bread. I was scared how my stomach would react so I did not eat that much. We started the trek around 4AM and it was pitch black dark. It was -17 degrees Fahrenheit. I did not even think of the cold because I was trying to fight off my headache. The stars were numerous and so bright. The first two hours was straight uphill. As the altitude increased breathing became harder and my heart rate accelerated. I only could see two feet in front of me due to the darkness and focused on going forward slowly. After five steps I would have to take a break and was huffing and puffing. I felt dizzy. My heart felt like it was about to burst out of my chest. I was nervous I would pass out and roll down the side of the cliff. One wrong step or slip on a rock could send you rolling thousands of meters to death. Every time I needed a sip of water it was frozen and I had to exert so much effort to unfreeze it. The sun started peaking over the mountain just at the second half of the leg, around 6:45 am. For a second I thought I was going to be stuck in perpetual darkness and realized how thankful I am for the sunlight. At the halfway mark we stopped in a closed teahouse to shield ourselves from the wind. At this point it was probably -25 degrees Fahrenheit. I had hand warmers but my thumbs felt numb and like they were about to fall off. I was dizzy and my stomach was churning, I thought I would throw up or pass out any second. We took a nice long break in the closed tea house before starting the next leg. The second half was just as hard due to the increasing altitude. Now I would take five steps and had to stop. I tried to calm my heart and breathe. In the mountains everything is so quiet, you can hear your neuron synapsis. Every time we made it over a hill I thought we were finished, but it seemed to never end. The last thirty minutes I literally was taking one step every three seconds. When I reached the top it was a relief. We took some pictures at the 5416m (17,769 feet) peak of the world's largest pass. We thought it was time to celebrate but then we had to trek another four hours downhill to lunch. After being so gassed that was the last thing I wanted to hear. It started snowing on the back side of the mountain and the snow would get into my clothing making me cold and shiver. It hurt my knees going downhill. I couldn't believe we needed to trek more after the four most excruciating hours of my life. Horses passed us on the way and I never wanted to ride a horse more. After a very long four hours downhill we made it to lunch. It was nice sitting in a local place to rest and eat. The host made a fire and we ate simply. I reflected how simple humans can be. After lunch we had one more hour trek. It was snowing hard and windy but we had to power through. We stopped by Muktinath temple and finally made it back to society. Unfortunately at the hotel the electricity was broken so that meant no shower or running water. This was one of the most difficult experiences of my life and I am happy we did it. When I was hating the trek my mind took me to warm places and places of love. I hadn't had a good shower or clean clothes in a week and a half. This trek pushed me to my limits. It was one of the hardest things I have ever done in the moment but it all fades away after. When you do hard things it is important to tell yourself the pain is only temporary.`,
     images: [
-      { src: '/assets/images/misc/thorangla.jpg', alt: 'Thorong La Pass peak sign' },
-      { src: '/assets/images/misc/thoranglaview.jpg', alt: 'View from Thorong La Pass' },
-      { src: '/assets/images/misc/muktinath.jpg', alt: 'Muktinath temple' }
-    ]
+      {
+        src: '/assets/images/misc/thorangla.jpg',
+        alt: 'Thorong La Pass peak sign',
+      },
+      {
+        src: '/assets/images/misc/thoranglaview.jpg',
+        alt: 'View from Thorong La Pass',
+      },
+      { src: '/assets/images/misc/muktinath.jpg', alt: 'Muktinath temple' },
+    ],
   },
   {
     id: 'annapurna-circuit-complete',
@@ -197,7 +229,8 @@ export const december2024Posts: BlogPost[] = [
     country: 'Nepal',
     slug: 'annapurna-circuit-complete',
     year: '2024',
-    excerpt: 'Completing the 11-day Annapurna Circuit Trek: 150km through the Himalayas with profound personal insights.',
+    excerpt:
+      'Completing the 11-day Annapurna Circuit Trek: 150km through the Himalayas with profound personal insights.',
     content: `Today marks the end of the 11-day Annapurna Circuit Trek. The total distance trekked was about 150 km (93 miles), and the total elevation gain was about 4,116 m (13,504 ft).
 
 The past week and a half has been one of the craziest experiences of my life. Trekking through the Himalayas, tea house to tea house, gave me new perspectives and a deep appreciation for life. It will be really difficult to encapsulate the entire experience in words, but I will try.
@@ -221,9 +254,18 @@ Find a balance between the present and the future.
 Tea culture is wonderful.
 Overall, it was an unforgettable experience. It was painful and uncomfortable at times, but incredibly rewarding. I'm not jumping with excitement to do another intense trek anytime soon, but I believe it will call me again in the future.`,
     images: [
-      { src: '/assets/images/misc/teahouse.jpg', alt: 'Traditional tea house in the mountains' },
-      { src: '/assets/images/misc/bestphoto.jpg', alt: 'Best photo from the trek' },
-      { src: '/assets/images/misc/trekkin.jpg', alt: 'Trekking through the Himalayas' }
-    ]
-  }
-];
+      {
+        src: '/assets/images/misc/teahouse.jpg',
+        alt: 'Traditional tea house in the mountains',
+      },
+      {
+        src: '/assets/images/misc/bestphoto.jpg',
+        alt: 'Best photo from the trek',
+      },
+      {
+        src: '/assets/images/misc/trekkin.jpg',
+        alt: 'Trekking through the Himalayas',
+      },
+    ],
+  },
+]

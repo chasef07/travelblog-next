@@ -59,7 +59,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'April 2026: Turning 26',
     date: '2026-04-01',
     displayDate: 'April 2026',
-    excerpt: 'Turning 26, visiting San Diego, and reflecting on friendship, freedom, and the life I want to build.',
+    excerpt:
+      'Turning 26, visiting San Diego, and reflecting on friendship, freedom, and the life I want to build.',
     image: '/assets/images/misc/fagenboyz.jpg',
   },
   {
@@ -68,7 +69,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'March 2026: United States, Working Hard',
     date: '2026-03-01',
     displayDate: 'March 2026',
-    excerpt: 'Back home in Florida deploying AI agents, attending conferences, and chasing deals in New Jersey.',
+    excerpt:
+      'Back home in Florida deploying AI agents, attending conferences, and chasing deals in New Jersey.',
     image: '/assets/images/misc/rays-game.jpg',
   },
   {
@@ -77,7 +79,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'February 2026: Santa Teresa, Surfing and Building',
     date: '2026-02-01',
     displayDate: 'February 2026',
-    excerpt: 'A new month in Santa Teresa focused on deep work, consistent surfing, and building the next chapter.',
+    excerpt:
+      'A new month in Santa Teresa focused on deep work, consistent surfing, and building the next chapter.',
     image: '/assets/images/misc/santateresa-boys.jpg',
   },
   {
@@ -86,7 +89,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'January 2026: Exploring El Salvador',
     date: '2026-01-07',
     displayDate: 'January 2026',
-    excerpt: 'Leaving Guatemala for El Salvador\'s surf coast, a chance encounter with a pastor, and thoughts on government and infrastructure.',
+    excerpt:
+      "Leaving Guatemala for El Salvador's surf coast, a chance encounter with a pastor, and thoughts on government and infrastructure.",
     image: '/assets/images/misc/elsalvador-surfcity.jpg',
   },
   {
@@ -95,7 +99,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'December 2025: Guatemala Galavanting',
     date: '2025-12-17',
     displayDate: 'December 2025',
-    excerpt: 'Arriving in Guatemala after Hanukkah with family - one last backpacking adventure before starting a new section of life.',
+    excerpt:
+      'Arriving in Guatemala after Hanukkah with family - one last backpacking adventure before starting a new section of life.',
     image: '/assets/images/blog/2025/december/guatflag.jpg',
   },
   {
@@ -104,7 +109,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'November 2025: Arriving in Panama',
     date: '2025-11-02',
     displayDate: 'November 2025',
-    excerpt: 'First impressions of Bocas del Toro, Panama - exploring viber cafes, cultural authenticity, and what makes a place feel like home.',
+    excerpt:
+      'First impressions of Bocas del Toro, Panama - exploring viber cafes, cultural authenticity, and what makes a place feel like home.',
     image: '/assets/images/misc/panama-dive.jpg',
   },
   {
@@ -113,7 +119,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'October 2025: Business in Costa Rica',
     date: '2025-10-09',
     displayDate: 'October 2025',
-    excerpt: 'On the eve of a one-way flight, reflecting on family, AI consulting with Kyle, and committing to ship real value in Costa Rica.',
+    excerpt:
+      'On the eve of a one-way flight, reflecting on family, AI consulting with Kyle, and committing to ship real value in Costa Rica.',
     image: '/assets/images/misc/costa-business.jpg',
   },
   {
@@ -122,7 +129,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'August 2025: Coming Home to Florida',
     date: '2025-08-02',
     displayDate: 'August 2025',
-    excerpt: "Reverse culture shock and finding home again after a year of global adventures. Reflections on returning to Florida and what 'home' means now.",
+    excerpt:
+      "Reverse culture shock and finding home again after a year of global adventures. Reflections on returning to Florida and what 'home' means now.",
     image: '/assets/images/misc/posttrip.jpg',
   },
   {
@@ -140,7 +148,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'June 2025: Indonesia',
     date: '2025-06-01',
     displayDate: 'June 2025',
-    excerpt: 'From surfing worldclass waves to temple-hopping in Bali, Indonesia is a whirlwind of ancient culture, amazing wildlife, and adventure.',
+    excerpt:
+      'From surfing worldclass waves to temple-hopping in Bali, Indonesia is a whirlwind of ancient culture, amazing wildlife, and adventure.',
     image: '/assets/images/misc/indoprof.jpg',
   },
   {
@@ -149,7 +158,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'May 2025: Island Hopping in the Philippines',
     date: '2025-05-01',
     displayDate: 'May 2025',
-    excerpt: 'Turquoise waterfalls, epic snorkeling, crazy surfing, and laid-back beach vibes — the Philippines hits hard in every direction.',
+    excerpt:
+      'Turquoise waterfalls, epic snorkeling, crazy surfing, and laid-back beach vibes — the Philippines hits hard in every direction.',
     image: '/assets/images/misc/canyoneering.jpg',
   },
   {
@@ -158,7 +168,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'April 2025: Motorbiking Vietnam',
     date: '2025-04-01',
     displayDate: 'April 2025',
-    excerpt: 'Ride with me across terraced rice fields while enjoying traditional Vietnamese cuisine.',
+    excerpt:
+      'Ride with me across terraced rice fields while enjoying traditional Vietnamese cuisine.',
     image: '/assets/images/misc/droneshotrice.jpg',
   },
   {
@@ -167,7 +178,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'March 2025: Chilling in Cambodia',
     date: '2025-03-01',
     displayDate: 'March 2025',
-    excerpt: 'From the ancient temples of Angkor Wat to the pristine beaches of Koh Rong, exploring the wonders of Cambodia.',
+    excerpt:
+      'From the ancient temples of Angkor Wat to the pristine beaches of Koh Rong, exploring the wonders of Cambodia.',
     image: '/assets/images/misc/kohsdach.jpg',
   },
   {
@@ -176,7 +188,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'February 2025: Adventures in Laos',
     date: '2025-02-01',
     displayDate: 'February 2025',
-    excerpt: "Journeying through Laos' traditional villages and beautiful landscapes, discovering the heart of Southeast Asia.",
+    excerpt:
+      "Journeying through Laos' traditional villages and beautiful landscapes, discovering the heart of Southeast Asia.",
     image: '/assets/images/misc/laosfall-2.jpg',
   },
   {
@@ -185,7 +198,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'January 2025: Thailand Discos',
     date: '2025-01-01',
     displayDate: 'January 2025',
-    excerpt: 'From island parties to serene sunsets, experiencing the allure of Thailand.',
+    excerpt:
+      'From island parties to serene sunsets, experiencing the allure of Thailand.',
     image: '/assets/images/misc/fullmoon-2.jpg',
   },
   {
@@ -194,7 +208,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'December 2024: Trekking in Nepal',
     date: '2024-12-01',
     displayDate: 'December 2024',
-    excerpt: 'Exploring the majestic Himalayas and vibrant streets of Kathmandu. From ancient temples to mountain adventures.',
+    excerpt:
+      'Exploring the majestic Himalayas and vibrant streets of Kathmandu. From ancient temples to mountain adventures.',
     image: '/assets/images/misc/namaste8-2.jpg',
   },
   {
@@ -203,7 +218,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'November 2024: Safaris of East Africa',
     date: '2024-11-01',
     displayDate: 'November 2024',
-    excerpt: 'From the vast savannas of Tanzania to the perfectious coffee of Rwanda.',
+    excerpt:
+      'From the vast savannas of Tanzania to the perfectious coffee of Rwanda.',
     image: '/assets/images/misc/serengeti-2.jpg',
   },
   {
@@ -212,7 +228,8 @@ export const blogArchives: BlogArchive[] = [
     title: 'October 2024: Investing in Georgia',
     date: '2024-10-01',
     displayDate: 'October 2024',
-    excerpt: 'Discovering the rich culture and ancient traditions of Georgia, from the vibrant streets of Tbilisi to the stunning mountains of Gudauri.',
+    excerpt:
+      'Discovering the rich culture and ancient traditions of Georgia, from the vibrant streets of Tbilisi to the stunning mountains of Gudauri.',
     image: '/assets/images/misc/blarg-2.jpg',
   },
   {
@@ -221,31 +238,38 @@ export const blogArchives: BlogArchive[] = [
     title: 'September 2024: Connecting in Israel',
     date: '2024-09-01',
     displayDate: 'September 2024',
-    excerpt: 'The start of my world adventure, from the final days in Florida to the first experiences in Israel.',
+    excerpt:
+      'The start of my world adventure, from the final days in Florida to the first experiences in Israel.',
     image: '/assets/images/misc/holyholy.jpg',
   },
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
 export const blogPostsBySlug = new Map(
-  allBlogPosts.map((post) => [`${post.year}/${post.slug}`, post])
+  allBlogPosts.map((post) => [`${post.year}/${post.slug}`, post]),
 )
 
 export const blogPostsByMonth = new Map<string, BlogPost[]>(
   blogArchives.map((archive) => {
     const key = `${archive.year}-${archive.slug}`
     const posts = allBlogPosts
-      .filter((post) => post.year === String(archive.year) && getMonthSlugFromDate(post.date) === archive.slug)
+      .filter(
+        (post) =>
+          post.year === String(archive.year) &&
+          getMonthSlugFromDate(post.date) === archive.slug,
+      )
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     return [key, posts]
-  })
+  }),
 )
 
 export const blogArchivesByMonth = new Map(
-  blogArchives.map((archive) => [`${archive.year}-${archive.slug}`, archive])
+  blogArchives.map((archive) => [`${archive.year}-${archive.slug}`, archive]),
 )
 
 export function getArchiveForPost(post: BlogPost): BlogArchive | undefined {
-  return blogArchivesByMonth.get(`${post.year}-${getMonthSlugFromDate(post.date)}`)
+  return blogArchivesByMonth.get(
+    `${post.year}-${getMonthSlugFromDate(post.date)}`,
+  )
 }
 
 export function getPostsForCountry(countryName: string): BlogPost[] {

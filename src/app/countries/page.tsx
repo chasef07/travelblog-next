@@ -1,15 +1,16 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
-import { getAllCountries } from '@/content/countries-data';
+import { Metadata } from 'next'
+import Link from 'next/link'
+import Image from 'next/image'
+import { getAllCountries } from '@/content/countries-data'
 
 export const metadata: Metadata = {
   title: 'Countries Explored | Lifestyle Engineering',
-  description: 'Explore travel stories, food guides, and practical tips organized by country. 20 nations across the Middle East, Africa, Asia, and Central America.',
-};
+  description:
+    'Explore travel stories, food guides, and practical tips organized by country. 20 nations across the Middle East, Africa, Asia, and Central America.',
+}
 
 export default function CountriesPage() {
-  const countries = getAllCountries();
+  const countries = getAllCountries()
 
   return (
     <main className="min-h-screen app-surface pt-20 sm:pt-24">
@@ -23,7 +24,8 @@ export default function CountriesPage() {
             Countries
           </h1>
           <p className="max-w-2xl text-base sm:text-lg text-[var(--ui-text-muted)] leading-relaxed">
-            20 countries. Countless stories. Select a destination to explore all content in one place.
+            20 countries. Countless stories. Select a destination to explore all
+            content in one place.
           </p>
         </div>
 
@@ -65,8 +67,18 @@ export default function CountriesPage() {
 
               {/* Arrow indicator */}
               <div className="absolute top-5 right-5 hidden sm:block opacity-0 group-hover:opacity-100 transition-opacity">
-                <svg className="w-4 h-4 text-[var(--ui-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                <svg
+                  className="w-4 h-4 text-[var(--ui-accent)]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M7 17L17 7M17 7H7M17 7v10"
+                  />
                 </svg>
               </div>
             </Link>
@@ -74,5 +86,5 @@ export default function CountriesPage() {
         </div>
       </div>
     </main>
-  );
+  )
 }

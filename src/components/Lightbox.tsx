@@ -18,16 +18,21 @@ interface LightboxProps {
   onClose: () => void
 }
 
-export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: LightboxProps) {
+export function Lightbox({
+  images,
+  initialIndex = 0,
+  isOpen,
+  onClose,
+}: LightboxProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
 
   const goNext = useCallback(() => {
-    setCurrentIndex(prev => (prev + 1) % images.length)
+    setCurrentIndex((prev) => (prev + 1) % images.length)
   }, [images.length])
 
   const goPrev = useCallback(() => {
-    setCurrentIndex(prev => (prev - 1 + images.length) % images.length)
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
   }, [images.length])
 
   // Keyboard navigation
@@ -97,7 +102,7 @@ export function Lightbox({ images, initialIndex = 0, isOpen, onClose }: Lightbox
           {/* Content */}
           <div
             className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-8"
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
@@ -218,7 +223,7 @@ export function useLightbox(images: LightboxImage[]) {
     initialIndex,
     open,
     close,
-    images
+    images,
   }
 }
 
@@ -238,7 +243,7 @@ export function LightboxImage({
   caption,
   onClick,
   className,
-  priority = false
+  priority = false,
 }: LightboxImageProps) {
   return (
     <figure className={`relative ${className || ''}`}>

@@ -10,7 +10,7 @@ interface SectionHeaderProps {
   animate?: boolean
   className?: string
   alignment?: 'left' | 'split'
-  volume?: string | number  // Optional editorial volume/issue number
+  volume?: string | number // Optional editorial volume/issue number
 }
 
 export function SectionHeader({
@@ -20,7 +20,7 @@ export function SectionHeader({
   animate = true,
   className,
   alignment = 'split',
-  volume
+  volume,
 }: SectionHeaderProps) {
   const Wrapper = animate ? motion.div : 'div'
   const animationProps = animate
@@ -28,7 +28,7 @@ export function SectionHeader({
         initial: { opacity: 0 },
         whileInView: { opacity: 1 },
         transition: { duration: 0.6 },
-        viewport: { once: true, margin: '-100px' }
+        viewport: { once: true, margin: '-100px' },
       }
     : {}
 
@@ -37,24 +37,29 @@ export function SectionHeader({
     <div className="flex items-center gap-4 mb-6">
       <div
         className="h-px w-8"
-        style={{ background: 'linear-gradient(to right, transparent, var(--ui-accent))', opacity: 0.6 }}
+        style={{
+          background:
+            'linear-gradient(to right, transparent, var(--ui-accent))',
+          opacity: 0.6,
+        }}
       />
       <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase">
         {volume ? `Vol. ${volume} — ${label}` : label}
       </span>
       <div
         className="h-px flex-1"
-        style={{ background: 'linear-gradient(to right, var(--ui-accent), transparent)', opacity: 0.6 }}
+        style={{
+          background:
+            'linear-gradient(to right, var(--ui-accent), transparent)',
+          opacity: 0.6,
+        }}
       />
     </div>
   )
 
   if (alignment === 'left') {
     return (
-      <Wrapper
-        {...animationProps}
-        className={cn('mb-16', className)}
-      >
+      <Wrapper {...animationProps} className={cn('mb-16', className)}>
         <EditorialLabel />
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-editorial font-light tracking-tight text-[var(--ui-text-primary)]">
           {title}
@@ -73,7 +78,7 @@ export function SectionHeader({
       {...animationProps}
       className={cn(
         'flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-16',
-        className
+        className,
       )}
     >
       <div>
@@ -96,7 +101,7 @@ export function SubSectionHeader({
   label,
   title,
   description,
-  className
+  className,
 }: Omit<SectionHeaderProps, 'animate' | 'alignment' | 'volume'>) {
   return (
     <div className={cn('mb-12', className)}>

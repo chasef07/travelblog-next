@@ -56,14 +56,23 @@ function formatScore(value: number) {
   return value.toFixed(1)
 }
 
-export default function SurfTownAtlasExplorer({ places }: { places: SurfTownEntry[] }) {
+export default function SurfTownAtlasExplorer({
+  places,
+}: {
+  places: SurfTownEntry[]
+}) {
   const [selectedRegion, setSelectedRegion] = useState<string>('all')
   const [sortLens, setSortLens] = useState<SortLens>('balanced')
 
-  const regions = ['all', ...Array.from(new Set(places.map((place) => place.region)))]
+  const regions = [
+    'all',
+    ...Array.from(new Set(places.map((place) => place.region))),
+  ]
 
   const filteredPlaces = places
-    .filter((place) => selectedRegion === 'all' || place.region === selectedRegion)
+    .filter(
+      (place) => selectedRegion === 'all' || place.region === selectedRegion,
+    )
     .sort((a, b) => getPlaceScore(b, sortLens) - getPlaceScore(a, sortLens))
 
   const topPick = filteredPlaces[0]
@@ -79,7 +88,9 @@ export default function SurfTownAtlasExplorer({ places }: { places: SurfTownEntr
             Pick the lifestyle you actually want
           </h3>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--ui-text-muted)] sm:text-base">
-            This atlas is not trying to name one universal winner. Sort by the lifestyle constraint you care about most, then use the strengths, weaknesses, and related dispatches to judge fit.
+            This atlas is not trying to name one universal winner. Sort by the
+            lifestyle constraint you care about most, then use the strengths,
+            weaknesses, and related dispatches to judge fit.
           </p>
         </div>
 
@@ -91,7 +102,9 @@ export default function SurfTownAtlasExplorer({ places }: { places: SurfTownEntr
             <>
               <div className="mt-3 flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="text-2xl font-light text-[var(--ui-text-primary)]">{topPick.name}</h3>
+                  <h3 className="text-2xl font-light text-[var(--ui-text-primary)]">
+                    {topPick.name}
+                  </h3>
                   <p className="mt-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
                     <MapPin className="h-3 w-3" />
                     {topPick.country}
@@ -102,14 +115,21 @@ export default function SurfTownAtlasExplorer({ places }: { places: SurfTownEntr
                     {formatScore(getPlaceScore(topPick, sortLens))}
                   </div>
                   <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
-                    {sortOptions.find((option) => option.id === sortLens)?.label}
+                    {
+                      sortOptions.find((option) => option.id === sortLens)
+                        ?.label
+                    }
                   </div>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{topPick.shortVerdict}</p>
+              <p className="mt-4 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                {topPick.shortVerdict}
+              </p>
             </>
           ) : (
-            <p className="mt-3 text-sm text-[var(--ui-text-muted)]">No places match the current filter.</p>
+            <p className="mt-3 text-sm text-[var(--ui-text-muted)]">
+              No places match the current filter.
+            </p>
           )}
         </div>
       </section>
@@ -158,17 +178,32 @@ export default function SurfTownAtlasExplorer({ places }: { places: SurfTownEntr
 
       <div className="overflow-hidden rounded-2xl border border-[var(--ui-border-subtle)]">
         <div className="hidden grid-cols-[1.3fr_repeat(5,0.55fr)] border-b border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] px-5 py-4 lg:grid">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Place</span>
-          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Surf</span>
-          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Work</span>
-          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Walk</span>
-          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Beauty</span>
-          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">Value</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Place
+          </span>
+          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Surf
+          </span>
+          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Work
+          </span>
+          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Walk
+          </span>
+          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Beauty
+          </span>
+          <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
+            Value
+          </span>
         </div>
 
         <div className="grid gap-px bg-[var(--ui-border-subtle)]">
           {filteredPlaces.map((place, index) => (
-            <article key={place.id} className="bg-[var(--ui-bg-strong)] p-5 sm:p-6">
+            <article
+              key={place.id}
+              className="bg-[var(--ui-bg-strong)] p-5 sm:p-6"
+            >
               <div className="grid gap-5 lg:grid-cols-[1.3fr_repeat(5,0.55fr)] lg:items-start">
                 <div>
                   <div className="flex items-start justify-between gap-4">
@@ -192,12 +227,17 @@ export default function SurfTownAtlasExplorer({ places }: { places: SurfTownEntr
                         {formatScore(getPlaceScore(place, sortLens))}
                       </div>
                       <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
-                        {sortOptions.find((option) => option.id === sortLens)?.label}
+                        {
+                          sortOptions.find((option) => option.id === sortLens)
+                            ?.label
+                        }
                       </div>
                     </div>
                   </div>
 
-                  <p className="mt-4 text-sm leading-relaxed text-[var(--ui-text-secondary)]">{place.shortVerdict}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                    {place.shortVerdict}
+                  </p>
 
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     <div className="rounded-xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] p-3">

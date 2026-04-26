@@ -70,7 +70,8 @@ export default function QuickContentNav() {
               Atlas entry points
             </h2>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-[var(--ui-text-secondary)]">
-              Start with the question you actually care about and move from lived narrative into useful place intelligence.
+              Start with the question you actually care about and move from
+              lived narrative into useful place intelligence.
             </p>
           </div>
           <Link

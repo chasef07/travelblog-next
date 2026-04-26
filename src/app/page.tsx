@@ -1,13 +1,20 @@
-import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
-import SimpleHero from "../components/SimpleHero"
-import SimpleCountriesGrid from "../components/SimpleCountriesGrid"
-import { mapProducts } from "@/content/maps-data"
-import { journeyChapters } from "@/content/journey-data"
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
+import SimpleHero from '../components/SimpleHero'
+import { mapProducts } from '@/content/maps-data'
+import { SURF_TOWN_GUIDE_CHECKOUT_URL } from '@/lib/product-links'
 
 export default function Page() {
+  const surfAtlas = mapProducts.find(
+    (product) => product.id === 'surf-town-atlas',
+  )
+
   return (
-    <main className="min-h-screen" itemScope itemType="https://schema.org/WebSite">
+    <main
+      className="min-h-screen"
+      itemScope
+      itemType="https://schema.org/WebSite"
+    >
       <SimpleHero />
 
       <div className="app-surface relative">
@@ -18,42 +25,49 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 max-w-3xl">
             <span className="mb-4 block font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--ui-accent)]">
-              [ Start Here ]
+              [ Why it sells ]
             </span>
             <h2 className="font-editorial-display text-4xl tracking-tight text-[var(--ui-text-primary)] md:text-5xl">
-              Three ways to use the site
+              Most surf research is scattered and low-signal
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-[var(--ui-text-secondary)]">
-              Use the atlas to decide, the journey to understand the route, and countries to browse by destination.
+              A buyer does not need more inspiration. They need a faster way to
+              judge which town actually fits the way they want to live.
             </p>
           </div>
 
           <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] lg:grid-cols-3">
             {[
               {
-                href: "/atlas",
-                label: "Atlas",
-                title: "Choose where to go",
-                description: "Filters, rankings, place dossiers, and comparison tools.",
-                stat: "Decision engine",
+                id: 'waves',
+                href: '/maps#surf-town-atlas',
+                label: 'Waves',
+                title: 'Know the surf quality',
+                description:
+                  'See how each town stacks up for surf consistency, level, and day-to-day rhythm.',
+                stat: 'Surf fit',
               },
               {
-                href: "/journey",
-                label: "Journey",
-                title: "Follow the route",
-                description: "Chronological chapters, reflections, and turning points.",
-                stat: "Narrative layer",
+                id: 'lifestyle',
+                href: '/maps#surf-town-atlas',
+                label: 'Lifestyle',
+                title: 'Judge life off the board',
+                description:
+                  'Compare walkability, internet, vibe, cost, and long-stay practicality before committing.',
+                stat: 'Town fit',
               },
               {
-                href: "/countries",
-                label: "Countries",
-                title: "Browse by destination",
-                description: "Country dossiers combining stories, food, and key places.",
-                stat: "Destination view",
+                id: 'decision',
+                href: '/maps#surf-town-atlas',
+                label: 'Decision',
+                title: 'Choose faster',
+                description:
+                  'Use rankings and side-by-side comparisons instead of piecing it together from random blogs.',
+                stat: 'Decision fit',
               },
             ].map((entry) => (
               <Link
-                key={entry.href}
+                key={entry.id}
                 href={entry.href}
                 className="group bg-[var(--ui-bg-strong)] p-6 transition-colors hover:bg-[var(--ui-bg-soft)] sm:p-7"
               >
@@ -87,49 +101,77 @@ export default function Page() {
           <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <span className="mb-4 block font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--ui-accent)]">
-                [ Featured Maps ]
+                [ Surf Town Guide ]
               </span>
               <h2 className="font-editorial-display text-4xl tracking-tight text-[var(--ui-text-primary)] md:text-5xl">
-                Start with the first atlas products
+                What you get in the Surf Town Guide
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-[var(--ui-text-secondary)]">
-                These are the clearest expressions of the product direction so far.
+                A focused decision tool built to help someone choose a surf base
+                with more confidence and less wasted research.
               </p>
             </div>
-            <Link
-              href="/maps"
-              className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
+            <a
+              href={SURF_TOWN_GUIDE_CHECKOUT_URL}
+              className="inline-flex items-center gap-2 self-start rounded-full bg-[var(--ui-accent)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--ui-on-accent)] transition-colors hover:bg-[var(--ui-accent-hover)]"
             >
-              Open maps
+              Get the guide
               <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            </a>
           </div>
 
-          <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] lg:grid-cols-3">
-            {mapProducts.map((product) => (
-              <Link
-                key={product.id}
-                href={`/maps#${product.id}`}
-                className="group bg-[var(--ui-bg-strong)] p-6 transition-colors hover:bg-[var(--ui-bg-soft)] sm:p-7"
-              >
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-                  {product.shortLabel}
-                </span>
-                <h3 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)] transition-colors group-hover:text-[var(--ui-accent)]">
-                  {product.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
-                  {product.description}
-                </p>
-                <div className="mt-6 flex items-center justify-between border-t border-dashed border-[var(--ui-border-subtle)] pt-4">
-                  <span className="font-editorial text-3xl leading-none text-[var(--ui-accent)]">
-                    {product.price}
+          {surfAtlas && (
+            <div className="border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-6 sm:p-8">
+              <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+                    {surfAtlas.shortLabel}
                   </span>
-                  <ArrowUpRight className="h-4 w-4 text-[var(--ui-text-muted)] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--ui-accent)]" />
+                  <h3 className="mt-3 text-3xl font-light text-[var(--ui-text-primary)] sm:text-4xl">
+                    {surfAtlas.title}
+                  </h3>
+                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--ui-text-secondary)]">
+                    {surfAtlas.description}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {surfAtlas.valueProps.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-[var(--ui-border-subtle)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-muted)]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </Link>
-            ))}
-          </div>
+
+                <div className="border-t border-dashed border-[var(--ui-border-subtle)] pt-6 lg:border-t-0 lg:border-l lg:pl-8 lg:pt-0">
+                  <div className="font-editorial text-5xl leading-none text-[var(--ui-accent)]">
+                    {surfAtlas.price}
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
+                    {surfAtlas.audience}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href={SURF_TOWN_GUIDE_CHECKOUT_URL}
+                      className="inline-flex items-center gap-2 rounded-full bg-[var(--ui-accent)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--ui-on-accent)] transition-colors hover:bg-[var(--ui-accent-hover)]"
+                    >
+                      Get the guide
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                    <Link
+                      href="/maps#surf-town-atlas"
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
+                    >
+                      Preview the guide
+                      <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -137,37 +179,59 @@ export default function Page() {
         <div className="section-divider mx-auto max-w-7xl" />
       </div>
 
-      <section id="journey" className="app-surface py-16 sm:py-20">
+      <section className="app-surface py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <span className="mb-4 block font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--ui-accent)]">
-                [ The Journey ]
+                [ Proof of trust ]
               </span>
               <h2 className="font-editorial-display text-4xl tracking-tight text-[var(--ui-text-primary)] md:text-5xl">
-                The story behind the judgment
+                Built from lived experience, not copied lists
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-[var(--ui-text-secondary)]">
-                The journey is what makes the atlas credible.
+                The judgment behind the guide comes from being on the ground,
+                writing dispatches, and comparing places against the same lens
+                over time.
               </p>
             </div>
             <Link
               href="/journey"
               className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
             >
-              Open journey
+              Read the journey
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] lg:grid-cols-2">
-            {journeyChapters.slice(0, 4).map((chapter) => (
-              <div key={chapter.id} className="bg-[var(--ui-bg-strong)] p-6 sm:p-7">
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-                  {chapter.dateRange}
-                </span>
-                <h3 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)]">{chapter.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">{chapter.summary}</p>
+          <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-3">
+            {[
+              {
+                title: 'Ranked with one framework',
+                description:
+                  'Each town is judged against the same lifestyle criteria instead of random one-off impressions.',
+              },
+              {
+                title: 'Written from experience',
+                description:
+                  'The guide is grounded in actual time on location, not scraped recommendations or generic surf travel content.',
+              },
+              {
+                title: 'Made to shorten decisions',
+                description:
+                  'The point is not endless browsing. The point is choosing faster and choosing better.',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="bg-[var(--ui-bg-strong)] p-6 sm:p-7"
+              >
+                <h3 className="text-2xl font-light text-[var(--ui-text-primary)]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -178,28 +242,39 @@ export default function Page() {
         <div className="section-divider mx-auto max-w-7xl" />
       </div>
 
-      <section
-        id="countries"
-        className="app-surface py-14 sm:py-20 relative overflow-hidden"
-        aria-labelledby="countries-heading"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 md:gap-6 mb-10 sm:mb-12">
-            <div>
-              <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase block mb-4">
-                [ Countries ]
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
-                Browse by destination
-              </h2>
+      <section className="app-surface py-14 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-6 sm:p-8">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-3xl">
+                <span className="font-mono text-[11px] font-medium tracking-[0.3em] text-[var(--ui-accent)] uppercase block mb-4">
+                  [ Next step ]
+                </span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight text-[var(--ui-text-primary)]">
+                  Preview the rankings or get the guide
+                </h2>
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-[var(--ui-text-secondary)] max-w-2xl">
+                  The fastest path is simple: look at the preview, decide if the
+                  framework feels useful, then buy.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/maps#surf-town-atlas"
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
+                >
+                  Preview the guide
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href={SURF_TOWN_GUIDE_CHECKOUT_URL}
+                  className="inline-flex items-center gap-2 rounded-full bg-[var(--ui-accent)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--ui-on-accent)] transition-colors hover:bg-[var(--ui-accent-hover)]"
+                >
+                  Get the guide
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
-            <p className="text-[var(--ui-text-secondary)] text-base sm:text-lg leading-relaxed max-w-md md:text-right">
-              Start with a country if you already know the region you care about.
-            </p>
-          </div>
-
-          <div className="border border-dashed border-[var(--ui-border-strong)]">
-            <SimpleCountriesGrid />
           </div>
         </div>
       </section>

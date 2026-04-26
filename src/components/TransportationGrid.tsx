@@ -3,7 +3,10 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BadgeDollarSign, Languages, TrendingUp } from 'lucide-react'
-import { transportationData, TransportInfo } from '../content/transportation-data'
+import {
+  transportationData,
+  TransportInfo,
+} from '../content/transportation-data'
 
 function getScoreBand(score: number) {
   if (score >= 8.5) {
@@ -48,8 +51,12 @@ export default function TransportationGrid() {
 
   const summary = useMemo(() => {
     const total = transportationData.length
-    const avg = transportationData.reduce((sum, entry) => sum + entry.score, 0) / total
-    const best = transportationData.reduce((top, entry) => (entry.score > top.score ? entry : top), transportationData[0])
+    const avg =
+      transportationData.reduce((sum, entry) => sum + entry.score, 0) / total
+    const best = transportationData.reduce(
+      (top, entry) => (entry.score > top.score ? entry : top),
+      transportationData[0],
+    )
     const strong = transportationData.filter((entry) => entry.score >= 7).length
     return {
       average: avg.toFixed(1),
@@ -65,28 +72,46 @@ export default function TransportationGrid() {
         <div className="bg-[var(--ui-bg-strong)] p-6">
           <div className="flex items-center gap-2 text-[var(--ui-text-subtle)]">
             <TrendingUp className="h-4 w-4" />
-            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">Average Score</span>
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">
+              Average Score
+            </span>
           </div>
-          <div className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">{summary.average}</div>
-          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Across {summary.total} countries</p>
+          <div className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">
+            {summary.average}
+          </div>
+          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">
+            Across {summary.total} countries
+          </p>
         </div>
 
         <div className="bg-[var(--ui-bg-strong)] p-6">
           <div className="flex items-center gap-2 text-[var(--ui-text-subtle)]">
             <Languages className="h-4 w-4" />
-            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">Top Network</span>
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">
+              Top Network
+            </span>
           </div>
-          <div className="mt-3 text-2xl font-light text-[var(--ui-text-primary)]">{summary.best.country}</div>
-          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Score {summary.best.score.toFixed(1)} / 10</p>
+          <div className="mt-3 text-2xl font-light text-[var(--ui-text-primary)]">
+            {summary.best.country}
+          </div>
+          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">
+            Score {summary.best.score.toFixed(1)} / 10
+          </p>
         </div>
 
         <div className="bg-[var(--ui-bg-strong)] p-6">
           <div className="flex items-center gap-2 text-[var(--ui-text-subtle)]">
             <BadgeDollarSign className="h-4 w-4" />
-            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">Reliable Transit</span>
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.28em]">
+              Reliable Transit
+            </span>
           </div>
-          <div className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">{summary.strong}</div>
-          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">Countries scoring 7.0+</p>
+          <div className="mt-3 text-4xl font-extralight text-[var(--ui-text-primary)]">
+            {summary.strong}
+          </div>
+          <p className="mt-1 text-sm text-[var(--ui-text-muted)]">
+            Countries scoring 7.0+
+          </p>
         </div>
       </div>
 
@@ -140,19 +165,27 @@ export default function TransportationGrid() {
   )
 }
 
-function TransportCard({ transport, rank }: { transport: TransportInfo; rank: number }) {
+function TransportCard({
+  transport,
+  rank,
+}: {
+  transport: TransportInfo
+  rank: number
+}) {
   const scoreBand = getScoreBand(transport.score)
 
   return (
     <article className="group rounded-2xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-6 lg:p-7">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
         <div className="flex shrink-0 items-start gap-3">
-          <div className={`relative flex h-20 w-20 items-center justify-center rounded-2xl border ${scoreBand.scoreClasses}`}>
+          <div
+            className={`relative flex h-20 w-20 items-center justify-center rounded-2xl border ${scoreBand.scoreClasses}`}
+          >
             <div className="text-center leading-none">
-              <div className="text-2xl font-extralight">
-                {transport.score}
+              <div className="text-2xl font-extralight">{transport.score}</div>
+              <div className="mt-1 text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+                /10
               </div>
-              <div className="mt-1 text-[10px] font-mono uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">/10</div>
             </div>
             {rank <= 3 && (
               <div className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--ui-accent)] text-[10px] font-mono text-[var(--ui-on-accent)]">
@@ -162,7 +195,9 @@ function TransportCard({ transport, rank }: { transport: TransportInfo; rank: nu
           </div>
 
           <div className="pt-1">
-            <span className={`inline-flex rounded-full border px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.2em] ${scoreBand.badgeClasses}`}>
+            <span
+              className={`inline-flex rounded-full border px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.2em] ${scoreBand.badgeClasses}`}
+            >
               {scoreBand.label}
             </span>
             <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
@@ -186,7 +221,9 @@ function TransportCard({ transport, rank }: { transport: TransportInfo; rank: nu
               <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
                 Currency Snapshot
               </span>
-              <span className="mt-1 block text-sm text-[var(--ui-text-secondary)]">{transport.currencyRate}</span>
+              <span className="mt-1 block text-sm text-[var(--ui-text-secondary)]">
+                {transport.currencyRate}
+              </span>
             </div>
 
             <div className="rounded-xl border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-soft)] p-3">

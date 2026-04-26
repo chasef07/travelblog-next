@@ -5,21 +5,26 @@ import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Badge } from './ui/badge'
 import { Card, CardContent, CardHeader } from './ui/card'
-import { fullJourneyData, journeyStats, type CountryData } from '@/utils/comprehensive-map-data'
+import {
+  fullJourneyData,
+  journeyStats,
+  type CountryData,
+} from '@/utils/comprehensive-map-data'
 
 export default function InteractiveTravelMap() {
   const mapRef = useRef<HTMLDivElement>(null)
   const leafletMapRef = useRef<L.Map | null>(null)
-  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null)
+  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(
+    null,
+  )
   const [isLoaded, setIsLoaded] = useState(false)
 
   // Use comprehensive journey data
   const visitedCountries = fullJourneyData
 
   useEffect(() => {
-    
     let L: typeof import('leaflet') | null = null
-    
+
     const initializeMap = async () => {
       // Dynamic import of Leaflet
       const leaflet = await import('leaflet')
@@ -35,15 +40,18 @@ export default function InteractiveTravelMap() {
           zoomControl: true,
           scrollWheelZoom: true,
           doubleClickZoom: true,
-          touchZoom: true
+          touchZoom: true,
         })
 
         // Add dark theme tiles
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-          attribution: '© OpenStreetMap contributors © CARTO',
-          subdomains: 'abcd',
-          maxZoom: 18
-        }).addTo(leafletMapRef.current)
+        L.tileLayer(
+          'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+          {
+            attribution: '© OpenStreetMap contributors © CARTO',
+            subdomains: 'abcd',
+            maxZoom: 18,
+          },
+        ).addTo(leafletMapRef.current)
 
         // Custom marker icon function - mobile-friendly design with single color
         const createCustomIcon = (index: number) => {
@@ -60,45 +68,54 @@ export default function InteractiveTravelMap() {
               </div>
             `,
             iconSize: [40, 40],
-            iconAnchor: [20, 20]
+            iconAnchor: [20, 20],
           })
         }
 
         // Add markers for each country
         visitedCountries.forEach((country, index) => {
-          const marker = L!.marker(country.coordinates, {
-            icon: createCustomIcon(index)
-          }).addTo(leafletMapRef.current!)
+          const marker = L!
+            .marker(country.coordinates, {
+              icon: createCustomIcon(index),
+            })
+            .addTo(leafletMapRef.current!)
 
           // Add click event
           marker.on('click', () => {
             setSelectedCountry(country)
             leafletMapRef.current!.flyTo(country.coordinates, 6, {
-              duration: 1.5
+              duration: 1.5,
             })
           })
 
           // Add hover tooltip
-          marker.bindTooltip(`
+          marker.bindTooltip(
+            `
             <div class="text-center">
               <div class="font-bold text-white">${country.name}</div>
               <div class="text-gray-300 text-sm">${country.visitDate}</div>
             </div>
-          `, {
-            permanent: false,
-            direction: 'top',
-            className: 'custom-tooltip'
-          })
+          `,
+            {
+              permanent: false,
+              direction: 'top',
+              className: 'custom-tooltip',
+            },
+          )
         })
 
         // Add journey path
-        const coordinates = visitedCountries.map(country => country.coordinates)
-        L!.polyline(coordinates, {
-          color: '#3b82f6',
-          weight: 3,
-          opacity: 0.7,
-          dashArray: '10, 10'
-        }).addTo(leafletMapRef.current!)
+        const coordinates = visitedCountries.map(
+          (country) => country.coordinates,
+        )
+        L!
+          .polyline(coordinates, {
+            color: '#3b82f6',
+            weight: 3,
+            opacity: 0.7,
+            dashArray: '10, 10',
+          })
+          .addTo(leafletMapRef.current!)
 
         setIsLoaded(true)
       }
@@ -115,13 +132,16 @@ export default function InteractiveTravelMap() {
   }, [visitedCountries])
 
   return (
-    <section id="journey" className="py-16 px-6 relative overflow-hidden bg-muted/5">
+    <section
+      id="journey"
+      className="py-16 px-6 relative overflow-hidden bg-muted/5"
+    >
       <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
           className="text-center mb-12"
         >
           <Badge variant="outline" className="mb-4 text-sm px-4 py-2">
@@ -131,7 +151,8 @@ export default function InteractiveTravelMap() {
             Around the World
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Click on numbered markers to explore each destination and discover the stories behind the journey
+            Click on numbered markers to explore each destination and discover
+            the stories behind the journey
           </p>
         </motion.div>
 
@@ -141,7 +162,7 @@ export default function InteractiveTravelMap() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: '-100px' }}
             className="lg:col-span-2"
           >
             <div className="overflow-hidden rounded-xl shadow-xl bg-background">
@@ -152,7 +173,9 @@ export default function InteractiveTravelMap() {
               />
               {!isLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
-                  <div className="text-muted-foreground">Loading interactive map...</div>
+                  <div className="text-muted-foreground">
+                    Loading interactive map...
+                  </div>
                 </div>
               )}
             </div>
@@ -163,14 +186,14 @@ export default function InteractiveTravelMap() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: '-100px' }}
             className="space-y-6"
           >
             {selectedCountry ? (
               <Card className="p-6 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-border/20 shadow-xl">
                 <CardHeader className="p-0 mb-4">
                   <div className="flex items-center gap-3 mb-2">
-                    <div 
+                    <div
                       className="w-4 h-4 rounded-full"
                       style={{ background: selectedCountry.color }}
                     />
@@ -180,27 +203,33 @@ export default function InteractiveTravelMap() {
                   </div>
                   <h3 className="text-2xl font-bold">{selectedCountry.name}</h3>
                 </CardHeader>
-                
+
                 <CardContent className="p-0 space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
                     {selectedCountry.description}
                   </p>
-                  
+
                   <div>
                     <h4 className="font-medium mb-2">Highlights</h4>
                     <ul className="space-y-1">
                       {selectedCountry.highlights.map((highlight, index) => (
-                        <li key={index} className="text-sm text-muted-foreground flex items-center gap-2">
+                        <li
+                          key={index}
+                          className="text-sm text-muted-foreground flex items-center gap-2"
+                        >
                           <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                           {highlight}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="pt-4 border-t border-border/50">
                     <div className="text-sm text-muted-foreground">
-                      <span className="font-medium">{selectedCountry.blogPostsCount}</span> blog posts written
+                      <span className="font-medium">
+                        {selectedCountry.blogPostsCount}
+                      </span>{' '}
+                      blog posts written
                     </div>
                   </div>
                 </CardContent>
@@ -211,7 +240,8 @@ export default function InteractiveTravelMap() {
                   <div>
                     <h3 className="font-bold mb-2">Explore the Journey</h3>
                     <p className="text-muted-foreground text-sm">
-                      Click on any numbered marker to learn more about that destination and see what made it special.
+                      Click on any numbered marker to learn more about that
+                      destination and see what made it special.
                     </p>
                   </div>
                 </div>
@@ -223,15 +253,23 @@ export default function InteractiveTravelMap() {
               <h4 className="font-bold mb-4">Complete Journey Overview</h4>
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">{journeyStats.totalCountries}</div>
+                  <div className="text-2xl font-bold text-primary">
+                    {journeyStats.totalCountries}
+                  </div>
                   <div className="text-xs text-muted-foreground">Countries</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">{journeyStats.totalBlogPosts}</div>
-                  <div className="text-xs text-muted-foreground">Blog Posts</div>
+                  <div className="text-2xl font-bold text-primary">
+                    {journeyStats.totalBlogPosts}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    Blog Posts
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">{journeyStats.durationMonths}</div>
+                  <div className="text-2xl font-bold text-primary">
+                    {journeyStats.durationMonths}
+                  </div>
                   <div className="text-xs text-muted-foreground">Months</div>
                 </div>
               </div>
