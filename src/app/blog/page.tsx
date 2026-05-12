@@ -23,7 +23,7 @@ export default function Page() {
         <SectionHeader
           label="Travel Stories"
           title="Adventures"
-          description="Real experiences from 20 countries. Cultural insights, practical tips, and authentic stories."
+          description="Real experiences from 21 countries. Cultural insights, practical tips, and authentic stories."
         />
         <BlogGrid />
       </div>

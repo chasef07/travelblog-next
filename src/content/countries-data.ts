@@ -19,7 +19,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'IS-flag.jpg',
     region: 'Middle East',
     description:
-      'Where the journey began. Farming on the Gaza border, celebrating Jewish holidays in Jerusalem, and connecting with heritage.',
+      'Gaza border farming, Jerusalem holidays, Tel Aviv, and the first month on the road.',
     heroImage: '/assets/images/misc/holyholy.jpg',
     dates: { firstVisit: '2024-09-21', lastVisit: '2024-10-20' },
     highlights: [
@@ -35,7 +35,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'GG-flag.jpg',
     region: 'Caucasus',
     description:
-      'Ancient monasteries, incredible wine culture, and the welcoming spirit of the Caucasus mountains.',
+      'Tbilisi, wine country, Prometheus Cave, and the Gudauri apartment bet.',
     heroImage: '/assets/images/misc/georgia-hero.jpg',
     dates: { firstVisit: '2024-10-20', lastVisit: '2024-10-27' },
     highlights: ['Tbilisi', 'Georgian Wine', 'Mountain Monasteries'],
@@ -46,7 +46,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'KE-flag.jpg',
     region: 'East Africa',
     description:
-      'Safari adventures, vibrant Nairobi culture, and the warmth of Kenyan hospitality.',
+      'Nairobi, Diani Beach, kite surfing, and the first real taste of East Africa.',
     heroImage: '/assets/images/misc/kenya-hero.jpg',
     dates: { firstVisit: '2024-10-27', lastVisit: '2024-11-10' },
     highlights: ['Nairobi', 'Safari', 'Maasai Culture'],
@@ -57,7 +57,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'TZ-flag.jpg',
     region: 'East Africa',
     description:
-      'From the Serengeti to Zanzibar, Tanzania offers wildlife and beaches in equal measure.',
+      'Serengeti safari, Ngorongoro, Tarangire, and hunting at dawn with the Hadza.',
     heroImage: '/assets/images/misc/tanzania-hero.jpg',
     dates: { firstVisit: '2024-11-10', lastVisit: '2024-11-17' },
     highlights: ['Zanzibar', 'Serengeti', 'Stone Town'],
@@ -68,7 +68,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'RW-flag.jpg',
     region: 'East Africa',
     description:
-      'The land of a thousand hills. A country of resilience, beauty, and remarkable transformation.',
+      'Kigali, Kivu Noir coffee, the genocide memorial, and meetings about business in Africa.',
     heroImage: '/assets/images/misc/rwanda-hero.jpg',
     dates: { firstVisit: '2024-11-17', lastVisit: '2024-11-24' },
     highlights: ['Kigali', 'Gorilla Trekking', 'Genocide Memorial'],
@@ -78,7 +78,8 @@ export const countriesData: Record<string, CountryInfo> = {
     slug: 'uae',
     flag: 'AE-flag.jpg',
     region: 'Middle East',
-    description: 'The contrast of tradition and ultra-modernity in the desert.',
+    description:
+      'Dubai layover, Burj Khalifa, Ski Dubai, and the consumption capital between trip legs.',
     heroImage: '/assets/images/misc/uae-hero.jpg',
     dates: { firstVisit: '2024-11-24', lastVisit: '2024-12-01' },
     highlights: ['Dubai', 'Abu Dhabi', 'Desert Safari'],
@@ -89,7 +90,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'NP-flag.jpg',
     region: 'South Asia',
     description:
-      'Trekking the Annapurna Circuit, embracing Hindu-Buddhist culture, and finding peace in the Himalayas.',
+      'Annapurna Circuit, Thorong La Pass, Kathmandu, Pokhara, and Himalayan pressure testing.',
     heroImage: '/assets/images/misc/nepal-hero.jpg',
     dates: { firstVisit: '2024-12-01', lastVisit: '2024-12-20' },
     highlights: [
@@ -105,7 +106,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'TH-flag.jpg',
     region: 'Southeast Asia',
     description:
-      'From island parties to mountain temples, Thailand was the gateway to Southeast Asia backpacking.',
+      'Koh Tao, Full Moon Party, Chiang Dao, Pai, Muay Thai, and the first Southeast Asia stretch.',
     heroImage: '/assets/images/misc/fullmoon-2.jpg',
     dates: { firstVisit: '2024-12-20', lastVisit: '2025-01-22' },
     highlights: [
@@ -122,7 +123,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'LA-flag.jpg',
     region: 'Southeast Asia',
     description:
-      'The slow boat down the Mekong, authentic village life, and the warmth of Lao hospitality.',
+      'Slow boat, Nong Khiaw, Vang Vieng, farm volunteering, and the Thakhek motorbike loop.',
     heroImage: '/assets/images/misc/laossusnet.jpg',
     dates: { firstVisit: '2025-01-22', lastVisit: '2025-02-15' },
     highlights: [
@@ -139,7 +140,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'CB-flag.jpg',
     region: 'Southeast Asia',
     description:
-      'Ancient temples, sobering history, and the resilient spirit of the Khmer people.',
+      'Angkor Wat, Koh Rong, Kampot, Phnom Penh, and the heavier history under the backpacker route.',
     heroImage: '/assets/images/misc/cambodia-hero.jpg',
     dates: { firstVisit: '2025-02-15', lastVisit: '2025-03-01' },
     highlights: ['Angkor Wat', 'Siem Reap', 'Phnom Penh', 'Killing Fields'],
@@ -150,7 +151,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'CH-flag.jpg',
     region: 'East Asia',
     description:
-      'Ancient civilization meets modern marvel. A country of contrasts and complexity.',
+      'Chengdu pandas, Sichuan food, Zhangjiajie, tea houses, and big-city China.',
     heroImage: '/assets/images/misc/china-hero.jpg',
     dates: { firstVisit: '2025-03-01', lastVisit: '2025-03-15' },
     highlights: ['Great Wall', 'Beijing', 'Shanghai'],
@@ -161,7 +162,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'VM-flag.jpg',
     region: 'Southeast Asia',
     description:
-      'Motorbike adventures, incredible street food, and the energy of a nation on the rise.',
+      'A 4,000 km motorbike run through Ha Giang, Cao Bang, rice fields, caves, and coastal roads.',
     heroImage: '/assets/images/misc/vietnam-hero.jpg',
     dates: { firstVisit: '2025-03-15', lastVisit: '2025-04-15' },
     highlights: ['Hanoi', 'Ho Chi Minh City', 'Ha Long Bay', 'Hoi An'],
@@ -172,7 +173,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'SN-flag.jpg',
     region: 'Southeast Asia',
     description:
-      'The garden city. Clean, efficient, and a melting pot of Asian cultures.',
+      'Singapore efficiency, hawker food, Little India, and the Dubai comparison.',
     heroImage: '/assets/images/misc/singapore-hero.jpg',
     dates: { firstVisit: '2025-04-15', lastVisit: '2025-04-20' },
     highlights: ['Marina Bay', 'Hawker Centers', 'Gardens by the Bay'],
@@ -183,7 +184,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'RP-flag.jpg',
     region: 'Southeast Asia',
     description:
-      'Island hopping paradise with some of the friendliest people in the world.',
+      'Siargao surfing, El Nido boats, Port Barton, Cebu waterfalls, and the honest Philippines critique.',
     heroImage: '/assets/images/misc/philippines-hero.jpg',
     dates: { firstVisit: '2025-04-20', lastVisit: '2025-05-20' },
     highlights: ['Palawan', 'Cebu', 'Siargao', 'Island Hopping'],
@@ -194,7 +195,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'ID-flag.jpg',
     region: 'Southeast Asia',
     description:
-      "From Bali to beyond, exploring the diversity of the world's largest archipelago.",
+      'Bali, Uluwatu, Komodo, manta rays, whale sharks, and the business-from-a-laptop question.',
     heroImage: '/assets/images/misc/indonesia-hero.jpg',
     dates: { firstVisit: '2025-05-20', lastVisit: '2025-06-20' },
     highlights: ['Bali', 'Komodo', 'Yogyakarta', 'Raja Ampat'],
@@ -205,7 +206,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'JA-flag.jpg',
     region: 'East Asia',
     description:
-      'Ancient tradition meets cutting-edge innovation. A country that defies expectations.',
+      'Hokkaido, onsens, Sapporo, Japanese food, and a slower post-Asia reflection period.',
     heroImage: '/assets/images/misc/japan-hero.jpg',
     dates: { firstVisit: '2025-06-20', lastVisit: '2025-07-20' },
     highlights: ['Tokyo', 'Kyoto', 'Osaka', 'Mount Fuji'],
@@ -216,7 +217,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'CR-flag.jpg',
     region: 'Central America',
     description:
-      'Pura vida lifestyle, incredible biodiversity, and world-class surf.',
+      'Puerto Viejo, Nosara, Santa Teresa, surf-town scoring, and building from Costa Rica.',
     heroImage: '/assets/images/misc/costarica-hero.jpg',
     dates: { firstVisit: '2025-08-01', lastVisit: '2025-09-01' },
     highlights: ['Manuel Antonio', 'Monteverde', 'Surf Towns'],
@@ -227,7 +228,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'PM-flag.jpg',
     region: 'Central America',
     description:
-      'Where two continents meet. The canal, the city, and the Caribbean islands.',
+      'Bocas del Toro, Panama City, canal-country infrastructure, and the Caribbean work stop.',
     heroImage: '/assets/images/misc/panama-hero.jpg',
     dates: { firstVisit: '2025-09-01', lastVisit: '2025-10-01' },
     highlights: ['Panama City', 'San Blas Islands', 'Bocas del Toro'],
@@ -238,7 +239,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'GT-flag.jpg',
     region: 'Central America',
     description:
-      'Mayan ruins, volcanic landscapes, and the colorful markets of Antigua.',
+      'Antigua, Lake Atitlan, El Paredon, Mayan cooking, temezcal, and volcano country.',
     heroImage: '/assets/images/misc/guatemala-hero.jpg',
     dates: { firstVisit: '2025-10-01', lastVisit: '2025-11-15' },
     highlights: ['Antigua', 'Lake Atitlan', 'Tikal', 'Semuc Champey'],
@@ -249,10 +250,21 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'SV-flag.jpg',
     region: 'Central America',
     description:
-      "Bitcoin nation, surf paradise, and Central America's best-kept secret.",
+      'El Tunco, Bitcoin Beach, pupusas, clean roads, and the strongest early surf-town score.',
     heroImage: '/assets/images/misc/elsalvador-surfcity.jpg',
     dates: { firstVisit: '2025-11-15' },
     highlights: ['El Tunco', 'Bitcoin Beach', 'Surf Culture', 'Pupusas'],
+  },
+  Netherlands: {
+    name: 'Netherlands',
+    slug: 'netherlands',
+    flag: 'NL-flag.svg',
+    region: 'Western Europe',
+    description:
+      'Rotterdam base, Netherlands flag on the map, and the start of the Euro summer chapter.',
+    heroImage: '/assets/images/flags/NL-flag.svg',
+    dates: { firstVisit: '2026-05-12' },
+    highlights: ['Rotterdam', 'Euro Summer', 'Dutch Design', 'Cycling Culture'],
   },
 }
 

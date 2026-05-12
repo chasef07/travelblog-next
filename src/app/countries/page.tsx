@@ -24,8 +24,8 @@ export default function CountriesPage() {
             Countries
           </h1>
           <p className="max-w-2xl text-base sm:text-lg text-[var(--ui-text-muted)] leading-relaxed">
-            20 countries. Countless stories. Select a destination to explore all
-            content in one place.
+            {countries.length} countries. Countless stories. Select a
+            destination to explore all content in one place.
           </p>
         </div>
 

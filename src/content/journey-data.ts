@@ -96,4 +96,13 @@ export const journeyChapters: JourneyChapter[] = [
       '2026-april',
     ],
   },
+  {
+    id: 'euro-summer',
+    title: 'Euro Summer',
+    dateRange: 'May 2026 - Present',
+    summary:
+      'Rotterdam and the Netherlands opening a new European chapter while the builder era continues from abroad.',
+    countries: ['Netherlands'],
+    archiveKeys: ['2026-may'],
+  },
 ]

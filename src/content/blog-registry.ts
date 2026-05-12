@@ -19,6 +19,7 @@ import { january2026Posts } from '@/content/blog-posts/2026-january'
 import { february2026Posts } from '@/content/blog-posts/2026-february'
 import { march2026Posts } from '@/content/blog-posts/2026-march'
 import { april2026Posts } from '@/content/blog-posts/2026-april'
+import { may2026Posts } from '@/content/blog-posts/2026-may'
 
 export type BlogArchive = {
   year: number
@@ -50,9 +51,20 @@ export const allBlogPosts: BlogPost[] = [
   ...february2026Posts,
   ...march2026Posts,
   ...april2026Posts,
+  ...may2026Posts,
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
 export const blogArchives: BlogArchive[] = [
+  {
+    year: 2026,
+    slug: 'may',
+    title: 'May 2026: Netherlands, Start of Euro Summer',
+    date: '2026-05-12',
+    displayDate: 'May 2026',
+    excerpt:
+      'Rotterdam, the Netherlands, and the opening notes of a Euro summer chapter.',
+    image: '/assets/images/flags/NL-flag.svg',
+  },
   {
     year: 2026,
     slug: 'april',

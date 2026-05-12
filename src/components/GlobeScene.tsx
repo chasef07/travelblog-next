@@ -332,10 +332,10 @@ function Scene({
     }
   }, [])
 
-  // Initial rotation to show Japan (longitude ~138°E)
+  // Initial rotation to show the current Rotterdam location.
   const initialRotation = useMemo(() => {
-    const japanLongitude = 138
-    return -(japanLongitude + 90) * (Math.PI / 180)
+    const rotterdamLongitude = 4.4777
+    return -(rotterdamLongitude + 90) * (Math.PI / 180)
   }, [])
 
   // Callback ref to set initial rotation when group is created

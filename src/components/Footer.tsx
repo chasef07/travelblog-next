@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import { journeyStats } from '@/utils/comprehensive-map-data'
 
 type IconProps = React.SVGProps<SVGSVGElement> & { className?: string }
 
@@ -50,6 +51,7 @@ export default function Footer() {
     { name: 'Atlas', href: '/atlas' },
     { name: 'Maps', href: '/maps' },
     { name: 'Journey', href: '/journey' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Vlogs', href: '/vlogs' },
     { name: 'Countries', href: '/countries' },
     { name: 'Food', href: '/food' },
@@ -137,7 +139,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="text-[var(--ui-accent)] text-xs font-mono tracking-wide">
-              20 Countries · Around the World
+              {journeyStats.totalCountries} Countries · Around the World
             </div>
             <div className="text-[var(--ui-text-muted)] text-xs font-body tracking-wide">
               Site automation by{' '}

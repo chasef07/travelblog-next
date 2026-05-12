@@ -9,6 +9,7 @@ import { SURF_TOWN_GUIDE_CHECKOUT_URL } from '@/lib/product-links'
 const navLinks = [
   { href: '/maps#surf-town-atlas', label: 'Surf Atlas' },
   { href: '/journey', label: 'Journey' },
+  { href: '/blog', label: 'Blog' },
   { href: '/vlogs', label: 'Vlogs' },
   { href: '/countries', label: 'Countries' },
   { href: '/food', label: 'Food' },
@@ -74,7 +75,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-6 md:flex lg:gap-8">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}

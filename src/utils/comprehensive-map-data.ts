@@ -13,7 +13,7 @@ export interface CountryData {
   posts?: BlogPost[]
 }
 
-// Your complete 19-country world tour journey
+// Your complete world tour journey
 export const fullJourneyData: CountryData[] = [
   {
     name: 'Israel',
@@ -351,16 +351,32 @@ export const fullJourneyData: CountryData[] = [
       "Surf paradise on the Pacific coast - riding waves at El Tunco and exploring Central America's Bitcoin nation.",
     color: '#0066cc',
   },
+  {
+    name: 'Netherlands',
+    coordinates: [51.9244, 4.4777],
+    visitDate: 'May 2026',
+    highlights: [
+      'Rotterdam Base',
+      'Dutch Design',
+      'Cycling Culture',
+      'Harbor City Energy',
+    ],
+    blogPostsCount: 0,
+    flagCode: 'NL',
+    description:
+      "Current European chapter based in Rotterdam - exploring the Netherlands' design, cycling culture, and port-city energy.",
+    color: '#f97316',
+  },
 ]
 
 // Calculate journey stats
 export const journeyStats = {
-  totalCountries: 20, // Excluding Florida/USA return home
+  totalCountries: 21, // Excluding Florida/USA return home
   totalBlogPosts: allBlogPosts.length,
-  durationMonths: 10,
+  durationMonths: 20,
   continents: 4, // Asia, Africa, Europe (Georgia), Central America
   startDate: 'September 2024',
-  endDate: 'August 2025',
+  endDate: 'Present',
 }
 
 // Utility functions for country data access
@@ -427,7 +443,7 @@ export function getCountriesByRegion(
       'Japan',
     ],
     africa: ['Kenya', 'Tanzania', 'Rwanda'],
-    europe: ['Georgia'],
+    europe: ['Georgia', 'Netherlands'],
     americas: [
       'Florida, USA',
       'Costa Rica',
