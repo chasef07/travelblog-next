@@ -266,6 +266,22 @@ export const countriesData: Record<string, CountryInfo> = {
     dates: { firstVisit: '2026-05-12' },
     highlights: ['Rotterdam', 'Euro Summer', 'Dutch Design', 'Cycling Culture'],
   },
+  Belgium: {
+    name: 'Belgium',
+    slug: 'belgium',
+    flag: 'BE-flag.svg',
+    region: 'Western Europe',
+    description:
+      'Ghent base, Belgium flag on the map, canal streets, and the next Euro summer stop.',
+    heroImage: '/assets/images/flags/BE-flag.svg',
+    dates: { firstVisit: '2026-05-16' },
+    highlights: [
+      'Ghent',
+      'Euro Summer',
+      'Canal Streets',
+      'Flemish Architecture',
+    ],
+  },
 }
 
 // Helper to get all countries as array

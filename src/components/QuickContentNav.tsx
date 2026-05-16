@@ -2,51 +2,42 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Coffee, Compass, MapPin, Route } from 'lucide-react'
+import { ArrowRight, Compass, MapPin, Route } from 'lucide-react'
 import { atlasIntents } from '@/content/maps-data'
 
-const contentSections = [
-  {
-    id: 'surf',
-    title: atlasIntents[0].title,
+const intentMetadata = {
+  surf: {
     subtitle: 'Warm water + waves',
-    description: atlasIntents[0].description,
     icon: Compass,
-    href: atlasIntents[0].href,
-    stat: atlasIntents[0].stat,
     statLabel: 'Priority lens',
   },
-  {
-    id: 'work',
-    title: atlasIntents[1].title,
-    subtitle: 'Laptop-first shortlist',
-    description: atlasIntents[1].description,
-    icon: Coffee,
-    href: atlasIntents[1].href,
-    stat: atlasIntents[1].stat,
+  adventure: {
+    subtitle: 'Nature + motion',
+    icon: Compass,
     statLabel: 'Priority lens',
   },
-  {
-    id: 'spiritual',
-    title: atlasIntents[2].title,
-    subtitle: 'Beauty + depth',
-    description: atlasIntents[2].description,
+  wellness: {
+    subtitle: 'Reset + recovery',
     icon: MapPin,
-    href: atlasIntents[2].href,
-    stat: atlasIntents[2].stat,
     statLabel: 'Priority lens',
   },
-  {
-    id: 'journey',
-    title: atlasIntents[3].title,
+  journey: {
     subtitle: 'Chronological route',
-    description: atlasIntents[3].description,
     icon: Route,
-    href: atlasIntents[3].href,
-    stat: atlasIntents[3].stat,
     statLabel: 'Core pillar',
   },
-]
+} as const
+
+const contentSections = atlasIntents.map((intent) => {
+  const metadata =
+    intentMetadata[intent.id as keyof typeof intentMetadata] ||
+    intentMetadata.surf
+
+  return {
+    ...intent,
+    ...metadata,
+  }
+})
 
 export default function QuickContentNav() {
   return (

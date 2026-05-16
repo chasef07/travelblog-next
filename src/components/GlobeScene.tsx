@@ -332,10 +332,10 @@ function Scene({
     }
   }, [])
 
-  // Initial rotation to show the current Rotterdam location.
+  // Initial rotation to show the current Ghent location.
   const initialRotation = useMemo(() => {
-    const rotterdamLongitude = 4.4777
-    return -(rotterdamLongitude + 90) * (Math.PI / 180)
+    const ghentLongitude = 3.7174
+    return -(ghentLongitude + 90) * (Math.PI / 180)
   }, [])
 
   // Callback ref to set initial rotation when group is created

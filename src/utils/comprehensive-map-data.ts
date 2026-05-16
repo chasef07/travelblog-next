@@ -367,14 +367,30 @@ export const fullJourneyData: CountryData[] = [
       "Current European chapter based in Rotterdam - exploring the Netherlands' design, cycling culture, and port-city energy.",
     color: '#f97316',
   },
+  {
+    name: 'Belgium',
+    coordinates: [51.0543, 3.7174],
+    visitDate: 'May 2026',
+    highlights: [
+      'Ghent Base',
+      'Canal Streets',
+      'Belgian Beer',
+      'Flemish Architecture',
+    ],
+    blogPostsCount: 0,
+    flagCode: 'BE',
+    description:
+      'Current European chapter based in Ghent - Belgium flag on the map, canal streets, and Flemish architecture.',
+    color: '#ef4444',
+  },
 ]
 
 // Calculate journey stats
 export const journeyStats = {
-  totalCountries: 21, // Excluding Florida/USA return home
+  totalCountries: 22, // Excluding Florida/USA return home
   totalBlogPosts: allBlogPosts.length,
   durationMonths: 20,
-  continents: 4, // Asia, Africa, Europe (Georgia), Central America
+  continents: 4, // Asia, Africa, Europe, Central America
   startDate: 'September 2024',
   endDate: 'Present',
 }
@@ -443,7 +459,7 @@ export function getCountriesByRegion(
       'Japan',
     ],
     africa: ['Kenya', 'Tanzania', 'Rwanda'],
-    europe: ['Georgia', 'Netherlands'],
+    europe: ['Georgia', 'Netherlands', 'Belgium'],
     americas: [
       'Florida, USA',
       'Costa Rica',

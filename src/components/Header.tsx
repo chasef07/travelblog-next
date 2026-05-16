@@ -7,7 +7,7 @@ import { Button } from './ui/button'
 import { SURF_TOWN_GUIDE_CHECKOUT_URL } from '@/lib/product-links'
 
 const navLinks = [
-  { href: '/maps#surf-town-atlas', label: 'Surf Atlas' },
+  { href: '/maps', label: 'Atlases' },
   { href: '/journey', label: 'Journey' },
   { href: '/blog', label: 'Blog' },
   { href: '/vlogs', label: 'Vlogs' },
@@ -92,7 +92,7 @@ export default function Header() {
               href={SURF_TOWN_GUIDE_CHECKOUT_URL}
               className="hidden items-center gap-2 rounded-full bg-[var(--ui-accent)] px-4 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--ui-on-accent)] transition-colors hover:bg-[var(--ui-accent-hover)] md:inline-flex"
             >
-              Buy guide
+              Buy surf guide
             </a>
             <Button
               variant="ghost"

@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import { ArrowUpRight, MapPin } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
 import { atlasIntents, mapProducts } from '@/content/maps-data'
-import { getPlacesByTheme } from '@/content/places-data'
+import { getPlacesForMap } from '@/content/places-data'
 
 export const metadata = generatePageMetadata({
   title: 'Atlas',
   description:
-    'Explore the atlas by intent: surf towns, cafe + work spots, spiritual places, and long-stay travel intelligence.',
+    'Explore the atlas by intent: surf towns, adventure countries, wellness destinations, cafe + work spots, and long-stay travel intelligence.',
   path: '/atlas',
   images: mapProducts.map((product) => product.image),
   keywords: [
@@ -15,13 +15,21 @@ export const metadata = generatePageMetadata({
     'travel intelligence',
     'long-stay travel',
     'surf town map',
+    'adventure travel map',
+    'wellness travel map',
   ],
 })
 
 export default function AtlasPage() {
-  const surfPlaces = [...getPlacesByTheme('surf')].sort(
-    (a, b) => b.scores.surf - a.scores.surf,
-  )
+  const productPreviews = mapProducts.map((product) => {
+    const previewItems =
+      product.featuredCountries ||
+      getPlacesForMap(product.id)
+        .slice(0, 3)
+        .map((place) => place.name)
+
+    return { product, previewItems }
+  })
 
   return (
     <main className="min-h-screen app-surface pt-20 sm:pt-24">
@@ -78,56 +86,53 @@ export default function AtlasPage() {
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-                [ Surf Town Atlas ]
+                [ Atlas Products ]
               </span>
               <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">
-                Choose your next surf base
+                Paid maps by lens
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)] sm:text-base">
-                Compare real surf towns and find the one that fits your routine,
-                budget, and style of travel.
+                Each atlas has its own decision criteria, preview set, and
+                product state so the system can grow beyond surf towns cleanly.
               </p>
             </div>
             <Link
-              href="/maps#surf-town-atlas"
+              href="/maps"
               className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
             >
-              View surf atlas
+              View maps
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
           <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] lg:grid-cols-2">
-            {surfPlaces.map((place) => (
-              <div
-                key={place.id}
-                className="bg-[var(--ui-bg-strong)] p-6 sm:p-7"
+            {productPreviews.map(({ product, previewItems }) => (
+              <Link
+                key={product.id}
+                href={product.href}
+                className="group bg-[var(--ui-bg-strong)] p-6 transition-colors hover:bg-[var(--ui-bg-soft)] sm:p-7"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-                      {place.region}
+                      {product.statusLabel}
                     </span>
                     <h3 className="mt-2 text-2xl font-light text-[var(--ui-text-primary)]">
-                      {place.name}
+                      {product.title}
                     </h3>
-                    <p className="mt-2 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)] font-mono">
-                      <MapPin className="h-3 w-3" />
-                      {place.country}
-                    </p>
                   </div>
 
                   <span className="font-editorial text-3xl leading-none text-[var(--ui-accent)]">
-                    {place.scores.surf.toFixed(1)}
+                    {product.price}
                   </span>
                 </div>
 
                 <p className="mt-4 text-sm leading-relaxed text-[var(--ui-text-secondary)]">
-                  {place.shortVerdict}
+                  {product.description}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {place.bestFor.slice(0, 3).map((item) => (
+                  {previewItems.slice(0, 3).map((item) => (
                     <span
                       key={item}
                       className="rounded-full border border-[var(--ui-border-subtle)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-muted)]"
@@ -136,7 +141,11 @@ export default function AtlasPage() {
                     </span>
                   ))}
                 </div>
-              </div>
+                <div className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)] transition-colors group-hover:text-[var(--ui-accent)]">
+                  {product.previewLabel}
+                  <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </Link>
             ))}
           </div>
         </section>
