@@ -364,7 +364,7 @@ export const fullJourneyData: CountryData[] = [
     blogPostsCount: 0,
     flagCode: 'NL',
     description:
-      "Current European chapter based in Rotterdam - exploring the Netherlands' design, cycling culture, and port-city energy.",
+      "Rotterdam chapter exploring the Netherlands' design, cycling culture, and port-city energy.",
     color: '#f97316',
   },
   {
@@ -380,14 +380,30 @@ export const fullJourneyData: CountryData[] = [
     blogPostsCount: 0,
     flagCode: 'BE',
     description:
-      'Current European chapter based in Ghent - Belgium flag on the map, canal streets, and Flemish architecture.',
+      'Ghent chapter with Belgium flag on the map, canal streets, and Flemish architecture.',
     color: '#ef4444',
+  },
+  {
+    name: 'Portugal',
+    coordinates: [38.9627, -9.4156],
+    visitDate: 'May 2026',
+    highlights: [
+      'Ericeira Base',
+      'Atlantic Surf',
+      'Portuguese Coast',
+      'Euro Summer',
+    ],
+    blogPostsCount: 0,
+    flagCode: 'PT',
+    description:
+      'Current European chapter based in Ericeira - Portugal flag on the map, Atlantic surf, and coastal work base energy.',
+    color: '#16a34a',
   },
 ]
 
 // Calculate journey stats
 export const journeyStats = {
-  totalCountries: 22, // Excluding Florida/USA return home
+  totalCountries: 23, // Excluding Florida/USA return home
   totalBlogPosts: allBlogPosts.length,
   durationMonths: 20,
   continents: 4, // Asia, Africa, Europe, Central America
@@ -459,7 +475,7 @@ export function getCountriesByRegion(
       'Japan',
     ],
     africa: ['Kenya', 'Tanzania', 'Rwanda'],
-    europe: ['Georgia', 'Netherlands', 'Belgium'],
+    europe: ['Georgia', 'Netherlands', 'Belgium', 'Portugal'],
     americas: [
       'Florida, USA',
       'Costa Rica',

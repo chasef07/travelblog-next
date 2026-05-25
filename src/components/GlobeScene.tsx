@@ -332,10 +332,10 @@ function Scene({
     }
   }, [])
 
-  // Initial rotation to show the current Ghent location.
+  // Initial rotation to show the current Ericeira location.
   const initialRotation = useMemo(() => {
-    const ghentLongitude = 3.7174
-    return -(ghentLongitude + 90) * (Math.PI / 180)
+    const ericeiraLongitude = -9.4156
+    return -(ericeiraLongitude + 90) * (Math.PI / 180)
   }, [])
 
   // Callback ref to set initial rotation when group is created

@@ -28,7 +28,7 @@ export default function Page() {
               </h1>
             </div>
             <p className="text-[var(--ui-text-muted)] text-lg leading-relaxed max-w-md md:text-right">
-              Everything for a year-long journey across 20 countries.
+              Everything for a year-long journey across 23 countries.
               Battle-tested and essential.
             </p>
           </div>

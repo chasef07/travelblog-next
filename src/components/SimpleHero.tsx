@@ -58,7 +58,7 @@ export default function SimpleHero() {
               <span className="relative inline-flex h-full w-full rounded-full bg-green-500" />
             </span>
             <span className="block truncate whitespace-nowrap font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--ui-text-muted)] sm:text-[11px] sm:tracking-[0.28em]">
-              Currently in Ghent, Belgium
+              Currently in Ericeira, Portugal
             </span>
           </motion.div>
 

@@ -4,7 +4,7 @@ import { generatePageMetadata } from '@/lib/seo'
 export const metadata: Metadata = generatePageMetadata({
   title: 'Packing Checklist - Travel Essentials',
   description:
-    'Complete packing list for long-term travel. Battle-tested gear recommendations for a year-long journey across 20 countries.',
+    'Complete packing list for long-term travel. Battle-tested gear recommendations for a year-long journey across 23 countries.',
   path: '/packing-checklist',
   keywords: [
     'packing list',

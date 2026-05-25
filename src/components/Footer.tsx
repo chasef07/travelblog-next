@@ -52,6 +52,7 @@ export default function Footer() {
     { name: 'Maps', href: '/maps' },
     { name: 'Journey', href: '/journey' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Packing', href: '/packing-checklist' },
     { name: 'Vlogs', href: '/vlogs' },
     { name: 'Countries', href: '/countries' },
     { name: 'Food', href: '/food' },

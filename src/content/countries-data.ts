@@ -272,7 +272,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'BE-flag.svg',
     region: 'Western Europe',
     description:
-      'Ghent base, Belgium flag on the map, canal streets, and the next Euro summer stop.',
+      'Ghent base, Belgium flag on the map, canal streets, and a Euro summer stop.',
     heroImage: '/assets/images/flags/BE-flag.svg',
     dates: { firstVisit: '2026-05-16' },
     highlights: [
@@ -280,6 +280,22 @@ export const countriesData: Record<string, CountryInfo> = {
       'Euro Summer',
       'Canal Streets',
       'Flemish Architecture',
+    ],
+  },
+  Portugal: {
+    name: 'Portugal',
+    slug: 'portugal',
+    flag: 'PT-flag.svg',
+    region: 'Western Europe',
+    description:
+      'Ericeira base, Portugal flag on the map, Atlantic surf, and the current Euro summer stop.',
+    heroImage: '/assets/images/flags/PT-flag.svg',
+    dates: { firstVisit: '2026-05-25' },
+    highlights: [
+      'Ericeira',
+      'Atlantic Surf',
+      'Euro Summer',
+      'Portuguese Coast',
     ],
   },
 }
