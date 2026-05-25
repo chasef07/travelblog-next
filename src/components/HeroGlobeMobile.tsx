@@ -50,7 +50,7 @@ export default function HeroGlobeMobile() {
 
   return (
     <div className="space-y-2">
-      <div className="h-[210px] w-full overflow-hidden rounded-2xl sm:h-[230px] md:h-[250px]">
+      <div className="h-[260px] w-full overflow-hidden rounded-2xl sm:h-[300px] md:h-[340px]">
         <GlobeScene
           onSelectCountry={setSelectedCountry}
           selectedCountry={selectedCountry}

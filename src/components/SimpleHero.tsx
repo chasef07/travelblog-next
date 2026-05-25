@@ -7,7 +7,6 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { type CountryData } from '@/utils/comprehensive-map-data'
 import { fetchGeoJSON, type GeoJSON } from '@/utils/geojson-loader'
-import { SURF_TOWN_GUIDE_CHECKOUT_URL } from '@/lib/product-links'
 import HeroGlobeMobile from './HeroGlobeMobile'
 
 const GlobeScene = dynamic(() => import('./GlobeScene'), {
@@ -45,7 +44,7 @@ export default function SimpleHero() {
 
   return (
     <section className="app-surface relative min-h-[100svh] overflow-hidden pt-24 pb-8 sm:min-h-0 sm:pt-28 sm:pb-14 md:pt-36 md:pb-24">
-      <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:gap-10 sm:px-6 lg:grid-cols-[1.5fr_1fr] lg:items-end lg:gap-12">
+      <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:gap-10 sm:px-6 lg:grid-cols-[1.25fr_1.05fr] lg:items-end lg:gap-12">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -63,7 +62,7 @@ export default function SimpleHero() {
           </motion.div>
 
           <h1 className="font-editorial-display text-4xl leading-[0.95] tracking-tight text-[var(--ui-text-primary)] sm:text-6xl md:text-7xl xl:text-8xl">
-            Find Your Next Surf Town
+            Chase Fagen
           </h1>
 
           <motion.p
@@ -72,8 +71,8 @@ export default function SimpleHero() {
             transition={{ duration: 0.55, delay: 0.18 }}
             className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--ui-text-secondary)] sm:mt-6 sm:text-lg md:text-xl"
           >
-            A surf town decision guide for choosing the right base by waves,
-            vibe, walkability, internet, and long-stay fit.
+            I build AI systems for local businesses and write about travel,
+            health, place, and lifestyle design from wherever I am based.
           </motion.p>
 
           <motion.div
@@ -82,18 +81,25 @@ export default function SimpleHero() {
             transition={{ duration: 0.5, delay: 0.28 }}
             className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4"
           >
-            <a
-              href={SURF_TOWN_GUIDE_CHECKOUT_URL}
+            <Link
+              href="/blog"
               className="inline-flex items-center gap-2 rounded-full border border-transparent bg-[var(--ui-accent)] px-5 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-on-accent)] transition-colors duration-100 hover:bg-[var(--ui-accent-hover)] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
             >
-              Get the guide
+              Read the blog
               <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </Link>
             <Link
-              href="/maps#surf-town-atlas"
+              href="/journey"
               className="inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-strong)] px-5 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-primary)] transition-colors duration-100 hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
             >
-              Preview the guide
+              Follow the journey
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/guides"
+              className="inline-flex items-center gap-2 px-1 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-muted)] transition-colors duration-100 hover:text-[var(--ui-accent)] sm:text-[11px] sm:tracking-[0.24em]"
+            >
+              Travel guides
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </motion.div>
@@ -114,7 +120,7 @@ export default function SimpleHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            <div className="h-[400px] w-full overflow-hidden rounded-2xl">
+            <div className="h-[460px] w-full overflow-hidden rounded-2xl xl:h-[500px]">
               <GlobeScene
                 onSelectCountry={setSelectedCountry}
                 selectedCountry={selectedCountry}

@@ -48,15 +48,15 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const navigationLinks = [
-    { name: 'Atlas', href: '/atlas' },
-    { name: 'Maps', href: '/maps' },
+    { name: 'Writing', href: '/blog' },
     { name: 'Journey', href: '/journey' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Guides', href: '/guides' },
+    { name: 'Maps', href: '/maps' },
     { name: 'Packing', href: '/packing-checklist' },
-    { name: 'Vlogs', href: '/vlogs' },
     { name: 'Countries', href: '/countries' },
+    { name: 'Vlogs', href: '/vlogs' },
     { name: 'Food', href: '/food' },
-    { name: 'Transport', href: '/transportation' },
   ]
 
   const socialLinks = [

@@ -585,7 +585,7 @@ export default function GlobeScene({
 
       <Canvas
         camera={{
-          position: [0, 0, isMobile ? 6.4 : 7],
+          position: [0, 0, isMobile ? 6.9 : 7.6],
           fov: isMobile ? 47 : 45,
         }}
         style={{

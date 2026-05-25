@@ -8,7 +8,7 @@ import { BlogPost } from '@/types/blog'
 export const siteConfig = {
   name: 'Lifestyle Engineering',
   description:
-    'Lifestyle engineering for real value: high-performance work, healthy systems, and sustainable long-term growth.',
+    'Personal site of Chase Fagen: AI systems, travel writing, health, place, and lifestyle design.',
   url: 'https://chasefagen.com',
   author: {
     name: 'Chase Fagen',

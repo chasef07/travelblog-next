@@ -17,9 +17,9 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Lifestyle Engineering - Real Value Through Work, Health, and Growth',
+  title: 'Chase Fagen - AI Systems, Writing, and Travel',
   description:
-    'Work hard, stay healthy, and grow sustainably. Lifestyle engineering, travel lessons, and systems for long-term performance.',
+    'Personal site of Chase Fagen: AI systems for local businesses, travel writing, health, place, and lifestyle design.',
   keywords: [
     'solo travel blog',
     'Asia travel guide',

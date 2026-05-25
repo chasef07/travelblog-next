@@ -4,15 +4,13 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Button } from './ui/button'
-import { SURF_TOWN_GUIDE_CHECKOUT_URL } from '@/lib/product-links'
 
 const navLinks = [
-  { href: '/maps', label: 'Atlases' },
+  { href: '/blog', label: 'Writing' },
   { href: '/journey', label: 'Journey' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/vlogs', label: 'Vlogs' },
-  { href: '/countries', label: 'Countries' },
-  { href: '/food', label: 'Food' },
+  { href: '/#projects', label: 'Projects' },
+  { href: '/guides', label: 'Guides' },
+  { href: '/packing-checklist', label: 'Packing' },
 ]
 
 export default function Header() {
@@ -70,7 +68,7 @@ export default function Header() {
                 Lifestyle Engineering
               </span>
               <span className="hidden text-[11px] text-[var(--ui-text-subtle)] md:block">
-                Travel intelligence
+                Writing, work, journey
               </span>
             </div>
           </Link>
@@ -88,12 +86,12 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href={SURF_TOWN_GUIDE_CHECKOUT_URL}
-              className="hidden items-center gap-2 rounded-full bg-[var(--ui-accent)] px-4 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--ui-on-accent)] transition-colors hover:bg-[var(--ui-accent-hover)] md:inline-flex"
+            <Link
+              href="/guides"
+              className="hidden items-center gap-2 rounded-full border border-[var(--ui-border-strong)] px-4 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)] md:inline-flex"
             >
-              Buy surf guide
-            </a>
+              Guides
+            </Link>
             <Button
               variant="ghost"
               size="icon"
