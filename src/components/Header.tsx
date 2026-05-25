@@ -8,6 +8,7 @@ import { Button } from './ui/button'
 const navLinks = [
   { href: '/blog', label: 'Writing' },
   { href: '/journey', label: 'Journey' },
+  { href: '/vlogs', label: 'Vlogs' },
   { href: '/#projects', label: 'Projects' },
   { href: '/guides', label: 'Guides' },
   { href: '/packing-checklist', label: 'Packing' },
@@ -73,7 +74,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-6 md:flex lg:gap-8">
+          <nav className="hidden items-center gap-4 md:flex lg:gap-6">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
