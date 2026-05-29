@@ -297,74 +297,102 @@ export default async function Page({
           </header>
 
           <div className="space-y-16 sm:space-y-24">
-            {posts.map((blogPost) => (
-              <article
-                key={blogPost.id}
-                className="border-b border-[var(--ui-border-subtle)] pb-16 last:border-b-0 sm:pb-24"
-              >
-                <header className="mb-8">
-                  <div className="mb-4 flex flex-col items-start gap-3 text-sm text-[var(--ui-text-subtle)] sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4" />
-                      <span className="font-mono text-xs tracking-wider uppercase">
-                        {blogPost.location}
-                      </span>
-                    </div>
-                    <time
-                      dateTime={blogPost.date}
-                      className="font-mono text-xs tracking-wider uppercase"
-                    >
-                      {new Date(blogPost.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      })}
-                    </time>
-                    {blogPost.readingTime && (
+            {posts.map((blogPost) => {
+              const paragraphs = blogPost.content
+                .split(/\n{2,}/)
+                .filter(Boolean)
+
+              return (
+                <article
+                  key={blogPost.id}
+                  className="border-b border-[var(--ui-border-subtle)] pb-16 last:border-b-0 sm:pb-24"
+                >
+                  <header className="mb-8">
+                    <div className="mb-4 flex flex-col items-start gap-3 text-sm text-[var(--ui-text-subtle)] sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
                       <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4" />
+                        <MapPin className="h-4 w-4" />
                         <span className="font-mono text-xs tracking-wider uppercase">
-                          {blogPost.readingTime} min read
+                          {blogPost.location}
                         </span>
                       </div>
-                    )}
-                  </div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-extralight text-[var(--ui-text-primary)] leading-tight">
-                    {blogPost.title}
-                  </h2>
-                </header>
-
-                <div className="max-w-[68ch]">
-                  <div className="whitespace-pre-wrap break-words text-[var(--ui-text-muted)] font-light text-[clamp(1rem,2.8vw,1.14rem)] leading-8 sm:leading-9">
-                    {blogPost.content}
-                  </div>
-                </div>
-
-                {blogPost.images && blogPost.images.length > 0 && (
-                  <div className="my-10 grid gap-6 sm:my-12 sm:gap-8">
-                    {blogPost.images.map((image, index) => (
-                      <figure key={index} className="relative group">
-                        <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[4/3] overflow-hidden border border-[var(--ui-border-subtle)]">
-                          <Image
-                            src={image.src}
-                            alt={image.alt}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 800px"
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                          />
+                      <time
+                        dateTime={blogPost.date}
+                        className="font-mono text-xs tracking-wider uppercase"
+                      >
+                        {new Date(blogPost.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </time>
+                      {blogPost.readingTime && (
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4" />
+                          <span className="font-mono text-xs tracking-wider uppercase">
+                            {blogPost.readingTime} min read
+                          </span>
                         </div>
-                        {image.caption && (
-                          <figcaption className="mt-4 text-center font-mono text-xs tracking-wider text-[var(--ui-text-subtle)] sm:text-sm">
-                            {image.caption}
-                          </figcaption>
-                        )}
-                      </figure>
-                    ))}
+                      )}
+                    </div>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-extralight text-[var(--ui-text-primary)] leading-tight">
+                      {blogPost.title}
+                    </h2>
+                  </header>
+
+                  <div className="max-w-[68ch]">
+                    <div className="space-y-6 text-[var(--ui-text-muted)] font-light text-[clamp(1rem,2.8vw,1.14rem)] leading-8 sm:leading-9">
+                      {paragraphs.map((paragraph, index) => (
+                        <p
+                          key={index}
+                          className="whitespace-pre-line break-words"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
                   </div>
-                )}
-              </article>
-            ))}
+
+                  {blogPost.images && blogPost.images.length > 0 && (
+                    <div className="my-10 grid gap-6 sm:my-12 sm:gap-8">
+                      {blogPost.images.map((image, index) => {
+                        const frameClass =
+                          image.orientation === 'portrait'
+                            ? 'mx-auto max-w-[520px] aspect-[3/4]'
+                            : image.orientation === 'square'
+                              ? 'mx-auto max-w-[620px] aspect-square'
+                              : 'mx-auto max-w-3xl aspect-[4/3]'
+
+                        return (
+                          <figure key={index} className="relative group">
+                            <div
+                              className={`relative w-full overflow-hidden border border-[var(--ui-border-subtle)] ${frameClass}`}
+                            >
+                              <Image
+                                src={image.src}
+                                alt={image.alt}
+                                fill
+                                sizes={
+                                  image.orientation === 'portrait'
+                                    ? '(max-width: 768px) 100vw, 520px'
+                                    : '(max-width: 768px) 100vw, 768px'
+                                }
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy"
+                              />
+                            </div>
+                            {image.caption && (
+                              <figcaption className="mt-4 text-center font-mono text-xs tracking-wider text-[var(--ui-text-subtle)] sm:text-sm">
+                                {image.caption}
+                              </figcaption>
+                            )}
+                          </figure>
+                        )
+                      })}
+                    </div>
+                  )}
+                </article>
+              )
+            })}
           </div>
         </div>
       </main>

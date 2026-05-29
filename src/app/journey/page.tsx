@@ -2,8 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
-import { blogArchives, blogArchivesByMonth } from '@/content/blog-registry'
-import { journeyChapters } from '@/content/journey-data'
+import { blogArchives, type BlogArchive } from '@/content/blog-registry'
 import { journeyStats } from '@/utils/comprehensive-map-data'
 
 export const metadata = generatePageMetadata({
@@ -19,6 +18,10 @@ export const metadata = generatePageMetadata({
     'travel chapters',
   ],
 })
+
+function shouldContainArchiveImage(archive: BlogArchive) {
+  return archive.imageFit === 'contain' || archive.image.includes('/flags/')
+}
 
 export default function JourneyPage() {
   return (
@@ -38,7 +41,7 @@ export default function JourneyPage() {
           </p>
         </header>
 
-        <section className="mb-14 grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-4">
+        <section className="mb-14 grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-3">
           <div className="bg-[var(--ui-bg-strong)] p-5">
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
               Countries
@@ -62,75 +65,6 @@ export default function JourneyPage() {
             <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
               {journeyStats.durationMonths}
             </div>
-          </div>
-          <div className="bg-[var(--ui-bg-strong)] p-5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-              Chapters
-            </span>
-            <div className="mt-2 text-4xl font-extralight text-[var(--ui-text-primary)]">
-              {journeyChapters.length}
-            </div>
-          </div>
-        </section>
-
-        <section className="mb-16">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-                [ Chapters ]
-              </span>
-              <h2 className="text-3xl font-light text-[var(--ui-text-primary)]">
-                Turning points
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] lg:grid-cols-2">
-            {journeyChapters.map((chapter) => (
-              <section
-                key={chapter.id}
-                className="bg-[var(--ui-bg-strong)] p-6 sm:p-7"
-              >
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-                  {chapter.dateRange}
-                </span>
-                <h3 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)]">
-                  {chapter.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
-                  {chapter.summary}
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {chapter.countries.map((country) => (
-                    <span
-                      key={country}
-                      className="rounded-full border border-[var(--ui-border-subtle)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-muted)]"
-                    >
-                      {country}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {chapter.archiveKeys.map((archiveKey) => {
-                    const archive = blogArchivesByMonth.get(archiveKey)
-                    if (!archive) return null
-
-                    return (
-                      <Link
-                        key={archiveKey}
-                        href={`/blog/${archive.year}/${archive.slug}`}
-                        className="inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-subtle)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-muted)] transition-colors hover:border-[var(--ui-border-strong)] hover:text-[var(--ui-accent)]"
-                      >
-                        {archive.displayDate}
-                        <ArrowUpRight className="h-3 w-3" />
-                      </Link>
-                    )
-                  })}
-                </div>
-              </section>
-            ))}
           </div>
         </section>
 
@@ -164,37 +98,48 @@ export default function JourneyPage() {
           </div>
 
           <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 xl:grid-cols-3">
-            {blogArchives.map((archive) => (
-              <Link
-                key={`${archive.year}-${archive.slug}`}
-                href={`/blog/${archive.year}/${archive.slug}`}
-                className="group relative min-h-[280px] overflow-hidden bg-[var(--ui-bg-strong)] transition-colors"
-              >
-                <Image
-                  src={archive.image}
-                  alt=""
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
-                <div className="relative z-10 flex min-h-[280px] flex-col justify-end p-6">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
-                    {archive.displayDate}
-                  </span>
-                  <h3 className="mt-3 text-2xl font-light text-white">
-                    {archive.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/80">
-                    {archive.excerpt}
-                  </p>
-                  <div className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 transition-colors group-hover:text-white">
-                    Open archive
-                    <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            {blogArchives.map((archive) => {
+              const containImage = shouldContainArchiveImage(archive)
+
+              return (
+                <Link
+                  key={`${archive.year}-${archive.slug}`}
+                  href={`/blog/${archive.year}/${archive.slug}`}
+                  className="group relative min-h-[280px] overflow-hidden bg-[var(--ui-bg-strong)] transition-colors"
+                >
+                  <Image
+                    src={archive.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className={`transition-transform duration-500 group-hover:scale-105 ${
+                      containImage ? 'object-contain p-10' : 'object-cover'
+                    }`}
+                    style={{
+                      objectPosition: containImage
+                        ? 'center'
+                        : archive.imagePosition || 'center 38%',
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
+                  <div className="relative z-10 flex min-h-[280px] flex-col justify-end p-6">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
+                      {archive.displayDate}
+                    </span>
+                    <h3 className="mt-3 text-2xl font-light text-white">
+                      {archive.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/80">
+                      {archive.excerpt}
+                    </p>
+                    <div className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 transition-colors group-hover:text-white">
+                      Open archive
+                      <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              )
+            })}
           </div>
         </section>
       </div>

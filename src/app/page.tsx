@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import SimpleHero from '../components/SimpleHero'
-import { blogArchives } from '@/content/blog-registry'
+import { blogArchives, type BlogArchive } from '@/content/blog-registry'
 import { countriesData } from '@/content/countries-data'
 import { mapProducts } from '@/content/maps-data'
 import { journeyStats } from '@/utils/comprehensive-map-data'
@@ -10,6 +10,10 @@ import { journeyStats } from '@/utils/comprehensive-map-data'
 const latestArchives = blogArchives.slice(0, 3)
 const featuredGuides = mapProducts.slice(0, 3)
 const routeCountries = Object.values(countriesData)
+
+function shouldContainArchiveImage(archive: BlogArchive) {
+  return archive.imageFit === 'contain' || archive.image.includes('/flags/')
+}
 
 const projectRows = [
   {
@@ -56,12 +60,8 @@ export default function Page() {
                 Latest writing
               </span>
               <h2 className="font-editorial-display text-4xl tracking-tight text-[var(--ui-text-primary)] md:text-5xl">
-                Notes from the road and the work
+                Meandering thoughts and inner exploration
               </h2>
-              <p className="mt-4 text-lg leading-relaxed text-[var(--ui-text-secondary)]">
-                Travel dispatches, work updates, reflections, and the ongoing
-                record of what I am learning.
-              </p>
             </div>
             <Link
               href="/blog"
@@ -73,32 +73,87 @@ export default function Page() {
           </div>
 
           <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-3">
-            {latestArchives.map((archive, index) => (
+            {latestArchives.map((archive, index) => {
+              const containImage = shouldContainArchiveImage(archive)
+
+              return (
+                <Link
+                  key={`${archive.year}-${archive.slug}`}
+                  href={`/blog/${archive.year}/${archive.slug}`}
+                  className="group bg-[var(--ui-bg-strong)] transition-colors hover:bg-[var(--ui-bg-soft)]"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-[var(--ui-bg-elevated)]">
+                    <Image
+                      src={archive.image}
+                      alt={archive.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className={`transition-transform duration-500 group-hover:scale-105 ${
+                        containImage ? 'object-contain p-6' : 'object-cover'
+                      }`}
+                      style={{
+                        objectPosition: containImage
+                          ? 'center'
+                          : archive.imagePosition || 'center 38%',
+                      }}
+                      priority={index === 0}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
+                      {archive.displayDate}
+                    </span>
+                    <h3 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)] transition-colors group-hover:text-[var(--ui-accent)]">
+                      {archive.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
+                      {archive.excerpt}
+                    </p>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <div className="app-surface relative">
+        <div className="section-divider mx-auto max-w-7xl" />
+      </div>
+
+      <section className="app-surface py-14 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-editorial-display text-4xl tracking-tight text-[var(--ui-text-primary)] md:text-5xl">
+              Countries
+            </h2>
+            <Link
+              href="/countries"
+              className="inline-flex items-center gap-2 self-start font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-muted)] transition-colors hover:text-[var(--ui-accent)]"
+            >
+              View countries
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-3 gap-px bg-[var(--ui-border-subtle)] sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+            {routeCountries.map((country) => (
               <Link
-                key={`${archive.year}-${archive.slug}`}
-                href={`/blog/${archive.year}/${archive.slug}`}
-                className="group bg-[var(--ui-bg-strong)] transition-colors hover:bg-[var(--ui-bg-soft)]"
+                key={country.slug}
+                href={`/countries/${country.slug}`}
+                className="group bg-[var(--ui-bg-strong)] p-3 transition-colors hover:bg-[var(--ui-bg-soft)]"
               >
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative aspect-[3/2] overflow-hidden border border-[var(--ui-border-subtle)] bg-white">
                   <Image
-                    src={archive.image}
-                    alt={archive.title}
+                    src={`/assets/images/flags/${country.flag}`}
+                    alt={`${country.name} flag`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    priority={index === 0}
+                    sizes="(max-width: 768px) 33vw, 120px"
+                    className="object-contain p-1"
                   />
                 </div>
-                <div className="p-6">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
-                    {archive.displayDate}
-                  </span>
-                  <h3 className="mt-3 text-2xl font-light text-[var(--ui-text-primary)] transition-colors group-hover:text-[var(--ui-accent)]">
-                    {archive.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
-                    {archive.excerpt}
-                  </p>
+                <div className="mt-2 truncate font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ui-text-subtle)] transition-colors group-hover:text-[var(--ui-accent)]">
+                  {country.name}
                 </div>
               </Link>
             ))}
@@ -202,49 +257,6 @@ export default function Page() {
                     {label}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-10 border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-5 sm:p-6">
-            <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-accent-alt)]">
-                  Flags on the route
-                </span>
-                <h3 className="mt-2 text-2xl font-light text-[var(--ui-text-primary)]">
-                  Countries I have written from
-                </h3>
-              </div>
-              <Link
-                href="/countries"
-                className="inline-flex items-center gap-2 self-start font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--ui-text-muted)] transition-colors hover:text-[var(--ui-accent)]"
-              >
-                View countries
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-3 gap-px bg-[var(--ui-border-subtle)] sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-              {routeCountries.map((country) => (
-                <Link
-                  key={country.slug}
-                  href={`/countries/${country.slug}`}
-                  className="group bg-[var(--ui-bg-strong)] p-3 transition-colors hover:bg-[var(--ui-bg-soft)]"
-                >
-                  <div className="relative aspect-[3/2] overflow-hidden border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-elevated)]">
-                    <Image
-                      src={`/assets/images/flags/${country.flag}`}
-                      alt={`${country.name} flag`}
-                      fill
-                      sizes="(max-width: 768px) 33vw, 120px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="mt-2 truncate font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ui-text-subtle)] transition-colors group-hover:text-[var(--ui-accent)]">
-                    {country.name}
-                  </div>
-                </Link>
               ))}
             </div>
           </div>

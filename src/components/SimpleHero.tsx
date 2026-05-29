@@ -71,8 +71,7 @@ export default function SimpleHero() {
             transition={{ duration: 0.55, delay: 0.18 }}
             className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--ui-text-secondary)] sm:mt-6 sm:text-lg md:text-xl"
           >
-            I build AI systems for local businesses and write about travel,
-            health, place, and lifestyle design from wherever I am based.
+            Trying to learn about the world and life.
           </motion.p>
 
           <motion.div

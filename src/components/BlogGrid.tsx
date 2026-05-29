@@ -5,7 +5,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
+import type { BlogArchive } from '@/content/blog-registry'
 import { blogIndex } from '@/content/blogIndex'
+
+function shouldContainArchiveImage(post: BlogArchive) {
+  return post.imageFit === 'contain' || post.image.includes('/flags/')
+}
 
 export const BlogGrid = memo(function BlogGrid() {
   const [selectedYear, setSelectedYear] = useState<string>('all')
@@ -64,61 +69,72 @@ export const BlogGrid = memo(function BlogGrid() {
 
       {/* Blog Grid */}
       <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 lg:grid-cols-3">
-        {filteredPosts.map((post, index) => (
-          <motion.article
-            key={post.title}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: index * 0.05, duration: 0.4 }}
-            className="group bg-[var(--ui-bg-strong)] hover:bg-[var(--ui-bg-soft)] transition-colors"
-          >
-            <Link
-              href={`/blog/${post.year}/${post.slug}`}
-              className="block h-full touch-manipulation"
+        {filteredPosts.map((post, index) => {
+          const containImage = shouldContainArchiveImage(post)
+
+          return (
+            <motion.article
+              key={post.title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
+              className="group bg-[var(--ui-bg-strong)] hover:bg-[var(--ui-bg-soft)] transition-colors"
             >
-              {/* Image Section */}
-              <div className="relative h-44 overflow-hidden sm:h-48">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading={index < 6 ? 'eager' : 'lazy'}
-                  priority={index < 3}
-                />
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-
-              {/* Content Section */}
-              <div className="space-y-4 p-5 sm:p-6">
-                {/* Date */}
-                <span className="font-mono text-[11px] font-medium tracking-[0.24em] text-[var(--ui-text-muted)] uppercase">
-                  {post.displayDate}
-                </span>
-
-                {/* Title */}
-                <h2 className="text-base sm:text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-100 line-clamp-2 leading-snug">
-                  {post.title}
-                </h2>
-
-                {/* Excerpt */}
-                <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed line-clamp-3 sm:line-clamp-2 group-hover:text-[var(--ui-text-secondary)] transition-colors duration-150">
-                  {post.excerpt}
-                </p>
-
-                {/* Read More */}
-                <div className="flex items-center gap-2 text-[var(--ui-text-subtle)] group-hover:text-[var(--ui-accent)] transition-all duration-100 pt-2">
-                  <span className="text-xs font-mono font-medium uppercase tracking-[0.22em]">
-                    Read
-                  </span>
-                  <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150" />
+              <Link
+                href={`/blog/${post.year}/${post.slug}`}
+                className="block h-full touch-manipulation"
+              >
+                {/* Image Section */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-[var(--ui-bg-elevated)]">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={`transition-transform duration-500 group-hover:scale-105 ${
+                      containImage ? 'object-contain p-6' : 'object-cover'
+                    }`}
+                    style={{
+                      objectPosition: containImage
+                        ? 'center'
+                        : post.imagePosition || 'center 38%',
+                    }}
+                    loading={index < 6 ? 'eager' : 'lazy'}
+                    priority={index < 3}
+                  />
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-              </div>
-            </Link>
-          </motion.article>
-        ))}
+
+                {/* Content Section */}
+                <div className="space-y-4 p-5 sm:p-6">
+                  {/* Date */}
+                  <span className="font-mono text-[11px] font-medium tracking-[0.24em] text-[var(--ui-text-muted)] uppercase">
+                    {post.displayDate}
+                  </span>
+
+                  {/* Title */}
+                  <h2 className="text-base sm:text-lg font-light text-[var(--ui-text-primary)] group-hover:text-[var(--ui-accent)] transition-colors duration-100 line-clamp-2 leading-snug">
+                    {post.title}
+                  </h2>
+
+                  {/* Excerpt */}
+                  <p className="text-sm text-[var(--ui-text-muted)] leading-relaxed line-clamp-3 sm:line-clamp-2 group-hover:text-[var(--ui-text-secondary)] transition-colors duration-150">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Read More */}
+                  <div className="flex items-center gap-2 text-[var(--ui-text-subtle)] group-hover:text-[var(--ui-accent)] transition-all duration-100 pt-2">
+                    <span className="text-xs font-mono font-medium uppercase tracking-[0.22em]">
+                      Read
+                    </span>
+                    <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150" />
+                  </div>
+                </div>
+              </Link>
+            </motion.article>
+          )
+        })}
       </div>
 
       {/* No Results */}

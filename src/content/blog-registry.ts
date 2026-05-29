@@ -29,6 +29,8 @@ export type BlogArchive = {
   displayDate: string
   excerpt: string
   image: string
+  imageFit?: 'cover' | 'contain'
+  imagePosition?: string
 }
 
 export const allBlogPosts: BlogPost[] = [
@@ -58,12 +60,13 @@ export const blogArchives: BlogArchive[] = [
   {
     year: 2026,
     slug: 'may',
-    title: 'May 2026: Netherlands, Start of Euro Summer',
-    date: '2026-05-12',
+    title: 'May 2026: Europe and Ericeira',
+    date: '2026-05-29',
     displayDate: 'May 2026',
     excerpt:
-      'Rotterdam, the Netherlands, and the opening notes of a Euro summer chapter.',
-    image: '/assets/images/flags/NL-flag.svg',
+      'Netherlands, Belgium, and landing in Ericeira to surf, work, and keep building.',
+    image: '/assets/images/blog/2026/may/may-2026.webp',
+    imagePosition: 'center 52%',
   },
   {
     year: 2026,
@@ -84,6 +87,7 @@ export const blogArchives: BlogArchive[] = [
     excerpt:
       'Back home in Florida deploying AI agents, attending conferences, and chasing deals in New Jersey.',
     image: '/assets/images/misc/rays-game.jpg',
+    imagePosition: 'center 24%',
   },
   {
     year: 2026,

@@ -14,12 +14,12 @@ export default function SimpleCountriesGrid() {
           className="group flex flex-col items-center justify-center gap-2 border-b border-r border-dashed border-[var(--ui-border-strong)] px-2 py-4 aspect-square sm:aspect-auto sm:flex-row sm:items-center sm:justify-start sm:gap-3 sm:px-4 sm:py-3 transition-colors duration-100 hover:bg-[var(--ui-accent-soft)]"
         >
           {/* Flag */}
-          <div className="relative h-8 w-11 shrink-0 overflow-hidden">
+          <div className="relative h-8 w-11 shrink-0 overflow-hidden border border-[var(--ui-border-subtle)] bg-white">
             <Image
               src={`/assets/images/flags/${country.flag}`}
               alt={`${country.name} flag`}
               fill
-              className="object-cover"
+              className="object-contain p-0.5"
               sizes="44px"
               priority={index < 6}
             />

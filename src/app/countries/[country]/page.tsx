@@ -84,12 +84,12 @@ export default async function CountryPage({ params }: Props) {
           <div className="grid gap-8 lg:grid-cols-[1.4fr_0.8fr] lg:items-end">
             <div>
               <div className="flex items-center gap-4 sm:gap-6">
-                <div className="relative h-11 w-16 overflow-hidden rounded-md border border-[var(--ui-border-subtle)] shadow-lg sm:h-14 sm:w-20">
+                <div className="relative h-11 w-16 overflow-hidden rounded-md border border-[var(--ui-border-subtle)] bg-white shadow-lg sm:h-14 sm:w-20">
                   <Image
                     src={`/assets/images/flags/${countryInfo.flag}`}
                     alt={`${countryInfo.name} flag`}
                     fill
-                    className="object-cover"
+                    className="object-contain p-1"
                     priority
                     sizes="(max-width: 640px) 64px, 80px"
                   />

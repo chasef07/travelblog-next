@@ -13,16 +13,22 @@ export default function BlogPost({ post }: BlogPostProps) {
       src: img.src,
       alt: img.alt,
       caption: img.caption,
+      orientation: img.orientation,
     })) || []
 
   const lightbox = useLightbox(lightboxImages)
+  const paragraphs = post.content.split(/\n{2,}/).filter(Boolean)
 
   return (
     <div className="max-w-none">
       {/* Content */}
       <div className="mb-10 max-w-[68ch] sm:mb-12">
-        <div className="whitespace-pre-wrap break-words text-[var(--ui-text-muted)] font-light text-[clamp(1rem,2.8vw,1.14rem)] leading-8 sm:leading-9">
-          {post.content}
+        <div className="space-y-6 text-[var(--ui-text-muted)] font-light text-[clamp(1rem,2.8vw,1.14rem)] leading-8 sm:leading-9">
+          {paragraphs.map((paragraph, index) => (
+            <p key={index} className="whitespace-pre-line break-words">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
 
@@ -35,6 +41,7 @@ export default function BlogPost({ post }: BlogPostProps) {
               src={image.src}
               alt={image.alt}
               caption={image.caption}
+              orientation={image.orientation}
               onClick={() => lightbox.open(index)}
               priority={index === 0}
             />

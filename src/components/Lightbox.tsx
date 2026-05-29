@@ -9,6 +9,7 @@ interface LightboxImage {
   src: string
   alt: string
   caption?: string
+  orientation?: 'portrait' | 'landscape' | 'square'
 }
 
 interface LightboxProps {
@@ -232,6 +233,7 @@ interface LightboxImageProps {
   src: string
   alt: string
   caption?: string
+  orientation?: 'portrait' | 'landscape' | 'square'
   onClick: () => void
   className?: string
   priority?: boolean
@@ -241,10 +243,18 @@ export function LightboxImage({
   src,
   alt,
   caption,
+  orientation = 'landscape',
   onClick,
   className,
   priority = false,
 }: LightboxImageProps) {
+  const frameClass =
+    orientation === 'portrait'
+      ? 'mx-auto max-w-[520px] aspect-[3/4]'
+      : orientation === 'square'
+        ? 'mx-auto max-w-[620px] aspect-square'
+        : 'mx-auto max-w-3xl aspect-[4/3] sm:aspect-[16/10]'
+
   return (
     <figure className={`relative ${className || ''}`}>
       <button
@@ -253,7 +263,9 @@ export function LightboxImage({
         className="relative group w-full text-left cursor-pointer"
         aria-label={`Open image: ${alt}`}
       >
-        <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[4/3] overflow-hidden border border-[var(--ui-border-subtle)]">
+        <div
+          className={`relative w-full overflow-hidden border border-[var(--ui-border-subtle)] ${frameClass}`}
+        >
           <Image
             src={src}
             alt={alt}

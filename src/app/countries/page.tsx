@@ -39,12 +39,12 @@ export default function CountriesPage() {
             >
               <div className="flex items-start gap-4">
                 {/* Flag */}
-                <div className="relative h-10 w-14 overflow-hidden rounded-md border border-[var(--ui-border-subtle)] shrink-0 shadow-sm">
+                <div className="relative h-10 w-14 overflow-hidden rounded-md border border-[var(--ui-border-subtle)] bg-white shrink-0 shadow-sm">
                   <Image
                     src={`/assets/images/flags/${country.flag}`}
                     alt={`${country.name} flag`}
                     fill
-                    className="object-cover"
+                    className="object-contain p-1"
                     sizes="56px"
                   />
                 </div>
