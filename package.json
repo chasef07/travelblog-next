@@ -51,7 +51,7 @@
     "@types/three": "0.184.0",
     "babel-plugin-react-compiler": "^1.0.0",
     "baseline-browser-mapping": "^2.10.23",
-    "cssnano": "^7.1.7",
+    "cssnano": "^8.0.2",
     "eslint": "9.39.4",
     "eslint-config-next": "^16.2.4",
     "prettier": "^3.8.3",
