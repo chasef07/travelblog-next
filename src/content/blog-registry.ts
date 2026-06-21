@@ -20,6 +20,7 @@ import { february2026Posts } from '@/content/blog-posts/2026-february'
 import { march2026Posts } from '@/content/blog-posts/2026-march'
 import { april2026Posts } from '@/content/blog-posts/2026-april'
 import { may2026Posts } from '@/content/blog-posts/2026-may'
+import { june2026Posts } from '@/content/blog-posts/2026-june'
 
 export type BlogArchive = {
   year: number
@@ -54,9 +55,21 @@ export const allBlogPosts: BlogPost[] = [
   ...march2026Posts,
   ...april2026Posts,
   ...may2026Posts,
+  ...june2026Posts,
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
 export const blogArchives: BlogArchive[] = [
+  {
+    year: 2026,
+    slug: 'june',
+    title: 'June 2026: Work + Surf in Portugal',
+    date: '2026-06-21',
+    displayDate: 'June 2026',
+    excerpt:
+      'Deep work, daily surf, and settling into the rhythm of building from Ericeira.',
+    image: '/assets/images/blog/2026/june/work-surf-portugal.webp',
+    imagePosition: 'center 70%',
+  },
   {
     year: 2026,
     slug: 'may',
