@@ -103,6 +103,6 @@ export const journeyChapters: JourneyChapter[] = [
     summary:
       'Rotterdam, Ghent, Ericeira, the Netherlands, Belgium, and Portugal opening a European chapter while the builder era continues from abroad.',
     countries: ['Netherlands', 'Belgium', 'Portugal'],
-    archiveKeys: ['2026-may'],
+    archiveKeys: ['2026-may', '2026-june', '2026-july'],
   },
 ]
