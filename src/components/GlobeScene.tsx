@@ -4,10 +4,7 @@ import { useRef, useMemo, useState, memo, useCallback, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Line, Html } from '@react-three/drei'
 import * as THREE from 'three'
-import {
-  fullJourneyData,
-  type CountryData,
-} from '@/utils/comprehensive-map-data'
+import { fullJourneyData, type CountryData } from '@/content/journey'
 
 // GeoJSON types
 interface GeoJSONGeometry {

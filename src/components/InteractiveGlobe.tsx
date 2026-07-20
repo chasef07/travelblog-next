@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import dynamic from 'next/dynamic'
-import { journeyStats, type CountryData } from '@/utils/comprehensive-map-data'
+import { journeyStats, type CountryData } from '@/content/journey'
 import {
   motion,
   AnimatePresence,

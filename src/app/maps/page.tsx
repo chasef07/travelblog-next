@@ -7,7 +7,7 @@ import {
   getRelatedPostsForPlace,
   type Place,
 } from '@/content/places-data'
-import { countriesData, type CountryInfo } from '@/content/countries-data'
+import { countriesData, type CountryInfo } from '@/content/journey'
 import SurfTownAtlasExplorer from '@/components/SurfTownAtlasExplorer'
 import SurfTownComparison from '@/components/SurfTownComparison'
 
@@ -36,7 +36,7 @@ export const metadata = generatePageMetadata({
 function getProductCountries(product: MapProduct): CountryInfo[] {
   return (product.featuredCountries || [])
     .map((countryName) => countriesData[countryName])
-    .filter((country): country is CountryInfo => Boolean(country))
+    .filter(Boolean)
 }
 
 export default function MapsPage() {

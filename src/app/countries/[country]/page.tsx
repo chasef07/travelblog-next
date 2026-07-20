@@ -2,14 +2,12 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllCountries, getCountryBySlug } from '@/content/countries-data'
-import { foodData } from '@/content/food-data'
 import {
-  getArchivesForCountry,
-  getPostCardImage,
-  getPostsForCountry,
-} from '@/content/blog-registry'
-import { getPlacesByCountry } from '@/content/places-data'
+  getAllCountries,
+  getCountryDossierBySlug,
+  getCountryBySlug,
+} from '@/content/journey'
+import { getPostCardImage } from '@/content/blog-registry'
 import { generatePageMetadata } from '@/lib/seo'
 import { ArrowUpRight, Clock, MapPin } from 'lucide-react'
 
@@ -51,11 +49,15 @@ export default async function CountryPage({ params }: Props) {
     notFound()
   }
 
-  // Get food data for this country
-  const countryFood = foodData[countryInfo.name] || []
-  const countryPosts = getPostsForCountry(countryInfo.name)
-  const countryArchives = getArchivesForCountry(countryInfo.name)
-  const countryPlaces = getPlacesByCountry(countryInfo.name)
+  const dossier = getCountryDossierBySlug(slug)
+  if (!dossier) notFound()
+
+  const {
+    food: countryFood,
+    posts: countryPosts,
+    archives: countryArchives,
+    places: countryPlaces,
+  } = dossier
 
   return (
     <main className="min-h-screen app-surface">

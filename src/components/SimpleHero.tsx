@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { type CountryData } from '@/utils/comprehensive-map-data'
+import { type CountryData } from '@/content/journey'
 import { fetchGeoJSON, type GeoJSON } from '@/utils/geojson-loader'
 import HeroGlobeMobile from './HeroGlobeMobile'
 

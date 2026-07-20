@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import { journeyStats } from '@/utils/comprehensive-map-data'
+import { journeyStats } from '@/content/journey'
 
 type IconProps = React.SVGProps<SVGSVGElement> & { className?: string }
 

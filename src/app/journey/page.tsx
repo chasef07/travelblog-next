@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
 import { blogArchives, type BlogArchive } from '@/content/blog-registry'
-import { journeyStats } from '@/utils/comprehensive-map-data'
+import { journeyStats } from '@/content/journey'
 
 export const metadata = generatePageMetadata({
   title: 'Journey',

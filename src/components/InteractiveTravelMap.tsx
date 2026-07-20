@@ -9,7 +9,7 @@ import {
   fullJourneyData,
   journeyStats,
   type CountryData,
-} from '@/utils/comprehensive-map-data'
+} from '@/content/journey'
 
 export default function InteractiveTravelMap() {
   const mapRef = useRef<HTMLDivElement>(null)
