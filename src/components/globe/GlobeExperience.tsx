@@ -2,7 +2,10 @@
 
 import dynamic from 'next/dynamic'
 import { useCallback, useEffect, useState } from 'react'
-import type { CountryData } from '@/utils/comprehensive-map-data'
+import {
+  fullJourneyData,
+  type CountryData,
+} from '@/utils/comprehensive-map-data'
 import { fetchGeoJSON, type GeoJSON } from '@/utils/geojson-loader'
 
 const GlobeScene = dynamic(() => import('../GlobeScene'), {
@@ -97,6 +100,23 @@ export default function GlobeExperience() {
           ? `${selectedCountry.name} • ${selectedCountry.visitDate}`
           : guidance}
       </p>
+      <div
+        className="absolute h-px w-px overflow-hidden"
+        aria-label="Globe destinations"
+      >
+        {fullJourneyData.map((country) => (
+          <button
+            key={country.name}
+            type="button"
+            aria-label={`Select ${country.name}`}
+            onClick={() =>
+              setSelectedCountry((selected) =>
+                selected?.name === country.name ? null : country,
+              )
+            }
+          />
+        ))}
+      </div>
     </div>
   )
 }
