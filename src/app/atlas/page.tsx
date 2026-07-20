@@ -22,7 +22,7 @@ export const metadata = generatePageMetadata({
 export default function AtlasPage() {
   const productPreviews = atlasCatalog.products.map((product) => ({
     product,
-    previewItems: product.preview.items.map((item) => item.name),
+    previewItems: product.previewNames,
   }))
 
   return (

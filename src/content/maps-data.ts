@@ -48,14 +48,18 @@ export type AtlasPlace = Place & {
   }>
 }
 
-export type AtlasProduct = MapProduct & {
+export type AtlasProduct = Omit<
+  MapProduct,
+  'previewType' | 'featuredCountries'
+> & {
   featured: boolean
+  previewNames: string[]
   preview:
     | { kind: 'places'; items: AtlasPlace[] }
     | { kind: 'countries'; items: CountryInfo[] }
 }
 
-export const mapProducts: MapProduct[] = [
+const mapProducts: MapProduct[] = [
   {
     id: 'surf-town-atlas',
     slug: 'surf-town-atlas',
@@ -176,6 +180,9 @@ export const atlasIntents = [
       'Compare surf towns and find the one that fits your waves, routine, and long-stay lifestyle.',
     href: '/maps#surf-town-atlas',
     stat: 'Live guide',
+    subtitle: 'Warm water + waves',
+    icon: 'compass' as const,
+    statLabel: 'Priority lens',
   },
   {
     id: 'adventure',
@@ -184,6 +191,9 @@ export const atlasIntents = [
       'Countries for motorbike loops, islands, caves, waterfalls, and travel days with real story upside.',
     href: '/maps#adventure-atlas',
     stat: 'Laos + islands',
+    subtitle: 'Nature + motion',
+    icon: 'compass' as const,
+    statLabel: 'Priority lens',
   },
   {
     id: 'wellness',
@@ -192,6 +202,9 @@ export const atlasIntents = [
       'Countries for hot springs, slower rhythms, food rituals, reflection, and actual reset.',
     href: '/maps#wellness-atlas',
     stat: 'Georgia + Japan',
+    subtitle: 'Reset + recovery',
+    icon: 'map-pin' as const,
+    statLabel: 'Priority lens',
   },
   {
     id: 'journey',
@@ -200,6 +213,9 @@ export const atlasIntents = [
       'See the chronology, chapters, and route that created the atlas.',
     href: '/journey',
     stat: 'Story + trust',
+    subtitle: 'Chronological route',
+    icon: 'route' as const,
+    statLabel: 'Core pillar',
   },
 ]
 
@@ -233,15 +249,16 @@ function resolveProduct(product: MapProduct): AtlasProduct {
     throw new Error(`Planned Atlas product ${product.id} cannot have checkout`)
   }
 
+  const { previewType, featuredCountries, ...publicProduct } = product
   const preview =
-    product.previewType === 'places'
+    previewType === 'places'
       ? {
           kind: 'places' as const,
           items: getPlacesForMap(product.id).map(placeProjection),
         }
       : {
           kind: 'countries' as const,
-          items: (product.featuredCountries ?? []).map((name) => {
+          items: (featuredCountries ?? []).map((name) => {
             const country = countriesData[name]
             if (!country) {
               throw new Error(`Atlas product ${product.id} references ${name}`)
@@ -254,7 +271,12 @@ function resolveProduct(product: MapProduct): AtlasProduct {
     throw new Error(`Atlas product ${product.id} has no preview evidence`)
   }
 
-  return { ...product, featured: product.id === featuredProductId, preview }
+  return {
+    ...publicProduct,
+    featured: product.id === featuredProductId,
+    previewNames: preview.items.map((item) => item.name),
+    preview,
+  }
 }
 
 const products = mapProducts.map(resolveProduct)
@@ -279,12 +301,6 @@ for (const place of placesData) {
       throw new Error(`Place ${place.slug} references unknown Post ${slug}`)
     }
   }
-}
-
-export const atlasCatalog = {
-  products,
-  intents: atlasIntents,
-  featuredProduct: featuredProducts[0],
 }
 
 export function getAtlasProduct(id: string): AtlasProduct | undefined {
@@ -320,4 +336,48 @@ export function compareAtlasPlaces(leftSlug: string, rightSlug: string) {
   return left && right
     ? { left: placeProjection(left), right: placeProjection(right) }
     : undefined
+}
+
+const countrySections = products.flatMap((product) =>
+  product.preview.kind === 'countries'
+    ? [{ product, countries: product.preview.items }]
+    : [],
+)
+
+const placeSections = products.flatMap((product) => {
+  if (
+    product.featured ||
+    product.preview.kind !== 'places' ||
+    !product.defaultLens ||
+    product.defaultLens === 'balanced'
+  ) {
+    return []
+  }
+  return [
+    {
+      product,
+      places: rankAtlasPlaces(product.defaultLens, product.id).map(
+        ({ place }) => place,
+      ),
+      scoreKey: product.defaultLens,
+      scoreLabel: product.defaultLens === 'workability' ? 'Work fit' : 'Beauty',
+    },
+  ]
+})
+
+const featuredRankings = {
+  balanced: rankAtlasPlaces('balanced', featuredProducts[0].id),
+  surf: rankAtlasPlaces('surf', featuredProducts[0].id),
+  workability: rankAtlasPlaces('workability', featuredProducts[0].id),
+  walkability: rankAtlasPlaces('walkability', featuredProducts[0].id),
+  value: rankAtlasPlaces('value', featuredProducts[0].id),
+}
+
+export const atlasCatalog = {
+  products,
+  intents: atlasIntents,
+  featuredProduct: featuredProducts[0],
+  featuredRankings,
+  countrySections,
+  placeSections,
 }
