@@ -1,5 +1,5 @@
 import { siteConfig } from '@/lib/seo'
-import { blogIndex } from '@/content/blogIndex'
+import { feedPublications } from '@/content/blog/publication'
 
 function escapeXml(text: string): string {
   return text
@@ -13,7 +13,7 @@ function escapeXml(text: string): string {
 export async function GET() {
   const baseUrl = siteConfig.url
 
-  const sortedPosts = [...blogIndex].sort(
+  const sortedPosts = [...feedPublications].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   )
 

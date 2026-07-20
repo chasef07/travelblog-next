@@ -5,8 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import type { BlogArchive } from '@/content/blog-registry'
-import { blogIndex } from '@/content/blogIndex'
+import { archives, type BlogArchive } from '@/content/blog/publication'
 
 function shouldContainArchiveImage(post: BlogArchive) {
   return post.imageFit === 'contain' || post.image.includes('/flags/')
@@ -17,13 +16,13 @@ export const BlogGrid = memo(function BlogGrid() {
 
   // Extract unique years
   const years = useMemo(() => {
-    const yearSet = new Set(blogIndex.map((post) => post.year.toString()))
+    const yearSet = new Set(archives.map((post) => post.year.toString()))
     return Array.from(yearSet).sort((a, b) => b.localeCompare(a))
   }, [])
 
   // Filter posts based on selected year
   const filteredPosts = useMemo(() => {
-    return blogIndex.filter((post) => {
+    return archives.filter((post) => {
       return selectedYear === 'all' || post.year.toString() === selectedYear
     })
   }, [selectedYear])

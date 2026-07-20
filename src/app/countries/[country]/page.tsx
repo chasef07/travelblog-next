@@ -8,7 +8,7 @@ import {
   getArchivesForCountry,
   getPostCardImage,
   getPostsForCountry,
-} from '@/content/blog-registry'
+} from '@/content/blog/publication'
 import { getPlacesByCountry } from '@/content/places-data'
 import { generatePageMetadata } from '@/lib/seo'
 import { ArrowUpRight, Clock, MapPin } from 'lucide-react'
