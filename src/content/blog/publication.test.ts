@@ -54,4 +54,19 @@ describe('Blog publication interface', () => {
       createBlogPublication([{ ...post.post, slug: 'january' }], []),
     ).toThrow('collides with Archive')
   })
+
+  test('rejects malformed Archive calendar identities', () => {
+    expect(() =>
+      createBlogPublication(
+        [],
+        [{ ...archives[0], slug: 'not-a-month', date: 'not-a-date' }],
+      ),
+    ).toThrow('Malformed Blog date')
+    expect(() =>
+      createBlogPublication(
+        [],
+        [{ ...archives[0], year: archives[0].year - 1 }],
+      ),
+    ).toThrow('Invalid Archive calendar identity')
+  })
 })

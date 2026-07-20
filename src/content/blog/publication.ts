@@ -30,13 +30,17 @@ export function calculateReadingTime(content: string): number {
   return Math.max(1, Math.ceil(words / 200))
 }
 
-function monthSlug(date: string): string {
+function parseBlogDate(date: string): Date {
   const isoDate = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date)
   const parsed = new Date(isoDate ? `${date}T00:00:00Z` : `${date} UTC`)
   if (Number.isNaN(parsed.getTime())) {
     throw new Error(`Malformed Blog date: ${date}`)
   }
   return parsed
+}
+
+function monthSlug(date: string): string {
+  return parseBlogDate(date)
     .toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' })
     .toLowerCase()
 }
@@ -90,6 +94,16 @@ export function createBlogPublication(
   assertUnique(posts, (post) => post.url, 'Post path')
   assertUnique(posts, (post) => post.id, 'Post identity')
   assertUnique(archives, (archive) => archive.url, 'Archive path')
+  for (const archive of archives) {
+    const date = parseBlogDate(archive.date)
+    if (
+      !reservedArchiveSlugs.has(archive.slug) ||
+      monthSlug(archive.date) !== archive.slug ||
+      date.getUTCFullYear() !== archive.year
+    ) {
+      throw new Error(`Invalid Archive calendar identity: ${archive.url}`)
+    }
+  }
   for (const post of posts) {
     if (reservedArchiveSlugs.has(post.slug)) {
       throw new Error(`Post path collides with Archive: ${post.url}`)
