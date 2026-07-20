@@ -487,8 +487,7 @@ export default function GlobeScene({
 
   useEffect(() => {
     setIsMounted(true)
-    onReady()
-  }, [onReady])
+  }, [])
 
   useEffect(() => {
     const updateTheme = () => {
@@ -606,6 +605,7 @@ export default function GlobeScene({
           // Small delay to ensure first frame is rendered
           requestAnimationFrame(() => {
             setIsReady(true)
+            onReady()
           })
         }}
       >
