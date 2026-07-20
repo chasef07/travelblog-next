@@ -29,6 +29,7 @@ export default function GlobeExperience() {
   }, [])
 
   const load = useCallback(async (retrying = false) => {
+    if (retrying) setSceneReady(false)
     setStatus(retrying ? 'retrying' : 'loading')
     try {
       setGeoData(await fetchGeoJSON())
@@ -75,6 +76,7 @@ export default function GlobeExperience() {
               onSelectCountry={setSelectedCountry}
               selectedCountry={selectedCountry}
               geoData={geoData}
+              isMobile={!isDesktop}
               onReady={() => setSceneReady(true)}
             />
             <span data-testid="globe-status" role="status" className="sr-only">
