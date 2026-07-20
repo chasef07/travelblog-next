@@ -471,10 +471,12 @@ export default function GlobeScene({
   onSelectCountry,
   selectedCountry,
   geoData,
+  onReady,
 }: {
   onSelectCountry: (country: CountryData | null) => void
   selectedCountry: CountryData | null
   geoData: GeoJSON | null
+  onReady: () => void
 }) {
   const [isMounted, setIsMounted] = useState(false)
   const [isReady, setIsReady] = useState(false)
@@ -545,7 +547,7 @@ export default function GlobeScene({
   }, [])
 
   useEffect(() => {
-    const query = window.matchMedia('(max-width: 767px)')
+    const query = window.matchMedia('(max-width: 1023px)')
     const updateMobile = () => setIsMobile(query.matches)
     updateMobile()
     query.addEventListener('change', updateMobile)
@@ -610,6 +612,7 @@ export default function GlobeScene({
           // Small delay to ensure first frame is rendered
           requestAnimationFrame(() => {
             setIsReady(true)
+            onReady()
           })
         }}
       >
