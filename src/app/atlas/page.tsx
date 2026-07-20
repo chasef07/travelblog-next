@@ -1,15 +1,14 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
-import { atlasIntents, mapProducts } from '@/content/maps-data'
-import { getPlacesForMap } from '@/content/places-data'
+import { atlasCatalog } from '@/content/maps-data'
 
 export const metadata = generatePageMetadata({
   title: 'Atlas',
   description:
     'Explore the atlas by intent: surf towns, adventure countries, wellness destinations, cafe + work spots, and long-stay travel intelligence.',
   path: '/atlas',
-  images: mapProducts.map((product) => product.image),
+  images: atlasCatalog.products.map((product) => product.image),
   keywords: [
     'travel atlas',
     'travel intelligence',
@@ -21,15 +20,10 @@ export const metadata = generatePageMetadata({
 })
 
 export default function AtlasPage() {
-  const productPreviews = mapProducts.map((product) => {
-    const previewItems =
-      product.featuredCountries ||
-      getPlacesForMap(product.id)
-        .slice(0, 3)
-        .map((place) => place.name)
-
-    return { product, previewItems }
-  })
+  const productPreviews = atlasCatalog.products.map((product) => ({
+    product,
+    previewItems: product.previewNames,
+  }))
 
   return (
     <main className="min-h-screen app-surface pt-20 sm:pt-24">
@@ -59,7 +53,7 @@ export default function AtlasPage() {
         </header>
 
         <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 xl:grid-cols-4">
-          {atlasIntents.map((intent) => (
+          {atlasCatalog.intents.map((intent) => (
             <Link
               key={intent.id}
               href={intent.href}

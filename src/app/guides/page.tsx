@@ -2,14 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
-import { mapProducts } from '@/content/maps-data'
+import { atlasCatalog } from '@/content/maps-data'
 
 export const metadata = generatePageMetadata({
   title: 'Travel Guides',
   description:
     'Paid travel guides and atlas products built from Chase Fagen travel experience: surf towns, adventure countries, wellness places, work spots, and deeper destinations.',
   path: '/guides',
-  images: mapProducts.map((product) => product.image),
+  images: atlasCatalog.products.map((product) => product.image),
   keywords: [
     'travel guides',
     'surf town guide',
@@ -20,9 +20,7 @@ export const metadata = generatePageMetadata({
 })
 
 export default function GuidesPage() {
-  const liveProducts = mapProducts.filter(
-    (product) => product.status === 'live',
-  )
+  const featuredProduct = atlasCatalog.featuredProduct
 
   return (
     <main className="min-h-screen app-surface pt-20 sm:pt-24">
@@ -47,15 +45,14 @@ export default function GuidesPage() {
               Current live guide
             </span>
             <h2 className="mt-3 text-3xl font-light text-[var(--ui-text-primary)]">
-              {liveProducts[0]?.title || 'Surf Town Atlas'}
+              {featuredProduct.title}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-[var(--ui-text-muted)]">
-              {liveProducts[0]?.audience ||
-                'For people choosing a better travel base.'}
+              {featuredProduct.audience}
             </p>
-            {liveProducts[0]?.checkoutUrl ? (
+            {featuredProduct.checkoutUrl ? (
               <a
-                href={liveProducts[0].checkoutUrl}
+                href={featuredProduct.checkoutUrl}
                 className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--ui-accent)] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--ui-on-accent)] transition-colors hover:bg-[var(--ui-accent-hover)]"
               >
                 Buy guide
@@ -85,7 +82,7 @@ export default function GuidesPage() {
           </div>
 
           <div className="grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] lg:grid-cols-3">
-            {mapProducts.map((product, index) => (
+            {atlasCatalog.products.map((product, index) => (
               <article
                 key={product.id}
                 id={product.slug}

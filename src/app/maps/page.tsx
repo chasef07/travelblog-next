@@ -1,29 +1,16 @@
 import Link from 'next/link'
 import { ArrowUpRight, MapPin } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
-import { mapProducts, type MapProduct } from '@/content/maps-data'
-import {
-  getPlacesForMap,
-  getRelatedPostsForPlace,
-  type Place,
-} from '@/content/places-data'
-import { countriesData, type CountryInfo } from '@/content/countries-data'
+import { atlasCatalog } from '@/content/maps-data'
 import SurfTownAtlasExplorer from '@/components/SurfTownAtlasExplorer'
 import SurfTownComparison from '@/components/SurfTownComparison'
-
-type PlacePreviewSection = {
-  product: MapProduct
-  places: Place[]
-  scoreKey: keyof Place['scores']
-  scoreLabel: string
-}
 
 export const metadata = generatePageMetadata({
   title: 'Travel Atlas Guides',
   description:
     'Paid travel atlas guides for surf towns, adventure countries, wellness destinations, work spots, and spiritually interesting places.',
   path: '/maps',
-  images: mapProducts.map((product) => product.image),
+  images: atlasCatalog.products.map((product) => product.image),
   keywords: [
     'travel atlas',
     'surf town guide',
@@ -33,61 +20,12 @@ export const metadata = generatePageMetadata({
   ],
 })
 
-function getProductCountries(product: MapProduct): CountryInfo[] {
-  return (product.featuredCountries || [])
-    .map((countryName) => countriesData[countryName])
-    .filter((country): country is CountryInfo => Boolean(country))
-}
-
 export default function MapsPage() {
-  const surfPlaces = [...getPlacesForMap('surf-town-atlas')].sort(
-    (a, b) => b.scores.surf - a.scores.surf,
-  )
-  const workPlaces = [...getPlacesForMap('cafe-work-atlas')].sort(
-    (a, b) => b.scores.workability - a.scores.workability,
-  )
-  const depthPlaces = [...getPlacesForMap('spiritual-places-atlas')].sort(
-    (a, b) => b.scores.beauty - a.scores.beauty,
-  )
-  const surfAtlasProduct = mapProducts.find(
-    (product) => product.id === 'surf-town-atlas',
-  )
-  const cafeWorkProduct = mapProducts.find(
-    (product) => product.id === 'cafe-work-atlas',
-  )
-  const spiritualProduct = mapProducts.find(
-    (product) => product.id === 'spiritual-places-atlas',
-  )
-  const countryAtlasProducts = mapProducts.filter(
-    (product) => product.previewType === 'countries',
-  )
-  const placePreviewSections: PlacePreviewSection[] = [
-    cafeWorkProduct
-      ? {
-          product: cafeWorkProduct,
-          places: workPlaces,
-          scoreKey: 'workability',
-          scoreLabel: 'Work fit',
-        }
-      : null,
-    spiritualProduct
-      ? {
-          product: spiritualProduct,
-          places: depthPlaces,
-          scoreKey: 'beauty',
-          scoreLabel: 'Beauty',
-        }
-      : null,
-  ].filter((section): section is PlacePreviewSection => Boolean(section))
-
-  const surfTownEntries = surfPlaces.map((place) => ({
-    ...place,
-    relatedPosts: getRelatedPostsForPlace(place).map((post) => ({
-      slug: post.slug,
-      year: post.year,
-      title: post.title,
-    })),
-  }))
+  const surfAtlasProduct = atlasCatalog.featuredProduct
+  const surfTownRankings = atlasCatalog.featuredRankings
+  const surfTownEntries = surfTownRankings.balanced.map(({ place }) => place)
+  const countryAtlasProducts = atlasCatalog.countrySections
+  const placePreviewSections = atlasCatalog.placeSections
 
   return (
     <main className="min-h-screen app-surface pt-20 sm:pt-24">
@@ -120,7 +58,7 @@ export default function MapsPage() {
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link
-                  href="#surf-town-atlas"
+                  href={`#${surfAtlasProduct.slug}`}
                   className="inline-flex items-center gap-2 rounded-full border border-[var(--ui-border-strong)] px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-primary)] transition-colors hover:border-[var(--ui-accent)] hover:text-[var(--ui-accent)]"
                 >
                   Preview
@@ -141,7 +79,7 @@ export default function MapsPage() {
         </header>
 
         <section className="mb-16 grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 xl:grid-cols-5">
-          {mapProducts.map((product) => (
+          {atlasCatalog.products.map((product) => (
             <div key={product.id} className="bg-[var(--ui-bg-strong)] p-5">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
                 {product.statusLabel}
@@ -153,16 +91,14 @@ export default function MapsPage() {
                 {product.description}
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
-                {(product.featuredCountries || product.themes)
-                  .slice(0, 3)
-                  .map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-[var(--ui-border-subtle)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-muted)]"
-                    >
-                      {item}
-                    </span>
-                  ))}
+                {product.previewNames.slice(0, 3).map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-[var(--ui-border-subtle)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-muted)]"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
               <div className="mt-6 flex items-center justify-between border-t border-dashed border-[var(--ui-border-subtle)] pt-4">
                 <span className="font-editorial text-3xl leading-none text-[var(--ui-accent)]">
@@ -182,7 +118,7 @@ export default function MapsPage() {
 
         {surfAtlasProduct ? (
           <section
-            id="surf-town-atlas"
+            id={surfAtlasProduct.slug}
             className="mb-16 border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-6 sm:p-8"
           >
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
@@ -243,7 +179,10 @@ export default function MapsPage() {
               </p>
             </div>
           </div>
-          <SurfTownAtlasExplorer places={surfTownEntries} />
+          <SurfTownAtlasExplorer
+            places={surfTownEntries}
+            rankings={surfTownRankings}
+          />
         </section>
 
         <section className="mb-16">
@@ -259,12 +198,10 @@ export default function MapsPage() {
               your constraints.
             </p>
           </div>
-          <SurfTownComparison places={surfPlaces} />
+          <SurfTownComparison places={surfTownEntries} />
         </section>
 
-        {countryAtlasProducts.map((product) => {
-          const countries = getProductCountries(product)
-
+        {countryAtlasProducts.map(({ product, countries }) => {
           return (
             <section key={product.id} id={product.id} className="mb-16">
               <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

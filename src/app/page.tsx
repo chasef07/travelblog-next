@@ -4,11 +4,11 @@ import { ArrowUpRight } from 'lucide-react'
 import SimpleHero from '../components/SimpleHero'
 import { blogArchives, type BlogArchive } from '@/content/blog-registry'
 import { countriesData } from '@/content/countries-data'
-import { mapProducts } from '@/content/maps-data'
+import { atlasCatalog } from '@/content/maps-data'
 import { journeyStats } from '@/utils/comprehensive-map-data'
 
 const latestArchives = blogArchives.slice(0, 3)
-const featuredGuides = mapProducts.slice(0, 3)
+const featuredGuides = atlasCatalog.products.slice(0, 3)
 const routeCountries = Object.values(countriesData)
 
 function shouldContainArchiveImage(archive: BlogArchive) {
