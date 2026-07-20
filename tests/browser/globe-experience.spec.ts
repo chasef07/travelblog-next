@@ -15,9 +15,10 @@ test('uses one Globe experience across the responsive breakpoint', async ({
     page.locator('[data-testid="globe-experience"] canvas'),
   ).toHaveCount(1)
   await expect(page.getByTestId('globe-caption')).toContainText('Click')
-  const portugalMarker = page.getByRole('button', { name: 'Select Portugal' })
-  await portugalMarker.focus()
-  await page.keyboard.press('Enter')
+  const destination = page.getByRole('combobox', {
+    name: 'Select globe destination',
+  })
+  await destination.selectOption('Portugal')
   await expect(page.getByTestId('globe-caption')).toContainText('Portugal')
 
   await page.setViewportSize({ width: 390, height: 844 })
@@ -25,8 +26,7 @@ test('uses one Globe experience across the responsive breakpoint', async ({
     page.locator('[data-testid="globe-experience"] canvas'),
   ).toHaveCount(1)
   await expect(page.getByTestId('globe-caption')).toContainText('Portugal')
-  await portugalMarker.focus()
-  await page.keyboard.press('Enter')
+  await destination.selectOption('')
   await expect(page.getByTestId('globe-caption')).toContainText('Tap')
   expect(geoJSONRequests).toBe(1)
 })

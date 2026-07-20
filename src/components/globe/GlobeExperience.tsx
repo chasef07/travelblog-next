@@ -40,6 +40,7 @@ export default function GlobeExperience() {
       setStatus('failed')
     }
   }, [])
+  const markSceneReady = useCallback(() => setSceneReady(true), [])
 
   useEffect(() => {
     void load()
@@ -80,7 +81,7 @@ export default function GlobeExperience() {
               selectedCountry={selectedCountry}
               geoData={geoData}
               isMobile={!isDesktop}
-              onReady={() => setSceneReady(true)}
+              onReady={markSceneReady}
             />
             <span data-testid="globe-status" role="status" className="sr-only">
               {status === 'ready'
@@ -100,23 +101,25 @@ export default function GlobeExperience() {
           ? `${selectedCountry.name} • ${selectedCountry.visitDate}`
           : guidance}
       </p>
-      <div
-        className="absolute h-px w-px overflow-hidden"
-        aria-label="Globe destinations"
+      <select
+        aria-label="Select globe destination"
+        value={selectedCountry?.name ?? ''}
+        onChange={(event) =>
+          setSelectedCountry(
+            fullJourneyData.find(
+              (country) => country.name === event.target.value,
+            ) ?? null,
+          )
+        }
+        className="max-w-full rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ui-text-muted)]"
       >
+        <option value="">Choose destination</option>
         {fullJourneyData.map((country) => (
-          <button
-            key={country.name}
-            type="button"
-            aria-label={`Select ${country.name}`}
-            onClick={() =>
-              setSelectedCountry((selected) =>
-                selected?.name === country.name ? null : country,
-              )
-            }
-          />
+          <option key={country.name} value={country.name}>
+            {country.name}
+          </option>
         ))}
-      </div>
+      </select>
     </div>
   )
 }
