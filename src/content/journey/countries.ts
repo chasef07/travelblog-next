@@ -299,36 +299,3 @@ export const countriesData: Record<string, CountryInfo> = {
     ],
   },
 }
-
-// Helper to get all countries as array
-export const getAllCountries = (): CountryInfo[] => Object.values(countriesData)
-
-// Helper to get country by slug
-export const getCountryBySlug = (slug: string): CountryInfo | undefined =>
-  Object.values(countriesData).find((c) => c.slug === slug)
-
-// Helper to get country by name
-export const getCountryByName = (name: string): CountryInfo | undefined =>
-  countriesData[name]
-
-// Helper to slugify country name
-export const slugifyCountry = (name: string): string =>
-  name.toLowerCase().replace(/\s+/g, '-')
-
-// Extract country from location string (e.g., "Nong Khiaw, Laos" -> "Laos")
-export const extractCountryFromLocation = (location: string): string | null => {
-  const parts = location.split(',').map((s) => s.trim())
-  const countryPart = parts[parts.length - 1]
-
-  // Check if it's a valid country
-  if (countriesData[countryPart]) {
-    return countryPart
-  }
-
-  // Handle special cases
-  const aliases: Record<string, string> = {
-    'United Arab Emirates': 'UAE',
-  }
-
-  return aliases[countryPart] || null
-}

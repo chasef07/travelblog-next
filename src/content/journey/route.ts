@@ -1,16 +1,11 @@
-import type { BlogPost } from '@/types/blog'
-import { allBlogPosts } from '@/content/blog-registry'
-
 export interface CountryData {
   name: string
   coordinates: [number, number]
   visitDate: string
   highlights: string[]
-  blogPostsCount: number
   flagCode: string
   description: string
   color: string
-  posts?: BlogPost[]
 }
 
 // Your complete world tour journey
@@ -25,7 +20,6 @@ export const fullJourneyData: CountryData[] = [
       'Rosh Hashanah at the Kotel',
       'Iranian Missile Attack',
     ],
-    blogPostsCount: 12,
     flagCode: 'IL',
     description:
       'Where the journey began - volunteering near Gaza, experiencing Israeli resilience, and surviving 200 Iranian ballistic missiles.',
@@ -41,7 +35,6 @@ export const fullJourneyData: CountryData[] = [
       'Prometheus Cave',
       'Tbilisi Sulfur Baths',
     ],
-    blogPostsCount: 10,
     flagCode: 'GE',
     description:
       'Adventure capitalism in the Caucasus - purchasing an apartment in Gudauri ski resort and exploring ancient wine-making traditions.',
@@ -57,7 +50,6 @@ export const fullJourneyData: CountryData[] = [
       'Kite Surfing Lessons',
       'Beach Volleyball',
     ],
-    blogPostsCount: 6,
     flagCode: 'KE',
     description:
       'First taste of Africa - deep conversations about geopolitics, learning to kite surf, and embracing the pole-pole philosophy.',
@@ -73,7 +65,6 @@ export const fullJourneyData: CountryData[] = [
       'Ngorongoro Crater',
       'Tarangire National Park',
     ],
-    blogPostsCount: 4,
     flagCode: 'TZ',
     description:
       "Epic 6-day safari across four national parks and hunting at dawn with the Hadza, one of Earth's last hunter-gatherer tribes.",
@@ -89,7 +80,6 @@ export const fullJourneyData: CountryData[] = [
       'Kivu Noir Coffee',
       'Adventure Capitalism Meetings',
     ],
-    blogPostsCount: 5,
     flagCode: 'RW',
     description:
       'The cleanest city in Africa - meeting world-renowned artist Innocent, exploring gravity economics, and learning about the genocide.',
@@ -105,7 +95,6 @@ export const fullJourneyData: CountryData[] = [
       'Dubai Mall',
       'Intermission Reflections',
     ],
-    blogPostsCount: 2,
     flagCode: 'AE',
     description:
       'Brief intermission between Africa and Asia - indoor skiing at Ski Dubai and observing extreme consumption culture.',
@@ -121,7 +110,6 @@ export const fullJourneyData: CountryData[] = [
       'Kathmandu Chabad',
       'Hindu Spiritual Learning',
     ],
-    blogPostsCount: 12,
     flagCode: 'NP',
     description:
       "The Himalayas challenged everything - 11-day Annapurna Circuit trek crossing the world's highest pass at 17,769 feet in -25F conditions.",
@@ -137,7 +125,6 @@ export const fullJourneyData: CountryData[] = [
       'Muay Thai Training',
       'Sea Turtle Encounters',
     ],
-    blogPostsCount: 8,
     flagCode: 'TH',
     description:
       'Island paradise exploration - snorkeling with sea turtles, training Muay Thai, and celebrating Christmas on Koh Tao.',
@@ -153,7 +140,6 @@ export const fullJourneyData: CountryData[] = [
       'Kuang Si Falls',
       'Mekong River Slow Boat',
     ],
-    blogPostsCount: 5,
     flagCode: 'LA',
     description:
       'Peaceful and authentic Southeast Asian experience - farm volunteering, exploring Kong Lor Cave, and embracing simplicity.',
@@ -169,7 +155,6 @@ export const fullJourneyData: CountryData[] = [
       'Killing Fields History',
       'Kampot Pepper Farms',
     ],
-    blogPostsCount: 6,
     flagCode: 'KH',
     description:
       'Ancient temples and island paradise - witnessing Angkor Wat at sunrise and relaxing on pristine Koh Rong beaches.',
@@ -185,7 +170,6 @@ export const fullJourneyData: CountryData[] = [
       'Zhangjiajie Avatar Mountains',
       'Great Wall Hike',
     ],
-    blogPostsCount: 5,
     flagCode: 'CN',
     description:
       'Ancient civilization meets modern innovation - from cuddly pandas in Chengdu to the otherworldly Zhangjiajie mountains.',
@@ -201,7 +185,6 @@ export const fullJourneyData: CountryData[] = [
       'Homestay with Indigenous Families',
       'Phong Nha Caves',
     ],
-    blogPostsCount: 8,
     flagCode: 'VN',
     description:
       'Epic 4,000km solo motorbike adventure from north to south - sleeping in indigenous homestays and eating pho for breakfast daily.',
@@ -217,7 +200,6 @@ export const fullJourneyData: CountryData[] = [
       'Gardens by the Bay',
       'Efficient City-State',
     ],
-    blogPostsCount: 2,
     flagCode: 'SG',
     description:
       'Ultra-modern city-state exploration - comparing Singapore vs Dubai and discovering amazing hawker center culture.',
@@ -233,7 +215,6 @@ export const fullJourneyData: CountryData[] = [
       'Kawasan Falls Canyoneering',
       'Siquijor Healing Island',
     ],
-    blogPostsCount: 10,
     flagCode: 'PH',
     description:
       'Finally learning to surf in Siargao after years of failed attempts, plus an unforgettable 3-day island-hopping expedition.',
@@ -249,7 +230,6 @@ export const fullJourneyData: CountryData[] = [
       'Komodo Dragon Encounter',
       'Whale Shark Snorkeling',
     ],
-    blogPostsCount: 9,
     flagCode: 'ID',
     description:
       'Spiritual Bali awakening and wild adventures - sound healing with Dennis the adventure capitalist and swimming with whale sharks.',
@@ -265,7 +245,6 @@ export const fullJourneyData: CountryData[] = [
       'Sapporo Exploration',
       'Deep Introspection',
     ],
-    blogPostsCount: 12,
     flagCode: 'JP',
     description:
       'Return to Japan with fresh perspective - exploring rural Hokkaido onsens and writing essays on detachment and modern life.',
@@ -281,7 +260,6 @@ export const fullJourneyData: CountryData[] = [
       'Reverse Culture Shock',
       'Reflection Period',
     ],
-    blogPostsCount: 3,
     flagCode: 'US',
     description:
       'Returning home to Clearwater after 10 months of world travel - processing the journey and planning the next chapter.',
@@ -297,7 +275,6 @@ export const fullJourneyData: CountryData[] = [
       'Pura Vida Lifestyle',
       'Local Beach Culture',
     ],
-    blogPostsCount: 3,
     flagCode: 'CR',
     description:
       'Central American gem - one of my favorite travel destinations with perfect surf, jungle waterfalls, and authentic local vibes.',
@@ -313,7 +290,6 @@ export const fullJourneyData: CountryData[] = [
       'San Blas Indigenous Culture',
       'Caribbean Beaches',
     ],
-    blogPostsCount: 2,
     flagCode: 'PA',
     description:
       'Where Central and South America meet - exploring the famous canal and Caribbean island adventures.',
@@ -329,7 +305,6 @@ export const fullJourneyData: CountryData[] = [
       'Mayan Ruins',
       'Colonial Architecture',
     ],
-    blogPostsCount: 2,
     flagCode: 'GT',
     description:
       'Colonial charm and Mayan culture in the heart of Central America.',
@@ -345,7 +320,6 @@ export const fullJourneyData: CountryData[] = [
       'Pupusas',
       'Bitcoin Country',
     ],
-    blogPostsCount: 0,
     flagCode: 'SV',
     description:
       "Surf paradise on the Pacific coast - riding waves at El Tunco and exploring Central America's Bitcoin nation.",
@@ -361,7 +335,6 @@ export const fullJourneyData: CountryData[] = [
       'Cycling Culture',
       'Harbor City Energy',
     ],
-    blogPostsCount: 0,
     flagCode: 'NL',
     description:
       "Rotterdam chapter exploring the Netherlands' design, cycling culture, and port-city energy.",
@@ -377,7 +350,6 @@ export const fullJourneyData: CountryData[] = [
       'Belgian Beer',
       'Flemish Architecture',
     ],
-    blogPostsCount: 0,
     flagCode: 'BE',
     description:
       'Ghent chapter with Belgium flag on the map, canal streets, and Flemish architecture.',
@@ -393,100 +365,9 @@ export const fullJourneyData: CountryData[] = [
       'Portuguese Coast',
       'Euro Summer',
     ],
-    blogPostsCount: 0,
     flagCode: 'PT',
     description:
       'Current European chapter based in Ericeira - Portugal flag on the map, Atlantic surf, and coastal work base energy.',
     color: '#16a34a',
   },
 ]
-
-// Calculate journey stats
-export const journeyStats = {
-  totalCountries: 23, // Excluding Florida/USA return home
-  totalBlogPosts: allBlogPosts.length,
-  durationMonths: 20,
-  continents: 4, // Asia, Africa, Europe, Central America
-  startDate: 'September 2024',
-  endDate: 'Present',
-}
-
-// Utility functions for country data access
-
-// Get country by name (case-insensitive)
-export function getCountryByName(name: string): CountryData | undefined {
-  return fullJourneyData.find(
-    (country) => country.name.toLowerCase() === name.toLowerCase(),
-  )
-}
-
-// Get country by flag code
-export function getCountryByCode(code: string): CountryData | undefined {
-  return fullJourneyData.find(
-    (country) => country.flagCode.toLowerCase() === code.toLowerCase(),
-  )
-}
-
-// Get all country names
-export function getCountryNames(): string[] {
-  return fullJourneyData.map((country) => country.name)
-}
-
-// Get all flag codes
-export function getCountryCodes(): string[] {
-  return fullJourneyData.map((country) => country.flagCode)
-}
-
-// Create a map for quick lookups
-export const countryByName = new Map<string, CountryData>(
-  fullJourneyData.map((country) => [country.name.toLowerCase(), country]),
-)
-
-export const countryByCode = new Map<string, CountryData>(
-  fullJourneyData.map((country) => [country.flagCode.toLowerCase(), country]),
-)
-
-// Get flag emoji from country code
-export function getFlagEmoji(countryCode: string): string {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split('')
-    .map((char) => 127397 + char.charCodeAt(0))
-  return String.fromCodePoint(...codePoints)
-}
-
-// Get countries by continent/region
-export function getCountriesByRegion(
-  region: 'asia' | 'africa' | 'europe' | 'americas',
-): CountryData[] {
-  const regionMap: Record<string, string[]> = {
-    asia: [
-      'Israel',
-      'UAE',
-      'Nepal',
-      'Thailand',
-      'Laos',
-      'Cambodia',
-      'China',
-      'Vietnam',
-      'Singapore',
-      'Philippines',
-      'Indonesia',
-      'Japan',
-    ],
-    africa: ['Kenya', 'Tanzania', 'Rwanda'],
-    europe: ['Georgia', 'Netherlands', 'Belgium', 'Portugal'],
-    americas: [
-      'Florida, USA',
-      'Costa Rica',
-      'Panama',
-      'Guatemala',
-      'El Salvador',
-    ],
-  }
-
-  const countryNames = regionMap[region] || []
-  return fullJourneyData.filter((country) =>
-    countryNames.includes(country.name),
-  )
-}

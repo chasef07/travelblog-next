@@ -3,28 +3,22 @@ import {
   allBlogPosts,
   type BlogArchive,
 } from '@/content/blog-registry'
-import {
-  countriesData as countryProfiles,
-  type CountryInfo,
-} from '@/content/countries-data'
+import { countriesData as countryProfiles, type CountryInfo } from './countries'
 import { foodData, type FoodItem } from '@/content/food-data'
-import {
-  journeyChapters as chapterData,
-  type JourneyChapter,
-} from '@/content/journey-data'
+import { journeyChapters as chapterData, type JourneyChapter } from './chapters'
 import { placesData, type Place } from '@/content/places-data'
 import type { BlogPost } from '@/types/blog'
 import {
   fullJourneyData as routeData,
   type CountryData as RouteCountry,
-} from '@/utils/comprehensive-map-data'
+} from './route'
 
 const aliases: Record<string, string> = {
   USA: 'United States',
   'Florida, USA': 'United States',
 }
 
-export type JourneyCountry = Omit<RouteCountry, 'name' | 'blogPostsCount'> &
+export type JourneyCountry = Omit<RouteCountry, 'name'> &
   CountryInfo & {
     blogPostsCount: number
   }
@@ -105,6 +99,11 @@ const route: JourneyStop[] = routeData.map((source) => {
   }
 })
 
+const canonicalRouteNames = route.map((stop) => stop.country.name)
+if (new Set(canonicalRouteNames).size !== canonicalRouteNames.length) {
+  throw new Error('Journey route contains duplicate canonical Countries')
+}
+
 const currentStops = route.filter((stop) => stop.isCurrent)
 if (currentStops.length !== 1) {
   throw new Error(
@@ -135,12 +134,14 @@ for (const chapter of chapterData) {
   }
 }
 
-function monthDistance(start: string, end: Date): number {
-  const startDate = new Date(`${start} 1`)
+function monthDistance(
+  start: { year: number; month: number },
+  end: Date,
+): number {
   return (
-    (end.getUTCFullYear() - startDate.getUTCFullYear()) * 12 +
+    (end.getUTCFullYear() - start.year) * 12 +
     end.getUTCMonth() -
-    startDate.getUTCMonth() +
+    start.month +
     1
   )
 }
@@ -155,7 +156,7 @@ export const journeyStats: JourneyStats = {
   totalCountries: route.filter((stop) => stop.country.name !== 'United States')
     .length,
   totalBlogPosts: allBlogPosts.length,
-  durationMonths: monthDistance('September 2024', new Date()),
+  durationMonths: monthDistance({ year: 2024, month: 8 }, new Date()),
   continents: new Set(
     [...regions].map((region) => {
       if (region.includes('Africa')) return 'Africa'
