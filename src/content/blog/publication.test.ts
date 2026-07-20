@@ -45,4 +45,13 @@ describe('Blog publication interface', () => {
       true,
     )
   })
+
+  test('reserves month slugs even before an Archive is published', () => {
+    const post = resolvePublication('2026', 'european-living-in-ericeira')
+    if (post.kind !== 'post') throw new Error('Expected fixture Post')
+
+    expect(() =>
+      createBlogPublication([{ ...post.post, slug: 'january' }], []),
+    ).toThrow('collides with Archive')
+  })
 })

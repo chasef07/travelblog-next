@@ -31,7 +31,8 @@ export function calculateReadingTime(content: string): number {
 }
 
 function monthSlug(date: string): string {
-  const parsed = new Date(date)
+  const isoDate = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date)
+  const parsed = new Date(isoDate ? `${date}T00:00:00Z` : `${date} UTC`)
   if (Number.isNaN(parsed.getTime())) {
     throw new Error(`Malformed Blog date: ${date}`)
   }
@@ -39,6 +40,21 @@ function monthSlug(date: string): string {
     .toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' })
     .toLowerCase()
 }
+
+const reservedArchiveSlugs = new Set([
+  'january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december',
+])
 
 function assertUnique<T>(
   records: T[],
@@ -75,7 +91,7 @@ export function createBlogPublication(
   assertUnique(posts, (post) => post.id, 'Post identity')
   assertUnique(archives, (archive) => archive.url, 'Archive path')
   for (const post of posts) {
-    if (archivesByPath.has(post.url)) {
+    if (reservedArchiveSlugs.has(post.slug)) {
       throw new Error(`Post path collides with Archive: ${post.url}`)
     }
     monthSlug(post.date)
