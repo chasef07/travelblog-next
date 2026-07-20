@@ -471,14 +471,17 @@ export default function GlobeScene({
   onSelectCountry,
   selectedCountry,
   geoData,
+  isMobile,
+  onReady,
 }: {
   onSelectCountry: (country: CountryData | null) => void
   selectedCountry: CountryData | null
   geoData: GeoJSON | null
+  isMobile: boolean
+  onReady: () => void
 }) {
   const [isMounted, setIsMounted] = useState(false)
   const [isReady, setIsReady] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
   const [theme, setTheme] = useState<GlobeTheme>(DEFAULT_GLOBE_THEME)
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
 
@@ -545,14 +548,6 @@ export default function GlobeScene({
   }, [])
 
   useEffect(() => {
-    const query = window.matchMedia('(max-width: 767px)')
-    const updateMobile = () => setIsMobile(query.matches)
-    updateMobile()
-    query.addEventListener('change', updateMobile)
-    return () => query.removeEventListener('change', updateMobile)
-  }, [])
-
-  useEffect(() => {
     if (rendererRef.current) {
       rendererRef.current.setClearColor(theme.sceneBg, 0)
     }
@@ -610,6 +605,7 @@ export default function GlobeScene({
           // Small delay to ensure first frame is rendered
           requestAnimationFrame(() => {
             setIsReady(true)
+            onReady()
           })
         }}
       >

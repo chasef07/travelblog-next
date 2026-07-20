@@ -26,7 +26,12 @@ export async function fetchGeoJSON(): Promise<GeoJSON> {
   }
 
   geoJSONPromise = fetch('/data/countries.geojson')
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`GeoJSON request failed: ${response.status}`)
+      }
+      return response.json()
+    })
     .then((data) => {
       geoJSONCache = data
       return data
