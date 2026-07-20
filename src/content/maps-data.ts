@@ -172,7 +172,7 @@ const mapProducts: MapProduct[] = [
   },
 ]
 
-export const atlasIntents = [
+const atlasIntents = [
   {
     id: 'surf',
     title: 'Surf Town Atlas',
@@ -228,6 +228,14 @@ const balancedWeights: Record<keyof Place['scores'], number> = {
   community: 0,
   value: 0.15,
 }
+const lensLabels: Record<AtlasLens, string> = {
+  balanced: 'Overall fit',
+  surf: 'Surf',
+  workability: 'Work fit',
+  walkability: 'Walkability',
+  beauty: 'Beauty',
+  value: 'Value',
+}
 
 function placeProjection(place: Place): AtlasPlace {
   return {
@@ -281,8 +289,14 @@ function resolveProduct(product: MapProduct): AtlasProduct {
 
 const products = mapProducts.map(resolveProduct)
 const productIds = new Set(products.map((product) => product.id))
-if (productIds.size !== products.length) {
-  throw new Error('Atlas product identities must be unique')
+const productSlugs = new Set(products.map((product) => product.slug))
+const productHrefs = new Set(products.map((product) => product.href))
+if (
+  productIds.size !== products.length ||
+  productSlugs.size !== products.length ||
+  productHrefs.size !== products.length
+) {
+  throw new Error('Atlas product identities and destinations must be unique')
 }
 
 const featuredProducts = products.filter((product) => product.featured)
@@ -360,7 +374,7 @@ const placeSections = products.flatMap((product) => {
         ({ place }) => place,
       ),
       scoreKey: product.defaultLens,
-      scoreLabel: product.defaultLens === 'workability' ? 'Work fit' : 'Beauty',
+      scoreLabel: lensLabels[product.defaultLens],
     },
   ]
 })
