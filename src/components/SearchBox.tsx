@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { blogMetadata } from '../content/blog-data'
+import { archiveCards } from '@/content/blog/publication'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -13,7 +13,7 @@ export default function SearchBox() {
     if (!query.trim()) return []
 
     const searchTerm = query.toLowerCase()
-    return blogMetadata
+    return archiveCards
       .filter(
         (post) =>
           post.title.toLowerCase().includes(searchTerm) ||

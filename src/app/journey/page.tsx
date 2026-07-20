@@ -2,7 +2,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
-import { blogArchives, type BlogArchive } from '@/content/blog-registry'
+import {
+  archives as blogArchives,
+  type BlogArchive,
+} from '@/content/blog/publication'
 import { journeyStats } from '@/utils/comprehensive-map-data'
 
 export const metadata = generatePageMetadata({

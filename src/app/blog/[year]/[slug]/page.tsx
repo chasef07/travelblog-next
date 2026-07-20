@@ -1,10 +1,11 @@
-import { loadBlogPost } from '@/utils/blog-loader'
-import { blogMetadata } from '@/content/blog-data'
-import { allBlogPosts } from '@/content/blog-registry'
+import {
+  archiveCards,
+  resolvePublication,
+  staticPublicationParams,
+} from '@/content/blog/publication'
 import BlogPost from '@/components/BlogPost'
 import Breadcrumb, { generateBlogBreadcrumbs } from '@/components/Breadcrumb'
 import Link from 'next/link'
-import Image from 'next/image'
 import {
   generatePageMetadata,
   generateArticleJsonLd,
@@ -15,22 +16,7 @@ import { ArrowUpRight, MapPin, Clock } from 'lucide-react'
 
 // Generate static params for all blog posts at build time
 export async function generateStaticParams() {
-  // Monthly archive pages
-  const monthlyParams = blogMetadata.map((post) => {
-    const pathParts = post.link.split('/')
-    return {
-      year: pathParts[2],
-      slug: pathParts[3],
-    }
-  })
-
-  // Individual blog post pages
-  const postParams = allBlogPosts.map((post) => ({
-    year: post.year,
-    slug: post.slug,
-  }))
-
-  return [...monthlyParams, ...postParams]
+  return staticPublicationParams()
 }
 
 export async function generateMetadata({
@@ -39,13 +25,15 @@ export async function generateMetadata({
   params: Promise<{ year: string; slug: string }>
 }) {
   const { year, slug } = await params
-  const post = await loadBlogPost(year, slug)
-  const metadata = blogMetadata.find((b) => b.link === `/blog/${year}/${slug}`)
+  const outcome = resolvePublication(year, slug)
+  const post = outcome.kind === 'post' ? outcome.post : undefined
+  const metadata =
+    outcome.kind === 'archive' || outcome.kind === 'empty-archive'
+      ? outcome.archive
+      : undefined
 
   if (post) {
-    const images =
-      post.images?.map((img) => img.src) ||
-      ([metadata?.image].filter(Boolean) as string[])
+    const images = post.images.map((img) => img.src)
     const keywords = [
       'solo travel blog',
       `${post.location} travel guide`,
@@ -91,7 +79,8 @@ export default async function Page({
   const { year, slug } = await params
 
   // Try to load a specific blog post first
-  const post = await loadBlogPost(year, slug)
+  const outcome = resolvePublication(year, slug)
+  const post = outcome.kind === 'post' ? outcome.post : undefined
 
   if (post) {
     const articleJsonLd = generateArticleJsonLd(post)
@@ -219,7 +208,7 @@ export default async function Page({
           </div>
 
           <div className="grid md:grid-cols-2 gap-px bg-[var(--ui-border-subtle)] border border-[var(--ui-border-subtle)]">
-            {blogMetadata.slice(0, 4).map((relatedPost) => (
+            {archiveCards.slice(0, 4).map((relatedPost) => (
               <Link
                 key={relatedPost.link}
                 href={relatedPost.link}
@@ -260,14 +249,8 @@ export default async function Page({
     )
   }
 
-  // If no specific post found, try to load all posts for the month/slug
-  const { loadBlogPosts } = await import('@/utils/blog-loader')
-  const posts = await loadBlogPosts(year, slug)
-  const monthMetadata = blogMetadata.find(
-    (entry) => entry.link === `/blog/${year}/${slug}`,
-  )
-
-  if (posts.length > 0) {
+  if (outcome.kind === 'archive') {
+    const posts = outcome.posts
     return (
       <main className="min-h-screen app-surface pt-20 sm:pt-24">
         <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
@@ -297,109 +280,53 @@ export default async function Page({
           </header>
 
           <div className="space-y-16 sm:space-y-24">
-            {posts.map((blogPost) => {
-              const paragraphs = blogPost.content
-                .split(/\n{2,}/)
-                .filter(Boolean)
-
-              return (
-                <article
-                  key={blogPost.id}
-                  className="border-b border-[var(--ui-border-subtle)] pb-16 last:border-b-0 sm:pb-24"
-                >
-                  <header className="mb-8">
-                    <div className="mb-4 flex flex-col items-start gap-3 text-sm text-[var(--ui-text-subtle)] sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+            {posts.map((blogPost) => (
+              <article
+                key={blogPost.id}
+                className="border-b border-[var(--ui-border-subtle)] pb-16 last:border-b-0 sm:pb-24"
+              >
+                <header className="mb-8">
+                  <div className="mb-4 flex flex-col items-start gap-3 text-sm text-[var(--ui-text-subtle)] sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4" />
+                      <span className="font-mono text-xs tracking-wider uppercase">
+                        {blogPost.location}
+                      </span>
+                    </div>
+                    <time
+                      dateTime={blogPost.date}
+                      className="font-mono text-xs tracking-wider uppercase"
+                    >
+                      {new Date(blogPost.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    {blogPost.readingTime && (
                       <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4" />
+                        <Clock className="h-4 w-4" />
                         <span className="font-mono text-xs tracking-wider uppercase">
-                          {blogPost.location}
+                          {blogPost.readingTime} min read
                         </span>
                       </div>
-                      <time
-                        dateTime={blogPost.date}
-                        className="font-mono text-xs tracking-wider uppercase"
-                      >
-                        {new Date(blogPost.date).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric',
-                        })}
-                      </time>
-                      {blogPost.readingTime && (
-                        <div className="flex items-center gap-2">
-                          <Clock className="h-4 w-4" />
-                          <span className="font-mono text-xs tracking-wider uppercase">
-                            {blogPost.readingTime} min read
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-extralight text-[var(--ui-text-primary)] leading-tight">
-                      {blogPost.title}
-                    </h2>
-                  </header>
-
-                  <div className="max-w-[68ch]">
-                    <div className="space-y-6 text-[var(--ui-text-muted)] font-light text-[clamp(1rem,2.8vw,1.14rem)] leading-8 sm:leading-9">
-                      {paragraphs.map((paragraph, index) => (
-                        <p
-                          key={index}
-                          className="whitespace-pre-line break-words"
-                        >
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
+                    )}
                   </div>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-extralight text-[var(--ui-text-primary)] leading-tight">
+                    {blogPost.title}
+                  </h2>
+                </header>
 
-                  {blogPost.images && blogPost.images.length > 0 && (
-                    <div className="my-10 grid gap-6 sm:my-12 sm:gap-8">
-                      {blogPost.images.map((image, index) => {
-                        const frameClass =
-                          image.orientation === 'portrait'
-                            ? 'mx-auto max-w-[520px] aspect-[3/4]'
-                            : image.orientation === 'square'
-                              ? 'mx-auto max-w-[620px] aspect-square'
-                              : 'mx-auto max-w-3xl aspect-[4/3]'
-
-                        return (
-                          <figure key={index} className="relative group">
-                            <div
-                              className={`relative w-full overflow-hidden border border-[var(--ui-border-subtle)] ${frameClass}`}
-                            >
-                              <Image
-                                src={image.src}
-                                alt={image.alt}
-                                fill
-                                sizes={
-                                  image.orientation === 'portrait'
-                                    ? '(max-width: 768px) 100vw, 520px'
-                                    : '(max-width: 768px) 100vw, 768px'
-                                }
-                                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                loading="lazy"
-                              />
-                            </div>
-                            {image.caption && (
-                              <figcaption className="mt-4 text-center font-mono text-xs tracking-wider text-[var(--ui-text-subtle)] sm:text-sm">
-                                {image.caption}
-                              </figcaption>
-                            )}
-                          </figure>
-                        )
-                      })}
-                    </div>
-                  )}
-                </article>
-              )
-            })}
+                <BlogPost post={blogPost} />
+              </article>
+            ))}
           </div>
         </div>
       </main>
     )
   }
 
-  if (monthMetadata) {
+  if (outcome.kind === 'empty-archive') {
     return (
       <main className="min-h-screen app-surface pt-20 sm:pt-24">
         <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
@@ -422,7 +349,7 @@ export default async function Page({
               Travel Stories
             </h1>
             <p className="mt-4 max-w-2xl text-base text-[var(--ui-text-muted)] sm:mt-6 sm:text-lg">
-              {monthMetadata.excerpt}
+              {outcome.archive.excerpt}
             </p>
           </header>
 
@@ -431,8 +358,8 @@ export default async function Page({
               First Post Coming Soon
             </h2>
             <p className="mt-3 text-sm sm:text-base text-[var(--ui-text-secondary)] leading-relaxed">
-              This month section is live. Add your first February 2026 entry and
-              it will appear here automatically.
+              This month section is live. Its first entry will appear here
+              automatically.
             </p>
             <Link
               href="/blog"

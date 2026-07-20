@@ -1,5 +1,5 @@
 import type { BlogPost } from '@/types/blog'
-import { allBlogPosts } from '@/content/blog-registry'
+import { posts } from '@/content/blog/publication'
 
 export interface CountryData {
   name: string
@@ -404,7 +404,7 @@ export const fullJourneyData: CountryData[] = [
 // Calculate journey stats
 export const journeyStats = {
   totalCountries: 23, // Excluding Florida/USA return home
-  totalBlogPosts: allBlogPosts.length,
+  totalBlogPosts: posts.length,
   durationMonths: 20,
   continents: 4, // Asia, Africa, Europe, Central America
   startDate: 'September 2024',

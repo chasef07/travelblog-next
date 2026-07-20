@@ -1,0 +1,48 @@
+// @ts-expect-error Bun supplies this built-in module at test runtime.
+import { describe, expect, test } from 'bun:test'
+
+import {
+  archives,
+  createBlogPublication,
+  resolvePublication,
+  staticPublicationParams,
+} from './publication'
+
+describe('Blog publication interface', () => {
+  test('resolves posts, populated archives, empty archives, and missing paths', () => {
+    expect(resolvePublication('2026', 'european-living-in-ericeira').kind).toBe(
+      'post',
+    )
+    expect(resolvePublication('2026', 'july').kind).toBe('archive')
+    const empty = createBlogPublication([], [archives[0]])
+    expect(empty.resolve(String(archives[0].year), archives[0].slug).kind).toBe(
+      'empty-archive',
+    )
+    expect(resolvePublication('2099', 'missing')).toEqual({ kind: 'missing' })
+  })
+
+  test('publishes unique static paths that all resolve', () => {
+    const paths = staticPublicationParams()
+    const keys = paths.map(({ year, slug }) => `${year}/${slug}`)
+
+    expect(new Set(keys).size).toBe(keys.length)
+    expect(
+      paths.every(
+        ({ year, slug }) => resolvePublication(year, slug).kind !== 'missing',
+      ),
+    ).toBe(true)
+  })
+
+  test('uses deterministic reading times and canonical archive URLs', () => {
+    const july = resolvePublication('2026', 'july')
+
+    expect(july.kind).toBe('archive')
+    if (july.kind !== 'archive') return
+
+    expect(july.url).toBe('/blog/2026/july')
+    expect(july.posts.every((post) => post.readingTime > 0)).toBe(true)
+    expect(archives.every((archive) => archive.url.startsWith('/blog/'))).toBe(
+      true,
+    )
+  })
+})

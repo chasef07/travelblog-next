@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
-import { blogMetadata } from '@/content/blog-data'
-import { allBlogPosts } from '@/content/blog-registry'
+import { archives, posts } from '@/content/blog/publication'
 import { siteConfig } from '@/lib/seo'
 
 /**
@@ -58,39 +57,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Monthly archive pages (from blogMetadata)
-  const monthlyArchivePages: MetadataRoute.Sitemap = blogMetadata.map(
-    (post) => {
-      const pathParts = post.link.split('/')
-      const year = pathParts[2]
-      const slug = pathParts[3]
-      const postDate = new Date(post.date)
-      const isRecent =
-        currentDate.getTime() - postDate.getTime() < 90 * 24 * 60 * 60 * 1000
+  const monthlyArchivePages: MetadataRoute.Sitemap = archives.map((post) => {
+    const year = post.year
+    const slug = post.slug
+    const postDate = new Date(post.date)
+    const isRecent =
+      currentDate.getTime() - postDate.getTime() < 90 * 24 * 60 * 60 * 1000
 
-      return {
-        url: `${baseUrl}/blog/${year}/${slug}`,
-        lastModified: postDate,
-        changeFrequency: isRecent ? 'weekly' : ('monthly' as const),
-        priority: isRecent ? 0.8 : 0.6,
-      }
-    },
-  )
+    return {
+      url: `${baseUrl}/blog/${year}/${slug}`,
+      lastModified: postDate,
+      changeFrequency: isRecent ? 'weekly' : ('monthly' as const),
+      priority: isRecent ? 0.8 : 0.6,
+    }
+  })
 
   // Individual blog post pages (higher priority than archives)
-  const individualPostPages: MetadataRoute.Sitemap = allBlogPosts.map(
-    (post) => {
-      const postDate = new Date(post.date)
-      const isRecent =
-        currentDate.getTime() - postDate.getTime() < 90 * 24 * 60 * 60 * 1000
+  const individualPostPages: MetadataRoute.Sitemap = posts.map((post) => {
+    const postDate = new Date(post.date)
+    const isRecent =
+      currentDate.getTime() - postDate.getTime() < 90 * 24 * 60 * 60 * 1000
 
-      return {
-        url: `${baseUrl}/blog/${post.year}/${post.slug}`,
-        lastModified: postDate,
-        changeFrequency: isRecent ? 'weekly' : ('monthly' as const),
-        priority: isRecent ? 0.9 : 0.7,
-      }
-    },
-  )
+    return {
+      url: `${baseUrl}/blog/${post.year}/${post.slug}`,
+      lastModified: postDate,
+      changeFrequency: isRecent ? 'weekly' : ('monthly' as const),
+      priority: isRecent ? 0.9 : 0.7,
+    }
+  })
 
   // Combine all pages
   return [...staticPages, ...monthlyArchivePages, ...individualPostPages]

@@ -2,7 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import SimpleHero from '../components/SimpleHero'
-import { blogArchives, type BlogArchive } from '@/content/blog-registry'
+import {
+  archives as blogArchives,
+  type BlogArchive,
+} from '@/content/blog/publication'
 import { countriesData } from '@/content/countries-data'
 import { mapProducts } from '@/content/maps-data'
 import { journeyStats } from '@/utils/comprehensive-map-data'

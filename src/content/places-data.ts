@@ -1,5 +1,5 @@
 import type { BlogPost } from '@/types/blog'
-import { blogPostsBySlug } from '@/content/blog-registry'
+import { posts } from '@/content/blog/publication'
 
 export type PlaceTheme = 'surf' | 'work' | 'spiritual'
 
@@ -375,11 +375,6 @@ export function getPlacesForMap(mapId: string): Place[] {
 
 export function getRelatedPostsForPlace(place: Place): BlogPost[] {
   return place.relatedPostSlugs
-    .map((slug) => {
-      const post = Array.from(blogPostsBySlug.values()).find(
-        (entry) => entry.slug === slug,
-      )
-      return post || null
-    })
-    .filter((post): post is BlogPost => Boolean(post))
+    .map((slug) => posts.find((entry) => entry.slug === slug))
+    .filter((post) => post !== undefined)
 }
