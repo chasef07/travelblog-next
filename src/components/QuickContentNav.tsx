@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Compass, MapPin, Route } from 'lucide-react'
-import { atlasIntents } from '@/content/maps-data'
+import { atlasCatalog } from '@/content/maps-data'
 
 const intentMetadata = {
   surf: {
@@ -28,7 +28,7 @@ const intentMetadata = {
   },
 } as const
 
-const contentSections = atlasIntents.map((intent) => {
+const contentSections = atlasCatalog.intents.map((intent) => {
   const metadata =
     intentMetadata[intent.id as keyof typeof intentMetadata] ||
     intentMetadata.surf

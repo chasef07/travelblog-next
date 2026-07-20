@@ -1,20 +1,19 @@
 import Link from 'next/link'
 import { ArrowUpRight, MapPin } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
-import { mapProducts, type MapProduct } from '@/content/maps-data'
 import {
-  getPlacesForMap,
-  getRelatedPostsForPlace,
-  type Place,
-} from '@/content/places-data'
-import { countriesData, type CountryInfo } from '@/content/countries-data'
+  atlasCatalog,
+  rankAtlasPlaces,
+  type AtlasPlace,
+  type AtlasProduct,
+} from '@/content/maps-data'
 import SurfTownAtlasExplorer from '@/components/SurfTownAtlasExplorer'
 import SurfTownComparison from '@/components/SurfTownComparison'
 
 type PlacePreviewSection = {
-  product: MapProduct
-  places: Place[]
-  scoreKey: keyof Place['scores']
+  product: AtlasProduct
+  places: AtlasPlace[]
+  scoreKey: keyof AtlasPlace['scores']
   scoreLabel: string
 }
 
@@ -23,7 +22,7 @@ export const metadata = generatePageMetadata({
   description:
     'Paid travel atlas guides for surf towns, adventure countries, wellness destinations, work spots, and spiritually interesting places.',
   path: '/maps',
-  images: mapProducts.map((product) => product.image),
+  images: atlasCatalog.products.map((product) => product.image),
   keywords: [
     'travel atlas',
     'surf town guide',
@@ -33,61 +32,37 @@ export const metadata = generatePageMetadata({
   ],
 })
 
-function getProductCountries(product: MapProduct): CountryInfo[] {
-  return (product.featuredCountries || [])
-    .map((countryName) => countriesData[countryName])
-    .filter((country): country is CountryInfo => Boolean(country))
-}
-
 export default function MapsPage() {
-  const surfPlaces = [...getPlacesForMap('surf-town-atlas')].sort(
-    (a, b) => b.scores.surf - a.scores.surf,
+  const surfAtlasProduct = atlasCatalog.featuredProduct
+  const surfTownEntries = rankAtlasPlaces(
+    surfAtlasProduct.defaultLens ?? 'balanced',
+    surfAtlasProduct.id,
+  ).map(({ place }) => place)
+  const surfTownRankings = {
+    balanced: rankAtlasPlaces('balanced', surfAtlasProduct.id),
+    surf: rankAtlasPlaces('surf', surfAtlasProduct.id),
+    workability: rankAtlasPlaces('workability', surfAtlasProduct.id),
+    walkability: rankAtlasPlaces('walkability', surfAtlasProduct.id),
+    value: rankAtlasPlaces('value', surfAtlasProduct.id),
+  }
+  const countryAtlasProducts = atlasCatalog.products.filter(
+    (product) => product.preview.kind === 'countries',
   )
-  const workPlaces = [...getPlacesForMap('cafe-work-atlas')].sort(
-    (a, b) => b.scores.workability - a.scores.workability,
-  )
-  const depthPlaces = [...getPlacesForMap('spiritual-places-atlas')].sort(
-    (a, b) => b.scores.beauty - a.scores.beauty,
-  )
-  const surfAtlasProduct = mapProducts.find(
-    (product) => product.id === 'surf-town-atlas',
-  )
-  const cafeWorkProduct = mapProducts.find(
-    (product) => product.id === 'cafe-work-atlas',
-  )
-  const spiritualProduct = mapProducts.find(
-    (product) => product.id === 'spiritual-places-atlas',
-  )
-  const countryAtlasProducts = mapProducts.filter(
-    (product) => product.previewType === 'countries',
-  )
-  const placePreviewSections: PlacePreviewSection[] = [
-    cafeWorkProduct
-      ? {
-          product: cafeWorkProduct,
-          places: workPlaces,
-          scoreKey: 'workability',
-          scoreLabel: 'Work fit',
-        }
-      : null,
-    spiritualProduct
-      ? {
-          product: spiritualProduct,
-          places: depthPlaces,
-          scoreKey: 'beauty',
-          scoreLabel: 'Beauty',
-        }
-      : null,
-  ].filter((section): section is PlacePreviewSection => Boolean(section))
-
-  const surfTownEntries = surfPlaces.map((place) => ({
-    ...place,
-    relatedPosts: getRelatedPostsForPlace(place).map((post) => ({
-      slug: post.slug,
-      year: post.year,
-      title: post.title,
-    })),
-  }))
+  const placePreviewSections: PlacePreviewSection[] = atlasCatalog.products
+    .filter(
+      (product) =>
+        !product.featured &&
+        product.preview.kind === 'places' &&
+        product.defaultLens,
+    )
+    .map((product) => ({
+      product,
+      places: rankAtlasPlaces(product.defaultLens!, product.id).map(
+        ({ place }) => place,
+      ),
+      scoreKey: product.defaultLens as keyof AtlasPlace['scores'],
+      scoreLabel: product.defaultLens === 'workability' ? 'Work fit' : 'Beauty',
+    }))
 
   return (
     <main className="min-h-screen app-surface pt-20 sm:pt-24">
@@ -141,7 +116,7 @@ export default function MapsPage() {
         </header>
 
         <section className="mb-16 grid gap-px border border-[var(--ui-border-subtle)] bg-[var(--ui-border-subtle)] md:grid-cols-2 xl:grid-cols-5">
-          {mapProducts.map((product) => (
+          {atlasCatalog.products.map((product) => (
             <div key={product.id} className="bg-[var(--ui-bg-strong)] p-5">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ui-text-subtle)]">
                 {product.statusLabel}
@@ -243,7 +218,10 @@ export default function MapsPage() {
               </p>
             </div>
           </div>
-          <SurfTownAtlasExplorer places={surfTownEntries} />
+          <SurfTownAtlasExplorer
+            places={surfTownEntries}
+            rankings={surfTownRankings}
+          />
         </section>
 
         <section className="mb-16">
@@ -259,11 +237,12 @@ export default function MapsPage() {
               your constraints.
             </p>
           </div>
-          <SurfTownComparison places={surfPlaces} />
+          <SurfTownComparison places={surfTownEntries} />
         </section>
 
         {countryAtlasProducts.map((product) => {
-          const countries = getProductCountries(product)
+          const countries =
+            product.preview.kind === 'countries' ? product.preview.items : []
 
           return (
             <section key={product.id} id={product.id} className="mb-16">

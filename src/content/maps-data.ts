@@ -1,7 +1,22 @@
 import { SURF_TOWN_GUIDE_CHECKOUT_URL } from '@/lib/product-links'
+import { countriesData, type CountryInfo } from '@/content/countries-data'
+import { allBlogPosts } from '@/content/blog-registry'
+import {
+  getPlacesForMap,
+  getRelatedPostsForPlace,
+  placesData,
+  type Place,
+} from '@/content/places-data'
 
 export type AtlasPreviewType = 'places' | 'countries'
 export type MapProductStatus = 'live' | 'planned'
+export type AtlasLens =
+  | 'balanced'
+  | 'surf'
+  | 'workability'
+  | 'walkability'
+  | 'beauty'
+  | 'value'
 
 export type MapProduct = {
   id: string
@@ -21,6 +36,23 @@ export type MapProduct = {
   valueProps: string[]
   themes: string[]
   featuredCountries?: string[]
+  defaultLens?: AtlasLens
+}
+
+export type AtlasPlace = Place & {
+  relatedPosts: Array<{
+    slug: string
+    year: string
+    title: string
+    url: string
+  }>
+}
+
+export type AtlasProduct = MapProduct & {
+  featured: boolean
+  preview:
+    | { kind: 'places'; items: AtlasPlace[] }
+    | { kind: 'countries'; items: CountryInfo[] }
 }
 
 export const mapProducts: MapProduct[] = [
@@ -42,6 +74,7 @@ export const mapProducts: MapProduct[] = [
     audience: 'Surfers, remote workers, and people choosing a warm-water base.',
     valueProps: ['Wave quality', 'Town vibe', 'Walkability', 'Long-stay fit'],
     themes: ['Surf', 'Warm weather', 'Base selection'],
+    defaultLens: 'balanced',
   },
   {
     id: 'adventure-atlas',
@@ -111,6 +144,7 @@ export const mapProducts: MapProduct[] = [
       'Workability',
     ],
     themes: ['Cafes', 'Remote work', 'Cities'],
+    defaultLens: 'workability',
   },
   {
     id: 'spiritual-places-atlas',
@@ -130,6 +164,7 @@ export const mapProducts: MapProduct[] = [
       'Travelers looking for meaning, beauty, ritual, and real atmosphere.',
     valueProps: ['Authenticity', 'Beauty', 'Stillness', 'Emotional impact'],
     themes: ['Spiritual', 'Reflection', 'Retreat'],
+    defaultLens: 'beauty',
   },
 ]
 
@@ -167,3 +202,122 @@ export const atlasIntents = [
     stat: 'Story + trust',
   },
 ]
+
+const featuredProductId = 'surf-town-atlas'
+const balancedWeights: Record<keyof Place['scores'], number> = {
+  surf: 0.35,
+  workability: 0.2,
+  walkability: 0.15,
+  beauty: 0.15,
+  community: 0,
+  value: 0.15,
+}
+
+function placeProjection(place: Place): AtlasPlace {
+  return {
+    ...place,
+    relatedPosts: getRelatedPostsForPlace(place).map((post) => ({
+      slug: post.slug,
+      year: post.year,
+      title: post.title,
+      url: `/blog/${post.year}/${post.slug}`,
+    })),
+  }
+}
+
+function resolveProduct(product: MapProduct): AtlasProduct {
+  if (product.status === 'live' && !product.checkoutUrl) {
+    throw new Error(`Live Atlas product ${product.id} needs checkout`)
+  }
+  if (product.status === 'planned' && product.checkoutUrl) {
+    throw new Error(`Planned Atlas product ${product.id} cannot have checkout`)
+  }
+
+  const preview =
+    product.previewType === 'places'
+      ? {
+          kind: 'places' as const,
+          items: getPlacesForMap(product.id).map(placeProjection),
+        }
+      : {
+          kind: 'countries' as const,
+          items: (product.featuredCountries ?? []).map((name) => {
+            const country = countriesData[name]
+            if (!country) {
+              throw new Error(`Atlas product ${product.id} references ${name}`)
+            }
+            return country
+          }),
+        }
+
+  if (preview.items.length === 0) {
+    throw new Error(`Atlas product ${product.id} has no preview evidence`)
+  }
+
+  return { ...product, featured: product.id === featuredProductId, preview }
+}
+
+const products = mapProducts.map(resolveProduct)
+const productIds = new Set(products.map((product) => product.id))
+if (productIds.size !== products.length) {
+  throw new Error('Atlas product identities must be unique')
+}
+
+const featuredProducts = products.filter((product) => product.featured)
+if (featuredProducts.length !== 1 || featuredProducts[0].status !== 'live') {
+  throw new Error('Atlas catalog must have one featured live product')
+}
+
+for (const place of placesData) {
+  for (const mapId of place.featuredInMaps) {
+    if (!productIds.has(mapId)) {
+      throw new Error(`Place ${place.slug} references unknown Atlas ${mapId}`)
+    }
+  }
+  for (const slug of place.relatedPostSlugs) {
+    if (!allBlogPosts.some((post) => post.slug === slug)) {
+      throw new Error(`Place ${place.slug} references unknown Post ${slug}`)
+    }
+  }
+}
+
+export const atlasCatalog = {
+  products,
+  intents: atlasIntents,
+  featuredProduct: featuredProducts[0],
+}
+
+export function getAtlasProduct(id: string): AtlasProduct | undefined {
+  return products.find((product) => product.id === id)
+}
+
+function scorePlace(place: Place, lens: AtlasLens): number {
+  if (lens !== 'balanced') return place.scores[lens]
+  return Object.entries(balancedWeights).reduce(
+    (score, [key, weight]) =>
+      score + place.scores[key as keyof Place['scores']] * weight,
+    0,
+  )
+}
+
+export function rankAtlasPlaces(
+  lens: AtlasLens,
+  productId: string,
+): Array<{ place: AtlasPlace; score: number }> {
+  const product = getAtlasProduct(productId)
+  if (!product || product.preview.kind !== 'places') return []
+
+  return product.preview.items
+    .map((place) => ({ place, score: scorePlace(place, lens) }))
+    .sort(
+      (a, b) => b.score - a.score || a.place.name.localeCompare(b.place.name),
+    )
+}
+
+export function compareAtlasPlaces(leftSlug: string, rightSlug: string) {
+  const left = placesData.find((place) => place.slug === leftSlug)
+  const right = placesData.find((place) => place.slug === rightSlug)
+  return left && right
+    ? { left: placeProjection(left), right: placeProjection(right) }
+    : undefined
+}

@@ -3,32 +3,9 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowUpRight, MapPin } from 'lucide-react'
+import type { AtlasLens, AtlasPlace } from '@/content/maps-data'
 
-type SurfTownEntry = {
-  id: string
-  slug: string
-  name: string
-  country: string
-  region: string
-  shortVerdict: string
-  bestFor: string[]
-  notFor: string[]
-  scores: {
-    surf: number
-    workability: number
-    walkability: number
-    beauty: number
-    community: number
-    value: number
-  }
-  relatedPosts: Array<{
-    slug: string
-    year: string
-    title: string
-  }>
-}
-
-type SortLens = 'balanced' | 'surf' | 'workability' | 'walkability' | 'value'
+type SortLens = Exclude<AtlasLens, 'beauty'>
 
 const sortOptions: Array<{ id: SortLens; label: string }> = [
   { id: 'balanced', label: 'Best overall' },
@@ -38,28 +15,16 @@ const sortOptions: Array<{ id: SortLens; label: string }> = [
   { id: 'value', label: 'Best value' },
 ]
 
-function getPlaceScore(place: SurfTownEntry, lens: SortLens) {
-  if (lens === 'balanced') {
-    return (
-      place.scores.surf * 0.35 +
-      place.scores.workability * 0.2 +
-      place.scores.walkability * 0.15 +
-      place.scores.beauty * 0.15 +
-      place.scores.value * 0.15
-    )
-  }
-
-  return place.scores[lens]
-}
-
 function formatScore(value: number) {
   return value.toFixed(1)
 }
 
 export default function SurfTownAtlasExplorer({
   places,
+  rankings,
 }: {
-  places: SurfTownEntry[]
+  places: AtlasPlace[]
+  rankings: Record<SortLens, Array<{ place: AtlasPlace; score: number }>>
 }) {
   const [selectedRegion, setSelectedRegion] = useState<string>('all')
   const [sortLens, setSortLens] = useState<SortLens>('balanced')
@@ -69,11 +34,12 @@ export default function SurfTownAtlasExplorer({
     ...Array.from(new Set(places.map((place) => place.region))),
   ]
 
-  const filteredPlaces = places
+  const filteredPlaces = rankings[sortLens]
     .filter(
-      (place) => selectedRegion === 'all' || place.region === selectedRegion,
+      ({ place }) =>
+        selectedRegion === 'all' || place.region === selectedRegion,
     )
-    .sort((a, b) => getPlaceScore(b, sortLens) - getPlaceScore(a, sortLens))
+    .map(({ place, score }) => ({ ...place, rankingScore: score }))
 
   const topPick = filteredPlaces[0]
 
@@ -112,7 +78,7 @@ export default function SurfTownAtlasExplorer({
                 </div>
                 <div className="rounded-2xl border border-[var(--ui-border-strong)] px-4 py-3 text-center">
                   <div className="font-editorial text-3xl leading-none text-[var(--ui-accent)]">
-                    {formatScore(getPlaceScore(topPick, sortLens))}
+                    {formatScore(topPick.rankingScore)}
                   </div>
                   <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
                     {
@@ -224,7 +190,7 @@ export default function SurfTownAtlasExplorer({
                     </div>
                     <div className="rounded-2xl border border-[var(--ui-border-strong)] px-4 py-3 text-center lg:hidden">
                       <div className="font-editorial text-3xl leading-none text-[var(--ui-accent)]">
-                        {formatScore(getPlaceScore(place, sortLens))}
+                        {formatScore(place.rankingScore)}
                       </div>
                       <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-subtle)]">
                         {

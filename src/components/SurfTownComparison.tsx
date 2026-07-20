@@ -1,31 +1,7 @@
 'use client'
 
 import { Fragment, useMemo, useState } from 'react'
-
-type ComparePlace = {
-  id: string
-  slug: string
-  name: string
-  country: string
-  shortVerdict: string
-  idealStay: string
-  waveType: string
-  boardLevel: string
-  seasonality: string
-  internetNote: string
-  costNote: string
-  townDensity: string
-  bestFor: string[]
-  notFor: string[]
-  scores: {
-    surf: number
-    workability: number
-    walkability: number
-    beauty: number
-    community: number
-    value: number
-  }
-}
+import type { AtlasPlace as ComparePlace } from '@/content/maps-data'
 
 const scoreRows: Array<keyof ComparePlace['scores']> = [
   'surf',
