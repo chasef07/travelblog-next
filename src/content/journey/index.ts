@@ -17,6 +17,10 @@ const aliases: Record<string, string> = {
   USA: 'United States',
   'Florida, USA': 'United States',
 }
+const externalCountryReferences = new Set(['Italy'])
+const regionalFoodCountries: Record<string, string[]> = {
+  'East Africa': ['Kenya', 'Tanzania', 'Rwanda'],
+}
 
 export type JourneyCountry = Omit<RouteCountry, 'name'> &
   CountryInfo & {
@@ -102,6 +106,29 @@ const route: JourneyStop[] = routeData.map((source) => {
 const canonicalRouteNames = route.map((stop) => stop.country.name)
 if (new Set(canonicalRouteNames).size !== canonicalRouteNames.length) {
   throw new Error('Journey route contains duplicate canonical Countries')
+}
+const canonicalCountries = new Set(canonicalRouteNames)
+
+function assertKnownCountryReference(name: string, source: string) {
+  const canonicalName = resolveCountryName(name)
+  if (
+    !canonicalCountries.has(canonicalName) &&
+    !externalCountryReferences.has(canonicalName) &&
+    !regionalFoodCountries[canonicalName]
+  ) {
+    throw new Error(`${source} references unknown Country ${name}`)
+  }
+}
+
+for (const post of allBlogPosts) {
+  if (post.country)
+    assertKnownCountryReference(post.country, `Post ${post.slug}`)
+}
+for (const place of placesData) {
+  assertKnownCountryReference(place.country, `Place ${place.slug}`)
+}
+for (const item of Object.values(foodData).flat()) {
+  assertKnownCountryReference(item.country, `Food ${item.name}`)
 }
 
 const currentStops = route.filter((stop) => stop.isCurrent)
@@ -228,7 +255,13 @@ export function getCountryDossierBySlug(
     ),
     food: Object.values(foodData)
       .flat()
-      .filter((item) => resolveCountryName(item.country) === country.name),
+      .filter((item) => {
+        const itemCountry = resolveCountryName(item.country)
+        return (
+          itemCountry === country.name ||
+          regionalFoodCountries[itemCountry]?.includes(country.name)
+        )
+      }),
   }
 }
 

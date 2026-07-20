@@ -46,5 +46,8 @@ describe('Journey interface', () => {
     expect(dossier?.places.every((place) => place.country === 'Portugal')).toBe(
       true,
     )
+
+    const kenya = getCountryDossierBySlug('kenya')
+    expect(kenya?.food.some((item) => item.name === 'Nyama Choma')).toBe(true)
   })
 })
