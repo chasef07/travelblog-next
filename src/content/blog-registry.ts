@@ -65,10 +65,10 @@ export const blogArchives: BlogArchive[] = [
     year: 2026,
     slug: 'july',
     title: 'July 2026: European Living in Ericeira',
-    date: '2026-07-13',
+    date: '2026-07-26',
     displayDate: 'July 2026',
     excerpt:
-      'After almost two months in Ericeira, reflecting on the honeymoon phase, community, adventure, and building a routine with Rachel.',
+      'Closing out two and a half months in Portugal with reflections on freedom, agency, and how much can change in a year.',
     image: '/assets/images/blog/2026/june/work-surf-portugal.webp',
     imagePosition: 'center 70%',
   },
