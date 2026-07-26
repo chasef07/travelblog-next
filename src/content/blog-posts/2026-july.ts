@@ -2,6 +2,31 @@ import { BlogPost } from '../../types/blog'
 
 export const july2026Posts: BlogPost[] = [
   {
+    id: 'one-year-later-ericeira',
+    title: 'One Year Later: Closing the Ericeira Chapter',
+    date: 'July 26, 2026',
+    location: 'Ericeira, Portugal',
+    country: 'Portugal',
+    slug: 'one-year-later-ericeira',
+    year: '2026',
+    excerpt:
+      'Closing out two and a half months in Portugal and reflecting on the freedom, agency, and growth of the past year.',
+    content: `This is my last week in Ericeira. It has been an amazing two and a half months in Portugal, and as this chapter closes, I keep thinking about where I was exactly one year ago.
+
+On Friday, July 25, 2025, I returned to Florida. I had just finished traveling the world, learning who I was and what I truly valued. The journey gave me clarity, but coming home gave me a harder challenge: putting those lessons into practice.
+
+A year later, I can confidently say I am living the life I envisioned. The emotional and intellectual growth from that journey is no longer something I have to reach for. It has diffused throughout my entire core. I am a different person from the guy who landed back in the United States a year ago.
+
+Now I am sitting here looking over the ocean in Portugal, working hard on problems I truly care about, for myself, with my freedom in hand. This life is not effortless. I have to balance running my own business, my relationships, my health, and my vision for the future. But that balance is mine to navigate.
+
+This past year has continued to develop my own agency. I trust myself more deeply. I know I can choose a direction, move, adapt, and take responsibility for where I end up.
+
+Life is a one-player game, so act like it and move your pieces wisely.
+
+As I close out an amazing chapter here in Portugal, I look forward to what the next month, the next year, and the rest of my life will hold.`,
+    images: [],
+  },
+  {
     id: 'european-living-in-ericeira',
     title: 'European Living in Ericeira',
     date: 'July 13, 2026',
