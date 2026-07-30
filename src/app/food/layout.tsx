@@ -2,19 +2,10 @@ import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Local Flavors - Culinary Adventures',
-  description:
-    'Discover authentic local cuisines from 20 countries. Street food guides, restaurant recommendations, and cultural eating experiences from Asia, Africa, and Central America.',
+  title: 'Food',
+  description: 'Dishes Chase saved while traveling, organized by country.',
   path: '/food',
-  keywords: [
-    'food travel',
-    'local cuisine',
-    'street food',
-    'restaurant recommendations',
-    'Asian food',
-    'African cuisine',
-    'travel food guide',
-  ],
+  keywords: ['travel food', 'local cuisine'],
 })
 
 export default function FoodLayout({

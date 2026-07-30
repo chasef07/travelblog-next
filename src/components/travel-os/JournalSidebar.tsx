@@ -1,0 +1,205 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import {
+  Backpack,
+  CalendarDays,
+  ChevronRight,
+  Clapperboard,
+  Folder,
+  Globe2,
+  Utensils,
+} from 'lucide-react'
+
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible'
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  useSidebar,
+} from '@/components/ui/sidebar'
+import { Separator } from '@/components/ui/separator'
+import type { JournalNavigationYear } from '@/lib/journal'
+
+function NavigationLink({
+  href,
+  children,
+  ...props
+}: React.ComponentProps<typeof Link>) {
+  const { isMobile, setOpenMobile } = useSidebar()
+
+  return (
+    <Link
+      href={href}
+      onClick={() => {
+        if (isMobile) setOpenMobile(false)
+      }}
+      {...props}
+    >
+      {children}
+    </Link>
+  )
+}
+
+function MonthFlags({
+  countries,
+  flags,
+}: {
+  countries: string[]
+  flags: string[]
+}) {
+  if (flags.length === 0) return null
+
+  return (
+    <span className="flex shrink-0 gap-0.5" aria-label={countries.join(', ')}>
+      {flags.slice(0, 3).map((flag) => (
+        <span
+          aria-hidden="true"
+          key={flag}
+          className="flex size-5 items-center justify-center rounded-full border border-sidebar-border bg-sidebar text-[11px]"
+        >
+          {flag}
+        </span>
+      ))}
+    </span>
+  )
+}
+
+export function JournalSidebar({
+  years,
+  currentLocation,
+}: {
+  years: JournalNavigationYear[]
+  currentLocation: string
+}) {
+  const pathname = usePathname()
+
+  return (
+    <Sidebar>
+      <SidebarHeader className="border-b p-4">
+        <NavigationLink
+          href="/"
+          className="rounded-md px-2 py-1 text-sm font-semibold outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring"
+        >
+          Chase Fagen
+        </NavigationLink>
+        <div className="flex min-w-0 items-center gap-2 px-2 text-xs text-sidebar-foreground/60">
+          <span className="relative flex size-2 shrink-0">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
+            <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+          </span>
+          <span className="truncate">Currently in {currentLocation}</span>
+        </div>
+      </SidebarHeader>
+
+      <SidebarContent>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild isActive={pathname === '/'}>
+              <NavigationLink href="/">
+                <CalendarDays />
+                <span className="flex-1">Today</span>
+              </NavigationLink>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              isActive={
+                pathname === '/world' || pathname.startsWith('/countries/')
+              }
+            >
+              <NavigationLink href="/world">
+                <Globe2 />
+                <span className="flex-1">World</span>
+              </NavigationLink>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+
+        <Separator className="my-2" />
+
+        <SidebarMenu>
+          {years.map((year) => {
+            return (
+              <Collapsible key={year.year} className="group/year">
+                <SidebarMenuItem>
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton className="font-medium">
+                      <Folder />
+                      <span className="flex-1 tabular-nums">{year.year}</span>
+                      <span className="font-mono text-[9px] tabular-nums text-sidebar-foreground/35">
+                        {year.postCount}
+                      </span>
+                      <ChevronRight className="transition-transform duration-200 group-data-[state=open]/year:rotate-90" />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub className="py-1">
+                      {year.months.map((month) => (
+                        <SidebarMenuSubItem key={month.key}>
+                          <SidebarMenuSubButton
+                            asChild
+                            isActive={
+                              pathname === month.href ||
+                              month.postHrefs.includes(pathname)
+                            }
+                            className="min-h-9"
+                          >
+                            <NavigationLink href={month.href}>
+                              <span className="min-w-0 flex-1 truncate">
+                                {month.label}
+                              </span>
+                              <MonthFlags
+                                countries={month.countries}
+                                flags={month.flags}
+                              />
+                              <span className="w-4 text-right text-xs tabular-nums text-muted-foreground">
+                                {month.postCount}
+                              </span>
+                            </NavigationLink>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                      ))}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+            )
+          })}
+        </SidebarMenu>
+      </SidebarContent>
+
+      <SidebarFooter>
+        <SidebarMenu>
+          {[
+            { href: '/vlogs', label: 'Vlogs', icon: Clapperboard },
+            { href: '/food', label: 'Food', icon: Utensils },
+            { href: '/packing-checklist', label: 'Packing', icon: Backpack },
+          ].map(({ href, label, icon: Icon }) => (
+            <SidebarMenuItem key={href}>
+              <SidebarMenuButton asChild isActive={pathname === href}>
+                <NavigationLink href={href}>
+                  <Icon />
+                  <span>{label}</span>
+                </NavigationLink>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
+        </SidebarMenu>
+      </SidebarFooter>
+    </Sidebar>
+  )
+}

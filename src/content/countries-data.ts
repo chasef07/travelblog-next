@@ -4,7 +4,6 @@ export interface CountryInfo {
   flag: string
   region: string
   description: string
-  heroImage: string
   dates?: {
     firstVisit: string
     lastVisit?: string
@@ -20,7 +19,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Middle East',
     description:
       'Gaza border farming, Jerusalem holidays, Tel Aviv, and the first month on the road.',
-    heroImage: '/assets/images/misc/holyholy.jpg',
     dates: { firstVisit: '2024-09-21', lastVisit: '2024-10-20' },
     highlights: [
       'Jerusalem',
@@ -36,7 +34,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Caucasus',
     description:
       'Tbilisi, wine country, Prometheus Cave, and the Gudauri apartment bet.',
-    heroImage: '/assets/images/misc/georgia-hero.jpg',
     dates: { firstVisit: '2024-10-20', lastVisit: '2024-10-27' },
     highlights: ['Tbilisi', 'Georgian Wine', 'Mountain Monasteries'],
   },
@@ -47,7 +44,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'East Africa',
     description:
       'Nairobi, Diani Beach, kite surfing, and the first real taste of East Africa.',
-    heroImage: '/assets/images/misc/kenya-hero.jpg',
     dates: { firstVisit: '2024-10-27', lastVisit: '2024-11-10' },
     highlights: ['Nairobi', 'Safari', 'Maasai Culture'],
   },
@@ -58,7 +54,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'East Africa',
     description:
       'Serengeti safari, Ngorongoro, Tarangire, and hunting at dawn with the Hadza.',
-    heroImage: '/assets/images/misc/tanzania-hero.jpg',
     dates: { firstVisit: '2024-11-10', lastVisit: '2024-11-17' },
     highlights: ['Zanzibar', 'Serengeti', 'Stone Town'],
   },
@@ -69,7 +64,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'East Africa',
     description:
       'Kigali, Kivu Noir coffee, the genocide memorial, and meetings about business in Africa.',
-    heroImage: '/assets/images/misc/rwanda-hero.jpg',
     dates: { firstVisit: '2024-11-17', lastVisit: '2024-11-24' },
     highlights: ['Kigali', 'Gorilla Trekking', 'Genocide Memorial'],
   },
@@ -80,7 +74,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Middle East',
     description:
       'Dubai layover, Burj Khalifa, Ski Dubai, and the consumption capital between trip legs.',
-    heroImage: '/assets/images/misc/uae-hero.jpg',
     dates: { firstVisit: '2024-11-24', lastVisit: '2024-12-01' },
     highlights: ['Dubai', 'Abu Dhabi', 'Desert Safari'],
   },
@@ -91,7 +84,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'South Asia',
     description:
       'Annapurna Circuit, Thorong La Pass, Kathmandu, Pokhara, and Himalayan pressure testing.',
-    heroImage: '/assets/images/misc/nepal-hero.jpg',
     dates: { firstVisit: '2024-12-01', lastVisit: '2024-12-20' },
     highlights: [
       'Annapurna Circuit',
@@ -107,7 +99,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Southeast Asia',
     description:
       'Koh Tao, Full Moon Party, Chiang Dao, Pai, Muay Thai, and the first Southeast Asia stretch.',
-    heroImage: '/assets/images/misc/fullmoon-2.jpg',
     dates: { firstVisit: '2024-12-20', lastVisit: '2025-01-22' },
     highlights: [
       'Full Moon Party',
@@ -124,7 +115,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Southeast Asia',
     description:
       'Slow boat, Nong Khiaw, Vang Vieng, farm volunteering, and the Thakhek motorbike loop.',
-    heroImage: '/assets/images/misc/laossusnet.jpg',
     dates: { firstVisit: '2025-01-22', lastVisit: '2025-02-15' },
     highlights: [
       'Slow Boat',
@@ -141,7 +131,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Southeast Asia',
     description:
       'Angkor Wat, Koh Rong, Kampot, Phnom Penh, and the heavier history under the backpacker route.',
-    heroImage: '/assets/images/misc/cambodia-hero.jpg',
     dates: { firstVisit: '2025-02-15', lastVisit: '2025-03-01' },
     highlights: ['Angkor Wat', 'Siem Reap', 'Phnom Penh', 'Killing Fields'],
   },
@@ -152,7 +141,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'East Asia',
     description:
       'Chengdu pandas, Sichuan food, Zhangjiajie, tea houses, and big-city China.',
-    heroImage: '/assets/images/misc/china-hero.jpg',
     dates: { firstVisit: '2025-03-01', lastVisit: '2025-03-15' },
     highlights: ['Great Wall', 'Beijing', 'Shanghai'],
   },
@@ -163,7 +151,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Southeast Asia',
     description:
       'A 4,000 km motorbike run through Ha Giang, Cao Bang, rice fields, caves, and coastal roads.',
-    heroImage: '/assets/images/misc/vietnam-hero.jpg',
     dates: { firstVisit: '2025-03-15', lastVisit: '2025-04-15' },
     highlights: ['Hanoi', 'Ho Chi Minh City', 'Ha Long Bay', 'Hoi An'],
   },
@@ -174,7 +161,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Southeast Asia',
     description:
       'Singapore efficiency, hawker food, Little India, and the Dubai comparison.',
-    heroImage: '/assets/images/misc/singapore-hero.jpg',
     dates: { firstVisit: '2025-04-15', lastVisit: '2025-04-20' },
     highlights: ['Marina Bay', 'Hawker Centers', 'Gardens by the Bay'],
   },
@@ -185,7 +171,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Southeast Asia',
     description:
       'Siargao surfing, El Nido boats, Port Barton, Cebu waterfalls, and the honest Philippines critique.',
-    heroImage: '/assets/images/misc/philippines-hero.jpg',
     dates: { firstVisit: '2025-04-20', lastVisit: '2025-05-20' },
     highlights: ['Palawan', 'Cebu', 'Siargao', 'Island Hopping'],
   },
@@ -196,7 +181,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Southeast Asia',
     description:
       'Bali, Uluwatu, Komodo, manta rays, whale sharks, and the business-from-a-laptop question.',
-    heroImage: '/assets/images/misc/indonesia-hero.jpg',
     dates: { firstVisit: '2025-05-20', lastVisit: '2025-06-20' },
     highlights: ['Bali', 'Komodo', 'Yogyakarta', 'Raja Ampat'],
   },
@@ -207,7 +191,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'East Asia',
     description:
       'Hokkaido, onsens, Sapporo, Japanese food, and a slower post-Asia reflection period.',
-    heroImage: '/assets/images/misc/japan-hero.jpg',
     dates: { firstVisit: '2025-06-20', lastVisit: '2025-07-20' },
     highlights: ['Tokyo', 'Kyoto', 'Osaka', 'Mount Fuji'],
   },
@@ -218,7 +201,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Central America',
     description:
       'Puerto Viejo, Nosara, Santa Teresa, surf-town scoring, and building from Costa Rica.',
-    heroImage: '/assets/images/misc/costarica-hero.jpg',
     dates: { firstVisit: '2025-08-01', lastVisit: '2025-09-01' },
     highlights: ['Manuel Antonio', 'Monteverde', 'Surf Towns'],
   },
@@ -229,7 +211,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Central America',
     description:
       'Bocas del Toro, Panama City, canal-country infrastructure, and the Caribbean work stop.',
-    heroImage: '/assets/images/misc/panama-hero.jpg',
     dates: { firstVisit: '2025-09-01', lastVisit: '2025-10-01' },
     highlights: ['Panama City', 'San Blas Islands', 'Bocas del Toro'],
   },
@@ -240,7 +221,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Central America',
     description:
       'Antigua, Lake Atitlan, El Paredon, Mayan cooking, temezcal, and volcano country.',
-    heroImage: '/assets/images/misc/guatemala-hero.jpg',
     dates: { firstVisit: '2025-10-01', lastVisit: '2025-11-15' },
     highlights: ['Antigua', 'Lake Atitlan', 'Tikal', 'Semuc Champey'],
   },
@@ -251,7 +231,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Central America',
     description:
       'El Tunco, Bitcoin Beach, pupusas, clean roads, and the strongest early surf-town score.',
-    heroImage: '/assets/images/misc/elsalvador-surfcity.jpg',
     dates: { firstVisit: '2025-11-15' },
     highlights: ['El Tunco', 'Bitcoin Beach', 'Surf Culture', 'Pupusas'],
   },
@@ -262,7 +241,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Western Europe',
     description:
       'Rotterdam base, Netherlands flag on the map, and the start of the Euro summer chapter.',
-    heroImage: '/assets/images/flags/NL-flag.svg',
     dates: { firstVisit: '2026-05-12' },
     highlights: ['Rotterdam', 'Euro Summer', 'Dutch Design', 'Cycling Culture'],
   },
@@ -273,7 +251,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Western Europe',
     description:
       'Ghent base, Belgium flag on the map, canal streets, and a Euro summer stop.',
-    heroImage: '/assets/images/flags/BE-flag.svg',
     dates: { firstVisit: '2026-05-16' },
     highlights: [
       'Ghent',
@@ -289,7 +266,6 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Western Europe',
     description:
       'Ericeira base, Portugal flag on the map, Atlantic surf, and the current Euro summer stop.',
-    heroImage: '/assets/images/flags/PT-flag.svg',
     dates: { firstVisit: '2026-05-25' },
     highlights: [
       'Ericeira',

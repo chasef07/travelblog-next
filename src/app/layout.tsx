@@ -1,37 +1,17 @@
 import type { Metadata } from 'next'
-import '@fontsource/source-sans-3/300.css'
-import '@fontsource/source-sans-3/400.css'
-import '@fontsource/source-sans-3/500.css'
-import '@fontsource/source-sans-3/600.css'
-import '@fontsource/source-sans-3/700.css'
-import '@fontsource/jetbrains-mono/400.css'
-import '@fontsource/jetbrains-mono/500.css'
-import '@fontsource/fraunces/400.css'
-import '@fontsource/fraunces/600.css'
 import './globals.css'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import SmoothScroll from '../components/SmoothScroll'
 import { generatePageMetadata, generateWebsiteJsonLd } from '@/lib/seo'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
+import { TravelShell } from '@/components/travel-os/TravelShell'
+import { archives, posts } from '@/content/blog/publication'
+import { buildJournalNavigation } from '@/lib/journal'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Chase Fagen - AI Systems, Writing, and Travel',
+  title: 'Chase Fagen - Travel Journal',
   description:
-    'Personal site of Chase Fagen: AI systems for local businesses, travel writing, health, place, and lifestyle design.',
-  keywords: [
-    'solo travel blog',
-    'Asia travel guide',
-    'Africa travel tips',
-    'cultural travel experiences',
-    'backpacking Asia',
-    'solo travel guides',
-    'travel photography',
-    'authentic travel stories',
-    'budget travel tips',
-    'cultural immersion travel',
-  ],
+    'A living travel journal from Chase Fagen, organized by time and place.',
+  keywords: ['travel journal', 'travel stories', 'Chase Fagen'],
   images: ['/assets/images/misc/posttrip.jpg'],
 })
 
@@ -43,36 +23,24 @@ export default function RootLayout({
   const websiteJsonLd = generateWebsiteJsonLd()
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        {/* DNS prefetch for external domains (lighter than preconnect) */}
-        <link rel="dns-prefetch" href="https://a.basemaps.cartocdn.com" />
-        <link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" />
-        <link rel="dns-prefetch" href="https://c.basemaps.cartocdn.com" />
-        <link rel="dns-prefetch" href="https://d.basemaps.cartocdn.com" />
-
-        {/* Favicons - multiple formats for broad compatibility */}
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-
-        {/* RSS Feed */}
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Lifestyle Engineering RSS Feed"
+          title="Chase Fagen Travel Journal RSS Feed"
           href="/feed.xml"
         />
-
-        {/* Website structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="min-h-screen flex flex-col">
-        {/* Google Analytics */}
+      <body suppressHydrationWarning className="min-h-screen">
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <script
@@ -93,15 +61,20 @@ export default function RootLayout({
           </>
         )}
 
-        <SmoothScroll />
-        <Header />
-        <div id="main-content">{children}</div>
-        <Footer />
+        <a
+          href="#main-content"
+          className="fixed left-3 top-3 z-[100] -translate-y-20 rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-transform focus:translate-y-0"
+        >
+          Skip to content
+        </a>
+        <TravelShell
+          years={buildJournalNavigation(posts, archives)}
+          currentLocation={posts[0]?.location ?? 'the road'}
+        >
+          {children}
+        </TravelShell>
         <SpeedInsights />
         <Analytics />
-
-        {/* Film grain texture overlay for editorial atmosphere */}
-        <div className="grain-overlay" aria-hidden="true" />
       </body>
     </html>
   )

@@ -2,13 +2,12 @@ import { Metadata } from 'next'
 import { BlogPost } from '@/types/blog'
 
 /**
- * SEO configuration and utilities for Lifestyle Engineering travel blog
+ * SEO configuration and utilities for Chase Fagen's travel journal.
  */
 
 export const siteConfig = {
-  name: 'Lifestyle Engineering',
-  description:
-    'Personal site of Chase Fagen: AI systems, travel writing, health, place, and lifestyle design.',
+  name: 'Chase Fagen',
+  description: 'A living travel journal organized by time and place.',
   url: 'https://chasefagen.com',
   author: {
     name: 'Chase Fagen',
@@ -17,21 +16,10 @@ export const siteConfig = {
     instagram: '@chasef07',
   },
   keywords: [
-    'solo travel blog',
-    'Asia travel guide',
-    'Africa travel tips',
-    'cultural travel experiences',
-    'backpacking Asia',
-    'solo travel guides',
+    'travel journal',
+    'travel stories',
     'authentic travel stories',
-    'budget travel tips',
-    'cultural immersion travel',
-    'Southeast Asia backpacking',
-    'East Africa travel',
     'travel photography',
-    'solo female travel',
-    'adventure travel blog',
-    'travel better cheaper smarter',
   ],
 } as const
 
@@ -179,7 +167,6 @@ export function generateArticleJsonLd(
       post.location,
       `${post.location} travel`,
       'travel blog',
-      'travel guide',
     ],
     locationCreated: {
       '@type': 'Place',
@@ -228,119 +215,5 @@ export function generateBreadcrumbJsonLd(
       name: item.name,
       item: item.url,
     })),
-  }
-}
-
-/**
- * Generate JSON-LD for travel guides/destinations
- */
-export function generateTravelGuideJsonLd(
-  destination: string,
-  description: string,
-  images: string[] = [],
-): object {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'TravelGuide',
-    name: `${destination} Travel Guide`,
-    description,
-    image: images,
-    author: {
-      '@type': 'Person',
-      name: siteConfig.author.name,
-      url: siteConfig.url,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-    },
-    about: {
-      '@type': 'Place',
-      name: destination,
-    },
-  }
-}
-
-/**
- * Generate JSON-LD for travel experiences/trips
- */
-export function generateTripJsonLd(
-  destination: string,
-  title: string,
-  description: string,
-  date: string,
-  images: string[] = [],
-): object {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Trip',
-    name: title,
-    description,
-    image: images,
-    startDate: date,
-    itinerary: {
-      '@type': 'Place',
-      name: destination,
-    },
-    author: {
-      '@type': 'Person',
-      name: siteConfig.author.name,
-      url: siteConfig.url,
-    },
-    provider: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-  }
-}
-
-/**
- * Generate JSON-LD for travel blog with enhanced structured data
- */
-export function generateTravelBlogJsonLd(): object {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Blog',
-    name: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    author: {
-      '@type': 'Person',
-      name: siteConfig.author.name,
-      url: siteConfig.url,
-      sameAs: [
-        `https://twitter.com/${siteConfig.author.twitter?.replace('@', '')}`,
-        `https://instagram.com/${siteConfig.author.instagram?.replace('@', '')}`,
-      ],
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-    blogPost: [],
-    audience: {
-      '@type': 'Audience',
-      audienceType: 'solo travelers, backpackers, cultural explorers',
-    },
-    about: [
-      {
-        '@type': 'Thing',
-        name: 'Solo Travel',
-      },
-      {
-        '@type': 'Thing',
-        name: 'Cultural Experiences',
-      },
-      {
-        '@type': 'Thing',
-        name: 'Backpacking',
-      },
-      {
-        '@type': 'Thing',
-        name: 'Travel Photography',
-      },
-    ],
   }
 }

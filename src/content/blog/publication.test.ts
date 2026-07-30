@@ -33,6 +33,14 @@ describe('Blog publication interface', () => {
     ).toBe(true)
   })
 
+  test('derives archive routes for months represented by posts', () => {
+    const september = resolvePublication('2025', 'september')
+
+    expect(september.kind).toBe('archive')
+    if (september.kind !== 'archive') return
+    expect(september.posts).toHaveLength(1)
+  })
+
   test('uses deterministic reading times and canonical archive URLs', () => {
     const july = resolvePublication('2026', 'july')
 

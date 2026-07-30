@@ -1,10 +1,10 @@
 import { MetadataRoute } from 'next'
-import { archives, posts } from '@/content/blog/publication'
+import { archives, parseBlogDate, posts } from '@/content/blog/publication'
+import { getAllCountries } from '@/content/countries-data'
 import { siteConfig } from '@/lib/seo'
 
 /**
- * Dynamic sitemap generation for Lifestyle Engineering travel blog
- * Includes all static pages, monthly archives, and individual blog posts
+ * Dynamic sitemap generation for the travel journal.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url
@@ -19,25 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/world`,
       lastModified: currentDate,
-      changeFrequency: 'daily',
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/guides`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/food`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/transportation`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
@@ -56,11 +44,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Monthly archive pages (from blogMetadata)
+  const countryPages: MetadataRoute.Sitemap = getAllCountries().map(
+    (country) => ({
+      url: `${baseUrl}/countries/${country.slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    }),
+  )
+
   const monthlyArchivePages: MetadataRoute.Sitemap = archives.map((post) => {
     const year = post.year
     const slug = post.slug
-    const postDate = new Date(post.date)
+    const postDate = parseBlogDate(post.date)
     const isRecent =
       currentDate.getTime() - postDate.getTime() < 90 * 24 * 60 * 60 * 1000
 
@@ -72,9 +68,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   })
 
-  // Individual blog post pages (higher priority than archives)
   const individualPostPages: MetadataRoute.Sitemap = posts.map((post) => {
-    const postDate = new Date(post.date)
+    const postDate = parseBlogDate(post.date)
     const isRecent =
       currentDate.getTime() - postDate.getTime() < 90 * 24 * 60 * 60 * 1000
 
@@ -86,49 +81,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   })
 
-  // Combine all pages
-  return [...staticPages, ...monthlyArchivePages, ...individualPostPages]
-}
-
-/**
- * Generate robots.txt content dynamically
- */
-export function generateRobotsTxt(): string {
-  return `# robots.txt for ${siteConfig.url}
-
-User-agent: *
-Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
-Allow: /
-
-# Allow all search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-# LLM Bots
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: AnthropicBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-# Sitemap location
-Sitemap: ${siteConfig.url}/sitemap.xml
-
-# Host directive
-Host: ${siteConfig.url.replace('https://', '')}
-`
+  return [
+    ...staticPages,
+    ...countryPages,
+    ...monthlyArchivePages,
+    ...individualPostPages,
+  ]
 }

@@ -125,7 +125,7 @@ export const january2025Posts: BlogPost[] = [
       { src: '/assets/images/misc/immafub.jpg', alt: 'Crossing into Laos' },
       { src: '/assets/images/misc/mrshiba.jpg', alt: 'Border adventure' },
       {
-        src: '/assets/images/misc/laosflag.jpg',
+        src: '/assets/images/flags/laosflag.jpg',
         alt: 'Laos flag and communist symbols',
       },
     ],
@@ -254,10 +254,10 @@ export const january2025Posts: BlogPost[] = [
     content: `Wow this was one of my favorite mornings yet of the whole trip. I finally got an alright night of sleep and felt well rested. As you may know, my favorite activity of traveling is wandering a new city and side streets. Being in the touristy hot sun of the south of Thailand this was impossible. However here in Chiang Mai, it hit the spot. The city has great weather and quiet side streets where you stumble upon random temples and have nobody else around. I woke up and found a temple to meditate in. I was still a little distracted but it felt better than it has in a while. I found a nice local cafe with nice Thai milk tea. Chiang Mai has a much more authentic feel, with locals actually hanging out. There are a lot of backpackers but you can find pockets where you feel alone in real Thai culture. I found cool narrow side alleys and stumbled upon a book shop. I bought two new books that I am excited about. After loving "The Black Tulip" by Alexandre Dumas I bought his most famous work, "The Three Musketeers". I also bought a Russian historical fiction novel by Dostoevsky named "Devils". I talked to an older American gentleman in the book shop. He recommended I go to Nan and see the Mekong River village towns. It is a lot more rustic and authentic feel. He told me that "those who know what enough is rich". He lamented over the drive for continuous accumulation of money, and how people can never get enough. People worship money in the US and it is sad. The rest of the day I plan on working out, getting a massage, and going to the Sunday Street market.`,
     images: [
       {
-        src: '/assets/images/misc/chx1.jpg',
+        src: '/assets/images/food/chx1.jpg',
         alt: 'Chiang Mai morning exploration',
       },
-      { src: '/assets/images/misc/chx2.jpg', alt: 'Temple and street scenes' },
+      { src: '/assets/images/food/chx2.jpg', alt: 'Temple and street scenes' },
     ],
   },
   {

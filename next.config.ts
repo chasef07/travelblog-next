@@ -1,19 +1,10 @@
 import type { NextConfig } from 'next'
 
-// Bundle analyzer for checking bundle sizes
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
-
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'img.youtube.com' },
       { protocol: 'https', hostname: 'i.ytimg.com' },
-      { protocol: 'https', hostname: 'a.basemaps.cartocdn.com' },
-      { protocol: 'https', hostname: 'b.basemaps.cartocdn.com' },
-      { protocol: 'https', hostname: 'c.basemaps.cartocdn.com' },
-      { protocol: 'https', hostname: 'd.basemaps.cartocdn.com' },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -22,41 +13,11 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  experimental: {
-    // R3F relies on shared internal context; import optimization can split modules
-    // and cause "Hooks can only be used within the Canvas component" in dev.
-    optimizePackageImports: ['leaflet', 'framer-motion', 'lucide-react'],
-  },
   modularizeImports: {
     'lucide-react': {
       transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
       skipDefaultConversion: true,
     },
-  },
-  webpack: (config, { isServer }) => {
-    // Improve tree-shaking for large libraries
-    config.optimization = {
-      ...config.optimization,
-      sideEffects: false,
-    }
-
-    // Optimize CSS for critical path
-    if (!isServer) {
-      config.optimization.splitChunks = {
-        ...config.optimization.splitChunks,
-        cacheGroups: {
-          ...config.optimization.splitChunks?.cacheGroups,
-          styles: {
-            name: 'styles',
-            type: 'css/mini-extract',
-            chunks: 'all',
-            enforce: true,
-          },
-        },
-      }
-    }
-
-    return config
   },
   async headers() {
     return [
@@ -78,7 +39,6 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // Security headers for all pages
       {
         source: '/:path*',
         headers: [
@@ -104,7 +64,6 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // SVG favicon caching
       {
         source: '/icon.svg',
         headers: [
@@ -118,4 +77,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withBundleAnalyzer(nextConfig)
+export default nextConfig

@@ -1,12 +1,16 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
+import { ArrowUpRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import {
   fullJourneyData,
   type CountryData,
 } from '@/utils/comprehensive-map-data'
 import { fetchGeoJSON, type GeoJSON } from '@/utils/geojson-loader'
+import { getCountryByName } from '@/content/countries-data'
 
 const GlobeScene = dynamic(() => import('../GlobeScene'), {
   ssr: false,
@@ -53,26 +57,25 @@ export default function GlobeExperience() {
   const guidance = isDesktop
     ? 'Click and drag to explore destinations'
     : 'Tap and drag to explore destinations'
+  const selectedCountryPage = selectedCountry
+    ? getCountryByName(selectedCountry.name)
+    : null
 
   return (
-    <div data-testid="globe-experience" className="mt-4 space-y-2 lg:mt-0">
-      <div className="h-[260px] w-full overflow-hidden rounded-2xl sm:h-[300px] md:h-[340px] lg:h-[460px] xl:h-[500px]">
+    <div data-testid="globe-experience" className="flex flex-col gap-3 lg:mt-0">
+      <div className="h-[300px] w-full overflow-hidden rounded-xl border bg-background sm:h-[380px] lg:h-[520px]">
         {status === 'failed' ? (
-          <div className="flex h-full flex-col items-center justify-center gap-4 border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] p-6 text-center">
+          <div className="flex h-full flex-col items-center justify-center gap-4 bg-card p-6 text-center">
             <p
               data-testid="globe-status"
               role="status"
-              className="text-sm text-[var(--ui-text-muted)]"
+              className="text-sm text-muted-foreground"
             >
               Globe unavailable. The rest of the journey is still available.
             </p>
-            <button
-              type="button"
-              onClick={() => void load(true)}
-              className="rounded-full border border-[var(--ui-border-strong)] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--ui-text-primary)]"
-            >
+            <Button variant="outline" onClick={() => void load(true)}>
               Retry globe
-            </button>
+            </Button>
           </div>
         ) : (
           <div className="relative h-full w-full">
@@ -93,33 +96,45 @@ export default function GlobeExperience() {
           </div>
         )}
       </div>
-      <p
-        data-testid="globe-caption"
-        className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ui-text-muted)] sm:text-[11px] sm:tracking-[0.18em]"
-      >
-        {selectedCountry
-          ? `${selectedCountry.name} • ${selectedCountry.visitDate}`
-          : guidance}
-      </p>
-      <select
-        aria-label="Select globe destination"
-        value={selectedCountry?.name ?? ''}
-        onChange={(event) =>
-          setSelectedCountry(
-            fullJourneyData.find(
-              (country) => country.name === event.target.value,
-            ) ?? null,
-          )
-        }
-        className="max-w-full rounded-full border border-[var(--ui-border-subtle)] bg-[var(--ui-bg-strong)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ui-text-muted)]"
-      >
-        <option value="">Choose destination</option>
-        {fullJourneyData.map((country) => (
-          <option key={country.name} value={country.name}>
-            {country.name}
-          </option>
-        ))}
-      </select>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p
+          data-testid="globe-caption"
+          className="text-sm text-muted-foreground"
+        >
+          {selectedCountry
+            ? `${selectedCountry.name} • ${selectedCountry.visitDate}`
+            : guidance}
+        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <select
+            aria-label="Select globe destination"
+            value={selectedCountry?.name ?? ''}
+            onChange={(event) =>
+              setSelectedCountry(
+                fullJourneyData.find(
+                  (country) => country.name === event.target.value,
+                ) ?? null,
+              )
+            }
+            className="h-9 max-w-full rounded-md border border-input bg-background px-3 text-sm text-foreground shadow-xs outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <option value="">Choose destination</option>
+            {fullJourneyData.map((country) => (
+              <option key={country.name} value={country.name}>
+                {country.name}
+              </option>
+            ))}
+          </select>
+          {selectedCountryPage && (
+            <Button variant="outline" asChild>
+              <Link href={`/countries/${selectedCountryPage.slug}`}>
+                Open country
+                <ArrowUpRight />
+              </Link>
+            </Button>
+          )}
+        </div>
+      </div>
     </div>
   )
 }

@@ -633,7 +633,7 @@ My birthday is in three days. I think life is about never being satisfied. You c
         src: '/assets/images/misc/terracedfields.jpg',
         alt: 'Terraced rice fields in Mai Chau',
       },
-      { src: '/assets/images/misc/vflaggy.jpg', alt: 'Vietnam flag' },
+      { src: '/assets/images/flags/vflaggy.jpg', alt: 'Vietnam flag' },
     ],
   },
   {

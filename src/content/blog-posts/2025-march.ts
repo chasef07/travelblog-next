@@ -296,7 +296,7 @@ I found an awesome and cheap place on Trip.com. The owner, whose English name wa
         alt: 'Qingcheng Mountain temple',
       },
       {
-        src: '/assets/images/misc/chinaflag.jpg',
+        src: '/assets/images/flags/chinaflag.jpg',
         alt: 'Chinese flag on the mountain',
       },
       {

@@ -3,7 +3,7 @@ import {
   blogArchives as sourceArchives,
   type BlogArchive as SourceArchive,
 } from '@/content/blog-registry'
-import type { BlogMetadata, BlogPost } from '@/types/blog'
+import type { BlogPost } from '@/types/blog'
 
 export type PublishedPost = BlogPost & {
   readingTime: number
@@ -30,7 +30,7 @@ export function calculateReadingTime(content: string): number {
   return Math.max(1, Math.ceil(words / 200))
 }
 
-function parseBlogDate(date: string): Date {
+export function parseBlogDate(date: string): Date {
   const isoDate = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date)
   const parsed = new Date(isoDate ? `${date}T00:00:00Z` : `${date} UTC`)
   if (Number.isNaN(parsed.getTime())) {
@@ -39,10 +39,56 @@ function parseBlogDate(date: string): Date {
   return parsed
 }
 
-function monthSlug(date: string): string {
+export function monthSlug(date: string): string {
   return parseBlogDate(date)
     .toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' })
     .toLowerCase()
+}
+
+function calendarMonthKey(date: string): string {
+  const parsed = parseBlogDate(date)
+  return `${parsed.getUTCFullYear()}-${parsed.getUTCMonth()}`
+}
+
+function deriveMissingArchives(
+  postRecords: BlogPost[],
+  archiveRecords: SourceArchive[],
+): SourceArchive[] {
+  const knownMonths = new Set(
+    archiveRecords.map((archive) => calendarMonthKey(archive.date)),
+  )
+  const generated: SourceArchive[] = []
+
+  for (const post of postRecords) {
+    const key = calendarMonthKey(post.date)
+    if (knownMonths.has(key)) continue
+    knownMonths.add(key)
+
+    const date = parseBlogDate(post.date)
+    const displayDate = date.toLocaleDateString('en-US', {
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    })
+
+    generated.push({
+      year: date.getUTCFullYear(),
+      slug: monthSlug(post.date),
+      title: `${displayDate}: ${post.location}`,
+      date: post.date,
+      displayDate,
+      excerpt: post.excerpt,
+      image: post.images[0]?.src ?? '/assets/images/misc/posttrip.jpg',
+    })
+  }
+
+  return [...archiveRecords, ...generated].sort((left, right) => {
+    const leftDate = parseBlogDate(left.date)
+    const rightDate = parseBlogDate(right.date)
+    const leftMonth = leftDate.getUTCFullYear() * 12 + leftDate.getUTCMonth()
+    const rightMonth = rightDate.getUTCFullYear() * 12 + rightDate.getUTCMonth()
+    return rightMonth - leftMonth
+  })
 }
 
 const reservedArchiveSlugs = new Set([
@@ -77,12 +123,16 @@ export function createBlogPublication(
   postRecords: BlogPost[],
   archiveRecords: SourceArchive[],
 ) {
+  const completeArchiveRecords = deriveMissingArchives(
+    postRecords,
+    archiveRecords,
+  )
   const posts: PublishedPost[] = postRecords.map((post) => ({
     ...post,
     readingTime: calculateReadingTime(post.content),
     url: `/blog/${post.year}/${post.slug}`,
   }))
-  const archives: BlogArchive[] = archiveRecords.map((archive) => ({
+  const archives: BlogArchive[] = completeArchiveRecords.map((archive) => ({
     ...archive,
     url: `/blog/${archive.year}/${archive.slug}`,
   }))
@@ -144,14 +194,6 @@ export const posts = publication.posts
 export const archives = publication.archives
 export const resolvePublication = publication.resolve
 export const staticPublicationParams = publication.staticParams
-
-export const archiveCards: BlogMetadata[] = archives.map((archive) => ({
-  title: archive.title,
-  date: archive.displayDate,
-  excerpt: archive.excerpt,
-  image: archive.image,
-  link: archive.url,
-}))
 
 export const feedPublications = archives
 export const sitemapPublications = [...archives, ...posts]

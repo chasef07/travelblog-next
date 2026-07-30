@@ -19,11 +19,3 @@ export interface BlogImage {
   caption?: string
   orientation?: 'portrait' | 'landscape' | 'square'
 }
-
-export interface BlogMetadata {
-  title: string
-  date: string
-  excerpt: string
-  image: string
-  link: string
-}

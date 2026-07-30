@@ -2,18 +2,10 @@ import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Travel Vlogs - Video Stories',
-  description:
-    'Watch raw, authentic travel videos from 20 countries. From party scenes to cultural immersion, experience the journey through video.',
+  title: 'Vlogs',
+  description: 'Travel videos from Chase Fagen’s journey.',
   path: '/vlogs',
-  keywords: [
-    'travel vlogs',
-    'travel videos',
-    'backpacking videos',
-    'Asia travel vlog',
-    'Africa travel vlog',
-    'solo travel videos',
-  ],
+  keywords: ['travel vlogs', 'travel videos'],
 })
 
 export default function VlogsLayout({

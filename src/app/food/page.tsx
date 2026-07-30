@@ -1,27 +1,81 @@
-import dynamic from 'next/dynamic'
-import { GridSkeleton, FilterSkeleton } from '@/components/ui/skeleton'
+import Image from 'next/image'
 
-const FoodGrid = dynamic(() => import('@/components/FoodGrid'), {
-  loading: () => (
-    <div className="space-y-12">
-      <FilterSkeleton count={5} />
-      <GridSkeleton count={4} columns="md:grid-cols-2" />
-    </div>
-  ),
-})
+import { Badge } from '@/components/ui/badge'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { foodData } from '@/content/food-data'
+import { getCountryFlag } from '@/lib/journal'
 
-import { SectionHeader } from '@/components/SectionHeader'
+export default function FoodPage() {
+  const countries = Object.entries(foodData)
+  const dishCount = countries.reduce(
+    (count, [, dishes]) => count + dishes.length,
+    0,
+  )
 
-export default function Page() {
   return (
-    <main className="min-h-screen pt-24 app-surface">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <SectionHeader
-          label="Culinary Adventures"
-          title="Local Flavors"
-          description="Each dish tells a story of culture and tradition. Authentic street food and local specialties."
-        />
-        <FoodGrid />
+    <main className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-10 sm:px-8 sm:py-14">
+      <header className="flex flex-col gap-4">
+        <Badge variant="secondary" className="w-fit">
+          {dishCount} dishes
+        </Badge>
+        <div>
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
+            Food
+          </h1>
+          <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
+            Dishes worth remembering from the route.
+          </p>
+        </div>
+      </header>
+
+      <Separator />
+
+      <div className="flex flex-col gap-12">
+        {countries.map(([country, dishes]) => (
+          <section
+            key={country}
+            aria-labelledby={`food-${country}`}
+            className="flex flex-col gap-5"
+          >
+            <div className="flex items-center gap-2">
+              <span aria-hidden="true">{getCountryFlag(country)}</span>
+              <h2 id={`food-${country}`} className="text-2xl font-semibold">
+                {country}
+              </h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {dishes.map((dish) => (
+                <Card key={dish.name} className="overflow-hidden py-0">
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={dish.image}
+                      alt={dish.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <CardHeader>
+                    <CardTitle>{dish.name}</CardTitle>
+                    <CardDescription>{dish.country}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="pb-6">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {dish.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
     </main>
   )
