@@ -53,16 +53,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   )
 
-  const monthlyArchivePages: MetadataRoute.Sitemap = archives.map((post) => {
-    const year = post.year
-    const slug = post.slug
-    const postDate = parseBlogDate(post.date)
+  const monthlyArchivePages: MetadataRoute.Sitemap = archives.map((archive) => {
+    const archiveDate = parseBlogDate(archive.date)
     const isRecent =
-      currentDate.getTime() - postDate.getTime() < 90 * 24 * 60 * 60 * 1000
+      currentDate.getTime() - archiveDate.getTime() < 90 * 24 * 60 * 60 * 1000
 
     return {
-      url: `${baseUrl}/blog/${year}/${slug}`,
-      lastModified: postDate,
+      url: `${baseUrl}${archive.url}`,
+      lastModified: archiveDate,
       changeFrequency: isRecent ? 'weekly' : ('monthly' as const),
       priority: isRecent ? 0.8 : 0.6,
     }
@@ -74,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       currentDate.getTime() - postDate.getTime() < 90 * 24 * 60 * 60 * 1000
 
     return {
-      url: `${baseUrl}/blog/${post.year}/${post.slug}`,
+      url: `${baseUrl}${post.url}`,
       lastModified: postDate,
       changeFrequency: isRecent ? 'weekly' : ('monthly' as const),
       priority: isRecent ? 0.9 : 0.7,

@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { Radio } from 'lucide-react'
 
 import GlobeExperience from '@/components/globe/GlobeExperience'
+import { DetailLink } from '@/components/travel-os/DetailLink'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { getAllCountries } from '@/content/countries-data'
@@ -53,7 +53,10 @@ export default function WorldPage() {
               variant="outline"
               className="h-auto justify-start p-3"
             >
-              <Link href={`/countries/${country.slug}`}>
+              <DetailLink
+                detailId={`country-${country.slug}`}
+                href={`/countries/${country.slug}`}
+              >
                 <span className="relative h-7 w-10 shrink-0 overflow-hidden rounded-sm bg-white">
                   <Image
                     src={`/assets/images/flags/${country.flag}`}
@@ -64,7 +67,7 @@ export default function WorldPage() {
                   />
                 </span>
                 <span>{country.name}</span>
-              </Link>
+              </DetailLink>
             </Button>
           ))}
         </div>

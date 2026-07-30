@@ -19,7 +19,7 @@ export async function GET() {
 
   const rssItems = sortedPosts
     .map((post) => {
-      const postUrl = `${baseUrl}/blog/${post.year}/${post.slug}`
+      const postUrl = `${baseUrl}${post.url}`
       const pubDate = new Date(post.date).toUTCString()
 
       return `    <item>

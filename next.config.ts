@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { posts } from './src/content/blog/publication'
 
 const nextConfig: NextConfig = {
   images: {
@@ -18,6 +19,13 @@ const nextConfig: NextConfig = {
       transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
       skipDefaultConversion: true,
     },
+  },
+  async redirects() {
+    return posts.map((post) => ({
+      source: `/blog/${post.year}/${post.slug}`,
+      destination: post.url,
+      permanent: true,
+    }))
   },
   async headers() {
     return [

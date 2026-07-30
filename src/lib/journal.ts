@@ -1,5 +1,9 @@
 import type { BlogArchive, PublishedPost } from '@/content/blog/publication'
-import { monthSlug, parseBlogDate } from '@/content/blog/publication'
+import {
+  archivePath,
+  monthSlug,
+  parseBlogDate,
+} from '@/content/blog/publication'
 
 const countryFlags: Record<string, string> = {
   Cambodia: '🇰🇭',
@@ -52,7 +56,6 @@ export type JournalYear = {
 
 export type JournalNavigationMonth = Omit<JournalMonth, 'posts'> & {
   postCount: number
-  postHrefs: string[]
 }
 
 export type JournalNavigationYear = {
@@ -126,7 +129,7 @@ export function buildJournalYears(
         slug: monthSlug(monthPosts[0].date),
         label,
         displayDate,
-        href: `/blog/${year}/${monthSlug(monthPosts[0].date)}`,
+        href: archivePath(year, monthSlug(monthPosts[0].date)),
         title: archive?.title ?? displayDate,
         excerpt: archive?.excerpt ?? monthPosts[0].excerpt,
         image:
@@ -173,7 +176,6 @@ export function buildJournalNavigation(
     months: year.months.map(({ posts: monthPosts, ...month }) => ({
       ...month,
       postCount: monthPosts.length,
-      postHrefs: monthPosts.map((post) => post.url),
     })),
   }))
 }

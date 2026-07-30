@@ -2,65 +2,75 @@
 import { describe, expect, test } from 'bun:test'
 
 import {
+  archiveStaticParams,
   archives,
   createBlogPublication,
-  resolvePublication,
-  staticPublicationParams,
+  getArchive,
+  getPost,
+  getPostsForArchive,
+  postStaticParams,
 } from './publication'
 
 describe('Blog publication interface', () => {
-  test('resolves posts, populated archives, empty archives, and missing paths', () => {
-    expect(resolvePublication('2026', 'european-living-in-ericeira').kind).toBe(
-      'post',
-    )
-    expect(resolvePublication('2026', 'july').kind).toBe('archive')
-    const empty = createBlogPublication([], [archives[0]])
-    expect(empty.resolve(String(archives[0].year), archives[0].slug).kind).toBe(
-      'empty-archive',
-    )
-    expect(resolvePublication('2099', 'missing')).toEqual({ kind: 'missing' })
+  test('gives Archives and Posts explicit canonical paths', () => {
+    const archive = getArchive('2026', 'july')
+    const post = getPost('2026', 'july', 'european-living-in-ericeira')
+
+    expect(archive?.url).toBe('/blog/2026/july')
+    expect(post?.url).toBe('/blog/2026/july/european-living-in-ericeira')
+    expect(getPost('2026', 'july', 'missing')).toBeUndefined()
   })
 
-  test('publishes unique static paths that all resolve', () => {
-    const paths = staticPublicationParams()
-    const keys = paths.map(({ year, slug }) => `${year}/${slug}`)
+  test('publishes separate static parameters for Archives and Posts', () => {
+    const archivePaths = archiveStaticParams()
+    const postPaths = postStaticParams()
+    const archiveKeys = archivePaths.map(
+      ({ year, month }) => `${year}/${month}`,
+    )
+    const postKeys = postPaths.map(
+      ({ year, month, postSlug }) => `${year}/${month}/${postSlug}`,
+    )
 
-    expect(new Set(keys).size).toBe(keys.length)
+    expect(new Set(archiveKeys).size).toBe(archiveKeys.length)
+    expect(new Set(postKeys).size).toBe(postKeys.length)
     expect(
-      paths.every(
-        ({ year, slug }) => resolvePublication(year, slug).kind !== 'missing',
+      archivePaths.every(({ year, month }) => getArchive(year, month)),
+    ).toBe(true)
+    expect(
+      postPaths.every(({ year, month, postSlug }) =>
+        getPost(year, month, postSlug),
       ),
     ).toBe(true)
   })
 
   test('derives archive routes for months represented by posts', () => {
-    const september = resolvePublication('2025', 'september')
+    const september = getArchive('2025', 'september')
 
-    expect(september.kind).toBe('archive')
-    if (september.kind !== 'archive') return
-    expect(september.posts).toHaveLength(1)
+    expect(september?.url).toBe('/blog/2025/september')
+    expect(getPostsForArchive('2025', 'september')).toHaveLength(1)
   })
 
   test('uses deterministic reading times and canonical archive URLs', () => {
-    const july = resolvePublication('2026', 'july')
+    const july = getArchive('2026', 'july')
 
-    expect(july.kind).toBe('archive')
-    if (july.kind !== 'archive') return
-
-    expect(july.url).toBe('/blog/2026/july')
-    expect(july.posts.every((post) => post.readingTime > 0)).toBe(true)
+    expect(july?.url).toBe('/blog/2026/july')
+    expect(
+      getPostsForArchive('2026', 'july').every((post) => post.readingTime > 0),
+    ).toBe(true)
     expect(archives.every((archive) => archive.url.startsWith('/blog/'))).toBe(
       true,
     )
   })
 
-  test('reserves month slugs even before an Archive is published', () => {
-    const post = resolvePublication('2026', 'european-living-in-ericeira')
-    if (post.kind !== 'post') throw new Error('Expected fixture Post')
+  test('keeps empty Archives addressable without guessing route kind', () => {
+    const empty = createBlogPublication([], [archives[0]])
 
-    expect(() =>
-      createBlogPublication([{ ...post.post, slug: 'january' }], []),
-    ).toThrow('collides with Archive')
+    expect(
+      empty.getArchive(String(archives[0].year), archives[0].slug)?.url,
+    ).toBe(archives[0].url)
+    expect(
+      empty.getPostsForArchive(String(archives[0].year), archives[0].slug),
+    ).toEqual([])
   })
 
   test('rejects malformed Archive calendar identities', () => {

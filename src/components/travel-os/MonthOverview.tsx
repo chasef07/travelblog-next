@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { CalendarDays, Clock, MapPin } from 'lucide-react'
 
+import { DetailLink } from '@/components/travel-os/DetailLink'
 import { Badge } from '@/components/ui/badge'
 import {
   Card,
@@ -90,8 +90,9 @@ export function MonthOverview({
 
         <div className="grid gap-4 md:grid-cols-2">
           {posts.map((post) => (
-            <Link
+            <DetailLink
               key={post.id}
+              detailId={post.id}
               href={post.url}
               className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
@@ -135,7 +136,7 @@ export function MonthOverview({
                   </Badge>
                 </CardContent>
               </Card>
-            </Link>
+            </DetailLink>
           ))}
         </div>
       </section>
