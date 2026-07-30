@@ -1,7 +1,5 @@
-import { Badge } from '@/components/ui/badge'
 import type { PublishedPost } from '@/content/blog/publication'
 import { getArchiveForPost, parseBlogDate } from '@/content/blog/publication'
-import { getCountryFlag } from '@/lib/journal'
 import {
   generateArticleJsonLd,
   generateBreadcrumbJsonLd,
@@ -22,12 +20,6 @@ export function PostArticle({ post }: { post: PublishedPost }) {
   return (
     <article className="mx-auto flex w-full max-w-3xl flex-col gap-10 px-6 py-10 sm:px-10 sm:py-14">
       <header className="flex flex-col gap-4">
-        {post.country && (
-          <Badge variant="secondary">
-            <span aria-hidden="true">{getCountryFlag(post.country)}</span>
-            {post.country}
-          </Badge>
-        )}
         <h1
           data-detail-title
           tabIndex={-1}

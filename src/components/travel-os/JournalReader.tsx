@@ -1,12 +1,8 @@
 'use client'
 
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
-import { X } from 'lucide-react'
 
-import { useWideWorkspace } from '@/components/travel-os/JournalWorkspace'
-import { Button } from '@/components/ui/button'
-import { ResizableHandle, ResizablePanel } from '@/components/ui/resizable'
 import {
   Sheet,
   SheetContent,
@@ -41,8 +37,9 @@ function ReaderViewport({
 export function JournalReader({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const router = useRouter()
-  const isWide = useWideWorkspace()
   const contentRef = useRef<HTMLDivElement>(null)
+  const didNavigateRef = useRef(false)
+  const [open, setOpen] = useState(true)
 
   const focusTitle = useCallback(() => {
     contentRef.current
@@ -50,9 +47,16 @@ export function JournalReader({ children }: { children: React.ReactNode }) {
       ?.focus({ preventScroll: true })
   }, [])
 
-  const close = useCallback(() => {
+  const finishClose = useCallback(() => {
+    if (didNavigateRef.current) return
+
+    didNavigateRef.current = true
     closeDetail(() => router.back())
   }, [router])
+
+  const requestClose = useCallback(() => {
+    setOpen(false)
+  }, [])
 
   useEffect(() => {
     claimDetailNavigation(pathname)
@@ -74,63 +78,44 @@ export function JournalReader({ children }: { children: React.ReactNode }) {
   )
 
   useEffect(() => {
-    if (!isWide) return
+    if (open) return
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape' || event.defaultPrevented) return
-
-      event.preventDefault()
-      close()
-    }
-
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [close, isWide])
-
-  if (isWide) {
-    return (
-      <>
-        <ResizableHandle withHandle />
-        <ResizablePanel id="journal-detail" defaultSize="54%" minSize={500}>
-          <aside
-            data-journal-reader
-            aria-label="Journal detail"
-            className="relative flex h-full min-w-0 flex-col bg-background"
-          >
-            <div className="flex h-12 shrink-0 items-center justify-end border-b px-3">
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                onClick={close}
-                aria-label="Close detail"
-              >
-                <X />
-              </Button>
-            </div>
-            <ReaderViewport contentRef={contentRef}>{children}</ReaderViewport>
-          </aside>
-        </ResizablePanel>
-      </>
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+    const fallback = window.setTimeout(
+      finishClose,
+      prefersReducedMotion ? 0 : 400,
     )
-  }
+
+    return () => window.clearTimeout(fallback)
+  }, [finishClose, open])
 
   return (
     <Sheet
-      open
-      onOpenChange={(open) => {
-        if (!open) close()
+      open={open}
+      onOpenChange={(nextOpen) => {
+        if (!nextOpen) requestClose()
       }}
     >
       <SheetContent
         data-journal-reader
         side="right"
-        className="w-full max-w-none gap-0 p-0 transition duration-200 data-[state=closed]:duration-200 data-[state=open]:duration-200 motion-reduce:transition-none sm:w-[min(92vw,48rem)] sm:max-w-none"
+        overlayClassName="bg-black/35 backdrop-blur-[1px] duration-300 data-[state=closed]:duration-200 data-[state=open]:duration-300 motion-reduce:backdrop-blur-none"
+        className="w-full max-w-none gap-0 p-0 duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] data-[state=closed]:duration-200 data-[state=open]:duration-300 sm:w-[min(92vw,48rem)] sm:max-w-none"
         onOpenAutoFocus={(event) => {
           event.preventDefault()
           requestAnimationFrame(focusTitle)
         }}
         onCloseAutoFocus={(event) => event.preventDefault()}
+        onAnimationEnd={(event) => {
+          if (
+            event.target === event.currentTarget &&
+            event.currentTarget.dataset.state === 'closed'
+          ) {
+            finishClose()
+          }
+        }}
       >
         <SheetHeader className="sr-only">
           <SheetTitle>Journal detail</SheetTitle>
