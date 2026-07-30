@@ -1,14 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight, CalendarDays, Clock, MapPin } from 'lucide-react'
+import { CalendarDays, Clock, MapPin } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -86,63 +84,58 @@ export function MonthOverview({
         aria-labelledby="entries-heading"
         className="flex flex-col gap-5"
       >
-        <div>
-          <h2 id="entries-heading" className="text-2xl font-semibold">
-            Entries
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Choose an entry to open it beside this month.
-          </p>
-        </div>
+        <h2 id="entries-heading" className="text-2xl font-semibold">
+          Entries
+        </h2>
 
         <div className="grid gap-4 md:grid-cols-2">
           {posts.map((post) => (
-            <Card key={post.id} className="overflow-hidden py-0">
-              {post.images[0] && (
-                <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-                  <Image
-                    src={post.images[0].src}
-                    alt=""
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <CardHeader className="px-5">
-                <div className="mb-1 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-                  <span>{shortDate(post.date)}</span>
-                  <span className="inline-flex items-center gap-1">
-                    <MapPin className="size-3" />
-                    {post.location}
-                  </span>
-                  <span className="inline-flex items-center gap-1">
-                    <Clock className="size-3" />
-                    {post.readingTime} min
-                  </span>
-                </div>
-                <CardTitle className="text-lg leading-snug">
-                  {post.title}
-                </CardTitle>
-                <CardDescription className="line-clamp-2 leading-relaxed">
-                  {post.excerpt}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="px-5">
-                <Badge variant="outline">
-                  <span aria-hidden="true">{getCountryFlag(post.country)}</span>
-                  {post.country}
-                </Badge>
-              </CardContent>
-              <CardFooter className="px-5 pb-5">
-                <Button asChild variant="outline" size="sm">
-                  <Link href={post.url}>
-                    Open
-                    <ArrowUpRight data-icon="inline-end" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
+            <Link
+              key={post.id}
+              href={post.url}
+              className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <Card className="h-full overflow-hidden py-0 transition-colors group-hover:bg-accent/40">
+                {post.images[0] && (
+                  <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                    <Image
+                      src={post.images[0].src}
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <CardHeader className="px-5">
+                  <div className="mb-1 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                    <span>{shortDate(post.date)}</span>
+                    <span className="inline-flex items-center gap-1">
+                      <MapPin className="size-3" />
+                      {post.location}
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <Clock className="size-3" />
+                      {post.readingTime} min
+                    </span>
+                  </div>
+                  <CardTitle className="text-lg leading-snug">
+                    {post.title}
+                  </CardTitle>
+                  <CardDescription className="line-clamp-2 leading-relaxed">
+                    {post.excerpt}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="px-5 pb-5">
+                  <Badge variant="outline">
+                    <span aria-hidden="true">
+                      {getCountryFlag(post.country)}
+                    </span>
+                    {post.country}
+                  </Badge>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>

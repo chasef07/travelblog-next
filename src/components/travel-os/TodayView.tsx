@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight, CalendarDays, Globe2, MapPin } from 'lucide-react'
+import { CalendarDays, Globe2, MapPin } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -8,7 +8,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -60,21 +59,12 @@ export function TodayView({
           <CalendarDays />
           Today
         </Badge>
-        <div className="flex flex-col gap-3">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-            {fullDate(today)}
-          </h1>
-          <p className="max-w-2xl text-lg text-muted-foreground">
-            Pick up from the latest month, or revisit the closest entry from a
-            previous year.
-          </p>
-        </div>
+        <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
+          {fullDate(today)}
+        </h1>
         <div className="flex flex-wrap gap-3">
           <Button asChild>
-            <Link href={latestMonth.href}>
-              Open {latestMonth.label}
-              <ArrowUpRight data-icon="inline-end" />
-            </Link>
+            <Link href={latestMonth.href}>{latestMonth.displayDate}</Link>
           </Button>
           <Button asChild variant="outline">
             <Link href="/world">
@@ -88,41 +78,38 @@ export function TodayView({
       <Separator />
 
       <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <Card className="overflow-hidden py-0">
-          <div className="relative aspect-[16/9] overflow-hidden">
-            <Image
-              src={getPostCardImage(latestPost)}
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover"
-            />
-          </div>
-          <CardHeader>
-            <Badge variant="secondary" className="mb-2">
-              Latest entry
-            </Badge>
-            <CardTitle className="text-2xl">{latestPost.title}</CardTitle>
-            <CardDescription className="flex flex-wrap items-center gap-2">
-              <MapPin className="size-4" />
-              {latestPost.location} · {entryDate(latestPost)}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-              {latestPost.excerpt}
-            </p>
-          </CardContent>
-          <CardFooter className="pb-6">
-            <Button asChild variant="outline">
-              <Link href={latestPost.url}>
-                Read entry
-                <ArrowUpRight data-icon="inline-end" />
-              </Link>
-            </Button>
-          </CardFooter>
-        </Card>
+        <Link
+          href={latestPost.url}
+          className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          <Card className="h-full overflow-hidden py-0 transition-colors group-hover:bg-accent/40">
+            <div className="relative aspect-[16/9] overflow-hidden">
+              <Image
+                src={getPostCardImage(latestPost)}
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover"
+              />
+            </div>
+            <CardHeader>
+              <Badge variant="secondary" className="mb-2">
+                Latest entry
+              </Badge>
+              <CardTitle className="text-2xl">{latestPost.title}</CardTitle>
+              <CardDescription className="flex flex-wrap items-center gap-2">
+                <MapPin className="size-4" />
+                {latestPost.location} · {entryDate(latestPost)}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pb-6">
+              <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                {latestPost.excerpt}
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
 
         <div className="flex flex-col gap-4">
           <div>
@@ -134,30 +121,28 @@ export function TodayView({
             </p>
           </div>
           {echoes.map((echo) => (
-            <Card key={echo.year} className="gap-4 py-5">
-              <CardHeader className="px-5">
-                <div className="mb-1 flex items-center justify-between gap-3">
-                  <Badge variant="outline">{echo.year}</Badge>
-                  <span className="text-xs text-muted-foreground">
-                    {proximityLabel(echo.offsetDays)}
-                  </span>
-                </div>
-                <CardTitle className="line-clamp-2 text-base leading-snug">
-                  {echo.post.title}
-                </CardTitle>
-                <CardDescription>
-                  {echo.post.location} · {entryDate(echo.post)}
-                </CardDescription>
-              </CardHeader>
-              <CardFooter className="px-5">
-                <Button asChild variant="ghost" size="sm">
-                  <Link href={echo.post.url}>
-                    Read
-                    <ArrowUpRight data-icon="inline-end" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
+            <Link
+              key={echo.year}
+              href={echo.post.url}
+              className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <Card className="h-full gap-4 py-5 transition-colors group-hover:bg-accent/40">
+                <CardHeader className="px-5">
+                  <div className="mb-1 flex items-center justify-between gap-3">
+                    <Badge variant="outline">{echo.year}</Badge>
+                    <span className="text-xs text-muted-foreground">
+                      {proximityLabel(echo.offsetDays)}
+                    </span>
+                  </div>
+                  <CardTitle className="line-clamp-2 text-base leading-snug">
+                    {echo.post.title}
+                  </CardTitle>
+                  <CardDescription>
+                    {echo.post.location} · {entryDate(echo.post)}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>

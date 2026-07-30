@@ -1,13 +1,11 @@
 import Image from 'next/image'
-import { ExternalLink, Play } from 'lucide-react'
+import { Play } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -36,38 +34,34 @@ export default function VlogsPage() {
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {vlogsData.map((vlog) => (
-          <Card key={vlog.id} className="overflow-hidden py-0">
-            <div className="relative aspect-video overflow-hidden">
-              <Image
-                src={`https://img.youtube.com/vi/${vlog.youtubeId}/maxresdefault.jpg`}
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                className="object-cover"
-              />
-            </div>
-            <CardHeader>
-              <CardTitle className="leading-snug">{vlog.title}</CardTitle>
-              <CardDescription>{vlog.country}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                {vlog.description}
-              </p>
-            </CardContent>
-            <CardFooter className="pb-6">
-              <Button asChild variant="outline" size="sm">
-                <a
-                  href={`https://www.youtube.com/watch?v=${vlog.youtubeId}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Watch
-                  <ExternalLink data-icon="inline-end" />
-                </a>
-              </Button>
-            </CardFooter>
-          </Card>
+          <a
+            key={vlog.id}
+            href={`https://www.youtube.com/watch?v=${vlog.youtubeId}`}
+            target="_blank"
+            rel="noreferrer"
+            className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <Card className="h-full overflow-hidden py-0 transition-colors group-hover:bg-accent/40">
+              <div className="relative aspect-video overflow-hidden">
+                <Image
+                  src={`https://img.youtube.com/vi/${vlog.youtubeId}/maxresdefault.jpg`}
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="leading-snug">{vlog.title}</CardTitle>
+                <CardDescription>{vlog.country}</CardDescription>
+              </CardHeader>
+              <CardContent className="pb-6">
+                <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                  {vlog.description}
+                </p>
+              </CardContent>
+            </Card>
+          </a>
         ))}
       </div>
     </main>

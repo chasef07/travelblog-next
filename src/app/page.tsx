@@ -9,7 +9,9 @@ export default function Page() {
   const years = buildJournalYears(posts, archives)
   const latestMonth = years[0].months[0]
   const latestPost = latestMonth.posts[0]
-  const echoes = findClosestEntriesByYear(today, posts)
+  const echoes = findClosestEntriesByYear(today, posts).filter(
+    (echo) => echo.post.id !== latestPost.id,
+  )
 
   return (
     <TodayView
