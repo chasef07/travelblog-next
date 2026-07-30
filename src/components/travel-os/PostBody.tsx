@@ -42,7 +42,7 @@ function PostImage({
   )
 }
 
-export default function BlogPost({ post }: { post: BlogPostType }) {
+export function PostBody({ post }: { post: BlogPostType }) {
   const paragraphs = post.content.split(/\n{2,}/).filter(Boolean)
   const heroImage: BlogImage =
     post.images[0] ??
@@ -66,7 +66,7 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
   })
 
   return (
-    <article className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8">
       <PostImage image={heroImage} priority />
 
       <div className="flex max-w-[68ch] flex-col gap-6 text-base leading-8 text-muted-foreground sm:text-lg sm:leading-9">
@@ -85,6 +85,6 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
           )
         })}
       </div>
-    </article>
+    </div>
   )
 }

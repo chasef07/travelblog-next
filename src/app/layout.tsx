@@ -17,8 +17,10 @@ export const metadata: Metadata = generatePageMetadata({
 
 export default function RootLayout({
   children,
+  reader,
 }: {
   children: React.ReactNode
+  reader: React.ReactNode
 }) {
   const websiteJsonLd = generateWebsiteJsonLd()
 
@@ -70,6 +72,7 @@ export default function RootLayout({
         <TravelShell
           years={buildJournalNavigation(posts, archives)}
           currentLocation={posts[0]?.location ?? 'the road'}
+          detail={reader}
         >
           {children}
         </TravelShell>

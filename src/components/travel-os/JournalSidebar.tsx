@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import {
   Backpack,
   CalendarDays,
@@ -85,6 +86,17 @@ export function JournalSidebar({
   currentLocation: string
 }) {
   const pathname = usePathname()
+  const activeYear = years.find((year) =>
+    year.months.some(
+      (month) =>
+        pathname === month.href || pathname.startsWith(`${month.href}/`),
+    ),
+  )?.year
+  const [openYear, setOpenYear] = useState<number | undefined>(activeYear)
+
+  useEffect(() => {
+    setOpenYear(activeYear)
+  }, [activeYear, pathname])
 
   return (
     <Sidebar>
@@ -134,7 +146,14 @@ export function JournalSidebar({
         <SidebarMenu>
           {years.map((year) => {
             return (
-              <Collapsible key={year.year} className="group/year">
+              <Collapsible
+                key={year.year}
+                className="group/year"
+                open={openYear === year.year}
+                onOpenChange={(open) =>
+                  setOpenYear(open ? year.year : undefined)
+                }
+              >
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton className="font-medium">
@@ -154,7 +173,7 @@ export function JournalSidebar({
                             asChild
                             isActive={
                               pathname === month.href ||
-                              month.postHrefs.includes(pathname)
+                              pathname.startsWith(`${month.href}/`)
                             }
                             className="min-h-9"
                           >

@@ -2,8 +2,8 @@ import {
   allBlogPosts as sourcePosts,
   blogArchives as sourceArchives,
   type BlogArchive as SourceArchive,
-} from '@/content/blog-registry'
-import type { BlogPost } from '@/types/blog'
+} from '../blog-registry'
+import type { BlogPost } from '../../types/blog'
 
 export type PublishedPost = BlogPost & {
   readingTime: number
@@ -13,17 +13,6 @@ export type PublishedPost = BlogPost & {
 export type BlogArchive = SourceArchive & {
   url: string
 }
-
-export type PublicationOutcome =
-  | { kind: 'post'; post: PublishedPost; url: string }
-  | {
-      kind: 'archive'
-      archive: BlogArchive
-      posts: PublishedPost[]
-      url: string
-    }
-  | { kind: 'empty-archive'; archive: BlogArchive; url: string }
-  | { kind: 'missing' }
 
 export function calculateReadingTime(content: string): number {
   const words = content.trim().split(/\s+/).filter(Boolean).length
@@ -43,6 +32,18 @@ export function monthSlug(date: string): string {
   return parseBlogDate(date)
     .toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' })
     .toLowerCase()
+}
+
+export function archivePath(year: number | string, month: string): string {
+  return `/blog/${year}/${month}`
+}
+
+export function postPath(
+  year: number | string,
+  month: string,
+  postSlug: string,
+): string {
+  return `${archivePath(year, month)}/${postSlug}`
 }
 
 function calendarMonthKey(date: string): string {
@@ -91,7 +92,7 @@ function deriveMissingArchives(
   })
 }
 
-const reservedArchiveSlugs = new Set([
+const calendarMonths = new Set([
   'january',
   'february',
   'march',
@@ -127,14 +128,22 @@ export function createBlogPublication(
     postRecords,
     archiveRecords,
   )
-  const posts: PublishedPost[] = postRecords.map((post) => ({
-    ...post,
-    readingTime: calculateReadingTime(post.content),
-    url: `/blog/${post.year}/${post.slug}`,
-  }))
+  const posts: PublishedPost[] = postRecords.map((post) => {
+    const date = parseBlogDate(post.date)
+    const month = monthSlug(post.date)
+    if (String(date.getUTCFullYear()) !== post.year) {
+      throw new Error(`Invalid Post calendar identity: ${post.year}/${month}`)
+    }
+
+    return {
+      ...post,
+      readingTime: calculateReadingTime(post.content),
+      url: postPath(post.year, month, post.slug),
+    }
+  })
   const archives: BlogArchive[] = completeArchiveRecords.map((archive) => ({
     ...archive,
-    url: `/blog/${archive.year}/${archive.slug}`,
+    url: archivePath(archive.year, archive.slug),
   }))
   const postsByPath = new Map(posts.map((post) => [post.url, post]))
   const archivesByPath = new Map(
@@ -144,66 +153,71 @@ export function createBlogPublication(
   assertUnique(posts, (post) => post.url, 'Post path')
   assertUnique(posts, (post) => post.id, 'Post identity')
   assertUnique(archives, (archive) => archive.url, 'Archive path')
+
   for (const archive of archives) {
     const date = parseBlogDate(archive.date)
     if (
-      !reservedArchiveSlugs.has(archive.slug) ||
+      !calendarMonths.has(archive.slug) ||
       monthSlug(archive.date) !== archive.slug ||
       date.getUTCFullYear() !== archive.year
     ) {
       throw new Error(`Invalid Archive calendar identity: ${archive.url}`)
     }
   }
-  for (const post of posts) {
-    if (reservedArchiveSlugs.has(post.slug)) {
-      throw new Error(`Post path collides with Archive: ${post.url}`)
-    }
-    monthSlug(post.date)
+
+  function getArchive(year: string, month: string) {
+    return archivesByPath.get(archivePath(year, month))
   }
 
-  function resolve(year: string, slug: string): PublicationOutcome {
-    const url = `/blog/${year}/${slug}`
-    const post = postsByPath.get(url)
-    if (post) return { kind: 'post', post, url }
-
-    const archive = archivesByPath.get(url)
-    if (!archive) return { kind: 'missing' }
-
-    const archivePosts = posts.filter(
-      (candidate) =>
-        candidate.year === year && monthSlug(candidate.date) === archive.slug,
-    )
-    return archivePosts.length
-      ? { kind: 'archive', archive, posts: archivePosts, url }
-      : { kind: 'empty-archive', archive, url }
+  function getPost(year: string, month: string, postSlug: string) {
+    return postsByPath.get(postPath(year, month, postSlug))
   }
 
-  function staticParams() {
-    return [...posts, ...archives].map(({ url }) => {
-      const [, , year, slug] = url.split('/')
-      return { year, slug }
-    })
+  function getPostsForArchive(year: string, month: string) {
+    const prefix = `${archivePath(year, month)}/`
+    return posts.filter((post) => post.url.startsWith(prefix))
   }
 
-  return { posts, archives, resolve, staticParams }
+  function archiveStaticParams() {
+    return archives.map((archive) => ({
+      year: String(archive.year),
+      month: archive.slug,
+    }))
+  }
+
+  function postStaticParams() {
+    return posts.map((post) => ({
+      year: post.year,
+      month: monthSlug(post.date),
+      postSlug: post.slug,
+    }))
+  }
+
+  return {
+    posts,
+    archives,
+    getArchive,
+    getPost,
+    getPostsForArchive,
+    archiveStaticParams,
+    postStaticParams,
+  }
 }
 
 const publication = createBlogPublication(sourcePosts, sourceArchives)
 
 export const posts = publication.posts
 export const archives = publication.archives
-export const resolvePublication = publication.resolve
-export const staticPublicationParams = publication.staticParams
+export const getArchive = publication.getArchive
+export const getPost = publication.getPost
+export const getPostsForArchive = publication.getPostsForArchive
+export const archiveStaticParams = publication.archiveStaticParams
+export const postStaticParams = publication.postStaticParams
 
-export const feedPublications = archives
-export const sitemapPublications = [...archives, ...posts]
+export const feedPublications = posts
 
 export function getArchiveForPost(post: BlogPost): BlogArchive | undefined {
-  return archives.find(
-    (archive) =>
-      String(archive.year) === post.year &&
-      archive.slug === monthSlug(post.date),
-  )
+  return getArchive(post.year, monthSlug(post.date))
 }
 
 export function getPostsForCountry(countryName: string): PublishedPost[] {

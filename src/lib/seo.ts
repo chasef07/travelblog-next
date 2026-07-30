@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import { BlogPost } from '@/types/blog'
+import type { PublishedPost } from '@/content/blog/publication'
+import { monthSlug, parseBlogDate, postPath } from '@/content/blog/publication'
 
 /**
  * SEO configuration and utilities for Chase Fagen's travel journal.
@@ -118,6 +120,24 @@ export function generatePageMetadata({
   }
 }
 
+export function generatePostMetadata(post: PublishedPost): Metadata {
+  return generatePageMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: post.url,
+    images: post.images.map((image) => image.src),
+    type: 'article',
+    publishedTime: parseBlogDate(post.date).toISOString(),
+    modifiedTime: parseBlogDate(post.date).toISOString(),
+    keywords: [
+      `${post.location} travel`,
+      ...(post.country ? [`${post.country} travel journal`] : []),
+      'solo travel stories',
+      'travel photography',
+    ],
+  })
+}
+
 /**
  * Generate JSON-LD structured data for articles
  */
@@ -159,7 +179,11 @@ export function generateArticleJsonLd(
     dateModified: post.date,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${siteConfig.url}/blog/${post.year}/${post.slug}`,
+      '@id': `${siteConfig.url}${postPath(
+        post.year,
+        monthSlug(post.date),
+        post.slug,
+      )}`,
     },
     articleSection: 'Travel',
     keywords: [
