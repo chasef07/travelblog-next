@@ -21,11 +21,16 @@ export function TravelShell({
     <SidebarProvider>
       <JournalSidebar years={years} currentLocation={currentLocation} />
       <SidebarInset>
-        <header className="sticky top-0 z-30 flex h-12 shrink-0 items-center border-b bg-background px-3">
+        <header className="sticky top-0 z-30 flex h-12 shrink-0 items-center border-b bg-background px-3 md:hidden">
           <SidebarTrigger />
         </header>
 
-        <div id="main-content" className="min-h-[calc(100svh-3rem)]">
+        <SidebarTrigger className="absolute left-3 top-3 z-30 hidden md:group-data-[sidebar-state=collapsed]/sidebar-wrapper:inline-flex" />
+
+        <div
+          id="main-content"
+          className="min-h-[calc(100svh-3rem)] md:min-h-svh"
+        >
           {children}
         </div>
       </SidebarInset>

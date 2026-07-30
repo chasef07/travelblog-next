@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CalendarDays, Globe2, MapPin } from 'lucide-react'
+import { Globe2 } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -53,73 +53,70 @@ export function TodayView({
   latestPost: PublishedPost
 }) {
   return (
-    <main className="mx-auto flex max-w-6xl flex-col gap-12 px-5 py-10 sm:px-8 sm:py-14">
-      <section className="flex flex-col gap-6">
-        <Badge variant="secondary" className="w-fit">
-          <CalendarDays />
-          Today
-        </Badge>
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
+    <main className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-8 sm:px-8 sm:py-10">
+      <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
           {fullDate(today)}
         </h1>
-        <div className="flex flex-wrap gap-3">
-          <Button asChild>
+        <div className="flex flex-wrap gap-2">
+          <Button asChild size="sm" variant="secondary">
             <Link href={latestMonth.href}>{latestMonth.displayDate}</Link>
           </Button>
-          <Button asChild variant="outline">
+          <Button asChild size="sm" variant="outline">
             <Link href="/world">
               <Globe2 data-icon="inline-start" />
               World
             </Link>
           </Button>
         </div>
-      </section>
+      </header>
 
       <Separator />
 
-      <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <Link
-          href={latestPost.url}
-          className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-          <Card className="h-full overflow-hidden py-0 transition-colors group-hover:bg-accent/40">
-            <div className="relative aspect-[16/9] overflow-hidden">
-              <Image
-                src={getPostCardImage(latestPost)}
-                alt=""
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 55vw"
-                className="object-cover"
-              />
-            </div>
+      <Link
+        href={latestPost.url}
+        className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+        <Card className="h-full gap-0 overflow-hidden py-0 transition-colors group-hover:bg-accent/40 lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]">
+          <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:min-h-80">
+            <Image
+              src={getPostCardImage(latestPost)}
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col justify-center gap-5 py-6 lg:py-8">
             <CardHeader>
-              <Badge variant="secondary" className="mb-2">
-                Latest entry
-              </Badge>
-              <CardTitle className="text-2xl">{latestPost.title}</CardTitle>
-              <CardDescription className="flex flex-wrap items-center gap-2">
-                <MapPin className="size-4" />
+              <CardDescription>
                 {latestPost.location} · {entryDate(latestPost)}
               </CardDescription>
+              <CardTitle className="text-2xl leading-tight sm:text-3xl">
+                {latestPost.title}
+              </CardTitle>
             </CardHeader>
-            <CardContent className="pb-6">
+            <CardContent>
               <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
                 {latestPost.excerpt}
               </p>
             </CardContent>
-          </Card>
-        </Link>
-
-        <div className="flex flex-col gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
-              Around this date
-            </h2>
-            <p className="mt-1 text-sm text-muted-foreground">
-              The nearest entry from each year.
-            </p>
           </div>
+        </Card>
+      </Link>
+
+      <section className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Around this date
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            The nearest entry from each year.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
           {echoes.map((echo) => (
             <Link
               key={echo.year}
