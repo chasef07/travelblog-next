@@ -17,5 +17,4 @@ export interface BlogImage {
   src: string
   alt: string
   caption?: string
-  orientation?: 'portrait' | 'landscape' | 'square'
 }
