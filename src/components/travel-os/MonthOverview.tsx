@@ -1,15 +1,11 @@
-import Image from 'next/image'
-import { CalendarDays, Clock, MapPin } from 'lucide-react'
+import { ArrowUpRight, CalendarDays, MapPin } from 'lucide-react'
 
 import { DetailLink } from '@/components/travel-os/DetailLink'
-import { Badge } from '@/components/ui/badge'
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+  MonthGallery,
+  type MonthGalleryItem,
+} from '@/components/travel-os/MonthGallery'
+import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import type { BlogArchive, PublishedPost } from '@/content/blog/publication'
 import { parseBlogDate } from '@/content/blog/publication'
@@ -35,6 +31,35 @@ export function MonthOverview({
       posts.map((post) => [post.country, getCountryFlag(post.country)]),
     ).entries(),
   ]
+  const galleryItems = [
+    ...new Map(
+      posts.flatMap((post): [string, MonthGalleryItem][] => {
+        const image = post.images[0]
+        if (!image) return []
+
+        return [
+          [
+            image.src,
+            {
+              src: image.src,
+              alt: image.alt,
+              label: post.title,
+              meta: `${shortDate(post.date)} · ${post.location}`,
+            },
+          ],
+        ]
+      }),
+    ).values(),
+  ].slice(0, 8)
+
+  if (galleryItems.length === 0) {
+    galleryItems.push({
+      src: archive.image,
+      alt: `${archive.displayDate} cover`,
+      label: archive.displayDate,
+      meta: `${posts.length} entries`,
+    })
+  }
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-10 sm:px-8 sm:py-14">
@@ -51,7 +76,7 @@ export function MonthOverview({
             </Badge>
           ))}
         </div>
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-end">
           <div className="flex flex-col gap-3">
             <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
               {archive.displayDate}
@@ -60,21 +85,11 @@ export function MonthOverview({
               {archive.excerpt}
             </p>
           </div>
-          <div className="relative aspect-[5/2] overflow-hidden rounded-lg border bg-muted lg:aspect-[16/10]">
-            <Image
-              src={archive.image}
-              alt={`${archive.displayDate} cover`}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 320px"
-              className={
-                archive.imageFit === 'contain'
-                  ? 'object-contain'
-                  : 'object-cover'
-              }
-              style={{ objectPosition: archive.imagePosition ?? 'center' }}
-            />
-          </div>
+          <MonthGallery
+            key={archive.url}
+            items={galleryItems}
+            title={archive.displayDate}
+          />
         </div>
       </header>
 
@@ -84,61 +99,42 @@ export function MonthOverview({
         aria-labelledby="entries-heading"
         className="flex flex-col gap-5"
       >
-        <h2 id="entries-heading" className="text-2xl font-semibold">
-          Entries
-        </h2>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          {posts.map((post) => (
-            <DetailLink
-              key={post.id}
-              detailId={post.id}
-              href={post.url}
-              className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <Card className="h-full overflow-hidden py-0 transition-colors group-hover:bg-accent/40">
-                {post.images[0] && (
-                  <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-                    <Image
-                      src={post.images[0].src}
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <CardHeader className="px-5">
-                  <div className="mb-1 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-                    <span>{shortDate(post.date)}</span>
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="size-3" />
-                      {post.location}
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <Clock className="size-3" />
-                      {post.readingTime} min
-                    </span>
-                  </div>
-                  <CardTitle className="text-lg leading-snug">
-                    {post.title}
-                  </CardTitle>
-                  <CardDescription className="line-clamp-2 leading-relaxed">
-                    {post.excerpt}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="px-5 pb-5">
-                  <Badge variant="outline">
-                    <span aria-hidden="true">
-                      {getCountryFlag(post.country)}
-                    </span>
-                    {post.country}
-                  </Badge>
-                </CardContent>
-              </Card>
-            </DetailLink>
-          ))}
+        <div className="flex flex-wrap items-end justify-between gap-2">
+          <h2 id="entries-heading" className="text-2xl font-semibold">
+            Entries
+          </h2>
+          <p className="text-xs text-muted-foreground">
+            {posts.length} posts · newest first
+          </p>
         </div>
+
+        <ol className="grid gap-px overflow-hidden rounded-lg bg-border ring-1 ring-border md:grid-cols-2 xl:grid-cols-3">
+          {posts.map((post) => (
+            <li key={post.id} className="min-w-0">
+              <DetailLink
+                detailId={post.id}
+                href={post.url}
+                className="group flex min-h-28 flex-col justify-between gap-4 bg-background p-4 outline-none transition-colors hover:bg-accent/40 focus-visible:bg-accent/40 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+              >
+                <div className="flex min-w-0 items-center gap-2 text-xs text-muted-foreground">
+                  <time dateTime={post.date} className="shrink-0">
+                    {shortDate(post.date)}
+                  </time>
+                  <span className="inline-flex min-w-0 items-center gap-1">
+                    <MapPin className="size-3 shrink-0" />
+                    <span className="truncate">{post.location}</span>
+                  </span>
+                </div>
+                <div className="flex items-start justify-between gap-3">
+                  <span className="font-heading text-sm font-semibold tracking-wider uppercase">
+                    {post.title}
+                  </span>
+                  <ArrowUpRight className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </div>
+              </DetailLink>
+            </li>
+          ))}
+        </ol>
       </section>
     </main>
   )
