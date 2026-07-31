@@ -81,7 +81,7 @@ function SidebarProvider({
         className={cn('group/sidebar-wrapper flex min-h-svh w-full', className)}
         style={
           {
-            '--sidebar-width': '17rem',
+            '--sidebar-width': '16rem',
             ...style,
           } as React.CSSProperties
         }
@@ -107,7 +107,7 @@ function Sidebar({
           side="left"
           showCloseButton={false}
           className={cn(
-            'w-[min(21rem,calc(100vw-1rem))] border-sidebar-border bg-sidebar p-0 text-sidebar-foreground',
+            'w-[min(18rem,calc(100vw-1rem))] border-sidebar-border bg-sidebar p-0 text-sidebar-foreground',
             className,
           )}
           {...props}
@@ -151,7 +151,7 @@ function SidebarHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="sidebar-header"
-      className={cn('flex shrink-0 flex-col gap-2 p-3', className)}
+      className={cn('flex shrink-0 flex-col gap-2 p-2 [--radius:0]', className)}
       {...props}
     />
   )
@@ -162,7 +162,7 @@ function SidebarContent({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="sidebar-content"
       className={cn(
-        'flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto overscroll-contain p-2',
+        'flex min-h-0 flex-1 flex-col gap-2 overflow-auto overscroll-contain [--radius:0]',
         className,
       )}
       {...props}
@@ -175,7 +175,7 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="sidebar-footer"
       className={cn(
-        'flex shrink-0 flex-col gap-2 border-t border-sidebar-border p-3',
+        'flex shrink-0 flex-col gap-2 border-t border-sidebar-border p-2',
         className,
       )}
       {...props}
@@ -207,7 +207,7 @@ function SidebarTrigger({
     <Button
       data-slot="sidebar-trigger"
       variant="ghost"
-      size="icon"
+      size="icon-sm"
       className={className}
       onClick={(event) => {
         onClick?.(event)
@@ -225,7 +225,7 @@ function SidebarMenu({ className, ...props }: React.ComponentProps<'ul'>) {
   return (
     <ul
       data-slot="sidebar-menu"
-      className={cn('flex min-w-0 flex-col gap-1', className)}
+      className={cn('flex w-full min-w-0 flex-col gap-0.5', className)}
       {...props}
     />
   )
@@ -235,7 +235,7 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<'li'>) {
   return (
     <li
       data-slot="sidebar-menu-item"
-      className={cn('relative min-w-0', className)}
+      className={cn('group/menu-item relative min-w-0', className)}
       {...props}
     />
   )
@@ -257,7 +257,7 @@ function SidebarMenuButton({
       data-slot="sidebar-menu-button"
       data-active={isActive}
       className={cn(
-        'flex h-9 w-full min-w-0 items-center gap-2.5 rounded-lg px-2.5 text-left text-sm text-sidebar-foreground/72 outline-none transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0',
+        'group/menu-button flex h-9 w-full min-w-0 items-center gap-2 overflow-hidden rounded-none px-3 py-2 text-left text-sm text-sidebar-foreground/72 ring-sidebar-ring outline-hidden transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate',
         className,
       )}
       {...props}
@@ -270,7 +270,7 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<'ul'>) {
     <ul
       data-slot="sidebar-menu-sub"
       className={cn(
-        'ml-4 flex min-w-0 flex-col gap-0.5 border-l border-sidebar-border pl-2',
+        'mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5',
         className,
       )}
       {...props}
@@ -285,7 +285,7 @@ function SidebarMenuSubItem({
   return (
     <li
       data-slot="sidebar-menu-sub-item"
-      className={cn('min-w-0', className)}
+      className={cn('group/menu-sub-item relative min-w-0', className)}
       {...props}
     />
   )
@@ -307,7 +307,7 @@ function SidebarMenuSubButton({
       data-slot="sidebar-menu-sub-button"
       data-active={isActive}
       className={cn(
-        'flex min-h-8 min-w-0 items-center gap-2 rounded-md px-2 text-sm text-sidebar-foreground/62 outline-none transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground',
+        'flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-none px-3 text-sm text-sidebar-foreground/62 ring-sidebar-ring outline-hidden hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-3.5 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground',
         className,
       )}
       {...props}
