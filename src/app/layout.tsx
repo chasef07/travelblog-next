@@ -6,6 +6,10 @@ import { Analytics } from '@vercel/analytics/react'
 import { TravelShell } from '@/components/travel-os/TravelShell'
 import { archives, posts } from '@/content/blog/publication'
 import { buildJournalNavigation } from '@/lib/journal'
+import { Inter } from 'next/font/google'
+import { cn } from '@/lib/utils'
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Chase Fagen - Travel Journal',
@@ -25,7 +29,11 @@ export default function RootLayout({
   const websiteJsonLd = generateWebsiteJsonLd()
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={cn('dark font-sans', inter.variable)}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
