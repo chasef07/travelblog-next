@@ -102,7 +102,7 @@ export function JournalReader({ children }: { children: React.ReactNode }) {
         data-journal-reader
         side="right"
         overlayClassName="bg-black/35 backdrop-blur-[1px] duration-300 data-[state=closed]:duration-200 data-[state=open]:duration-300 motion-reduce:backdrop-blur-none"
-        className="w-full max-w-none gap-0 p-0 duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] data-[state=closed]:duration-200 data-[state=open]:duration-300 sm:w-[min(92vw,48rem)] sm:max-w-none"
+        className="w-full max-w-none gap-0 p-0 duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] data-[state=closed]:duration-200 data-[state=open]:duration-300 data-[side=right]:w-full data-[side=right]:max-w-none data-[side=right]:sm:w-[min(92vw,48rem)] data-[side=right]:sm:max-w-none"
         onOpenAutoFocus={(event) => {
           event.preventDefault()
           requestAnimationFrame(focusTitle)
