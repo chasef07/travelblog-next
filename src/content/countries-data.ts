@@ -274,6 +274,25 @@ export const countriesData: Record<string, CountryInfo> = {
       'Portuguese Coast',
     ],
   },
+  Italy: {
+    name: 'Italy',
+    slug: 'italy',
+    flag: 'italy-flag.jpg',
+    region: 'Southern Europe',
+    description:
+      'Rome layover, the Colosseum, Trevi Fountain, and a brief first taste of Italy.',
+    dates: { firstVisit: '2024-09-23' },
+    highlights: ['Rome', 'Colosseum', 'Trevi Fountain', 'Italian Food'],
+  },
+  Switzerland: {
+    name: 'Switzerland',
+    slug: 'switzerland',
+    flag: 'switzerland-flag.svg',
+    region: 'Central Europe',
+    description:
+      'An Alpine stop joining the European chapter, with journal entries still to come.',
+    highlights: ['Swiss Alps', 'Mountain Towns', 'Euro Summer'],
+  },
 }
 
 // Helper to get all countries as array

@@ -24,6 +24,7 @@ const countryFlags: Record<string, string> = {
   Portugal: '🇵🇹',
   Rwanda: '🇷🇼',
   Singapore: '🇸🇬',
+  Switzerland: '🇨🇭',
   Tanzania: '🇹🇿',
   Thailand: '🇹🇭',
   UAE: '🇦🇪',
