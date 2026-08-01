@@ -291,6 +291,7 @@ export const countriesData: Record<string, CountryInfo> = {
     region: 'Central Europe',
     description:
       'Interlaken base, Swiss Alps, mountain routes, and the current Euro summer stop.',
+    dates: { firstVisit: '2026-08-01' },
     highlights: ['Swiss Alps', 'Mountain Towns', 'Euro Summer'],
   },
 }

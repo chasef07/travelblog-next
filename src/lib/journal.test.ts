@@ -13,7 +13,7 @@ describe('Journal chronology', () => {
     const years = buildJournalYears(posts, archives)
 
     expect(years.map(({ year }) => year)).toEqual([2026, 2025, 2024])
-    expect(years[0].months[0].key).toBe('2026-07')
+    expect(years[0].months[0].key).toBe('2026-08')
     expect(
       years
         .find(({ year }) => year === 2025)
@@ -28,8 +28,8 @@ describe('Journal chronology', () => {
     )
 
     expect(echoes.map(({ year }) => year)).toEqual([2026, 2025, 2024])
-    expect(echoes[0].post.date).toBe('July 26, 2026')
-    expect(echoes[0].offsetDays).toBe(-4)
+    expect(echoes[0].post.date).toBe('2026-08-01')
+    expect(echoes[0].offsetDays).toBe(2)
     expect(echoes[1].post.date).toBe('2025-08-02')
     expect(echoes[1].offsetDays).toBe(3)
   })

@@ -419,7 +419,7 @@ export const fullJourneyData: CountryData[] = [
     coordinates: [46.6863, 7.8632],
     visitDate: 'August 2026',
     highlights: ['Interlaken', 'Swiss Alps', 'Mountain Towns', 'Euro Summer'],
-    blogPostsCount: 0,
+    blogPostsCount: 1,
     flagCode: 'CH',
     description:
       'The current Alpine chapter based in Interlaken, surrounded by lakes and mountain routes.',

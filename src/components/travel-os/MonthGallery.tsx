@@ -8,6 +8,7 @@ export type MonthGalleryItem = {
   alt: string
   label: string
   meta: string
+  imagePosition?: string
 }
 
 export function MonthGallery({
@@ -62,6 +63,7 @@ export function MonthGallery({
             priority={index === 0}
             sizes="(max-width: 1024px) 100vw, 384px"
             className="object-cover"
+            style={{ objectPosition: item.imagePosition }}
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent px-4 pb-4 pt-12 text-white">
             <p className="text-[0.625rem] font-semibold tracking-widest text-white/70 uppercase">

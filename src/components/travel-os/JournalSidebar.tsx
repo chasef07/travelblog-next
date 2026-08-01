@@ -9,6 +9,7 @@ import {
   ChevronRight,
   Clapperboard,
   Folder,
+  FolderOpen,
   Globe2,
   Utensils,
 } from 'lucide-react'
@@ -116,7 +117,7 @@ export function JournalSidebar({
         </div>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="px-2">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild isActive={pathname === '/'}>
@@ -145,19 +146,24 @@ export function JournalSidebar({
 
         <SidebarMenu>
           {years.map((year) => {
+            const isOpen = openYear === year.year
+
             return (
               <Collapsible
                 key={year.year}
                 className="group/year"
-                open={openYear === year.year}
+                open={isOpen}
                 onOpenChange={(open) =>
                   setOpenYear(open ? year.year : undefined)
                 }
               >
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className="font-medium">
-                      <Folder />
+                    <SidebarMenuButton
+                      className="font-medium"
+                      isActive={activeYear === year.year}
+                    >
+                      {isOpen ? <FolderOpen /> : <Folder />}
                       <span className="flex-1 tabular-nums">{year.year}</span>
                       <span className="font-mono text-[9px] tabular-nums text-sidebar-foreground/35">
                         {year.postCount}

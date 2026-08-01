@@ -44,6 +44,7 @@ export function MonthOverview({
               alt: image.alt,
               label: post.title,
               meta: `${shortDate(post.date)} · ${post.location}`,
+              imagePosition: image.imagePosition,
             },
           ],
         ]

@@ -17,4 +17,5 @@ export interface BlogImage {
   src: string
   alt: string
   caption?: string
+  imagePosition?: string
 }
