@@ -14,7 +14,11 @@ import {
 import { Separator } from '@/components/ui/separator'
 import { DetailLink } from '@/components/travel-os/DetailLink'
 import type { PublishedPost } from '@/content/blog/publication'
-import { getPostCardImage, parseBlogDate } from '@/content/blog/publication'
+import {
+  getPostCardImage,
+  getPostCardImagePosition,
+  parseBlogDate,
+} from '@/content/blog/publication'
 import type { JournalEcho, JournalMonth } from '@/lib/journal'
 
 function proximityLabel(offsetDays: number) {
@@ -88,6 +92,7 @@ export function TodayView({
               priority
               sizes="(max-width: 1024px) 100vw, 60vw"
               className="object-cover"
+              style={{ objectPosition: getPostCardImagePosition(latestPost) }}
             />
           </div>
           <div className="flex flex-col justify-center gap-5 py-6 lg:py-8">

@@ -22,6 +22,7 @@ import { april2026Posts } from './blog-posts/2026-april'
 import { may2026Posts } from './blog-posts/2026-may'
 import { june2026Posts } from './blog-posts/2026-june'
 import { july2026Posts } from './blog-posts/2026-july'
+import { august2026Posts } from './blog-posts/2026-august'
 
 export type BlogArchive = {
   year: number
@@ -58,9 +59,21 @@ export const allBlogPosts: BlogPost[] = [
   ...may2026Posts,
   ...june2026Posts,
   ...july2026Posts,
+  ...august2026Posts,
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
 export const blogArchives: BlogArchive[] = [
+  {
+    year: 2026,
+    slug: 'august',
+    title: 'August 2026: Switzerland Day in Interlaken',
+    date: '2026-08-01',
+    displayDate: 'August 2026',
+    excerpt:
+      'Arriving in Interlaken for a month of Swiss hikes and exploration after a winding train journey from Milan.',
+    image: '/assets/images/blog/2026/august/milan-pasta.webp',
+    imagePosition: 'center 38%',
+  },
   {
     year: 2026,
     slug: 'july',

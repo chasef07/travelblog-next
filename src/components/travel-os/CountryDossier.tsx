@@ -17,6 +17,7 @@ import { foodData } from '@/content/food-data'
 import {
   getArchivesForCountry,
   getPostCardImage,
+  getPostCardImagePosition,
   getPostsForCountry,
   parseBlogDate,
 } from '@/content/blog/publication'
@@ -128,6 +129,9 @@ export function CountryDossier({ country }: { country: CountryInfo }) {
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover"
+                      style={{
+                        objectPosition: getPostCardImagePosition(post),
+                      }}
                     />
                   </div>
                   <CardHeader className="pb-6">

@@ -243,6 +243,10 @@ export function getPostCardImage(post: BlogPost): string {
   )
 }
 
+export function getPostCardImagePosition(post: BlogPost): string | undefined {
+  return post.images[0]?.imagePosition ?? getArchiveForPost(post)?.imagePosition
+}
+
 export function findPostsBySlug(slugs: string[]): PublishedPost[] {
   const wanted = new Set(slugs)
   return posts.filter((post) => wanted.has(post.slug))
