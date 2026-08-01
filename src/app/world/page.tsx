@@ -60,12 +60,12 @@ export default function WorldPage() {
                 href={`/countries/${country.slug}`}
                 className="group flex min-w-0 flex-col items-center gap-1 rounded-md px-1 py-1 text-center outline-none transition-colors hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
               >
-                <span className="relative h-6 w-10 shrink-0 overflow-hidden rounded-sm bg-white ring-1 ring-border transition-transform group-hover:-translate-y-0.5">
+                <span className="relative aspect-[3/2] w-10 shrink-0 overflow-hidden rounded-sm ring-1 ring-border/70 transition-transform group-hover:-translate-y-0.5">
                   <Image
                     src={`/assets/images/flags/${country.flag}`}
                     alt=""
                     fill
-                    className="object-contain p-0.5"
+                    className="object-contain"
                     sizes="44px"
                   />
                 </span>

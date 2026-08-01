@@ -1,4 +1,4 @@
-import { ArrowUpRight, CalendarDays, MapPin } from 'lucide-react'
+import { ArrowUpRight, MapPin } from 'lucide-react'
 
 import { DetailLink } from '@/components/travel-os/DetailLink'
 import {
@@ -6,7 +6,6 @@ import {
   type MonthGalleryItem,
 } from '@/components/travel-os/MonthGallery'
 import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
 import type { BlogArchive, PublishedPost } from '@/content/blog/publication'
 import { parseBlogDate } from '@/content/blog/publication'
 import { getCountryFlag } from '@/lib/journal'
@@ -62,29 +61,17 @@ export function MonthOverview({
   }
 
   return (
-    <main className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-10 sm:px-8 sm:py-14">
-      <header className="flex flex-col gap-5">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="secondary">
-            <CalendarDays />
-            {posts.length} entries
-          </Badge>
-          {countries.map(([country, flag]) => (
-            <Badge key={country} variant="outline">
-              <span aria-hidden="true">{flag}</span>
-              {country}
-            </Badge>
-          ))}
+    <main className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-8 sm:px-8 sm:py-12">
+      <header className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,26rem)] lg:items-center lg:gap-12 lg:pb-12">
+        <div className="flex flex-col justify-center">
+          <h1 className="text-5xl leading-[0.92] font-semibold tracking-[-0.045em] sm:text-7xl lg:text-[5.5rem]">
+            {archive.displayDate}
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            {archive.excerpt}
+          </p>
         </div>
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-end">
-          <div className="flex flex-col gap-3">
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-              {archive.displayDate}
-            </h1>
-            <p className="max-w-2xl text-lg text-muted-foreground">
-              {archive.excerpt}
-            </p>
-          </div>
+        <div className="lg:self-center">
           <MonthGallery
             key={archive.url}
             items={galleryItems}
@@ -93,19 +80,28 @@ export function MonthOverview({
         </div>
       </header>
 
-      <Separator />
-
       <section
         aria-labelledby="entries-heading"
         className="flex flex-col gap-5"
       >
-        <div className="flex flex-wrap items-end justify-between gap-2">
-          <h2 id="entries-heading" className="text-2xl font-semibold">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <h2 id="entries-heading" className="text-3xl font-semibold">
             Entries
           </h2>
-          <p className="text-xs text-muted-foreground">
-            {posts.length} posts · newest first
-          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Badge>
+              <span className="font-mono text-foreground tabular-nums">
+                {posts.length}
+              </span>
+              entries
+            </Badge>
+            {countries.map(([country, flag]) => (
+              <Badge key={country} variant="outline">
+                <span aria-hidden="true">{flag}</span>
+                {country}
+              </Badge>
+            ))}
+          </div>
         </div>
 
         <ol className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
