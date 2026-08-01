@@ -63,7 +63,7 @@ export default function GlobeExperience() {
 
   return (
     <div data-testid="globe-experience" className="flex flex-col gap-3 lg:mt-0">
-      <div className="h-[300px] w-full overflow-hidden rounded-xl border bg-background sm:h-[380px] lg:h-[520px]">
+      <div className="h-[300px] w-full overflow-hidden rounded-xl border bg-background sm:h-[380px] lg:h-[440px] xl:h-[500px]">
         {status === 'failed' ? (
           <div className="flex h-full flex-col items-center justify-center gap-4 bg-card p-6 text-center">
             <p
@@ -102,7 +102,7 @@ export default function GlobeExperience() {
           className="text-sm text-muted-foreground"
         >
           {selectedCountry
-            ? `${selectedCountry.name} • ${selectedCountry.visitDate}`
+            ? `${selectedCountry.stopName ? `${selectedCountry.stopName}, ` : ''}${selectedCountry.name} • ${selectedCountry.visitDate}`
             : guidance}
         </p>
         <div className="flex flex-wrap items-center gap-2">
@@ -121,7 +121,9 @@ export default function GlobeExperience() {
             <option value="">Choose destination</option>
             {fullJourneyData.map((country) => (
               <option key={country.name} value={country.name}>
-                {country.name}
+                {country.stopName
+                  ? `${country.stopName}, ${country.name}`
+                  : country.name}
               </option>
             ))}
           </select>

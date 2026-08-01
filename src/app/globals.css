@@ -83,16 +83,16 @@
   --sidebar-ring: oklch(0.714 0.014 41.2);
 
   /* The WebGL globe reads these semantic aliases directly. */
-  --ui-body-bg: var(--background);
-  --ui-bg-strong: var(--card);
-  --ui-bg-elevated: var(--muted);
-  --ui-border-strong: var(--input);
-  --ui-text-primary: var(--foreground);
-  --ui-text-muted: var(--muted-foreground);
-  --ui-accent: var(--primary);
-  --ui-globe-bg: var(--background);
-  --ui-globe-sphere: var(--card);
-  --ui-globe-line: var(--muted-foreground);
+  --ui-body-bg: #ffffff;
+  --ui-bg-strong: #faf9f8;
+  --ui-bg-elevated: #f1ede9;
+  --ui-border-strong: #b8ada5;
+  --ui-text-primary: #26221f;
+  --ui-text-muted: #746b64;
+  --ui-accent: #a85635;
+  --ui-globe-bg: #ffffff;
+  --ui-globe-sphere: #eee8e2;
+  --ui-globe-line: #655d57;
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.3);
 }
@@ -162,4 +162,14 @@
   --sidebar-accent-foreground: oklch(0.986 0.002 67.8);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.547 0.021 43.1);
+  --ui-body-bg: #171513;
+  --ui-bg-strong: #25211e;
+  --ui-bg-elevated: #342f2b;
+  --ui-border-strong: #6e655e;
+  --ui-text-primary: #f7f4f1;
+  --ui-text-muted: #aaa29b;
+  --ui-accent: #d1784f;
+  --ui-globe-bg: #171513;
+  --ui-globe-sphere: #292522;
+  --ui-globe-line: #aaa19a;
 }
