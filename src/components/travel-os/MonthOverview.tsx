@@ -108,13 +108,13 @@ export function MonthOverview({
           </p>
         </div>
 
-        <ol className="grid gap-px overflow-hidden rounded-lg bg-border ring-1 ring-border md:grid-cols-2 xl:grid-cols-3">
+        <ol className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {posts.map((post) => (
-            <li key={post.id} className="min-w-0">
+            <li key={post.id} className="h-full min-w-0">
               <DetailLink
                 detailId={post.id}
                 href={post.url}
-                className="group flex min-h-28 flex-col justify-between gap-4 bg-background p-4 outline-none transition-colors hover:bg-accent/40 focus-visible:bg-accent/40 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+                className="group flex h-full min-h-28 flex-col justify-between gap-4 rounded-lg border bg-background p-4 outline-none transition-colors hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <div className="flex min-w-0 items-center gap-2 text-xs text-muted-foreground">
                   <time dateTime={post.date} className="shrink-0">

@@ -265,7 +265,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'PT-flag.svg',
     region: 'Western Europe',
     description:
-      'Ericeira base, Portugal flag on the map, Atlantic surf, and the current Euro summer stop.',
+      'Ericeira base, Portugal flag on the map, Atlantic surf, and a defining Euro summer stop.',
     dates: { firstVisit: '2026-05-25' },
     highlights: [
       'Ericeira',
@@ -290,7 +290,7 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'switzerland-flag.svg',
     region: 'Central Europe',
     description:
-      'An Alpine stop joining the European chapter, with journal entries still to come.',
+      'Interlaken base, Swiss Alps, mountain routes, and the current Euro summer stop.',
     highlights: ['Swiss Alps', 'Mountain Towns', 'Euro Summer'],
   },
 }

@@ -248,7 +248,7 @@ function LocationMarker({
               className={`font-mono tracking-wider font-medium uppercase ${compactLabel ? 'text-[11px]' : 'text-sm'}`}
               style={{ color: labelColor }}
             >
-              {country.name}
+              {country.stopName ?? country.name}
             </div>
             <div
               className={`font-mono tracking-wide ${compactLabel ? 'text-[10px]' : 'text-xs'}`}
@@ -332,10 +332,10 @@ function Scene({
     }
   }, [])
 
-  // Initial rotation to show the current Ericeira location.
+  // Initial rotation to show the current Interlaken location.
   const initialRotation = useMemo(() => {
-    const ericeiraLongitude = -9.4156
-    return -(ericeiraLongitude + 90) * (Math.PI / 180)
+    const interlakenLongitude = 7.8632
+    return -(interlakenLongitude + 90) * (Math.PI / 180)
   }, [])
 
   // Callback ref to set initial rotation when group is created
@@ -531,7 +531,8 @@ export default function GlobeScene({
       for (const mutation of mutations) {
         if (
           mutation.type === 'attributes' &&
-          mutation.attributeName === 'data-theme'
+          (mutation.attributeName === 'data-theme' ||
+            mutation.attributeName === 'class')
         ) {
           updateTheme()
           break
@@ -541,7 +542,7 @@ export default function GlobeScene({
 
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme'],
+      attributeFilter: ['class', 'data-theme'],
     })
 
     return () => observer.disconnect()

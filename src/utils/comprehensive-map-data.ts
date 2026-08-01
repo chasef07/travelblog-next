@@ -3,6 +3,7 @@ import { posts } from '@/content/blog/publication'
 
 export interface CountryData {
   name: string
+  stopName?: string
   coordinates: [number, number]
   visitDate: string
   highlights: string[]
@@ -385,6 +386,7 @@ export const fullJourneyData: CountryData[] = [
   },
   {
     name: 'Portugal',
+    stopName: 'Ericeira',
     coordinates: [38.9627, -9.4156],
     visitDate: 'May 2026',
     highlights: [
@@ -396,16 +398,40 @@ export const fullJourneyData: CountryData[] = [
     blogPostsCount: 0,
     flagCode: 'PT',
     description:
-      'Current European chapter based in Ericeira - Portugal flag on the map, Atlantic surf, and coastal work base energy.',
+      'European chapter based in Ericeira - Portugal flag on the map, Atlantic surf, and coastal work base energy.',
     color: '#16a34a',
+  },
+  {
+    name: 'Italy',
+    stopName: 'Milan',
+    coordinates: [45.4642, 9.19],
+    visitDate: 'July 2026',
+    highlights: ['Milan', 'Northern Italy', 'Italian Food', 'Euro Summer'],
+    blogPostsCount: 1,
+    flagCode: 'IT',
+    description:
+      'Milan, northern Italy, and the bridge from Portugal into the Alpine chapter.',
+    color: '#15803d',
+  },
+  {
+    name: 'Switzerland',
+    stopName: 'Interlaken',
+    coordinates: [46.6863, 7.8632],
+    visitDate: 'August 2026',
+    highlights: ['Interlaken', 'Swiss Alps', 'Mountain Towns', 'Euro Summer'],
+    blogPostsCount: 0,
+    flagCode: 'CH',
+    description:
+      'The current Alpine chapter based in Interlaken, surrounded by lakes and mountain routes.',
+    color: '#dc2626',
   },
 ]
 
 // Calculate journey stats
 export const journeyStats = {
-  totalCountries: 23, // Excluding Florida/USA return home
+  totalCountries: 25, // Excluding Florida/USA return home
   totalBlogPosts: posts.length,
-  durationMonths: 20,
+  durationMonths: 23,
   continents: 4, // Asia, Africa, Europe, Central America
   startDate: 'September 2024',
   endDate: 'Present',
@@ -475,7 +501,14 @@ export function getCountriesByRegion(
       'Japan',
     ],
     africa: ['Kenya', 'Tanzania', 'Rwanda'],
-    europe: ['Georgia', 'Netherlands', 'Belgium', 'Portugal'],
+    europe: [
+      'Georgia',
+      'Netherlands',
+      'Belgium',
+      'Portugal',
+      'Italy',
+      'Switzerland',
+    ],
     americas: [
       'Florida, USA',
       'Costa Rica',
