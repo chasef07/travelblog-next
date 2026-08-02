@@ -2,6 +2,35 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'thirty-thousand-steps-through-lauterbrunnen',
+    title: '30,000 Steps Through Lauterbrunnen',
+    date: '2026-08-02',
+    location: 'Lauterbrunnen, Switzerland',
+    country: 'Switzerland',
+    slug: 'thirty-thousand-steps-through-lauterbrunnen',
+    year: '2026',
+    excerpt:
+      'A long day of waterfalls, alpacas, mountain villages, and 30,000 steps from the Lauterbrunnen Valley to Mürren and Gimmelwald.',
+    content: `This morning, Rachel and I woke up looking at the beautiful Swiss Alps. Then we took a train to Lauterbrunnen, one of the small towns near Interlaken, for a day of hiking, exploring, and adventure.
+
+We started by walking through the little village. A lot of my friends have said this is the most beautiful place they have ever been. It was quite pretty, but I sometimes feel desensitized after traveling to so many amazing places around the world. Don’t get me wrong—it was spectacular. Still, my first thought was that it did not seem that different from Colorado.
+
+That is definitely an exaggeration. Lauterbrunnen has beautiful architecture, enormous cliffs with waterfalls pouring down both sides, and a village running through the valley below. It is a pretty incredible setting.
+
+We walked alongside the cold river and stopped at a llama and alpaca farm. They nibbled at me while I fed them grass, and they were super cute. I think I like alpacas more than llamas because they are so gentle.
+
+Then we walked and walked some more. We stopped beside the stream for a little meditation practice, then kept walking until we reached the world’s steepest cable car. The gondola climbed the mountain cliff so sharply that it felt almost vertical, carrying us up to the village of Mürren.
+
+In Mürren, we had beef stroganoff followed by a hazelnut pie with raspberry. It was super lecker. Then we walked down to Gimmelwald. It was really cool to experience a town on the floor of the Alps and then see these villages high on the mountainside. Above the valley, people were BASE jumping and paragliding, doing crazy tricks through the air.
+
+From Gimmelwald, we walked all the way back down into the Lauterbrunnen Valley. By the end of the day, we had taken 30,000 steps. It was exhausting, but seeing the valley from the river all the way up to the mountain villages made every one of them worth it.
+
+One thing I have noticed is how Switzerland—and Interlaken in particular—brings together people from all over the world. We have seen Muslim travelers in hijabs, Orthodox and Hasidic Jewish families, Indian and Chinese travelers, and people like Rachel and me, all sharing this small place in the Alps. It feels fitting for a country known for its neutrality.
+
+I am writing this with my voice, tired and very ready for bed, but excited to explore another Swiss valley tomorrow.`,
+    images: [],
+  },
+  {
     id: 'switzerland-day-milan-to-interlaken',
     title: 'Happy Switzerland Day: Milan to Interlaken',
     date: '2026-08-01',
