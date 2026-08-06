@@ -110,8 +110,8 @@ export function JournalSidebar({
         </NavigationLink>
         <div className="flex min-w-0 items-center gap-2 px-2 text-xs text-sidebar-foreground/60">
           <span className="relative flex size-2 shrink-0">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
-            <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-[var(--ui-current-location)] opacity-60 motion-reduce:animate-none" />
+            <span className="relative inline-flex size-2 rounded-full bg-[var(--ui-current-location)]" />
           </span>
           <span className="truncate">Currently in {currentLocation}</span>
         </div>
