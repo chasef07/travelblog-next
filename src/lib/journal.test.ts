@@ -2,11 +2,9 @@
 import { describe, expect, test } from 'bun:test'
 
 import { archives, posts } from '@/content/blog/publication'
-import {
-  buildJournalYears,
-  findClosestEntriesByYear,
-  getCountryFlag,
-} from './journal'
+import { buildJournalYears, findClosestEntriesByYear } from './journal'
+import { getAllCountries } from '@/content/countries-data'
+import { getCountryCode } from './country-flags'
 
 describe('Journal chronology', () => {
   test('derives every month from posts and sorts newest first', () => {
@@ -34,14 +32,25 @@ describe('Journal chronology', () => {
     expect(echoes[1].offsetDays).toBe(3)
   })
 
-  test('normalizes country aliases to one flag', () => {
-    expect(getCountryFlag('USA')).toBe('🇺🇸')
-    expect(getCountryFlag('United States')).toBe('🇺🇸')
+  test('normalizes country aliases to one ISO code', () => {
+    expect(getCountryCode('USA')).toBe('US')
+    expect(getCountryCode('United States')).toBe('US')
   })
 
-  test('returns flags for the current European route', () => {
-    expect(getCountryFlag('Italy')).toBe('🇮🇹')
-    expect(getCountryFlag('Switzerland')).toBe('🇨🇭')
-    expect(getCountryFlag('Montenegro')).toBe('🇲🇪')
+  test('uses ISO codes for the current European route', () => {
+    expect(getCountryCode('Italy')).toBe('IT')
+    expect(getCountryCode('Switzerland')).toBe('CH')
+    expect(getCountryCode('Montenegro')).toBe('ME')
+  })
+
+  test('covers every country displayed by the journal', () => {
+    const countries = new Set([
+      ...posts.map((post) => post.country),
+      ...getAllCountries().map((country) => country.name),
+    ])
+
+    expect(
+      [...countries].filter((country) => !getCountryCode(country)),
+    ).toEqual([])
   })
 })

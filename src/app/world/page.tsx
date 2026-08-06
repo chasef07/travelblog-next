@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import { Radio } from 'lucide-react'
 
 import GlobeExperience from '@/components/globe/GlobeExperience'
+import { CountryFlag } from '@/components/travel-os/CountryFlag'
 import { DetailLink } from '@/components/travel-os/DetailLink'
 import { Badge } from '@/components/ui/badge'
 import { getAllCountries } from '@/content/countries-data'
@@ -60,15 +60,10 @@ export default function WorldPage() {
                 href={`/countries/${country.slug}`}
                 className="group flex min-w-0 flex-col items-center gap-1 rounded-md px-1 py-1 text-center outline-none transition-colors hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
               >
-                <span className="relative aspect-[3/2] w-10 shrink-0 overflow-hidden rounded-sm ring-1 ring-border/70 transition-transform group-hover:-translate-y-0.5">
-                  <Image
-                    src={`/assets/images/flags/${country.flag}`}
-                    alt=""
-                    fill
-                    className="object-contain"
-                    sizes="44px"
-                  />
-                </span>
+                <CountryFlag
+                  country={country.name}
+                  className="text-[1.875rem] transition-transform group-hover:-translate-y-0.5"
+                />
                 <span className="line-clamp-2 min-h-6 text-[9px] leading-3 font-semibold tracking-wider text-muted-foreground uppercase group-hover:text-foreground">
                   {country.name}
                 </span>

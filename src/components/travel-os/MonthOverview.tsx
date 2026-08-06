@@ -1,6 +1,7 @@
-import { ArrowUpRight, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 import { DetailLink } from '@/components/travel-os/DetailLink'
+import { CountryFlag } from '@/components/travel-os/CountryFlag'
 import {
   MonthGallery,
   type MonthGalleryItem,
@@ -8,7 +9,6 @@ import {
 import { Badge } from '@/components/ui/badge'
 import type { BlogArchive, PublishedPost } from '@/content/blog/publication'
 import { parseBlogDate } from '@/content/blog/publication'
-import { getCountryFlag } from '@/lib/journal'
 
 function shortDate(date: string) {
   return new Intl.DateTimeFormat('en-US', {
@@ -26,9 +26,11 @@ export function MonthOverview({
   posts: PublishedPost[]
 }) {
   const countries = [
-    ...new Map(
-      posts.map((post) => [post.country, getCountryFlag(post.country)]),
-    ).entries(),
+    ...new Set(
+      posts
+        .map((post) => post.country)
+        .filter((country): country is string => Boolean(country)),
+    ),
   ]
   const galleryItems = [
     ...new Map(
@@ -96,9 +98,9 @@ export function MonthOverview({
               </span>
               entries
             </Badge>
-            {countries.map(([country, flag]) => (
+            {countries.map((country) => (
               <Badge key={country} variant="outline">
-                <span aria-hidden="true">{flag}</span>
+                <CountryFlag country={country} />
                 {country}
               </Badge>
             ))}
@@ -122,12 +124,9 @@ export function MonthOverview({
                     <span className="truncate">{post.location}</span>
                   </span>
                 </div>
-                <div className="flex items-start justify-between gap-3">
-                  <span className="font-heading text-sm font-semibold tracking-wider uppercase">
-                    {post.title}
-                  </span>
-                  <ArrowUpRight className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </div>
+                <span className="font-heading text-sm font-semibold tracking-wider uppercase">
+                  {post.title}
+                </span>
               </DetailLink>
             </li>
           ))}

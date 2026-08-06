@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowLeft, Clock, MapPin } from 'lucide-react'
 
 import { DetailLink } from '@/components/travel-os/DetailLink'
+import { CountryFlag } from '@/components/travel-os/CountryFlag'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -47,16 +48,7 @@ export function CountryDossier({ country }: { country: CountryInfo }) {
         </Button>
 
         <div className="flex items-center gap-4">
-          <div className="relative h-12 w-16 shrink-0 overflow-hidden rounded-md border bg-white">
-            <Image
-              src={`/assets/images/flags/${country.flag}`}
-              alt={`${country.name} flag`}
-              fill
-              priority
-              className="object-contain p-1"
-              sizes="64px"
-            />
-          </div>
+          <CountryFlag country={country.name} className="text-5xl" />
           <h1
             data-detail-title
             tabIndex={-1}
