@@ -1,265 +1,102 @@
-# 🌍 The Value Engine - Travel Blog
+# Chase Fagen Travel Journal
 
-A modern, interactive travel blog built with Next.js 15, showcasing adventures across 20 countries with an interactive 3D globe, world-class SEO, and performance optimizations.
+A personal travel journal built with Next.js 16 and React 19. The site combines a date-based reader, a 3D world view, country dossiers, and food, video, and packing notes from the route.
 
-## ✨ Features
+## Features
 
-### 🎨 **Modern Design System**
+- Journal home with the latest entry and date-matched entries from prior years
+- Monthly Archives and individual Posts with canonical paths and reading times
+- Interactive Three.js globe with a country flag index and Country dossiers
+- Food, vlog, and carry-on packing collections
+- RSS feed, sitemap, structured data, and social metadata
+- Responsive App Router interface with parallel-route detail panels
+- Vercel Analytics and Speed Insights
 
-- **Dynamic Theme Switching** - Light/dark mode with CSS custom properties
-- **Glassmorphism Effects** - Beautiful backdrop-filter designs
-- **Framer Motion Animations** - Smooth, progressive loading animations
-- **Responsive Design** - Mobile-first approach with Tailwind CSS
+## Stack
 
-### 📱 **Interactive Components**
+- Next.js 16.2 and React 19.2
+- TypeScript 6
+- Tailwind CSS 4 and shadcn/ui primitives
+- React Three Fiber, Drei, and Three.js
+- Bun 1.3.11
 
-- **Interactive 3D Globe** - Three.js/React Three Fiber globe with journey arcs and location markers
-- **Travel Stories** - Filterable blog posts with country/year filters
-- **Interactive Map** - Leaflet-based journey visualization
-- **Food Experiences** - Country-organized culinary adventures
-- **Transportation Guide** - Ranked transport experiences with scoring
-- **Video Vlogs** - Embedded travel videos
-- **Packing Checklist** - Interactive packing guide
+Production builds use Webpack because the globe integration is configured for it.
 
-### 🚀 **Performance & SEO**
+## Getting started
 
-- **Next.js 15 App Router** - Latest React 19 with Server Components
-- **Image Optimization** - AVIF/WebP formats with lazy loading
-- **Dynamic Imports** - Code splitting for optimal loading
-- **SEO Optimized** - Meta tags, structured data, sitemaps
-- **Core Web Vitals** - Optimized for Google rankings
-
-### 📊 **Content Management**
-
-- **TypeScript Content** - Type-safe blog posts and metadata
-- **Dynamic Loading** - Blog posts loaded by year/month
-- **Search & Filter** - Advanced filtering by location and date
-- **Reading Time** - Automatic calculation for blog posts
-
-## 🛠️ Tech Stack
-
-### **Frontend**
-
-- **Next.js 15** - React framework with App Router
-- **React 19** - Latest React with Server Components
-- **TypeScript** - Type safety throughout
-- **Tailwind CSS 4** - Utility-first styling
-- **Framer Motion** - Animation library
-
-### **UI Components**
-
-- **Shadcn/ui** - Modern component library
-- **Three.js / React Three Fiber** - 3D globe visualization
-- **Leaflet** - Interactive 2D maps
-- **Next/Image** - Optimized image handling
-- **Dynamic Imports** - Progressive loading
-
-### **Performance**
-
-- **Webpack** - Production-ready builds (Turbopack has compatibility issues with Three.js)
-- **Image Optimization** - Automatic format conversion
-- **Code Splitting** - Dynamic component loading
-- **Caching** - Strategic asset caching
-
-## 🚀 Getting Started
-
-### **Prerequisites**
-
-- Node.js 18+
-- npm, yarn, or pnpm
-
-### **Installation**
+Install [Bun](https://bun.sh/) 1.3.11 or a compatible version, then run:
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd travelblog-next
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
+bun install --frozen-lockfile
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+Open [http://localhost:3000](http://localhost:3000).
 
-### **Available Scripts**
+## Commands
 
 ```bash
-# Development (using pnpm)
-pnpm dev             # Start development server (Webpack)
-pnpm build           # Build production bundle
-pnpm start           # Start production server
-pnpm lint            # Run ESLint
+bun run dev          # Start the development server with Webpack
+bun test             # Run the Bun test suite
+bun run format       # Format the repository
+bun run format:check # Check formatting
+bun run lint         # Run ESLint
+bun run build        # Create a production build with Webpack
+bun run check        # Run format, lint, and build checks
+bun run start        # Serve an existing production build
 ```
 
-## 📁 Project Structure
+## Routes
 
-```
+| Route                             | Purpose                                                        |
+| --------------------------------- | -------------------------------------------------------------- |
+| `/`                               | Latest journal entry and entries from this date in prior years |
+| `/blog/[year]/[month]`            | Monthly Archive                                                |
+| `/blog/[year]/[month]/[postSlug]` | Individual Post                                                |
+| `/world`                          | Interactive globe and country index                            |
+| `/countries/[country]`            | Country dossier with related Posts and Archives                |
+| `/food`                           | Food notes by country                                          |
+| `/vlogs`                          | Travel videos                                                  |
+| `/packing-checklist`              | Carry-on packing list                                          |
+| `/feed.xml`                       | RSS feed                                                       |
+
+`/blog` redirects to `/`, and `/countries` redirects to `/world`.
+
+## Project structure
+
+```text
 src/
-├── app/                    # Next.js App Router pages
-│   ├── blog/              # Travel blog pages
-│   ├── food/              # Food experiences
-│   ├── transportation/    # Transport guide
-│   ├── packing-checklist/ # Packing guide
-│   └── vlogs/             # Video content
-├── components/            # React components
-│   ├── InteractiveGlobe.tsx  # 3D globe wrapper
-│   ├── GlobeScene.tsx     # Three.js globe scene
-│   ├── Header.tsx         # Navigation header
-│   └── ui/                # Shadcn UI components
-├── content/               # Content and data
-│   ├── blog-posts/        # Blog post content by month
-│   ├── blog-data.ts       # Blog metadata
-│   ├── food-data.ts       # Food experience data
-│   └── transportation-data.ts
-├── types/                 # TypeScript definitions
-├── utils/                 # Utility functions
-├── lib/                   # Configuration and helpers
-└── styles/                # Global styles
+├── app/                    # App Router pages, parallel routes, metadata, and feed
+├── components/
+│   ├── globe/              # 3D globe experience
+│   ├── travel-os/          # Journal reader, navigation, and dossier modules
+│   └── ui/                 # Shared interface primitives
+├── content/
+│   ├── blog-posts/         # Raw monthly Post records
+│   ├── blog-registry.ts    # Raw Post and Archive registry
+│   ├── blog/publication.ts # Canonical publication derivation and lookup interface
+│   └── *.ts                # Country, food, and vlog records
+├── lib/                    # Journal, SEO, navigation, and shared helpers
+├── types/                  # Shared content types
+└── utils/                  # Globe and map-data helpers
+
+public/
+├── assets/                 # Journal images and other static media
+└── data/                   # GeoJSON used by the globe
 ```
 
-## 📝 Content Management
+## Adding a Blog Post
 
-### **Adding Blog Posts**
+1. Add the Post record to `src/content/blog-posts/YYYY-month.ts`.
+2. Import and spread that month into `allBlogPosts` in `src/content/blog-registry.ts`.
+3. Add an explicit `BlogArchive` record when the month needs curated title, excerpt, or image metadata. The publication module derives an Archive when one is omitted.
+4. Put local images under `public/assets/images/` and reference them with `/assets/images/...` paths.
+5. Run `bun test && bun run check`.
 
-1. **Create Monthly File**: Add to `src/content/blog-posts/YYYY-month.ts`
-2. **Update Index**: Add metadata to `src/content/blogIndex.ts`
-3. **Add Images**: Place in `public/assets/images/`
+The raw registry is the source of content records. `src/content/blog/publication.ts` is the sole module that validates calendar identity and derives canonical paths, missing Archives, reading times, static parameters, country projections, and card-image fallbacks.
 
-### **Blog Post Format**
+## Configuration and deployment
 
-```typescript
-export const monthYearPosts: BlogPost[] = [
-  {
-    id: 'unique-slug',
-    title: 'Post Title',
-    date: '2024-01-01',
-    location: 'City, Country',
-    slug: 'unique-slug',
-    year: '2024',
-    excerpt: 'Brief description...',
-    content: `Full content with markdown support...`,
-    images: [{ src: '/assets/images/path.jpg', alt: 'Description' }],
-  },
-]
-```
+The site builds for Vercel with `bun run build`. Set `NEXT_PUBLIC_GA_ID` only when Google Analytics is required; Vercel Analytics and Speed Insights are included directly in the root layout.
 
-### **Adding Food/Transport Experiences**
-
-Update the respective data files in `src/content/` with new entries following the existing TypeScript interfaces.
-
-## 🎨 Styling & Theming
-
-### **CSS Custom Properties**
-
-The app uses CSS custom properties for theming:
-
-```css
-:root {
-  --primary-color: #2563eb;
-  --secondary-color: #7c3aed;
-  --surface-color: #ffffff;
-  --text-color: #1f2937;
-  --muted-text-color: #6b7280;
-}
-
-[data-theme='dark'] {
-  --surface-color: #1f2937;
-  --text-color: #f9fafb;
-  /* ... */
-}
-```
-
-### **Tailwind Configuration**
-
-- Custom color palette
-- Typography scale
-- Animation utilities
-- Responsive breakpoints
-
-## 🌍 Deployment
-
-### **Vercel (Recommended)**
-
-```bash
-# Deploy to Vercel
-npm run build
-# Push to GitHub and connect to Vercel
-```
-
-### **Other Platforms**
-
-```bash
-# Build for production
-npm run build
-npm run start
-
-# Static export (if needed)
-npm run build && npm run export
-```
-
-## 🔧 Configuration
-
-### **Environment Variables**
-
-Create `.env.local` for environment-specific settings:
-
-```env
-# Optional
-NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
-```
-
-For Vercel deployment, add these environment variables in your Vercel dashboard.
-
-### **SEO Configuration**
-
-Update `src/lib/seo.ts` with your site metadata:
-
-```typescript
-export const siteConfig = {
-  name: 'Your Travel Blog',
-  description: 'Amazing travel adventures...',
-  url: 'https://your-domain.com',
-}
-```
-
-## 📊 Performance
-
-### **Lighthouse Scores**
-
-- **Performance**: 95+
-- **Accessibility**: 100
-- **Best Practices**: 100
-- **SEO**: 100
-
-### **Core Web Vitals**
-
-- **LCP**: < 2.5s
-- **FID**: < 100ms
-- **CLS**: < 0.1
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Next.js Team** - Amazing React framework
-- **Vercel** - Hosting and deployment platform
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Beautiful animations
-- **shadcn/ui** - Modern component library
-
----
-
-Built with ❤️ by [Chase Fagen](https://github.com/chasefagen) - Follow the journey across 20 countries!
+Site identity, canonical URL, and social metadata live in `src/lib/seo.ts`.
