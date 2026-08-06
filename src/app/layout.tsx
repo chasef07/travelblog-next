@@ -7,7 +7,6 @@ import { TravelShell } from '@/components/travel-os/TravelShell'
 import { archives, posts } from '@/content/blog/publication'
 import { buildJournalNavigation } from '@/lib/journal'
 import { Inter } from 'next/font/google'
-import { cn } from '@/lib/utils'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -31,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn('dark font-sans', inter.variable)}
+      className={`${inter.variable} font-sans`}
       suppressHydrationWarning
     >
       <head>
