@@ -5,12 +5,8 @@ import { useCallback, useEffect, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { DetailLink } from '@/components/travel-os/DetailLink'
 import { Button } from '@/components/ui/button'
-import {
-  fullJourneyData,
-  type CountryData,
-} from '@/utils/comprehensive-map-data'
+import { journeyRoute, type JourneyStop } from '@/content/world-journey'
 import { fetchGeoJSON, type GeoJSON } from '@/utils/geojson-loader'
-import { getCountryByName } from '@/content/countries-data'
 
 const GlobeScene = dynamic(() => import('../GlobeScene'), {
   ssr: false,
@@ -19,7 +15,7 @@ const GlobeScene = dynamic(() => import('../GlobeScene'), {
 type GlobeStatus = 'loading' | 'retrying' | 'ready' | 'failed'
 
 export default function GlobeExperience() {
-  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(
+  const [selectedCountry, setSelectedCountry] = useState<JourneyStop | null>(
     null,
   )
   const [geoData, setGeoData] = useState<GeoJSON | null>(null)
@@ -57,10 +53,6 @@ export default function GlobeExperience() {
   const guidance = isDesktop
     ? 'Click and drag to explore destinations'
     : 'Tap and drag to explore destinations'
-  const selectedCountryPage = selectedCountry
-    ? getCountryByName(selectedCountry.name)
-    : null
-
   return (
     <div data-testid="globe-experience" className="flex flex-col gap-3 lg:mt-0">
       <div className="h-[300px] w-full overflow-hidden rounded-xl border bg-background sm:h-[380px] lg:h-[440px] xl:h-[500px]">
@@ -111,7 +103,7 @@ export default function GlobeExperience() {
             value={selectedCountry?.name ?? ''}
             onChange={(event) =>
               setSelectedCountry(
-                fullJourneyData.find(
+                journeyRoute.find(
                   (country) => country.name === event.target.value,
                 ) ?? null,
               )
@@ -119,7 +111,7 @@ export default function GlobeExperience() {
             className="h-9 max-w-full rounded-md border border-input bg-background px-3 text-sm text-foreground shadow-xs outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <option value="">Choose destination</option>
-            {fullJourneyData.map((country) => (
+            {journeyRoute.map((country) => (
               <option key={country.name} value={country.name}>
                 {country.stopName
                   ? `${country.stopName}, ${country.name}`
@@ -127,11 +119,11 @@ export default function GlobeExperience() {
               </option>
             ))}
           </select>
-          {selectedCountryPage && (
+          {selectedCountry?.countrySlug && (
             <Button variant="outline" asChild>
               <DetailLink
-                detailId={`globe-country-${selectedCountryPage.slug}`}
-                href={`/countries/${selectedCountryPage.slug}`}
+                detailId={`globe-country-${selectedCountry.countrySlug}`}
+                href={`/countries/${selectedCountry.countrySlug}`}
               >
                 Open country
                 <ArrowUpRight />

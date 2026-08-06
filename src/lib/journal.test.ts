@@ -2,8 +2,8 @@
 import { describe, expect, test } from 'bun:test'
 
 import { archives, posts } from '@/content/blog/publication'
+import { countryPages } from '@/content/world-journey'
 import { buildJournalYears, findClosestEntriesByYear } from './journal'
-import { getAllCountries } from '@/content/countries-data'
 import { getCountryCode } from './country-flags'
 
 describe('Journal chronology', () => {
@@ -46,7 +46,7 @@ describe('Journal chronology', () => {
   test('covers every country displayed by the journal', () => {
     const countries = new Set([
       ...posts.map((post) => post.country),
-      ...getAllCountries().map((country) => country.name),
+      ...countryPages.map((country) => country.name),
     ])
 
     expect(

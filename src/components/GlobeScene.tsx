@@ -4,26 +4,8 @@ import { useRef, useMemo, useState, memo, useCallback, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Line, Html } from '@react-three/drei'
 import * as THREE from 'three'
-import {
-  fullJourneyData,
-  type CountryData,
-} from '@/utils/comprehensive-map-data'
-
-// GeoJSON types
-interface GeoJSONGeometry {
-  type: string
-  coordinates: number[] | number[][] | number[][][] | number[][][][]
-}
-
-interface GeoJSONFeature {
-  type: string
-  geometry: GeoJSONGeometry
-}
-
-interface GeoJSON {
-  type: string
-  features: GeoJSONFeature[]
-}
+import { journeyRoute, type JourneyStop } from '@/content/world-journey'
+import type { GeoJSON } from '@/utils/geojson-loader'
 
 type GlobeTheme = {
   sceneBg: string
@@ -198,7 +180,7 @@ function LocationMarker({
   compactLabel,
 }: {
   position: THREE.Vector3
-  country: CountryData
+  country: JourneyStop
   index: number
   isHovered: boolean
   isSelected: boolean
@@ -351,8 +333,8 @@ function Scene({
   theme,
   isMobile,
 }: {
-  onSelectCountry: (country: CountryData | null) => void
-  selectedCountry: CountryData | null
+  onSelectCountry: (country: JourneyStop | null) => void
+  selectedCountry: JourneyStop | null
   geoData: GeoJSON | null
   theme: GlobeTheme
   isMobile: boolean
@@ -378,7 +360,7 @@ function Scene({
 
   // Face the latest route stop when the globe first loads.
   const initialRotation = useMemo(() => {
-    const currentLongitude = fullJourneyData.at(-1)?.coordinates[1] ?? 0
+    const currentLongitude = journeyRoute.at(-1)?.coordinates[1] ?? 0
     return -(currentLongitude + 90) * (Math.PI / 180)
   }, [])
 
@@ -400,7 +382,7 @@ function Scene({
   })
 
   const locationPositions = useMemo(() => {
-    return fullJourneyData.map((country) => ({
+    return journeyRoute.map((country) => ({
       country,
       position: latLngToVector3(
         country.coordinates[0],
@@ -413,9 +395,9 @@ function Scene({
   const arcs = useMemo(() => {
     const connections: { start: THREE.Vector3; end: THREE.Vector3 }[] = []
 
-    for (let i = 0; i < fullJourneyData.length - 1; i++) {
-      const startCountry = fullJourneyData[i]
-      const endCountry = fullJourneyData[i + 1]
+    for (let i = 0; i < journeyRoute.length - 1; i++) {
+      const startCountry = journeyRoute[i]
+      const endCountry = journeyRoute[i + 1]
 
       connections.push({
         start: latLngToVector3(
@@ -520,8 +502,8 @@ export default function GlobeScene({
   isMobile,
   onReady,
 }: {
-  onSelectCountry: (country: CountryData | null) => void
-  selectedCountry: CountryData | null
+  onSelectCountry: (country: JourneyStop | null) => void
+  selectedCountry: JourneyStop | null
   geoData: GeoJSON | null
   isMobile: boolean
   onReady: () => void

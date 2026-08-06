@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 
 import { CountryDossier } from '@/components/travel-os/CountryDossier'
-import { getAllCountries, getCountryBySlug } from '@/content/countries-data'
+import { countryPages, getCountryPage } from '@/content/world-journey'
 import { generatePageMetadata } from '@/lib/seo'
 
 type Props = {
@@ -9,12 +9,12 @@ type Props = {
 }
 
 export function generateStaticParams() {
-  return getAllCountries().map((country) => ({ country: country.slug }))
+  return countryPages.map((country) => ({ country: country.slug }))
 }
 
 export async function generateMetadata({ params }: Props) {
   const { country: slug } = await params
-  const country = getCountryBySlug(slug)
+  const country = getCountryPage(slug)
 
   if (!country) return { title: 'Country not found' }
 
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function CountryPage({ params }: Props) {
   const { country: slug } = await params
-  const country = getCountryBySlug(slug)
+  const country = getCountryPage(slug)
   if (!country) notFound()
 
   return (
