@@ -214,8 +214,6 @@ export const getPostsForArchive = publication.getPostsForArchive
 export const archiveStaticParams = publication.archiveStaticParams
 export const postStaticParams = publication.postStaticParams
 
-export const feedPublications = posts
-
 export function getArchiveForPost(post: BlogPost): BlogArchive | undefined {
   return getArchive(post.year, monthSlug(post.date))
 }
@@ -245,9 +243,4 @@ export function getPostCardImage(post: BlogPost): string {
 
 export function getPostCardImagePosition(post: BlogPost): string | undefined {
   return post.images[0]?.imagePosition ?? getArchiveForPost(post)?.imagePosition
-}
-
-export function findPostsBySlug(slugs: string[]): PublishedPost[] {
-  const wanted = new Set(slugs)
-  return posts.filter((post) => wanted.has(post.slug))
 }
