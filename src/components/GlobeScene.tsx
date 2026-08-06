@@ -30,6 +30,7 @@ type GlobeTheme = {
   sphereColor: string
   lineColor: string
   markerColor: string
+  currentMarkerColor: string
   arcColor: string
   labelColor: string
   labelMutedColor: string
@@ -41,6 +42,7 @@ const DEFAULT_GLOBE_THEME: GlobeTheme = {
   sphereColor: '#e6d6be',
   lineColor: '#b69d80',
   markerColor: '#d5672f',
+  currentMarkerColor: '#277a5d',
   arcColor: '#d5672f',
   labelColor: '#2f2218',
   labelMutedColor: '#6b5743',
@@ -184,10 +186,12 @@ function LocationMarker({
   index,
   isHovered,
   isSelected,
+  isCurrent,
   onHover,
   onLeave,
   onClick,
   markerColor,
+  currentMarkerColor,
   labelColor,
   labelMutedColor,
   markerSize,
@@ -198,21 +202,43 @@ function LocationMarker({
   index: number
   isHovered: boolean
   isSelected: boolean
+  isCurrent: boolean
   onHover: () => void
   onLeave: () => void
   onClick: () => void
   markerColor: string
+  currentMarkerColor: string
   labelColor: string
   labelMutedColor: string
   markerSize: number
   compactLabel: boolean
 }) {
   const markerRef = useRef<THREE.Mesh>(null)
+  const pulseRef = useRef<THREE.Mesh>(null)
+  const pulseMaterialRef = useRef<THREE.MeshBasicMaterial>(null)
+  const [reduceMotion, setReduceMotion] = useState(false)
+
+  useEffect(() => {
+    if (!isCurrent) return
+
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setReduceMotion(query.matches)
+    update()
+    query.addEventListener('change', update)
+    return () => query.removeEventListener('change', update)
+  }, [isCurrent])
 
   useFrame((state) => {
     if (markerRef.current) {
-      const scale = 1 + Math.sin(state.clock.elapsedTime * 2 + index) * 0.1
-      markerRef.current.scale.setScalar(isHovered || isSelected ? 1.5 : scale)
+      markerRef.current.scale.setScalar(isHovered || isSelected ? 1.5 : 1)
+    }
+
+    if (pulseRef.current && pulseMaterialRef.current) {
+      const cycle = reduceMotion
+        ? 0.35
+        : (Math.sin(state.clock.elapsedTime * 2.5 + index) + 1) / 2
+      pulseRef.current.scale.setScalar(1.5 + cycle * 1.25)
+      pulseMaterialRef.current.opacity = 0.32 - cycle * 0.2
     }
   })
 
@@ -223,14 +249,32 @@ function LocationMarker({
 
   return (
     <group position={position}>
+      {isCurrent && (
+        <mesh ref={pulseRef}>
+          <sphereGeometry args={[markerSize * 0.75, 20, 20]} />
+          <meshBasicMaterial
+            ref={pulseMaterialRef}
+            color={currentMarkerColor}
+            transparent
+            opacity={0.24}
+            depthWrite={false}
+          />
+        </mesh>
+      )}
       <mesh
         ref={markerRef}
         onPointerOver={onHover}
         onPointerOut={onLeave}
         onClick={onClick}
       >
-        <boxGeometry args={[markerSize, markerSize, markerSize]} />
-        <meshStandardMaterial color={markerColor} />
+        {isCurrent ? (
+          <sphereGeometry args={[markerSize * 0.65, 20, 20]} />
+        ) : (
+          <boxGeometry args={[markerSize, markerSize, markerSize]} />
+        )}
+        <meshStandardMaterial
+          color={isCurrent ? currentMarkerColor : markerColor}
+        />
       </mesh>
 
       {(isHovered || isSelected) && (
@@ -447,6 +491,7 @@ function Scene({
             index={index}
             isHovered={hoveredCountry === country.name}
             isSelected={selectedCountry?.name === country.name}
+            isCurrent={index === locationPositions.length - 1}
             onHover={() => setHoveredCountry(country.name)}
             onLeave={() => setHoveredCountry(null)}
             onClick={() =>
@@ -455,6 +500,7 @@ function Scene({
               )
             }
             markerColor={theme.markerColor}
+            currentMarkerColor={theme.currentMarkerColor}
             labelColor={theme.labelColor}
             labelMutedColor={theme.labelMutedColor}
             markerSize={markerSize}
@@ -512,6 +558,10 @@ export default function GlobeScene({
           pick('--ui-border-strong', DEFAULT_GLOBE_THEME.lineColor),
         ),
         markerColor: pick('--ui-accent', DEFAULT_GLOBE_THEME.markerColor),
+        currentMarkerColor: pick(
+          '--ui-current-location',
+          DEFAULT_GLOBE_THEME.currentMarkerColor,
+        ),
         arcColor: pick('--ui-accent', DEFAULT_GLOBE_THEME.arcColor),
         labelColor: pick('--ui-text-primary', DEFAULT_GLOBE_THEME.labelColor),
         labelMutedColor: pick(
