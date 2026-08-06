@@ -4,7 +4,6 @@ export interface Vlog {
   country: string
   description: string
   youtubeId: string
-  thumbnail?: string
 }
 
 export const vlogsData: Vlog[] = [

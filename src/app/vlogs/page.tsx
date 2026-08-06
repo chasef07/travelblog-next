@@ -44,7 +44,7 @@ export default function VlogsPage() {
             <Card className="h-full overflow-hidden py-0 transition-colors group-hover:bg-accent/40">
               <div className="relative aspect-video overflow-hidden">
                 <Image
-                  src={`https://img.youtube.com/vi/${vlog.youtubeId}/maxresdefault.jpg`}
+                  src={`https://img.youtube.com/vi/${vlog.youtubeId}/hqdefault.jpg`}
                   alt=""
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
