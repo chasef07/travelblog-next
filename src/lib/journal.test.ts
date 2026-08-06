@@ -39,8 +39,9 @@ describe('Journal chronology', () => {
     expect(getCountryFlag('United States')).toBe('🇺🇸')
   })
 
-  test('returns flags for the Alpine route', () => {
+  test('returns flags for the current European route', () => {
     expect(getCountryFlag('Italy')).toBe('🇮🇹')
     expect(getCountryFlag('Switzerland')).toBe('🇨🇭')
+    expect(getCountryFlag('Montenegro')).toBe('🇲🇪')
   })
 })

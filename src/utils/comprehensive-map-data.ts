@@ -422,14 +422,26 @@ export const fullJourneyData: CountryData[] = [
     blogPostsCount: 1,
     flagCode: 'CH',
     description:
-      'The current Alpine chapter based in Interlaken, surrounded by lakes and mountain routes.',
+      'The Alpine chapter based in Interlaken, surrounded by lakes and mountain routes.',
     color: '#dc2626',
+  },
+  {
+    name: 'Montenegro',
+    stopName: 'Kotor',
+    coordinates: [42.4247, 18.7712],
+    visitDate: 'August 2026',
+    highlights: ['Kotor', 'Bečići Base', 'Bay of Kotor', 'Adriatic Coast'],
+    blogPostsCount: 0,
+    flagCode: 'ME',
+    description:
+      'The Adriatic chapter, mapped through Kotor with a current base in nearby Bečići.',
+    color: '#c8102e',
   },
 ]
 
 // Calculate journey stats
 export const journeyStats = {
-  totalCountries: 25, // Excluding Florida/USA return home
+  totalCountries: 26, // Excluding Florida/USA return home
   totalBlogPosts: posts.length,
   durationMonths: 23,
   continents: 4, // Asia, Africa, Europe, Central America
@@ -508,6 +520,7 @@ export function getCountriesByRegion(
       'Portugal',
       'Italy',
       'Switzerland',
+      'Montenegro',
     ],
     americas: [
       'Florida, USA',

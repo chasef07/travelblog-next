@@ -79,7 +79,7 @@ export default function RootLayout({
         </a>
         <TravelShell
           years={buildJournalNavigation(posts, archives)}
-          currentLocation="Interlaken, Switzerland"
+          currentLocation="Bečići, Montenegro"
           detail={reader}
         >
           {children}

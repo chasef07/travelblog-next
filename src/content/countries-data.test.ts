@@ -4,10 +4,11 @@ import { describe, expect, test } from 'bun:test'
 import { getAllCountries } from './countries-data'
 
 describe('Country navigation', () => {
-  test('includes Italy and Switzerland in the World flag list', () => {
+  test('includes the current European route in the World flag list', () => {
     const countryNames = getAllCountries().map((country) => country.name)
 
     expect(countryNames).toContain('Italy')
     expect(countryNames).toContain('Switzerland')
+    expect(countryNames).toContain('Montenegro')
   })
 })
