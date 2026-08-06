@@ -2,9 +2,8 @@ import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Travel stories',
-  description:
-    'Read Chase Fagen’s travel journal chronologically by year and month.',
+  title: 'Chase Fagen Blog',
+  description: 'Travel stories and notes from Chase Fagen.',
   path: '/blog',
   keywords: ['travel journal', 'travel stories'],
 })

@@ -1,7 +1,7 @@
 {
-  "name": "Chase Fagen Travel Journal",
+  "name": "Chase Fagen Blog",
   "short_name": "Chase Fagen",
-  "description": "A living travel journal organized by time and place.",
+  "description": "Travel stories and notes from Chase Fagen.",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

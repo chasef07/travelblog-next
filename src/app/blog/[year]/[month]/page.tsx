@@ -30,7 +30,6 @@ export async function generateMetadata({ params }: Props) {
     title: `${archive.displayDate} Travel Journal`,
     description: archive.excerpt,
     path: archive.url,
-    images: [archive.image],
     type: 'article',
   })
 }

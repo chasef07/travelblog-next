@@ -8,9 +8,10 @@ import { monthSlug, parseBlogDate, postPath } from '@/content/blog/publication'
  */
 
 export const siteConfig = {
-  name: 'Chase Fagen',
-  description: 'A living travel journal organized by time and place.',
+  name: 'Chase Fagen Blog',
+  description: 'Travel stories and notes from Chase Fagen.',
   url: 'https://chasefagen.com',
+  socialImage: '/opengraph-image',
   author: {
     name: 'Chase Fagen',
     email: 'fagenchase@gmail.com',
@@ -32,7 +33,6 @@ export function generatePageMetadata({
   title,
   description,
   path = '',
-  images = [],
   type = 'website',
   publishedTime,
   modifiedTime,
@@ -41,7 +41,6 @@ export function generatePageMetadata({
   title: string
   description: string
   path?: string
-  images?: string[]
   type?: 'website' | 'article'
   publishedTime?: string
   modifiedTime?: string
@@ -52,13 +51,7 @@ export function generatePageMetadata({
     ? title
     : `${title} | ${siteConfig.name}`
 
-  const defaultImage = `${siteConfig.url}/assets/images/misc/posttrip.jpg`
-  const imageUrls =
-    images.length > 0
-      ? images.map((img) =>
-          img.startsWith('http') ? img : `${siteConfig.url}${img}`,
-        )
-      : [defaultImage]
+  const socialImage = `${siteConfig.url}${siteConfig.socialImage}`
 
   return {
     title: fullTitle,
@@ -77,16 +70,18 @@ export function generatePageMetadata({
       canonical: url,
     },
     openGraph: {
-      title: fullTitle,
-      description,
+      title: siteConfig.name,
+      description: siteConfig.description,
       url,
       siteName: siteConfig.name,
-      images: imageUrls.map((url) => ({
-        url,
-        width: 1200,
-        height: 630,
-        alt: title,
-      })),
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+      ],
       locale: 'en_US',
       type,
       ...(type === 'article' &&
@@ -100,9 +95,9 @@ export function generatePageMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: fullTitle,
-      description,
-      images: imageUrls,
+      title: siteConfig.name,
+      description: siteConfig.description,
+      images: [socialImage],
       creator: siteConfig.author.twitter,
       site: siteConfig.author.twitter,
     },
@@ -125,7 +120,6 @@ export function generatePostMetadata(post: PublishedPost): Metadata {
     title: post.title,
     description: post.excerpt,
     path: post.url,
-    images: post.images.map((image) => image.src),
     type: 'article',
     publishedTime: parseBlogDate(post.date).toISOString(),
     modifiedTime: parseBlogDate(post.date).toISOString(),

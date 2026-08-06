@@ -11,11 +11,9 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Chase Fagen - Travel Journal',
-  description:
-    'A living travel journal from Chase Fagen, organized by time and place.',
+  title: 'Chase Fagen Blog',
+  description: 'Travel stories and notes from Chase Fagen.',
   keywords: ['travel journal', 'travel stories', 'Chase Fagen'],
-  images: ['/assets/images/misc/posttrip.jpg'],
 })
 
 export default function RootLayout({
@@ -41,7 +39,7 @@ export default function RootLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Chase Fagen Travel Journal RSS Feed"
+          title="Chase Fagen Blog RSS Feed"
           href="/feed.xml"
         />
         <script
