@@ -2,6 +2,58 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'welcome-to-montenegro-fifty-thousand-steps-later',
+    title: 'Welcome to Montenegro: 50,000 Steps Later',
+    date: '2026-08-06',
+    location: 'Bečići, Montenegro',
+    country: 'Montenegro',
+    slug: 'welcome-to-montenegro-fifty-thousand-steps-later',
+    year: '2026',
+    excerpt:
+      'One accidental eight-hour hike, one final push to Oeschinensee, and a very sleepy journey from the Swiss Alps to the Montenegrin coast.',
+    content: `Welcome to Montenegro!
+
+Rachel and I arrived here yesterday after three long, hard days of hiking in the Bernese Oberland. I forgot to post after Lauterbrunnen because I was so dead tired.
+
+The next day, we went to Grindelwald and somehow walked 50,000 steps without meaning to. We started on a panoramic trail, and it was unbelievably beautiful. I really liked Grindelwald—probably more than anywhere else we visited in Switzerland.
+
+We just kept walking and walking until we realized we had missed the last train down. That meant another two hours on foot, bringing the whole hike to about eight hours. I was wearing my barefoot Xero sandals the entire time. By the end, my calves hurt beyond belief, and my hips were not doing much better. Still, it was super awesome and super fun.
+
+The following day, we went to Lake Oeschinensee and Thun. I was so tired that I was not even going to get out of bed, but Rachel pulled me up, which was awesome. We saw this beautiful blue lake surrounded by mountains, then continued to Thun. I am really glad we went, but after three days like that, I was utterly exhausted.
+
+On Wednesday, the day we left for Montenegro, we woke up at 4 a.m., walked 30 minutes to the train station, took the train for two hours, and spent another hour wandering around the airport looking for a lounge. Then we boarded a two-and-a-half-hour flight, and I completely knocked out for the entire thing.
+
+We landed in Podgorica and made our way to Bečići on the coast. A lot of the places we looked at were already booked, so we are staying here for a few days before heading to Kotor.
+
+One of the most interesting parts of this trip has been seeing how different the travelers are from place to place. Switzerland brought together people from everywhere: Orthodox Jewish families, women in hijabs, Americans, Hispanic and Asian travelers, and even a Brazilian guy with pink braids. It felt like the whole world had somehow met in one small part of the Alps.
+
+Here in Montenegro, the crowd feels completely different. Bečići is definitely a tourist town, but most of the people around us seem to be Eastern European, speaking Slavic languages I cannot understand. The atmosphere is much more relaxed and not very rowdy. Maybe some of that is just the language barrier, but either way, it feels chill. So far, it is cool.
+
+Our apartment was pretty dirty when we arrived. Rachel did a great job telling the owner how bad it was and asking for our money back, but he basically said no. Not the ideal welcome, but after Switzerland, I am mostly just happy to be somewhere we can slow down.
+
+Tomorrow we are having another chill day before heading to Kotor, which is supposed to be beautiful, with mountains rising around the bay. For now, I am happy to be here—and very happy to give my legs a break.`,
+    images: [
+      {
+        src: '/assets/images/blog/2026/august/grindelwald-rachel.jpg',
+        alt: 'Rachel standing on a panoramic trail above Grindelwald',
+        caption: 'Rachel on the panoramic trail above Grindelwald.',
+        imagePosition: 'center 58%',
+      },
+      {
+        src: '/assets/images/blog/2026/august/oeschinensee-chase.jpg',
+        alt: 'Chase standing in front of Lake Oeschinensee and the Swiss Alps',
+        caption: 'Lake Oeschinensee, surrounded by the Swiss Alps.',
+        imagePosition: 'center 58%',
+      },
+      {
+        src: '/assets/images/blog/2026/august/becici-coast.jpg',
+        alt: 'The turquoise coast and mountains of Bečići, Montenegro',
+        caption: 'Our first view of the coast from Bečići.',
+        imagePosition: 'center 60%',
+      },
+    ],
+  },
+  {
     id: 'thirty-thousand-steps-through-lauterbrunnen',
     title: '30,000 Steps Through Lauterbrunnen',
     date: '2026-08-02',

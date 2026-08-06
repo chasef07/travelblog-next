@@ -66,11 +66,11 @@ export const blogArchives: BlogArchive[] = [
   {
     year: 2026,
     slug: 'august',
-    title: 'August 2026: Switzerland Day in Interlaken',
+    title: 'August 2026: Switzerland to Montenegro',
     date: '2026-08-01',
     displayDate: 'August 2026',
     excerpt:
-      'Arriving in Interlaken for a month of Swiss hikes and exploration after a winding train journey from Milan.',
+      'Long days hiking through the Swiss Alps followed by a much-needed change of pace on the Montenegrin coast.',
     image: '/assets/images/blog/2026/august/milan-pasta.webp',
     imagePosition: 'center 38%',
   },
