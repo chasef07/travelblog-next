@@ -19,6 +19,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
+import { CountryFlag } from '@/components/travel-os/CountryFlag'
 import {
   Sidebar,
   SidebarContent,
@@ -55,25 +56,13 @@ function NavigationLink({
   )
 }
 
-function MonthFlags({
-  countries,
-  flags,
-}: {
-  countries: string[]
-  flags: string[]
-}) {
-  if (flags.length === 0) return null
+function MonthFlags({ countries }: { countries: string[] }) {
+  if (countries.length === 0) return null
 
   return (
-    <span className="flex shrink-0 gap-0.5" aria-label={countries.join(', ')}>
-      {flags.slice(0, 3).map((flag) => (
-        <span
-          aria-hidden="true"
-          key={flag}
-          className="flex size-5 items-center justify-center rounded-full border border-sidebar-border bg-sidebar text-[11px]"
-        >
-          {flag}
-        </span>
+    <span className="flex shrink-0 gap-1" aria-label={countries.join(', ')}>
+      {countries.slice(0, 3).map((country) => (
+        <CountryFlag key={country} country={country} className="text-sm" />
       ))}
     </span>
   )
@@ -187,10 +176,7 @@ export function JournalSidebar({
                               <span className="min-w-0 flex-1 truncate">
                                 {month.label}
                               </span>
-                              <MonthFlags
-                                countries={month.countries}
-                                flags={month.flags}
-                              />
+                              <MonthFlags countries={month.countries} />
                               <span className="w-4 text-right text-xs tabular-nums text-muted-foreground">
                                 {month.postCount}
                               </span>

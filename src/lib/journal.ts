@@ -5,35 +5,6 @@ import {
   parseBlogDate,
 } from '@/content/blog/publication'
 
-const countryFlags: Record<string, string> = {
-  Cambodia: '🇰🇭',
-  China: '🇨🇳',
-  'Costa Rica': '🇨🇷',
-  'El Salvador': '🇸🇻',
-  Georgia: '🇬🇪',
-  Guatemala: '🇬🇹',
-  Indonesia: '🇮🇩',
-  Israel: '🇮🇱',
-  Italy: '🇮🇹',
-  Japan: '🇯🇵',
-  Kenya: '🇰🇪',
-  Laos: '🇱🇦',
-  Montenegro: '🇲🇪',
-  Nepal: '🇳🇵',
-  Panama: '🇵🇦',
-  Philippines: '🇵🇭',
-  Portugal: '🇵🇹',
-  Rwanda: '🇷🇼',
-  Singapore: '🇸🇬',
-  Switzerland: '🇨🇭',
-  Tanzania: '🇹🇿',
-  Thailand: '🇹🇭',
-  UAE: '🇦🇪',
-  USA: '🇺🇸',
-  'United States': '🇺🇸',
-  Vietnam: '🇻🇳',
-}
-
 export type JournalMonth = {
   key: string
   year: number
@@ -47,7 +18,6 @@ export type JournalMonth = {
   image: string
   posts: PublishedPost[]
   countries: string[]
-  flags: string[]
 }
 
 export type JournalYear = {
@@ -70,10 +40,6 @@ export type JournalEcho = {
   year: number
   post: PublishedPost
   offsetDays: number
-}
-
-export function getCountryFlag(country?: string): string | undefined {
-  return country ? countryFlags[country] : undefined
 }
 
 function monthIdentity(date: string) {
@@ -111,13 +77,6 @@ export function buildJournalYears(
             .filter((country): country is string => Boolean(country)),
         ),
       ]
-      const flags = [
-        ...new Set(
-          countries
-            .map(getCountryFlag)
-            .filter((flag): flag is string => Boolean(flag)),
-        ),
-      ]
       const label = new Intl.DateTimeFormat('en-US', {
         month: 'long',
         timeZone: 'UTC',
@@ -144,7 +103,6 @@ export function buildJournalYears(
             parseBlogDate(left.date).getTime(),
         ),
         countries,
-        flags,
       }
     })
     .sort((left, right) => right.key.localeCompare(left.key))

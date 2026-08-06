@@ -1,5 +1,6 @@
 import type { BlogPost } from '@/types/blog'
 import { posts } from '@/content/blog/publication'
+import { getCountryCode } from '@/lib/country-flags'
 
 export interface CountryData {
   name: string
@@ -8,7 +9,6 @@ export interface CountryData {
   visitDate: string
   highlights: string[]
   blogPostsCount: number
-  flagCode: string
   description: string
   color: string
   posts?: BlogPost[]
@@ -27,7 +27,6 @@ export const fullJourneyData: CountryData[] = [
       'Iranian Missile Attack',
     ],
     blogPostsCount: 12,
-    flagCode: 'IL',
     description:
       'Where the journey began - volunteering near Gaza, experiencing Israeli resilience, and surviving 200 Iranian ballistic missiles.',
     color: '#3b82f6',
@@ -43,7 +42,6 @@ export const fullJourneyData: CountryData[] = [
       'Tbilisi Sulfur Baths',
     ],
     blogPostsCount: 10,
-    flagCode: 'GE',
     description:
       'Adventure capitalism in the Caucasus - purchasing an apartment in Gudauri ski resort and exploring ancient wine-making traditions.',
     color: '#8b5cf6',
@@ -59,7 +57,6 @@ export const fullJourneyData: CountryData[] = [
       'Beach Volleyball',
     ],
     blogPostsCount: 6,
-    flagCode: 'KE',
     description:
       'First taste of Africa - deep conversations about geopolitics, learning to kite surf, and embracing the pole-pole philosophy.',
     color: '#10b981',
@@ -75,7 +72,6 @@ export const fullJourneyData: CountryData[] = [
       'Tarangire National Park',
     ],
     blogPostsCount: 4,
-    flagCode: 'TZ',
     description:
       "Epic 6-day safari across four national parks and hunting at dawn with the Hadza, one of Earth's last hunter-gatherer tribes.",
     color: '#f59e0b',
@@ -91,7 +87,6 @@ export const fullJourneyData: CountryData[] = [
       'Adventure Capitalism Meetings',
     ],
     blogPostsCount: 5,
-    flagCode: 'RW',
     description:
       'The cleanest city in Africa - meeting world-renowned artist Innocent, exploring gravity economics, and learning about the genocide.',
     color: '#ef4444',
@@ -107,7 +102,6 @@ export const fullJourneyData: CountryData[] = [
       'Intermission Reflections',
     ],
     blogPostsCount: 2,
-    flagCode: 'AE',
     description:
       'Brief intermission between Africa and Asia - indoor skiing at Ski Dubai and observing extreme consumption culture.',
     color: '#06b6d4',
@@ -123,7 +117,6 @@ export const fullJourneyData: CountryData[] = [
       'Hindu Spiritual Learning',
     ],
     blogPostsCount: 12,
-    flagCode: 'NP',
     description:
       "The Himalayas challenged everything - 11-day Annapurna Circuit trek crossing the world's highest pass at 17,769 feet in -25F conditions.",
     color: '#8b5cf6',
@@ -139,7 +132,6 @@ export const fullJourneyData: CountryData[] = [
       'Sea Turtle Encounters',
     ],
     blogPostsCount: 8,
-    flagCode: 'TH',
     description:
       'Island paradise exploration - snorkeling with sea turtles, training Muay Thai, and celebrating Christmas on Koh Tao.',
     color: '#f59e0b',
@@ -155,7 +147,6 @@ export const fullJourneyData: CountryData[] = [
       'Mekong River Slow Boat',
     ],
     blogPostsCount: 5,
-    flagCode: 'LA',
     description:
       'Peaceful and authentic Southeast Asian experience - farm volunteering, exploring Kong Lor Cave, and embracing simplicity.',
     color: '#10b981',
@@ -171,7 +162,6 @@ export const fullJourneyData: CountryData[] = [
       'Kampot Pepper Farms',
     ],
     blogPostsCount: 6,
-    flagCode: 'KH',
     description:
       'Ancient temples and island paradise - witnessing Angkor Wat at sunrise and relaxing on pristine Koh Rong beaches.',
     color: '#ef4444',
@@ -187,7 +177,6 @@ export const fullJourneyData: CountryData[] = [
       'Great Wall Hike',
     ],
     blogPostsCount: 5,
-    flagCode: 'CN',
     description:
       'Ancient civilization meets modern innovation - from cuddly pandas in Chengdu to the otherworldly Zhangjiajie mountains.',
     color: '#dc2626',
@@ -203,7 +192,6 @@ export const fullJourneyData: CountryData[] = [
       'Phong Nha Caves',
     ],
     blogPostsCount: 8,
-    flagCode: 'VN',
     description:
       'Epic 4,000km solo motorbike adventure from north to south - sleeping in indigenous homestays and eating pho for breakfast daily.',
     color: '#059669',
@@ -219,7 +207,6 @@ export const fullJourneyData: CountryData[] = [
       'Efficient City-State',
     ],
     blogPostsCount: 2,
-    flagCode: 'SG',
     description:
       'Ultra-modern city-state exploration - comparing Singapore vs Dubai and discovering amazing hawker center culture.',
     color: '#0ea5e9',
@@ -235,7 +222,6 @@ export const fullJourneyData: CountryData[] = [
       'Siquijor Healing Island',
     ],
     blogPostsCount: 10,
-    flagCode: 'PH',
     description:
       'Finally learning to surf in Siargao after years of failed attempts, plus an unforgettable 3-day island-hopping expedition.',
     color: '#3b82f6',
@@ -251,7 +237,6 @@ export const fullJourneyData: CountryData[] = [
       'Whale Shark Snorkeling',
     ],
     blogPostsCount: 9,
-    flagCode: 'ID',
     description:
       'Spiritual Bali awakening and wild adventures - sound healing with Dennis the adventure capitalist and swimming with whale sharks.',
     color: '#f59e0b',
@@ -267,7 +252,6 @@ export const fullJourneyData: CountryData[] = [
       'Deep Introspection',
     ],
     blogPostsCount: 12,
-    flagCode: 'JP',
     description:
       'Return to Japan with fresh perspective - exploring rural Hokkaido onsens and writing essays on detachment and modern life.',
     color: '#ec4899',
@@ -283,7 +267,6 @@ export const fullJourneyData: CountryData[] = [
       'Reflection Period',
     ],
     blogPostsCount: 3,
-    flagCode: 'US',
     description:
       'Returning home to Clearwater after 10 months of world travel - processing the journey and planning the next chapter.',
     color: '#3b82f6',
@@ -299,7 +282,6 @@ export const fullJourneyData: CountryData[] = [
       'Local Beach Culture',
     ],
     blogPostsCount: 3,
-    flagCode: 'CR',
     description:
       'Central American gem - one of my favorite travel destinations with perfect surf, jungle waterfalls, and authentic local vibes.',
     color: '#22c55e',
@@ -315,7 +297,6 @@ export const fullJourneyData: CountryData[] = [
       'Caribbean Beaches',
     ],
     blogPostsCount: 2,
-    flagCode: 'PA',
     description:
       'Where Central and South America meet - exploring the famous canal and Caribbean island adventures.',
     color: '#0ea5e9',
@@ -331,7 +312,6 @@ export const fullJourneyData: CountryData[] = [
       'Colonial Architecture',
     ],
     blogPostsCount: 2,
-    flagCode: 'GT',
     description:
       'Colonial charm and Mayan culture in the heart of Central America.',
     color: '#4ade80',
@@ -347,7 +327,6 @@ export const fullJourneyData: CountryData[] = [
       'Bitcoin Country',
     ],
     blogPostsCount: 0,
-    flagCode: 'SV',
     description:
       "Surf paradise on the Pacific coast - riding waves at El Tunco and exploring Central America's Bitcoin nation.",
     color: '#0066cc',
@@ -363,7 +342,6 @@ export const fullJourneyData: CountryData[] = [
       'Harbor City Energy',
     ],
     blogPostsCount: 0,
-    flagCode: 'NL',
     description:
       "Rotterdam chapter exploring the Netherlands' design, cycling culture, and port-city energy.",
     color: '#f97316',
@@ -379,7 +357,6 @@ export const fullJourneyData: CountryData[] = [
       'Flemish Architecture',
     ],
     blogPostsCount: 0,
-    flagCode: 'BE',
     description:
       'Ghent chapter with Belgium flag on the map, canal streets, and Flemish architecture.',
     color: '#ef4444',
@@ -396,7 +373,6 @@ export const fullJourneyData: CountryData[] = [
       'Euro Summer',
     ],
     blogPostsCount: 0,
-    flagCode: 'PT',
     description:
       'European chapter based in Ericeira - Portugal flag on the map, Atlantic surf, and coastal work base energy.',
     color: '#16a34a',
@@ -408,7 +384,6 @@ export const fullJourneyData: CountryData[] = [
     visitDate: 'July 2026',
     highlights: ['Milan', 'Northern Italy', 'Italian Food', 'Euro Summer'],
     blogPostsCount: 1,
-    flagCode: 'IT',
     description:
       'Milan, northern Italy, and the bridge from Portugal into the Alpine chapter.',
     color: '#15803d',
@@ -420,7 +395,6 @@ export const fullJourneyData: CountryData[] = [
     visitDate: 'August 2026',
     highlights: ['Interlaken', 'Swiss Alps', 'Mountain Towns', 'Euro Summer'],
     blogPostsCount: 1,
-    flagCode: 'CH',
     description:
       'The Alpine chapter based in Interlaken, surrounded by lakes and mountain routes.',
     color: '#dc2626',
@@ -432,7 +406,6 @@ export const fullJourneyData: CountryData[] = [
     visitDate: 'August 2026',
     highlights: ['Kotor', 'Bečići Base', 'Bay of Kotor', 'Adriatic Coast'],
     blogPostsCount: 0,
-    flagCode: 'ME',
     description:
       'The Adriatic chapter, mapped through Kotor with a current base in nearby Bečići.',
     color: '#c8102e',
@@ -461,7 +434,8 @@ export function getCountryByName(name: string): CountryData | undefined {
 // Get country by flag code
 export function getCountryByCode(code: string): CountryData | undefined {
   return fullJourneyData.find(
-    (country) => country.flagCode.toLowerCase() === code.toLowerCase(),
+    (country) =>
+      getCountryCode(country.name)?.toLowerCase() === code.toLowerCase(),
   )
 }
 
@@ -472,7 +446,10 @@ export function getCountryNames(): string[] {
 
 // Get all flag codes
 export function getCountryCodes(): string[] {
-  return fullJourneyData.map((country) => country.flagCode)
+  return fullJourneyData.flatMap((country) => {
+    const code = getCountryCode(country.name)
+    return code ? [code] : []
+  })
 }
 
 // Create a map for quick lookups
@@ -481,17 +458,11 @@ export const countryByName = new Map<string, CountryData>(
 )
 
 export const countryByCode = new Map<string, CountryData>(
-  fullJourneyData.map((country) => [country.flagCode.toLowerCase(), country]),
+  fullJourneyData.flatMap((country): [string, CountryData][] => {
+    const code = getCountryCode(country.name)
+    return code ? [[code.toLowerCase(), country]] : []
+  }),
 )
-
-// Get flag emoji from country code
-export function getFlagEmoji(countryCode: string): string {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split('')
-    .map((char) => 127397 + char.charCodeAt(0))
-  return String.fromCodePoint(...codePoints)
-}
 
 // Get countries by continent/region
 export function getCountriesByRegion(

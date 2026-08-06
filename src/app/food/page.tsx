@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { CountryFlag } from '@/components/travel-os/CountryFlag'
 import { Badge } from '@/components/ui/badge'
 import {
   Card,
@@ -10,7 +11,6 @@ import {
 } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { foodData } from '@/content/food-data'
-import { getCountryFlag } from '@/lib/journal'
 
 export default function FoodPage() {
   const countries = Object.entries(foodData)
@@ -45,7 +45,7 @@ export default function FoodPage() {
             className="flex flex-col gap-5"
           >
             <div className="flex items-center gap-2">
-              <span aria-hidden="true">{getCountryFlag(country)}</span>
+              <CountryFlag country={country} className="text-lg" />
               <h2 id={`food-${country}`} className="text-2xl font-semibold">
                 {country}
               </h2>

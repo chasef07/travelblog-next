@@ -1,7 +1,6 @@
 export interface CountryInfo {
   name: string
   slug: string
-  flag: string
   region: string
   description: string
   dates?: {
@@ -15,7 +14,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Israel: {
     name: 'Israel',
     slug: 'israel',
-    flag: 'IS-flag.jpg',
     region: 'Middle East',
     description:
       'Gaza border farming, Jerusalem holidays, Tel Aviv, and the first month on the road.',
@@ -30,7 +28,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Georgia: {
     name: 'Georgia',
     slug: 'georgia',
-    flag: 'GG-flag.jpg',
     region: 'Caucasus',
     description:
       'Tbilisi, wine country, Prometheus Cave, and the Gudauri apartment bet.',
@@ -40,7 +37,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Kenya: {
     name: 'Kenya',
     slug: 'kenya',
-    flag: 'KE-flag.jpg',
     region: 'East Africa',
     description:
       'Nairobi, Diani Beach, kite surfing, and the first real taste of East Africa.',
@@ -50,7 +46,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Tanzania: {
     name: 'Tanzania',
     slug: 'tanzania',
-    flag: 'TZ-flag.jpg',
     region: 'East Africa',
     description:
       'Serengeti safari, Ngorongoro, Tarangire, and hunting at dawn with the Hadza.',
@@ -60,7 +55,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Rwanda: {
     name: 'Rwanda',
     slug: 'rwanda',
-    flag: 'RW-flag.jpg',
     region: 'East Africa',
     description:
       'Kigali, Kivu Noir coffee, the genocide memorial, and meetings about business in Africa.',
@@ -70,7 +64,6 @@ export const countriesData: Record<string, CountryInfo> = {
   UAE: {
     name: 'UAE',
     slug: 'uae',
-    flag: 'AE-flag.jpg',
     region: 'Middle East',
     description:
       'Dubai layover, Burj Khalifa, Ski Dubai, and the consumption capital between trip legs.',
@@ -80,7 +73,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Nepal: {
     name: 'Nepal',
     slug: 'nepal',
-    flag: 'NP-flag.jpg',
     region: 'South Asia',
     description:
       'Annapurna Circuit, Thorong La Pass, Kathmandu, Pokhara, and Himalayan pressure testing.',
@@ -95,7 +87,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Thailand: {
     name: 'Thailand',
     slug: 'thailand',
-    flag: 'TH-flag.jpg',
     region: 'Southeast Asia',
     description:
       'Koh Tao, Full Moon Party, Chiang Dao, Pai, Muay Thai, and the first Southeast Asia stretch.',
@@ -111,7 +102,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Laos: {
     name: 'Laos',
     slug: 'laos',
-    flag: 'LA-flag.jpg',
     region: 'Southeast Asia',
     description:
       'Slow boat, Nong Khiaw, Vang Vieng, farm volunteering, and the Thakhek motorbike loop.',
@@ -127,7 +117,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Cambodia: {
     name: 'Cambodia',
     slug: 'cambodia',
-    flag: 'CB-flag.jpg',
     region: 'Southeast Asia',
     description:
       'Angkor Wat, Koh Rong, Kampot, Phnom Penh, and the heavier history under the backpacker route.',
@@ -137,7 +126,6 @@ export const countriesData: Record<string, CountryInfo> = {
   China: {
     name: 'China',
     slug: 'china',
-    flag: 'CH-flag.jpg',
     region: 'East Asia',
     description:
       'Chengdu pandas, Sichuan food, Zhangjiajie, tea houses, and big-city China.',
@@ -147,7 +135,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Vietnam: {
     name: 'Vietnam',
     slug: 'vietnam',
-    flag: 'VM-flag.jpg',
     region: 'Southeast Asia',
     description:
       'A 4,000 km motorbike run through Ha Giang, Cao Bang, rice fields, caves, and coastal roads.',
@@ -157,7 +144,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Singapore: {
     name: 'Singapore',
     slug: 'singapore',
-    flag: 'SN-flag.jpg',
     region: 'Southeast Asia',
     description:
       'Singapore efficiency, hawker food, Little India, and the Dubai comparison.',
@@ -167,7 +153,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Philippines: {
     name: 'Philippines',
     slug: 'philippines',
-    flag: 'RP-flag.jpg',
     region: 'Southeast Asia',
     description:
       'Siargao surfing, El Nido boats, Port Barton, Cebu waterfalls, and the honest Philippines critique.',
@@ -177,7 +162,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Indonesia: {
     name: 'Indonesia',
     slug: 'indonesia',
-    flag: 'ID-flag.jpg',
     region: 'Southeast Asia',
     description:
       'Bali, Uluwatu, Komodo, manta rays, whale sharks, and the business-from-a-laptop question.',
@@ -187,7 +171,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Japan: {
     name: 'Japan',
     slug: 'japan',
-    flag: 'JA-flag.jpg',
     region: 'East Asia',
     description:
       'Hokkaido, onsens, Sapporo, Japanese food, and a slower post-Asia reflection period.',
@@ -197,7 +180,6 @@ export const countriesData: Record<string, CountryInfo> = {
   'Costa Rica': {
     name: 'Costa Rica',
     slug: 'costa-rica',
-    flag: 'CR-flag.jpg',
     region: 'Central America',
     description:
       'Puerto Viejo, Nosara, Santa Teresa, surf-town scoring, and building from Costa Rica.',
@@ -207,7 +189,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Panama: {
     name: 'Panama',
     slug: 'panama',
-    flag: 'PM-flag.jpg',
     region: 'Central America',
     description:
       'Bocas del Toro, Panama City, canal-country infrastructure, and the Caribbean work stop.',
@@ -217,7 +198,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Guatemala: {
     name: 'Guatemala',
     slug: 'guatemala',
-    flag: 'GT-flag.jpg',
     region: 'Central America',
     description:
       'Antigua, Lake Atitlan, El Paredon, Mayan cooking, temezcal, and volcano country.',
@@ -227,7 +207,6 @@ export const countriesData: Record<string, CountryInfo> = {
   'El Salvador': {
     name: 'El Salvador',
     slug: 'el-salvador',
-    flag: 'SV-flag.jpg',
     region: 'Central America',
     description:
       'El Tunco, Bitcoin Beach, pupusas, clean roads, and the strongest early surf-town score.',
@@ -237,7 +216,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Netherlands: {
     name: 'Netherlands',
     slug: 'netherlands',
-    flag: 'NL-flag.svg',
     region: 'Western Europe',
     description:
       'Rotterdam base, Netherlands flag on the map, and the start of the Euro summer chapter.',
@@ -247,7 +225,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Belgium: {
     name: 'Belgium',
     slug: 'belgium',
-    flag: 'BE-flag.svg',
     region: 'Western Europe',
     description:
       'Ghent base, Belgium flag on the map, canal streets, and a Euro summer stop.',
@@ -262,7 +239,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Portugal: {
     name: 'Portugal',
     slug: 'portugal',
-    flag: 'PT-flag.svg',
     region: 'Western Europe',
     description:
       'Ericeira base, Portugal flag on the map, Atlantic surf, and a defining Euro summer stop.',
@@ -277,7 +253,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Italy: {
     name: 'Italy',
     slug: 'italy',
-    flag: 'italy-flag.jpg',
     region: 'Southern Europe',
     description:
       'Rome layover, the Colosseum, Trevi Fountain, and a brief first taste of Italy.',
@@ -287,7 +262,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Switzerland: {
     name: 'Switzerland',
     slug: 'switzerland',
-    flag: 'switzerland-flag.svg',
     region: 'Central Europe',
     description:
       'Interlaken base, Swiss Alps, mountain routes, and an Alpine Euro summer stop.',
@@ -297,7 +271,6 @@ export const countriesData: Record<string, CountryInfo> = {
   Montenegro: {
     name: 'Montenegro',
     slug: 'montenegro',
-    flag: 'ME-flag.svg',
     region: 'Southern Europe',
     description:
       'Kotor on the map, with a current base in nearby Bečići on the Montenegrin coast.',
