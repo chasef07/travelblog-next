@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { archives, parseBlogDate, posts } from '@/content/blog/publication'
-import { getAllCountries } from '@/content/countries-data'
+import { countryPages } from '@/content/world-journey'
 import { siteConfig } from '@/lib/seo'
 
 /**
@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const countryPages: MetadataRoute.Sitemap = getAllCountries().map(
+  const countryPageEntries: MetadataRoute.Sitemap = countryPages.map(
     (country) => ({
       url: `${baseUrl}/countries/${country.slug}`,
       lastModified: currentDate,
@@ -81,7 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
-    ...countryPages,
+    ...countryPageEntries,
     ...monthlyArchivePages,
     ...individualPostPages,
   ]

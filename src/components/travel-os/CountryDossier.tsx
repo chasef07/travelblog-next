@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import type { CountryInfo } from '@/content/countries-data'
+import type { CountryPage } from '@/content/world-journey'
 import { foodData } from '@/content/food-data'
 import {
   getArchivesForCountry,
@@ -32,7 +32,7 @@ function postDate(date: string) {
   }).format(parseBlogDate(date))
 }
 
-export function CountryDossier({ country }: { country: CountryInfo }) {
+export function CountryDossier({ country }: { country: CountryPage }) {
   const posts = getPostsForCountry(country.name)
   const archives = getArchivesForCountry(country.name)
   const dishes = foodData[country.name] ?? []
@@ -63,7 +63,7 @@ export function CountryDossier({ country }: { country: CountryInfo }) {
         </p>
 
         <div className="flex flex-wrap gap-2">
-          {country.highlights?.map((highlight) => (
+          {country.highlights.map((highlight) => (
             <Badge key={highlight} variant="outline">
               {highlight}
             </Badge>

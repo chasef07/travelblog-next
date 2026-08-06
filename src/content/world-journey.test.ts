@@ -1,0 +1,98 @@
+// @ts-expect-error Bun supplies this built-in module at test runtime.
+import { describe, expect, test } from 'bun:test'
+
+import { countryPages, getCountryPage, journeyRoute } from './world-journey'
+
+const expectedCountrySlugs = [
+  'israel',
+  'georgia',
+  'kenya',
+  'tanzania',
+  'rwanda',
+  'uae',
+  'nepal',
+  'thailand',
+  'laos',
+  'cambodia',
+  'china',
+  'vietnam',
+  'singapore',
+  'philippines',
+  'indonesia',
+  'japan',
+  'costa-rica',
+  'panama',
+  'guatemala',
+  'el-salvador',
+  'netherlands',
+  'belgium',
+  'portugal',
+  'italy',
+  'switzerland',
+  'montenegro',
+]
+
+const expectedRoute = [
+  ['Israel', [31.7683, 35.2137]],
+  ['Georgia', [42.3154, 43.3569]],
+  ['Kenya', [-1.2921, 36.8219]],
+  ['Tanzania', [-6.369, 34.8888]],
+  ['Rwanda', [-1.9403, 29.8739]],
+  ['UAE', [25.2048, 55.2708]],
+  ['Nepal', [27.7172, 85.324]],
+  ['Thailand', [15.87, 100.9925]],
+  ['Laos', [19.8563, 102.4955]],
+  ['Cambodia', [12.5657, 104.991]],
+  ['China', [30.5728, 104.0668]],
+  ['Vietnam', [14.0583, 108.2772]],
+  ['Singapore', [1.3521, 103.8198]],
+  ['Philippines', [12.8797, 121.774]],
+  ['Indonesia', [-8.4095, 115.1889]],
+  ['Japan', [43.0642, 141.3469]],
+  ['Florida, USA', [27.9659, -82.8001]],
+  ['Costa Rica', [9.7489, -83.7534]],
+  ['Panama', [8.9824, -79.5199]],
+  ['Guatemala', [14.6349, -90.5069]],
+  ['El Salvador', [13.4933, -89.3833]],
+  ['Netherlands', [51.9244, 4.4777]],
+  ['Belgium', [51.0543, 3.7174]],
+  ['Ericeira, Portugal', [38.9627, -9.4156]],
+  ['Milan, Italy', [45.4642, 9.19]],
+  ['Interlaken, Switzerland', [46.6863, 7.8632]],
+  ['Kotor, Montenegro', [42.4247, 18.7712]],
+]
+
+describe('World journey interface', () => {
+  test('preserves the country-page index and route order', () => {
+    expect(countryPages.map((country) => country.slug)).toEqual(
+      expectedCountrySlugs,
+    )
+    expect(
+      journeyRoute.map((stop) => [
+        stop.stopName ? `${stop.stopName}, ${stop.name}` : stop.name,
+        stop.coordinates,
+      ]),
+    ).toEqual(expectedRoute)
+  })
+
+  test('derives journey country facts from their country pages', () => {
+    const countrySlugs = journeyRoute.flatMap((stop) =>
+      stop.countrySlug ? [stop.countrySlug] : [],
+    )
+
+    expect(countrySlugs).toEqual(expectedCountrySlugs)
+    for (const stop of journeyRoute) {
+      if (!stop.countrySlug) continue
+      expect(getCountryPage(stop.countrySlug)?.name).toBe(stop.name)
+    }
+  })
+
+  test('keeps Florida as the only journey-only stop', () => {
+    const journeyOnlyStops = journeyRoute.filter((stop) => !stop.countrySlug)
+
+    expect(journeyOnlyStops.map((stop) => stop.name)).toEqual(['Florida, USA'])
+    expect(
+      countryPages.some((country) => country.name === 'Florida, USA'),
+    ).toBe(false)
+  })
+})

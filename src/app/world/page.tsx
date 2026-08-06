@@ -4,7 +4,7 @@ import GlobeExperience from '@/components/globe/GlobeExperience'
 import { CountryFlag } from '@/components/travel-os/CountryFlag'
 import { DetailLink } from '@/components/travel-os/DetailLink'
 import { Badge } from '@/components/ui/badge'
-import { getAllCountries } from '@/content/countries-data'
+import { countryPages } from '@/content/world-journey'
 
 export const metadata = {
   title: 'World View | Chase Fagen',
@@ -13,8 +13,6 @@ export const metadata = {
 }
 
 export default function WorldPage() {
-  const countries = getAllCountries()
-
   return (
     <main className="mx-auto flex min-h-screen max-w-[90rem] flex-col px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-8 xl:px-12">
       <header className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -45,7 +43,7 @@ export default function WorldPage() {
               Flag index
             </h2>
             <span className="font-mono text-[10px] text-muted-foreground">
-              {countries.length} countries
+              {countryPages.length} countries
             </span>
           </div>
 
@@ -53,7 +51,7 @@ export default function WorldPage() {
             aria-label="Countries"
             className="grid grid-cols-3 gap-x-2 gap-y-2 min-[480px]:grid-cols-4 sm:grid-cols-5 lg:grid-cols-5"
           >
-            {countries.map((country) => (
+            {countryPages.map((country) => (
               <DetailLink
                 key={country.slug}
                 detailId={`country-${country.slug}`}
