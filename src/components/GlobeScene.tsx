@@ -332,10 +332,10 @@ function Scene({
     }
   }, [])
 
-  // Initial rotation to show the current Interlaken location.
+  // Face the latest route stop when the globe first loads.
   const initialRotation = useMemo(() => {
-    const interlakenLongitude = 7.8632
-    return -(interlakenLongitude + 90) * (Math.PI / 180)
+    const currentLongitude = fullJourneyData.at(-1)?.coordinates[1] ?? 0
+    return -(currentLongitude + 90) * (Math.PI / 180)
   }, [])
 
   // Callback ref to set initial rotation when group is created

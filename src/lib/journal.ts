@@ -18,6 +18,7 @@ const countryFlags: Record<string, string> = {
   Japan: '🇯🇵',
   Kenya: '🇰🇪',
   Laos: '🇱🇦',
+  Montenegro: '🇲🇪',
   Nepal: '🇳🇵',
   Panama: '🇵🇦',
   Philippines: '🇵🇭',

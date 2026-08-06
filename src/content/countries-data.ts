@@ -290,9 +290,19 @@ export const countriesData: Record<string, CountryInfo> = {
     flag: 'switzerland-flag.svg',
     region: 'Central Europe',
     description:
-      'Interlaken base, Swiss Alps, mountain routes, and the current Euro summer stop.',
+      'Interlaken base, Swiss Alps, mountain routes, and an Alpine Euro summer stop.',
     dates: { firstVisit: '2026-08-01' },
     highlights: ['Swiss Alps', 'Mountain Towns', 'Euro Summer'],
+  },
+  Montenegro: {
+    name: 'Montenegro',
+    slug: 'montenegro',
+    flag: 'ME-flag.svg',
+    region: 'Southern Europe',
+    description:
+      'Kotor on the map, with a current base in nearby Bečići on the Montenegrin coast.',
+    dates: { firstVisit: '2026-08-06' },
+    highlights: ['Kotor', 'Bečići', 'Bay of Kotor', 'Adriatic Coast'],
   },
 }
 
