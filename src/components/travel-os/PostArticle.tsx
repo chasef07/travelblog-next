@@ -28,8 +28,7 @@ export function PostArticle({ post }: { post: PublishedPost }) {
           {post.title}
         </h1>
         <p className="text-sm text-muted-foreground">
-          {post.location} · {readableDate(post.date)} · {post.readingTime} min
-          read
+          {post.location} · {readableDate(post.date)}
         </p>
       </header>
 

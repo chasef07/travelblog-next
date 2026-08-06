@@ -40,7 +40,7 @@ export function MonthGallery({
   return (
     <div
       aria-label={`${title} photo reel`}
-      className="relative aspect-[5/3] overflow-hidden rounded-lg border bg-muted"
+      className="relative aspect-[4/3] overflow-hidden rounded-lg border bg-muted"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -62,7 +62,7 @@ export function MonthGallery({
             fill
             priority={index === 0}
             sizes="(max-width: 1024px) 100vw, 384px"
-            className="object-cover"
+            className="object-contain"
             style={{ objectPosition: item.imagePosition }}
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent px-4 pb-4 pt-12 text-white">

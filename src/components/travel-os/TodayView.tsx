@@ -14,11 +14,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 import { DetailLink } from '@/components/travel-os/DetailLink'
 import type { PublishedPost } from '@/content/blog/publication'
-import {
-  getPostCardImage,
-  getPostCardImagePosition,
-  parseBlogDate,
-} from '@/content/blog/publication'
+import { parseBlogDate } from '@/content/blog/publication'
 import type { JournalEcho, JournalMonth } from '@/lib/journal'
 
 function proximityLabel(offsetDays: number) {
@@ -57,6 +53,8 @@ export function TodayView({
   latestMonth: JournalMonth
   latestPost: PublishedPost
 }) {
+  const latestImage = latestPost.images[0]
+
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-8 sm:px-8 sm:py-10">
       <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
@@ -83,18 +81,26 @@ export function TodayView({
         href={latestPost.url}
         className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
-        <Card className="h-full gap-0 overflow-hidden py-0 transition-colors group-hover:bg-accent/40 lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]">
-          <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:min-h-80">
-            <Image
-              src={getPostCardImage(latestPost)}
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-              className="object-cover"
-              style={{ objectPosition: getPostCardImagePosition(latestPost) }}
-            />
-          </div>
+        <Card
+          className={`h-full gap-0 overflow-hidden py-0 transition-colors group-hover:bg-accent/40 ${
+            latestImage
+              ? 'lg:grid lg:grid-cols-[minmax(20rem,0.85fr)_minmax(0,1.15fr)]'
+              : ''
+          }`}
+        >
+          {latestImage && (
+            <div className="relative aspect-[4/3] overflow-hidden bg-muted lg:aspect-auto lg:min-h-96">
+              <Image
+                src={latestImage.src}
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-contain"
+                style={{ objectPosition: latestImage.imagePosition }}
+              />
+            </div>
+          )}
           <div className="flex flex-col justify-center gap-5 py-6 lg:py-8">
             <CardHeader>
               <CardDescription>
