@@ -9,6 +9,14 @@ export interface Vlog {
 
 export const vlogsData: Vlog[] = [
   {
+    id: 'acuity-health-ericeira-documentary',
+    title: 'Acuity Health Documentary, Ericeira Portugal July 2026',
+    country: 'Portugal',
+    description:
+      'A look inside Acuity Health in Ericeira, Portugal, filmed in July 2026.',
+    youtubeId: 'EP8Q5LVvc0Y',
+  },
+  {
     id: 'new-travel-vlog',
     title: 'El Paredón, Guatemala: The Ultimate Backpacker & Surf Guide',
     country: 'Guatemala',
