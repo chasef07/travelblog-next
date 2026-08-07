@@ -2,6 +2,64 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'why-the-balkans-worked-the-way-it-did',
+    title: 'A Simple Balkan History: Why This Region Is So Complicated',
+    date: '2026-08-07',
+    location: 'Bečići, Montenegro',
+    country: 'Montenegro',
+    slug: 'why-the-balkans-worked-the-way-it-did',
+    year: '2026',
+    excerpt:
+      'A plain-language crash course on the Slavs, the Balkans, and why Bosnia’s genocide and Yugoslavia’s breakup still shape today.',
+    content: `Here in Bečići, I am learning something new about how history can be complicated, and how easy it is to miss the basics if you do not start from the beginning. So I’m doing this as a simple reset for people who know little about the region.
+
+First: what are the Balkans, and who are the Slavs?
+
+The Balkans is a region in southeastern Europe, not a single country. It includes countries like Montenegro, Serbia, Bosnia, Croatia, Bosnia, Albania, Greece, and several others. It has always been a crossroads where empires, cultures, languages, and religions collided and mixed.
+
+The Slavs are a big language and cultural family of peoples spread across Eastern and Southeastern Europe. Think of them as related peoples: Serbs, Croats, Bosnians, Slovenes, Russians, Bulgarians, Ukrainians, and others have related Slavic languages. In the 6th and 7th centuries, Slavic groups moved into the Balkans and merged with older local populations. That became the long foundation for most of today’s populations in the area.
+
+Then came a long era of empires. The Ottoman Empire grew into the Balkans from Anatolia and controlled many parts of Bosnia, Serbia, Montenegro, and Kosovo for centuries. In the north and west, the Habsburgs (Austro-Hungarian Empire) controlled other parts. So for hundreds of years, local people lived under different rulers, with a mix of religions: Orthodox Christians, Catholics, and Muslims.
+
+That mix mattered later, because shared places did not always mean shared identity. You could speak neighboring languages and still have very different religion, memory, and political loyalty.
+
+In the 19th century, nationalism started rising everywhere. People wanted states that reflected their identities. After World War I, the old empires weakened, and in 1918 Yugoslavia was formed as a state for South Slavic peoples (Serbs, Croats, Slovenes, and more) to stay together.
+
+Yugoslavia held together under Tito after World War II, but only while he was alive. After Tito died in 1980, that central glue was gone. By the 1990s, old nationalist fears and power struggles came back. Slovenia and Croatia moved toward independence first, and then Bosnia was pulled into the hardest conflict because it was deeply mixed: Bosniaks (mostly Muslim), Serbs (mostly Orthodox), and Croats (mostly Catholic), all in the same territory.
+
+Why did the Bosnian genocide happen?
+
+At the center was a brutal idea during the war: create ethnically clean territory by removing other groups. That was done through fear, intimidation, forced expulsions, and violence. Armed actors treated civilians as obstacles to political goals. The worst known example is Srebrenica in July 1995. Bosnian Serb forces separated and executed around 8,000 Bosniak men and boys. That mass killing is internationally recognized as genocide.
+
+So that is the short version of why it happened: power collapsed, nationalists exploited fear, and war became a way to redraw maps by eliminating people, not debating borders.
+
+People often ask why Montenegro feels separate when it was tied to Serbia for so long. Montenegro stayed distinct partly because it has always had a strong local identity from geography, tradition, and political history as a small mountainous society that valued autonomy. It had been attached to larger states at times, including Serbia, but that did not erase local identity.
+
+You also asked about the 2006 World Cup. Montenegro and Serbia were still one state union for a while after Yugoslavia broke up, and the last time they appeared together on one national football team was in the 2006 World Cup cycle. Later in 2006, Montenegro voted to become independent, which ended the state structure and eventually split the team.
+
+That is the version I wanted to keep simple: the Balkans is a region of layered identities, empire history, and fear-driven nationalism. To understand today, you have to know those layers, because the map changed, but the memories did not disappear.`,
+    images: [
+      {
+        src: '/assets/images/blog/2026/august/img-1824-compressed.jpg',
+        alt: 'The coast near Bečići, Montenegro',
+        caption: 'Bečići, Montenegro — a calm start to this part of the trip.',
+        imagePosition: 'center 60%',
+      },
+      {
+        src: '/assets/images/blog/2026/august/img-0389-compressed.jpg',
+        alt: 'Bečići, Montenegro',
+        caption: 'New photo from Bečići.',
+        imagePosition: 'center 60%',
+      },
+      {
+        src: '/assets/images/blog/2026/august/img-0470-compressed.jpg',
+        alt: 'Bečići, Montenegro',
+        caption: 'New photo from Bečići.',
+        imagePosition: 'center 60%',
+      },
+    ],
+  },
+  {
     id: 'welcome-to-montenegro-fifty-thousand-steps-later',
     title: 'Welcome to Montenegro: 50,000 Steps Later',
     date: '2026-08-06',
