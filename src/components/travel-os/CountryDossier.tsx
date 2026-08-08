@@ -22,6 +22,7 @@ import {
   getPostsForCountry,
   parseBlogDate,
 } from '@/content/blog/publication'
+import { isPreoptimizedImage } from '@/lib/images'
 
 function postDate(date: string) {
   return new Intl.DateTimeFormat('en-US', {
@@ -119,6 +120,7 @@ export function CountryDossier({ country }: { country: CountryPage }) {
                       src={getPostCardImage(post)}
                       alt=""
                       fill
+                      unoptimized={isPreoptimizedImage(getPostCardImage(post))}
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover"
                       style={{

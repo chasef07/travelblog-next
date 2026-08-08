@@ -47,6 +47,7 @@ export default function VlogsPage() {
                   src={`https://img.youtube.com/vi/${vlog.youtubeId}/hqdefault.jpg`}
                   alt=""
                   fill
+                  unoptimized
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   className="object-cover"
                 />

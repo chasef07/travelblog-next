@@ -15,6 +15,7 @@ import { Separator } from '@/components/ui/separator'
 import { DetailLink } from '@/components/travel-os/DetailLink'
 import type { PublishedPost } from '@/content/blog/publication'
 import { parseBlogDate } from '@/content/blog/publication'
+import { isPreoptimizedImage } from '@/lib/images'
 import type { JournalEcho, JournalMonth } from '@/lib/journal'
 
 function proximityLabel(offsetDays: number) {
@@ -94,6 +95,7 @@ export function TodayView({
                 src={latestImage.src}
                 alt=""
                 fill
+                unoptimized={isPreoptimizedImage(latestImage.src)}
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-contain"

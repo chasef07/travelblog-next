@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
+import { isPreoptimizedImage } from '@/lib/images'
+
 export type MonthGalleryItem = {
   src: string
   alt: string
@@ -60,6 +62,7 @@ export function MonthGallery({
             src={item.src}
             alt={index === activeIndex ? item.alt : ''}
             fill
+            unoptimized={isPreoptimizedImage(item.src)}
             priority={index === 0}
             sizes="(max-width: 1024px) 100vw, 384px"
             className="object-contain"

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Fragment } from 'react'
 
+import { isPreoptimizedImage } from '@/lib/images'
 import type { BlogImage, BlogPost as BlogPostType } from '@/types/blog'
 
 function PostImage({
@@ -17,6 +18,7 @@ function PostImage({
           src={image.src}
           alt={image.alt}
           fill
+          unoptimized={isPreoptimizedImage(image.src)}
           sizes="(max-width: 640px) calc(100vw - 3rem), 680px"
           className="object-contain"
           loading={eager ? 'eager' : 'lazy'}
