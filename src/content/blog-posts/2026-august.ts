@@ -2,6 +2,29 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'bay-of-kotor-explore',
+    title: 'Bay of Kotor Explore',
+    date: '2026-08-10',
+    location: 'Kotor, Montenegro',
+    country: 'Montenegro',
+    slug: 'bay-of-kotor-explore',
+    year: '2026',
+    excerpt:
+      'Exploring Kotor, launching a new Acuity product, and reflecting on work, freedom, and gratitude from Montenegro.',
+    content: `We arrived in Kotor two days ago, and it has been beautiful. The town sits on the Bay of Kotor, surrounded by dramatic mountains. Kotor’s old town is full of history, narrow streets, and good little shops. You can see layers of Byzantine, Ottoman, and Austro-Hungarian influence everywhere.
+
+We’re staying in a really nice apartment and rented a scooter to explore the area. Kotor feels completely different from the touristy part of Bečići where we were staying. It’s exciting to arrive somewhere new and discover the rhythms of another city.
+
+I’ve also been working hard. We’re releasing a new Acuity product today, which is exciting and a little stressful. It’s incredible to build something that thousands of people will interact with and to watch your work become real and go online. I was working until 1:30 last night and am back at it now, working late here so I can overlap with the team in California.
+
+Rachel and I set goals for ourselves across health, wealth, intellectual growth, and spirituality. That was a meaningful exercise. I’ve also found myself talking with her more about free markets, competition, and the importance of building wealth, even as a hippie backpacker. She has been receptive but thoughtful and informed in her responses.
+
+Maybe these ideas are coming up because we’ve now spent more than three months in Europe. You notice the differences in lifestyle, especially when you’re running a business while surrounded by people on vacation. Being able to work hard, build something of your own, and run a company from Montenegro is genuinely awesome. I feel incredibly thankful.
+
+We’ll spend the next few days exploring the towns around the Bay of Kotor. On Thursday, we’ll take a bus to Bosnia. There are only a couple of weeks left in this summer chapter, balancing cultural exploration, travel, and work, before heading home and then continuing to San Francisco.`,
+    images: [],
+  },
+  {
     id: 'why-the-balkans-worked-the-way-it-did',
     title: 'A Simple Balkan History: Why This Region Is So Complicated',
     date: '2026-08-07',
