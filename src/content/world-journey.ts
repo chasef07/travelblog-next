@@ -193,8 +193,14 @@ const countryPageDetailsBySlug = {
   montenegro: {
     name: 'Montenegro',
     description:
-      'Kotor on the map, with a current base in nearby Bečići on the Montenegrin coast.',
+      'Kotor and Bečići on the Adriatic coast, before crossing into Bosnia and Herzegovina.',
     highlights: ['Kotor', 'Bečići', 'Bay of Kotor', 'Adriatic Coast'],
+  },
+  'bosnia-and-herzegovina': {
+    name: 'Bosnia and Herzegovina',
+    description:
+      'Mostar base, the Old Bridge, Ottoman-era streets, and a first stop in Bosnia and Herzegovina.',
+    highlights: ['Mostar', 'Old Bridge', 'Neretva River', 'Old Town'],
   },
 } satisfies Record<string, CountryPageDetails>
 
@@ -360,6 +366,12 @@ const itinerary: readonly ItineraryStop[] = [
     coordinates: [42.4247, 18.7712],
     visitDate: 'August 2026',
   },
+  {
+    countrySlug: 'bosnia-and-herzegovina',
+    stopName: 'Mostar',
+    coordinates: [43.3438, 17.8078],
+    visitDate: 'August 2026',
+  },
 ]
 
 export const countryPages: readonly CountryPage[] = Object.entries(
@@ -382,3 +394,5 @@ export const journeyRoute: readonly JourneyStop[] = itinerary.map((stop) => {
 
   return { ...stop, name: country.name }
 })
+
+export const currentJourneyStop = journeyRoute.at(-1)!

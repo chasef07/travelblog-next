@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
 import { TravelShell } from '@/components/travel-os/TravelShell'
 import { archives, posts } from '@/content/blog/publication'
+import { currentJourneyStop } from '@/content/world-journey'
 import { buildJournalNavigation } from '@/lib/journal'
 import { Inter } from 'next/font/google'
 
@@ -76,7 +77,7 @@ export default function RootLayout({
         </a>
         <TravelShell
           years={buildJournalNavigation(posts, archives)}
-          currentLocation="Bečići, Montenegro"
+          currentLocation={currentJourneyStop}
           detail={reader}
         >
           {children}

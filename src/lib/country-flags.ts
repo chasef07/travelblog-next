@@ -1,5 +1,6 @@
 export const countryCodes = {
   Belgium: 'BE',
+  'Bosnia and Herzegovina': 'BA',
   Cambodia: 'KH',
   China: 'CN',
   'Costa Rica': 'CR',
