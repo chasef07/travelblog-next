@@ -41,6 +41,7 @@ describe('Journal chronology', () => {
     expect(getCountryCode('Italy')).toBe('IT')
     expect(getCountryCode('Switzerland')).toBe('CH')
     expect(getCountryCode('Montenegro')).toBe('ME')
+    expect(getCountryCode('Bosnia and Herzegovina')).toBe('BA')
   })
 
   test('covers every country displayed by the journal', () => {

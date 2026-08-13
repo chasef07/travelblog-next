@@ -1,7 +1,12 @@
 // @ts-expect-error Bun supplies this built-in module at test runtime.
 import { describe, expect, test } from 'bun:test'
 
-import { countryPages, getCountryPage, journeyRoute } from './world-journey'
+import {
+  countryPages,
+  currentJourneyStop,
+  getCountryPage,
+  journeyRoute,
+} from './world-journey'
 
 const expectedCountrySlugs = [
   'israel',
@@ -30,6 +35,7 @@ const expectedCountrySlugs = [
   'italy',
   'switzerland',
   'montenegro',
+  'bosnia-and-herzegovina',
 ]
 
 const expectedRoute = [
@@ -60,6 +66,7 @@ const expectedRoute = [
   ['Milan, Italy', [45.4642, 9.19]],
   ['Interlaken, Switzerland', [46.6863, 7.8632]],
   ['Kotor, Montenegro', [42.4247, 18.7712]],
+  ['Mostar, Bosnia and Herzegovina', [43.3438, 17.8078]],
 ]
 
 describe('World journey interface', () => {
@@ -85,6 +92,14 @@ describe('World journey interface', () => {
       if (!stop.countrySlug) continue
       expect(getCountryPage(stop.countrySlug)?.name).toBe(stop.name)
     }
+  })
+
+  test('uses the final route stop as the current location', () => {
+    expect(currentJourneyStop).toMatchObject({
+      name: 'Bosnia and Herzegovina',
+      stopName: 'Mostar',
+      coordinates: [43.3438, 17.8078],
+    })
   })
 
   test('keeps Florida as the only journey-only stop', () => {

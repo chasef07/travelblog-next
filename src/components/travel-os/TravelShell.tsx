@@ -7,6 +7,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar'
+import type { JourneyStop } from '@/content/world-journey'
 import type { JournalNavigationYear } from '@/lib/journal'
 
 export function TravelShell({
@@ -18,7 +19,7 @@ export function TravelShell({
   children: React.ReactNode
   detail: React.ReactNode
   years: JournalNavigationYear[]
-  currentLocation: string
+  currentLocation: Pick<JourneyStop, 'name' | 'stopName'>
 }) {
   return (
     <SidebarProvider>
