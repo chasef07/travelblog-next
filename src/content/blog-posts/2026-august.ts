@@ -2,6 +2,58 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'first-impressions-of-mostar',
+    title: 'First Impressions of Mostar',
+    date: '2026-08-15',
+    location: 'Mostar, Bosnia and Herzegovina',
+    country: 'Bosnia and Herzegovina',
+    slug: 'first-impressions-of-mostar',
+    year: '2026',
+    excerpt:
+      'Crossing the border from Kotor, swimming beneath Mostar’s old bridge, eating Bosnian food, and reflecting on war, identity, and nationalism.',
+    content: `Today is Saturday, August 15, and Rachel and I are in Mostar, Bosnia and Herzegovina. We made our way here from Kotor on a six-hour bus ride across the border. Luckily, we bypassed what looked like a six-hour wait because our bus driver drove past the entire line, and we walked right through. I generally do not like bus rides, but this one was pretty manageable.
+
+My first impression of Mostar is that it is small, cute, and full of history. The old bridge is beautiful, and the river beneath it is freezing cold. We went swimming today and will probably do more throughout our time here.
+
+Bosnia and Herzegovina has a large Muslim population, particularly among Bosniaks, and you see women wearing hijabs and, occasionally, fuller face coverings. The food reflects that culture too: there is a lot of meat and plenty of beef instead of pork. Today we had really yummy dolma, all-beef ćevapi, and even beef prosciutto. It was super lecker.
+
+We also had traditional Bosnian coffee, which is strong and prepared in a small copper pot. The experience reminded me of the sand coffee I have had elsewhere.
+
+There is a lot of depth beneath the beauty of this city. You see people begging and some people living with serious disabilities, though I do not know their individual stories. The Bosnian War ended only about 30 years ago, so many people over 40 or 50 remember it firsthand.
+
+Mostar itself endured brutal fighting, ethnic division, and the destruction of its famous bridge during the war. Elsewhere in Bosnia, the genocide at Srebrenica killed around 8,000 Bosniak men and boys. I still do not know enough about the war or the genocide, and I need to learn more, but you can feel that recent history in this otherwise beautiful city.
+
+Tomorrow we take a bus to Jablanica, where we are staying at a spa hotel in the middle of nature beside a river. The area is famous for roasted lamb, and you know me—I love my lamby.
+
+I also watched a video about modern Zionism that got me thinking about nationalism and national identity. Bosnia flies its flag proudly. The country survived a war, emerged from Yugoslavia, and represents something its people fought to preserve. That shared identity can give people pride, purpose, and a sense of belonging.
+
+It also made me think about Israelis and Palestinians. Palestinian national identity developed over many decades and gained greater international visibility through leaders such as Yasser Arafat and the Palestine Liberation Organization. Whatever your politics, a shared national identity clearly gives people something powerful to organize around.
+
+Nationalism can be beneficial when it creates solidarity and responsibility toward a country, but it can also become dangerous when it turns authoritarian or defines belonging by excluding or dehumanizing others. On the other hand, when people feel no shared identity or pride in their country, it can become harder to maintain trust or agree on what the country should be. It is interesting to see the different forms nationalism takes and how deeply it affects politics, migration, conflict, and the economy.
+
+Overall, I am liking Bosnia a lot. It feels like it has more visible culture and distinctive food than the parts of Montenegro we visited, which often felt more touristy. Both countries are beautiful, and both are shaped by Slavic cultures, but Bosnia already feels different. So far, it has been a really good time.`,
+    images: [
+      {
+        src: '/assets/images/blog/2026/august/mostar-old-bridge.jpg',
+        alt: 'Stari Most crossing the Neretva River beneath the mountains of Mostar',
+        caption: 'Stari Most and the Neretva River in the heart of Mostar.',
+        imagePosition: 'center 72%',
+      },
+      {
+        src: '/assets/images/blog/2026/august/neretva-swim.jpg',
+        alt: 'Chase climbing out of the Neretva River after swimming in Mostar',
+        caption: 'Climbing out after a freezing swim in the Neretva.',
+        imagePosition: 'center 66%',
+      },
+      {
+        src: '/assets/images/blog/2026/august/bosnian-coffee.jpg',
+        alt: 'Traditional Bosnian coffee served on an engraved copper tray',
+        caption: 'Traditional Bosnian coffee served with sugar and lokum.',
+        imagePosition: 'center 64%',
+      },
+    ],
+  },
+  {
     id: 'bay-of-kotor-explore',
     title: 'Bay of Kotor Explore',
     date: '2026-08-10',
