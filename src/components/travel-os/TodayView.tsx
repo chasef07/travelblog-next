@@ -63,10 +63,15 @@ export function TodayView({
           {fullDate(today)}
         </h1>
         <div className="flex flex-wrap gap-2">
-          <Button asChild size="sm" variant="secondary">
+          <Button
+            asChild
+            size="sm"
+            variant="secondary"
+            className="rounded-full"
+          >
             <Link href={latestMonth.href}>{latestMonth.displayDate}</Link>
           </Button>
-          <Button asChild size="sm" variant="outline">
+          <Button asChild size="sm" variant="outline" className="rounded-full">
             <Link href="/world">
               <Globe2 data-icon="inline-start" />
               World

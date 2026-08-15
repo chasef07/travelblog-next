@@ -257,7 +257,7 @@ function SidebarMenuButton({
       data-slot="sidebar-menu-button"
       data-active={isActive}
       className={cn(
-        'group/menu-button flex h-9 w-full min-w-0 items-center gap-2 overflow-hidden rounded-lg px-3 py-2 text-left text-sm text-sidebar-foreground/72 ring-sidebar-ring outline-hidden transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate',
+        'group/menu-button flex h-9 w-full min-w-0 items-center gap-2 overflow-hidden rounded-full px-3 py-2 text-left text-sm text-sidebar-foreground/72 ring-sidebar-ring outline-hidden transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-primary data-[active=true]:font-medium data-[active=true]:text-sidebar-primary-foreground [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate',
         className,
       )}
       {...props}
@@ -307,7 +307,7 @@ function SidebarMenuSubButton({
       data-slot="sidebar-menu-sub-button"
       data-active={isActive}
       className={cn(
-        'flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-lg px-3 text-sm text-sidebar-foreground/62 ring-sidebar-ring outline-hidden transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-3.5 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground',
+        'flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-full px-3 text-sm text-sidebar-foreground/62 ring-sidebar-ring outline-hidden transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-primary data-[active=true]:text-sidebar-primary-foreground [&>span:last-child]:truncate [&>svg]:size-3.5 [&>svg]:shrink-0',
         className,
       )}
       {...props}
