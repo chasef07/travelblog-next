@@ -6,9 +6,9 @@ import { generatePageMetadata, generatePostMetadata } from '@/lib/seo'
 describe('social metadata', () => {
   test('uses the Chase Fagen Blog brand card', () => {
     const metadata = generatePageMetadata({
-      title: 'Food',
-      description: 'Dishes saved while traveling.',
-      path: '/food',
+      title: 'World',
+      description: 'Travel notes organized by country.',
+      path: '/world',
     })
 
     expect(metadata.openGraph).toMatchObject({

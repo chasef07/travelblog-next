@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -162,19 +163,39 @@ export function CountryDossier({ country }: { country: CountryPage }) {
       </section>
 
       {dishes.length > 0 && (
-        <Link
-          href="/food"
-          className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-          <Card className="transition-colors group-hover:bg-accent/40">
-            <CardHeader>
-              <CardTitle>Food from {country.name}</CardTitle>
-              <CardDescription>
-                {dishes.length} saved {dishes.length === 1 ? 'dish' : 'dishes'}.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </Link>
+        <section className="flex flex-col gap-5">
+          <div>
+            <h2 className="text-2xl font-semibold">Food</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Dishes worth remembering from {country.name}.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {dishes.map((dish) => (
+              <Card key={dish.name} className="overflow-hidden py-0">
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <Image
+                    src={dish.image}
+                    alt={dish.name}
+                    fill
+                    unoptimized={isPreoptimizedImage(dish.image)}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>{dish.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="pb-6">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {dish.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   )

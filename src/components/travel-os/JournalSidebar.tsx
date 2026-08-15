@@ -11,7 +11,6 @@ import {
   Folder,
   FolderOpen,
   Globe2,
-  Utensils,
 } from 'lucide-react'
 
 import {
@@ -23,7 +22,6 @@ import { CountryFlag } from '@/components/travel-os/CountryFlag'
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -136,6 +134,19 @@ export function JournalSidebar({
               </NavigationLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
+          {[
+            { href: '/vlogs', label: 'Vlogs', icon: Clapperboard },
+            { href: '/packing-checklist', label: 'Packing', icon: Backpack },
+          ].map(({ href, label, icon: Icon }) => (
+            <SidebarMenuItem key={href}>
+              <SidebarMenuButton asChild isActive={pathname === href}>
+                <NavigationLink href={href}>
+                  <Icon />
+                  <span>{label}</span>
+                </NavigationLink>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
         </SidebarMenu>
 
         <Separator className="my-2" />
@@ -199,25 +210,6 @@ export function JournalSidebar({
           })}
         </SidebarMenu>
       </SidebarContent>
-
-      <SidebarFooter>
-        <SidebarMenu>
-          {[
-            { href: '/vlogs', label: 'Vlogs', icon: Clapperboard },
-            { href: '/food', label: 'Food', icon: Utensils },
-            { href: '/packing-checklist', label: 'Packing', icon: Backpack },
-          ].map(({ href, label, icon: Icon }) => (
-            <SidebarMenuItem key={href}>
-              <SidebarMenuButton asChild isActive={pathname === href}>
-                <NavigationLink href={href}>
-                  <Icon />
-                  <span>{label}</span>
-                </NavigationLink>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </SidebarMenu>
-      </SidebarFooter>
     </Sidebar>
   )
 }

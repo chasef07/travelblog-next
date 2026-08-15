@@ -1,13 +1,13 @@
 # Chase Fagen Travel Journal
 
-A personal travel journal built with Next.js 16 and React 19. The site combines a date-based reader, a 3D world view, country dossiers, and food, video, and packing notes from the route.
+A personal travel journal built with Next.js 16 and React 19. The site combines a date-based reader, a 3D world view, country dossiers, and video and packing notes from the route.
 
 ## Features
 
 - Journal home with the latest entry and date-matched entries from prior years
 - Monthly Archives and individual Posts with canonical paths and reading times
-- Interactive Three.js globe with a country flag index and Country dossiers
-- Food, vlog, and carry-on packing collections
+- Interactive Three.js globe with a country flag index and country dossiers
+- Country food notes, vlogs, and a carry-on packing collection
 - RSS feed, sitemap, structured data, and social metadata
 - Responsive App Router interface with parallel-route detail panels
 - Vercel Analytics and Speed Insights
@@ -54,8 +54,7 @@ bun run start        # Serve an existing production build
 | `/blog/[year]/[month]`            | Monthly Archive                                                |
 | `/blog/[year]/[month]/[postSlug]` | Individual Post                                                |
 | `/world`                          | Interactive globe and country index                            |
-| `/countries/[country]`            | Country dossier with related Posts and Archives                |
-| `/food`                           | Food notes by country                                          |
+| `/countries/[country]`            | Country dossier with related posts, archives, and food notes   |
 | `/vlogs`                          | Travel videos                                                  |
 | `/packing-checklist`              | Carry-on packing list                                          |
 | `/feed.xml`                       | RSS feed                                                       |

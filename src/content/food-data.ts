@@ -111,20 +111,22 @@ export const foodData: Record<string, FoodItem[]> = {
       country: 'Nepal',
     },
   ],
-  'East Africa': [
-    {
-      name: 'Nyama Choma',
-      description:
-        'Nyama Choma translates to "roasted meat" in Swahili. It\'s a beloved delicacy and often considered the ultimate barbecue experience in the region. Typically, goat meat is used, but beef or chicken can also be prepared. The meat is marinated minimally, often with just salt, and then roasted or grilled slowly over an open flame.',
-      image: '/assets/images/misc/nyama.jpg',
-      country: 'East Africa',
-    },
+  Kenya: [
     {
       name: 'Ugali',
       description:
         'A simple, dense porridge made from maize (corn) flour and water, cooked until it reaches a thick, dough-like consistency. Typically, ugali is eaten with the hands and served as a side dish alongside stews, vegetables, and meats.',
       image: '/assets/images/misc/ugali.jpg',
-      country: 'East Africa',
+      country: 'Kenya',
+    },
+  ],
+  Rwanda: [
+    {
+      name: 'Nyama Choma',
+      description:
+        'Nyama Choma translates to "roasted meat" in Swahili. It\'s a beloved delicacy and often considered the ultimate barbecue experience in the region. Typically, goat meat is used, but beef or chicken can also be prepared. The meat is marinated minimally, often with just salt, and then roasted or grilled slowly over an open flame.',
+      image: '/assets/images/misc/nyama.jpg',
+      country: 'Rwanda',
     },
   ],
   Georgia: [
