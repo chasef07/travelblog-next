@@ -2,6 +2,29 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'airport-thoughts-and-bosnia-reflection',
+    title: 'Airport Thoughts and Bosnia Reflection',
+    date: '2026-08-22',
+    location: 'Sarajevo Airport, Bosnia and Herzegovina',
+    country: 'Bosnia and Herzegovina',
+    slug: 'airport-thoughts-and-bosnia-reflection',
+    year: '2026',
+    excerpt:
+      'And now with the technology and AI revolution, I think that will accelerate.',
+    content: `I'm currently in the airport of Sarajevo, Bosnia, on my way to Belgrade, Serbia. Here's a recap of all my thoughts and ideas from our trip in Bosnia. Well, first off, I want to mention that I'm doing this from my phone in airport Wi‑Fi while on airplane mode with the ChatGPT app, remoted into my Mac Mini in my dad's house in Clearwater, Florida, encoding this all and pushing it live to a live website. This is a crazy time to be alive in terms of technology.
+
+Now one thing that came to my mind while I was sitting in this luxurious hammam getting rubbed up and soaped up yesterday is, in 2026...
+
+Is that anybody has access to luxury and feel like a king. Well, I walked through the old town in Sarajevo and I saw the assassination in 1914 of Archduke Franz Ferdinand by the assassin. Only a hundred years ago, people did not live like royalty. Even the royals, even the emperors, they didn't have AC or nice food or beautiful things. But now any common person, as long as you work and save a little money, can have luxury outside people from a hundred years ago, even kings and emperors, from a mountain of imagination.
+
+So I got rubbed up and soaked up in the hammam in a really traditional way, and it was nice, got a nice massage, and it's just crazy to think that everybody has access to modern life at a fairly nice cost. And now with the technology and AI revolution, I think that will accelerate.
+
+And yeah, I think Bosnia has nice nature, okay food, but it's a little too Muslim for me. I mean lots of burkas and Palestinian flags, and yeah, it's just a whole different kind of culture, which is okay.
+
+Also I'm just getting exhausted from backpacking these three weeks, and I really want to find a nice routine and work towards my goal and find a mission I'm willing to die for. You know, when I was going to quit my job and do my mission to quit my job and backpack the world, I really was willing to give everything and put it on the line, and now I need a new mission to direct all my energies and effort and focus towards and just really commit to it. And yes, the business is a part of it, but really concretizing it and making it understandable.`,
+    images: [],
+  },
+  {
     id: 'first-impressions-of-mostar',
     title: 'First Impressions of Mostar',
     date: '2026-08-15',

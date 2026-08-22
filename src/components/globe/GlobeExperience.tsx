@@ -5,7 +5,11 @@ import { useCallback, useEffect, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { DetailLink } from '@/components/travel-os/DetailLink'
 import { Button } from '@/components/ui/button'
-import { journeyRoute, type JourneyStop } from '@/content/world-journey'
+import {
+  journeyRoute,
+  journeyStopKey,
+  type JourneyStop,
+} from '@/content/world-journey'
 import { fetchGeoJSON, type GeoJSON } from '@/utils/geojson-loader'
 
 const GlobeScene = dynamic(() => import('../GlobeScene'), {
@@ -100,11 +104,11 @@ export default function GlobeExperience() {
         <div className="flex flex-wrap items-center gap-2">
           <select
             aria-label="Select globe destination"
-            value={selectedCountry?.name ?? ''}
+            value={selectedCountry ? journeyStopKey(selectedCountry) : ''}
             onChange={(event) =>
               setSelectedCountry(
                 journeyRoute.find(
-                  (country) => country.name === event.target.value,
+                  (country) => journeyStopKey(country) === event.target.value,
                 ) ?? null,
               )
             }
@@ -112,7 +116,10 @@ export default function GlobeExperience() {
           >
             <option value="">Choose destination</option>
             {journeyRoute.map((country) => (
-              <option key={country.name} value={country.name}>
+              <option
+                key={journeyStopKey(country)}
+                value={journeyStopKey(country)}
+              >
                 {country.stopName
                   ? `${country.stopName}, ${country.name}`
                   : country.name}

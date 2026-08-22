@@ -1,4 +1,3 @@
-// @ts-expect-error Bun supplies this built-in module at test runtime.
 import { describe, expect, test } from 'bun:test'
 
 import {
@@ -6,9 +5,11 @@ import {
   currentJourneyStop,
   getCountryPage,
   journeyRoute,
+  journeyStopKey,
+  type JourneyStop,
 } from './world-journey'
 
-const expectedCountrySlugs = [
+const expectedCountrySlugs: NonNullable<JourneyStop['countrySlug']>[] = [
   'israel',
   'georgia',
   'kenya',
@@ -38,7 +39,7 @@ const expectedCountrySlugs = [
   'bosnia-and-herzegovina',
 ]
 
-const expectedRoute = [
+const expectedRoute: [string, readonly [number, number]][] = [
   ['Israel', [31.7683, 35.2137]],
   ['Georgia', [42.3154, 43.3569]],
   ['Kenya', [-1.2921, 36.8219]],
@@ -67,25 +68,36 @@ const expectedRoute = [
   ['Interlaken, Switzerland', [46.6863, 7.8632]],
   ['Kotor, Montenegro', [42.4247, 18.7712]],
   ['Mostar, Bosnia and Herzegovina', [43.3438, 17.8078]],
+  ['Sarajevo, Bosnia and Herzegovina', [43.8563, 18.4131]],
 ]
 
 describe('World journey interface', () => {
   test('preserves the country-page index and route order', () => {
+    const stopKeys = journeyRoute.map(journeyStopKey)
+
+    expect(new Set(stopKeys).size).toBe(stopKeys.length)
     expect(countryPages.map((country) => country.slug)).toEqual(
       expectedCountrySlugs,
     )
     expect(
-      journeyRoute.map((stop) => [
-        stop.stopName ? `${stop.stopName}, ${stop.name}` : stop.name,
-        stop.coordinates,
-      ]),
+      journeyRoute.map(
+        (stop) =>
+          [
+            stop.stopName ? `${stop.stopName}, ${stop.name}` : stop.name,
+            stop.coordinates,
+          ] as const,
+      ),
     ).toEqual(expectedRoute)
   })
 
   test('derives journey country facts from their country pages', () => {
-    const countrySlugs = journeyRoute.flatMap((stop) =>
-      stop.countrySlug ? [stop.countrySlug] : [],
-    )
+    const countrySlugs = [
+      ...new Set(
+        journeyRoute.flatMap((stop) =>
+          stop.countrySlug ? [stop.countrySlug] : [],
+        ),
+      ),
+    ]
 
     expect(countrySlugs).toEqual(expectedCountrySlugs)
     for (const stop of journeyRoute) {
@@ -97,8 +109,8 @@ describe('World journey interface', () => {
   test('uses the final route stop as the current location', () => {
     expect(currentJourneyStop).toMatchObject({
       name: 'Bosnia and Herzegovina',
-      stopName: 'Mostar',
-      coordinates: [43.3438, 17.8078],
+      stopName: 'Sarajevo',
+      coordinates: [43.8563, 18.4131],
     })
   })
 

@@ -4,7 +4,11 @@ import { useRef, useMemo, useState, memo, useCallback, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Line, Html } from '@react-three/drei'
 import * as THREE from 'three'
-import { journeyRoute, type JourneyStop } from '@/content/world-journey'
+import {
+  journeyRoute,
+  journeyStopKey,
+  type JourneyStop,
+} from '@/content/world-journey'
 import type { GeoJSON } from '@/utils/geojson-loader'
 
 type GlobeTheme = {
@@ -465,30 +469,35 @@ function Scene({
           />
         ))}
 
-        {locationPositions.map(({ country, position }, index) => (
-          <LocationMarker
-            key={country.name}
-            position={position}
-            country={country}
-            index={index}
-            isHovered={hoveredCountry === country.name}
-            isSelected={selectedCountry?.name === country.name}
-            isCurrent={index === locationPositions.length - 1}
-            onHover={() => setHoveredCountry(country.name)}
-            onLeave={() => setHoveredCountry(null)}
-            onClick={() =>
-              onSelectCountry(
-                selectedCountry?.name === country.name ? null : country,
-              )
-            }
-            markerColor={theme.markerColor}
-            currentMarkerColor={theme.currentMarkerColor}
-            labelColor={theme.labelColor}
-            labelMutedColor={theme.labelMutedColor}
-            markerSize={markerSize}
-            compactLabel={isMobile}
-          />
-        ))}
+        {locationPositions.map(({ country, position }, index) => {
+          const stopKey = journeyStopKey(country)
+          const selectedStopKey = selectedCountry
+            ? journeyStopKey(selectedCountry)
+            : null
+
+          return (
+            <LocationMarker
+              key={stopKey}
+              position={position}
+              country={country}
+              index={index}
+              isHovered={hoveredCountry === stopKey}
+              isSelected={selectedStopKey === stopKey}
+              isCurrent={index === locationPositions.length - 1}
+              onHover={() => setHoveredCountry(stopKey)}
+              onLeave={() => setHoveredCountry(null)}
+              onClick={() =>
+                onSelectCountry(selectedStopKey === stopKey ? null : country)
+              }
+              markerColor={theme.markerColor}
+              currentMarkerColor={theme.currentMarkerColor}
+              labelColor={theme.labelColor}
+              labelMutedColor={theme.labelMutedColor}
+              markerSize={markerSize}
+              compactLabel={isMobile}
+            />
+          )
+        })}
       </group>
     </>
   )

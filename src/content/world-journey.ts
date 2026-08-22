@@ -224,6 +224,10 @@ type JourneyOnlyStop = JourneyStopDetails & {
 
 export type JourneyStop = CountryJourneyStop | JourneyOnlyStop
 
+export function journeyStopKey(stop: JourneyStop): string {
+  return `${stop.countrySlug ?? stop.name}:${stop.stopName ?? stop.name}`
+}
+
 type ItineraryStop = Omit<CountryJourneyStop, 'name'> | JourneyOnlyStop
 
 const itinerary: readonly ItineraryStop[] = [
@@ -370,6 +374,12 @@ const itinerary: readonly ItineraryStop[] = [
     countrySlug: 'bosnia-and-herzegovina',
     stopName: 'Mostar',
     coordinates: [43.3438, 17.8078],
+    visitDate: 'August 2026',
+  },
+  {
+    countrySlug: 'bosnia-and-herzegovina',
+    stopName: 'Sarajevo',
+    coordinates: [43.8563, 18.4131],
     visitDate: 'August 2026',
   },
 ]

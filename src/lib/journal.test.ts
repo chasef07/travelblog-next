@@ -1,4 +1,3 @@
-// @ts-expect-error Bun supplies this built-in module at test runtime.
 import { describe, expect, test } from 'bun:test'
 
 import { archives, posts } from '@/content/blog/publication'
