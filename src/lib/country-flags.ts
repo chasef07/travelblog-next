@@ -20,6 +20,7 @@ export const countryCodes = {
   Philippines: 'PH',
   Portugal: 'PT',
   Rwanda: 'RW',
+  Serbia: 'RS',
   Singapore: 'SG',
   Switzerland: 'CH',
   Tanzania: 'TZ',

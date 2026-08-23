@@ -37,6 +37,7 @@ const expectedCountrySlugs: NonNullable<JourneyStop['countrySlug']>[] = [
   'switzerland',
   'montenegro',
   'bosnia-and-herzegovina',
+  'serbia',
 ]
 
 const expectedRoute: [string, readonly [number, number]][] = [
@@ -69,6 +70,7 @@ const expectedRoute: [string, readonly [number, number]][] = [
   ['Kotor, Montenegro', [42.4247, 18.7712]],
   ['Mostar, Bosnia and Herzegovina', [43.3438, 17.8078]],
   ['Sarajevo, Bosnia and Herzegovina', [43.8563, 18.4131]],
+  ['Belgrade, Serbia', [44.7866, 20.4489]],
 ]
 
 describe('World journey interface', () => {
@@ -108,9 +110,9 @@ describe('World journey interface', () => {
 
   test('uses the final route stop as the current location', () => {
     expect(currentJourneyStop).toMatchObject({
-      name: 'Bosnia and Herzegovina',
-      stopName: 'Sarajevo',
-      coordinates: [43.8563, 18.4131],
+      name: 'Serbia',
+      stopName: 'Belgrade',
+      coordinates: [44.7866, 20.4489],
     })
   })
 

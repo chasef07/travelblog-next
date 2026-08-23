@@ -101,7 +101,6 @@ export function JournalSidebar({
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-[var(--ui-current-location)] opacity-60 motion-reduce:animate-none" />
             <span className="relative inline-flex size-2 rounded-full bg-[var(--ui-current-location)]" />
           </span>
-          <CountryFlag country={currentLocation.name} className="text-sm" />
           <span className="min-w-0 leading-snug">
             Currently in{' '}
             {currentLocation.stopName

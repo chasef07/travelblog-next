@@ -202,6 +202,12 @@ const countryPageDetailsBySlug = {
       'Mostar base, the Old Bridge, Ottoman-era streets, and a first stop in Bosnia and Herzegovina.',
     highlights: ['Mostar', 'Old Bridge', 'Neretva River', 'Old Town'],
   },
+  serbia: {
+    name: 'Serbia',
+    description:
+      'Belgrade base, Serbia flag on the map, and the latest stop on the Balkan route.',
+    highlights: ['Belgrade', 'Danube River', 'Sava River', 'Balkan Route'],
+  },
 } satisfies Record<string, CountryPageDetails>
 
 type CountrySlug = keyof typeof countryPageDetailsBySlug
@@ -380,6 +386,12 @@ const itinerary: readonly ItineraryStop[] = [
     countrySlug: 'bosnia-and-herzegovina',
     stopName: 'Sarajevo',
     coordinates: [43.8563, 18.4131],
+    visitDate: 'August 2026',
+  },
+  {
+    countrySlug: 'serbia',
+    stopName: 'Belgrade',
+    coordinates: [44.7866, 20.4489],
     visitDate: 'August 2026',
   },
 ]
