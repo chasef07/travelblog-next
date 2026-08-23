@@ -69,7 +69,6 @@ const expectedRoute: [string, readonly [number, number]][] = [
   ['Interlaken, Switzerland', [46.6863, 7.8632]],
   ['Kotor, Montenegro', [42.4247, 18.7712]],
   ['Mostar, Bosnia and Herzegovina', [43.3438, 17.8078]],
-  ['Sarajevo, Bosnia and Herzegovina', [43.8563, 18.4131]],
   ['Belgrade, Serbia', [44.7866, 20.4489]],
 ]
 

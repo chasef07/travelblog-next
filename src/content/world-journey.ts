@@ -383,12 +383,6 @@ const itinerary: readonly ItineraryStop[] = [
     visitDate: 'August 2026',
   },
   {
-    countrySlug: 'bosnia-and-herzegovina',
-    stopName: 'Sarajevo',
-    coordinates: [43.8563, 18.4131],
-    visitDate: 'August 2026',
-  },
-  {
     countrySlug: 'serbia',
     stopName: 'Belgrade',
     coordinates: [44.7866, 20.4489],
