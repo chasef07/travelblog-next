@@ -8,6 +8,14 @@ export interface Vlog {
 
 export const vlogsData: Vlog[] = [
   {
+    id: 'hiking-bernese-oberland',
+    title: 'Hiking Bernese Oberland',
+    country: 'Switzerland',
+    description:
+      'Chase and Rachel hike through the Bernese Oberland in the Swiss Alps.',
+    youtubeId: 'sA1xmOx9FQ8',
+  },
+  {
     id: 'acuity-health-ericeira-documentary',
     title: 'Acuity Health Documentary, Ericeira Portugal July 2026',
     country: 'Portugal',

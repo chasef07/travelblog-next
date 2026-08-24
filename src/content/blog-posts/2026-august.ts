@@ -2,6 +2,50 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'first-full-day-in-serbia',
+    title: 'First Full Day in Serbia',
+    date: '2026-08-23',
+    location: 'Belgrade, Serbia',
+    country: 'Serbia',
+    slug: 'first-full-day-in-serbia',
+    year: '2026',
+    excerpt:
+      "And it made me realize is that, yeah, I'm so tired of backpacking and moving and packing every three days.",
+    content: `First full day in Serbia. Started the day by drinking a nice hojicha hot latte at one of the top Viber cafes in the world, and I'll get you the name of it. I don't know it off the top of my head right now. And it was nice, chilled there, and then went to the Nikola Tesla Museum in Serbia, Belgrade.
+
+Interestingly enough, Nikola Tesla only stepped foot in Belgrade for two days his entire life, but the Nikola Tesla Museum and his ashes are here in Belgrade because he is a Serb of descent, and his only relative was his uncle and his nephew, who had close ties to Serbia, so they brought his ashes and gave all his belongings to Serbia. But going to the Nikola Tesla Museum as an electrical engineer, it was cool to see the genius of Tesla himself, just pure, sitting with his thoughts, not using AI or the internet, and just thinking crazy outside the box and doing crazy experiments. I mean, he pretty much invented global wireless communication, electricity, transformers, Tesla coil, magnetic and alternating current. So it was cool to see that.
+
+And then Rachel and I went to the Red Star Belgrade football match. They won 4-0, and yeah, it was fun. We got VIP tickets, which meant we had a little nice cushioned seats in a box kind of lounge area with some nice finger food for 70 euros. And yeah, it was a really nice day and experience.
+
+Yeah, that cafe I mentioned in the morning, we went three times too. Right before the football match, we got another hojicha with cherry iced latte, and then at night we tried to eat dinner there. We'll probably go back there tomorrow.
+
+Yeah, overall Serbia is way less Muslim than the other Balkans. A big kind of modern-ish city, lots of graffiti, but clean. So I mean, yeah, it's nice. I mean, yeah, excited to spend the last day with Rachel tomorrow and close out European Lover Summers and four months of living in Europe, from going to Netherlands to Belgium to Portugal to Italy to Switzerland to Montenegro to Bosnia and now to Serbia.
+
+And it made me realize is that, yeah, I'm so tired of backpacking and moving and packing every three days, really looking forward to getting into a nice routine and not travel crazy, and even for future vacations not pretty much do this type of travel ever again, and really just soak into a lifestyle and a place you get the best rewards.
+
+But yeah, excited for the last day here in European Lover Summers before a 16-hour flight home from Belgrade to New York to Tampa on Tuesday, and that will be it, folks.`,
+    images: [
+      {
+        src: '/assets/images/blog/2026/august/red-star-match-chase-rachel.jpg',
+        alt: 'Chase and Rachel in the stands before a Red Star Belgrade football match',
+        caption: 'Rachel and me at the Red Star Belgrade match.',
+        imagePosition: 'center 55%',
+      },
+      {
+        src: '/assets/images/blog/2026/august/red-star-supporters.jpg',
+        alt: 'Red Star Belgrade supporters waving flags amid red smoke in the stadium',
+        caption: 'The Red Star supporters during the match.',
+        imagePosition: 'center 62%',
+      },
+      {
+        src: '/assets/images/blog/2026/august/chase-red-star-belgrade.jpg',
+        alt: 'Chase standing beside the Red Star Belgrade crest',
+        caption: 'Outside with the Red Star Belgrade crest.',
+        imagePosition: 'center 55%',
+      },
+    ],
+  },
+  {
     id: 'airport-thoughts-and-bosnia-reflection',
     title: 'Airport Thoughts and Bosnia Reflection',
     date: '2026-08-22',
