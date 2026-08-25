@@ -224,7 +224,7 @@ type CountryJourneyStop = JourneyStopDetails & {
 }
 
 type JourneyOnlyStop = JourneyStopDetails & {
-  name: 'Florida, USA'
+  name: 'Florida, USA' | 'New York, USA'
   countrySlug?: never
 }
 
@@ -386,6 +386,11 @@ const itinerary: readonly ItineraryStop[] = [
     countrySlug: 'serbia',
     stopName: 'Belgrade',
     coordinates: [44.7866, 20.4489],
+    visitDate: 'August 2026',
+  },
+  {
+    name: 'New York, USA',
+    coordinates: [40.7128, -74.006],
     visitDate: 'August 2026',
   },
 ]

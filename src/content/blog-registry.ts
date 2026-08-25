@@ -66,11 +66,11 @@ export const blogArchives: BlogArchive[] = [
   {
     year: 2026,
     slug: 'august',
-    title: 'August 2026: Switzerland to Serbia',
+    title: 'August 2026: Switzerland to New York',
     date: '2026-08-01',
     displayDate: 'August 2026',
     excerpt:
-      'From long days hiking through the Swiss Alps to the Montenegrin coast, Bosnia, and a final European summer stop in Serbia.',
+      'From long days hiking through the Swiss Alps to the Montenegrin coast, Bosnia, Serbia, and the flight home to New York.',
     image: '/assets/images/blog/2026/august/mostar-old-bridge.jpg',
     imagePosition: 'center 72%',
   },

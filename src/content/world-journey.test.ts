@@ -70,6 +70,7 @@ const expectedRoute: [string, readonly [number, number]][] = [
   ['Kotor, Montenegro', [42.4247, 18.7712]],
   ['Mostar, Bosnia and Herzegovina', [43.3438, 17.8078]],
   ['Belgrade, Serbia', [44.7866, 20.4489]],
+  ['New York, USA', [40.7128, -74.006]],
 ]
 
 describe('World journey interface', () => {
@@ -109,18 +110,22 @@ describe('World journey interface', () => {
 
   test('uses the final route stop as the current location', () => {
     expect(currentJourneyStop).toMatchObject({
-      name: 'Serbia',
-      stopName: 'Belgrade',
-      coordinates: [44.7866, 20.4489],
+      name: 'New York, USA',
+      coordinates: [40.7128, -74.006],
     })
   })
 
-  test('keeps Florida as the only journey-only stop', () => {
+  test('keeps US locations as journey-only stops', () => {
     const journeyOnlyStops = journeyRoute.filter((stop) => !stop.countrySlug)
 
-    expect(journeyOnlyStops.map((stop) => stop.name)).toEqual(['Florida, USA'])
-    expect(
-      countryPages.some((country) => country.name === 'Florida, USA'),
-    ).toBe(false)
+    expect(journeyOnlyStops.map((stop) => stop.name)).toEqual([
+      'Florida, USA',
+      'New York, USA',
+    ])
+    for (const stop of journeyOnlyStops) {
+      expect(countryPages.some((country) => country.name === stop.name)).toBe(
+        false,
+      )
+    }
   })
 })

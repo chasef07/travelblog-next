@@ -2,6 +2,23 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'fresh-off-a-10-hour-flight',
+    title: 'Fresh Off a 10-Hour Flight',
+    date: '2026-08-25',
+    location: 'New York, USA',
+    country: 'United States',
+    slug: 'fresh-off-a-10-hour-flight',
+    year: '2026',
+    excerpt:
+      "And then, yeah, when I was flying down, I had the first thoughts of, yeah, just being grateful to be back in the U.S. It's a beautiful country.",
+    content: `Fresh off a 10-hour flight from Belgrade to New York, and overall it was pretty smooth. Woke up at 3:30 a.m. this morning, took a nice taxi. I actually had a good talk with the taxi driver at 3:40 a.m. Was talking about how life in Serbia is pretty much the same as anywhere in the world, and that's due to internationalization, and that life is becoming more complicated, and there's such a disconnect between generations, and the younger generation has everything easier, and he says he sounds like his father. And we talked about Serbian sports: football, American football, Jokic, of course.
+
+And, yeah, it was an interesting conversation about how internationalism and globalism makes every, yeah, culture just more a part of the international culture. I think that's bad because it doesn't preserve some cultures, but it's also good because it gives people global access to opportunities and the world, seeing other people, less fighting, hopefully.
+
+And then, yeah, when I was flying down, I had the first thoughts of, yeah, just being grateful to be back in the U.S. It's a beautiful country. Saw the rivers or the ocean going through the neighborhoods, and yeah, it was really beautiful.`,
+    images: [],
+  },
+  {
     id: 'first-full-day-in-serbia',
     title: 'First Full Day in Serbia',
     date: '2026-08-23',
