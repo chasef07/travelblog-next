@@ -71,6 +71,7 @@ const expectedRoute: [string, readonly [number, number]][] = [
   ['Mostar, Bosnia and Herzegovina', [43.3438, 17.8078]],
   ['Belgrade, Serbia', [44.7866, 20.4489]],
   ['New York, USA', [40.7128, -74.006]],
+  ['Palm Harbor, Florida, USA', [28.0781, -82.7637]],
 ]
 
 describe('World journey interface', () => {
@@ -110,8 +111,8 @@ describe('World journey interface', () => {
 
   test('uses the final route stop as the current location', () => {
     expect(currentJourneyStop).toMatchObject({
-      name: 'New York, USA',
-      coordinates: [40.7128, -74.006],
+      name: 'Palm Harbor, Florida, USA',
+      coordinates: [28.0781, -82.7637],
     })
   })
 
@@ -121,6 +122,7 @@ describe('World journey interface', () => {
     expect(journeyOnlyStops.map((stop) => stop.name)).toEqual([
       'Florida, USA',
       'New York, USA',
+      'Palm Harbor, Florida, USA',
     ])
     for (const stop of journeyOnlyStops) {
       expect(countryPages.some((country) => country.name === stop.name)).toBe(

@@ -2,6 +2,42 @@ import { BlogPost } from '../../types/blog'
 
 export const august2026Posts: BlogPost[] = [
   {
+    id: 'coming-home-with-new-eyes',
+    title: 'Coming Home With New Eyes',
+    date: '2026-08-26',
+    location: 'Palm Harbor, Florida',
+    country: 'United States',
+    slug: 'coming-home-with-new-eyes',
+    year: '2026',
+    excerpt:
+      'Being home is a constant—a place where I can reflect on all the versions of myself that have come and gone.',
+    content: `I woke up at 7:45 when my mom got up for work. Somehow, after being awake for 24 hours, I actually felt pretty refreshed.
+
+Being home this time around, I feel a sense of clarity I have been missing. Home is a constant—a place where I can reflect on all the versions of myself that have come and gone.
+
+Five years ago, I would stretch, meditate, and do the Five Tibetan Rites every morning on the lanai. I would run barefoot on the concrete after learning from the Lakota tribe. Last year, after my 11-month world tour, I came home looking for everything wrong with the United States. I complained about the cars, the lifestyle, and the food.
+
+Now I see the beauty in everything. Rachel has really taught me to see the beauty in every place and every person. I am so grateful to have been raised here. Florida has incredible nature and weather, and my family and friends are great.
+
+Even though I think I have changed, some things never change. This time around, I feel grounded and centered. Every time I come home, it brings a new revelation. One time it was quitting my job. Another time it was returning from a world tour of spiritual seeking. Now, after traveling for another four months outside the United States, I can see so many of the benefits that make it one of the greatest countries in the world.
+
+One of the best spiritual teachings is that you cannot think your way through everything. You can only experience it and let it pass through you. Whether an emotion is negative or even positive, it can still be a machination of your own inner ego.
+
+Place and setting shape everything. When you are traveling and backpacking without a routine, your mind rarely has the space to fully relax. Even in safe countries like those in the Balkans, you are always thinking about the next thing: Do I need cash? Is this a good deal? Is this good food? What do I need to watch out for?
+
+When you settle into a space, more creative things can flow. That is also what I took away from the Tesla Museum. If you want a deep mind and clear ideas, you have to give yourself the space for them.
+
+I am excited for the next week at home—and to carry this centeredness with me wherever I go next.`,
+    images: [
+      {
+        src: '/assets/images/blog/2026/august/home-with-new-eyes.jpg',
+        alt: 'Chase relaxing in bed at home with a black-and-white dog',
+        caption: 'Back home in Palm Harbor.',
+        imagePosition: 'center 45%',
+      },
+    ],
+  },
+  {
     id: 'fresh-off-a-10-hour-flight',
     title: 'Fresh Off a 10-Hour Flight',
     date: '2026-08-25',
