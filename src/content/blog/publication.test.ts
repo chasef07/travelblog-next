@@ -20,6 +20,19 @@ describe('Blog publication interface', () => {
     expect(getPost('2026', 'july', 'missing')).toBeUndefined()
   })
 
+  test('publishes the San Francisco post in the September archive', () => {
+    const post = getPost('2026', 'september', 'five-days-in-san-francisco')
+
+    expect(post).toMatchObject({
+      date: '2026-09-06',
+      location: 'San Francisco, California',
+      url: '/blog/2026/september/five-days-in-san-francisco',
+    })
+    expect(
+      getPostsForArchive('2026', 'september').map(({ url }) => url),
+    ).toContain('/blog/2026/september/five-days-in-san-francisco')
+  })
+
   test('publishes separate static parameters for Archives and Posts', () => {
     const archivePaths = archiveStaticParams()
     const postPaths = postStaticParams()

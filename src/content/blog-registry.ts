@@ -23,6 +23,7 @@ import { may2026Posts } from './blog-posts/2026-may'
 import { june2026Posts } from './blog-posts/2026-june'
 import { july2026Posts } from './blog-posts/2026-july'
 import { august2026Posts } from './blog-posts/2026-august'
+import { september2026Posts } from './blog-posts/2026-september'
 
 export type BlogArchive = {
   year: number
@@ -60,9 +61,21 @@ export const allBlogPosts: BlogPost[] = [
   ...june2026Posts,
   ...july2026Posts,
   ...august2026Posts,
+  ...september2026Posts,
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
 export const blogArchives: BlogArchive[] = [
+  {
+    year: 2026,
+    slug: 'september',
+    title: 'September 2026: San Francisco',
+    date: '2026-09-01',
+    displayDate: 'September 2026',
+    excerpt:
+      'Five days into a month in San Francisco, finding momentum among builders, founders, surf, and the pulse of the tech capital of the world.',
+    image: '/assets/images/blog/2026/september/chase-kyle-acuity-health.jpg',
+    imagePosition: 'center 35%',
+  },
   {
     year: 2026,
     slug: 'august',
